@@ -1,0 +1,2 @@
+defmodule Octokit do
+end
