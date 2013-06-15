@@ -4,4 +4,8 @@ defmodule Octokit.Users do
   def user(user) do
     get "users/#{user}"
   end
+
+  def users do
+    get "users"
+  end
 end
