@@ -5,6 +5,10 @@ defmodule Octokit.Users do
     get "users/#{user}"
   end
 
+  def me(auth) do
+    get "user", auth
+  end
+
   def users do
     get "users"
   end
