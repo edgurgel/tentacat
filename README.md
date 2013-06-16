@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/edgurgel/octokit.ex.png)](https://travis-ci.org/edgurgel/octokit.ex)
+
 # Octokit.ex
 
 Simple Elixir wrapper for the GitHub API
