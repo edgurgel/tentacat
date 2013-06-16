@@ -4,6 +4,8 @@ defmodule ClientTest do
   use ExUnit.Case
   import Octokit.Client
 
+  doctest Octokit.Client
+
   test "authorization_header using user and password" do
     assert authorization_header([user: "user", password: "password"], []) == [Authorization: "Basic dXNlcjpwYXNzd29yZA=="]
   end

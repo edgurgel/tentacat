@@ -23,7 +23,25 @@ defmodule Octokit.Client do
     request(method, url, body, headers, options)
   end
 
-  # http://developer.github.com/v3/#authentication
+  @doc """
+  There are two ways to authenticate through GitHub API v3:
+
+    * Basic authentication
+    * OAuth2 Token
+
+  This function accepts both.
+
+  ## Examples
+
+      iex> Octokit.Client.authorization_header([user: "user", password: "password"], [])
+      [Authorization: "Basic dXNlcjpwYXNzd29yZA=="]
+
+      iex> Octokit.Client.authorization_header([access_token: "92873971893"], [])
+      [Authorization: "token 92873971893"]
+
+  ## More info
+  http://developer.github.com/v3/#authentication
+  """
   @spec authorization_header([user: binary, password: binary] | [access_token: binary], list) :: list
   def authorization_header(auth, headers) do
     case auth do
