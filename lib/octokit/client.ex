@@ -11,6 +11,10 @@ defmodule Octokit.Client do
     body |> to_binary |> JSEX.decode!
   end
 
+  def patch(url, auth // nil, body // "", headers // @user_agent, options // []) do
+    _request(:patch, url, auth, body, headers, options)
+  end
+
   def get(url, auth // nil, headers // @user_agent, options // []) do
     _request(:get, url, auth, "", headers, options)
   end
@@ -23,6 +27,11 @@ defmodule Octokit.Client do
     request(method, url, body, headers, options)
   end
 
+  def request(method, url, body // "", headers // [], options // []) do
+    super(method, url, JSEX.encode!(body), headers, options)
+  end
+
+  @type auth :: [user: binary, password: binary] | [access_token: binary]
   @doc """
   There are two ways to authenticate through GitHub API v3:
 
@@ -42,7 +51,7 @@ defmodule Octokit.Client do
   ## More info
   http://developer.github.com/v3/#authentication
   """
-  @spec authorization_header([user: binary, password: binary] | [access_token: binary], list) :: list
+  @spec authorization_header(auth, list) :: list
   def authorization_header(auth, headers) do
     case auth do
       [user: user, password: password] ->
