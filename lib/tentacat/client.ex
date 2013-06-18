@@ -19,12 +19,8 @@ defmodule Tentacat.Client do
     _request(:get, url, auth, "", headers, options)
   end
 
-  def _request(method, url, nil, body // "", headers // [], options // []) do
-    request(method, url, body, headers, options)
-  end
   def _request(method, url, auth, body // "", headers // [], options // []) do
-    headers = authorization_header(auth, headers)
-    request(method, url, body, headers, options)
+    request(method, url, body, authorization_header(auth, headers), options)
   end
 
   def request(method, url, body // "", headers // [], options // []) do
