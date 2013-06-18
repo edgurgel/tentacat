@@ -1,5 +1,5 @@
-defmodule Octokit.Users do
-  import Octokit.Client
+defmodule Tentacat.Users do
+  import Tentacat.Client
 
   @doc """
   Get a single `user`
@@ -12,7 +12,7 @@ defmodule Octokit.Users do
   end
 
   @doc """
-  Get the authenticated user passing an `auth` information described at Octokit.Client.authorization_header
+  Get the authenticated user passing an `auth` information described at Tentacat.Client.authorization_header
 
   More info at: http://developer.github.com/v3/users/#get-the-authenticated-user
   """
@@ -46,7 +46,7 @@ defmodule Octokit.Users do
 
   ## Example
 
-  Octokit.Users.update([user: "user", password: "pass"], email: "eduardo@gurgel.me", hireable: false)
+  Tentacat.Users.update([user: "user", password: "pass"], email: "eduardo@gurgel.me", hireable: false)
   """
   @spec update(Client.auth, Keyword.t) :: :jsx.json_term
   def update(auth, options) do

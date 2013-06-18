@@ -2,9 +2,9 @@ Code.require_file "test_helper.exs", __DIR__
 
 defmodule ClientTest do
   use ExUnit.Case
-  import Octokit.Client
+  import Tentacat.Client
 
-  doctest Octokit.Client
+  doctest Tentacat.Client
 
   test "authorization_header using user and password" do
     assert authorization_header([user: "user", password: "password"], []) == [Authorization: "Basic dXNlcjpwYXNzd29yZA=="]

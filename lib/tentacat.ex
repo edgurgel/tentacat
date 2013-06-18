@@ -1,0 +1,2 @@
+defmodule Tentacat do
+end

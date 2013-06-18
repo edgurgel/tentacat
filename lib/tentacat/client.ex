@@ -1,7 +1,7 @@
-defmodule Octokit.Client do
+defmodule Tentacat.Client do
   use HTTPotion.Base
 
-  @user_agent [ "User-agent": "octokit.ex"]
+  @user_agent [ "User-agent": "tentacat"]
 
   def process_url(url) do
     :string.concat 'https://api.github.com/', url
@@ -42,10 +42,10 @@ defmodule Octokit.Client do
 
   ## Examples
 
-      iex> Octokit.Client.authorization_header([user: "user", password: "password"], [])
+      iex> Tentacat.Client.authorization_header([user: "user", password: "password"], [])
       [Authorization: "Basic dXNlcjpwYXNzd29yZA=="]
 
-      iex> Octokit.Client.authorization_header([access_token: "92873971893"], [])
+      iex> Tentacat.Client.authorization_header([access_token: "92873971893"], [])
       [Authorization: "token 92873971893"]
 
   ## More info

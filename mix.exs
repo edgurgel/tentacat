@@ -1,8 +1,8 @@
-defmodule Octokit.Mixfile do
+defmodule Tentacat.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :'octokit.ex',
+    [ app: :tentacat,
       version: "0.0.1",
       deps: deps(Mix.env) ]
   end
