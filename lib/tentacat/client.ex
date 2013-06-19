@@ -11,17 +11,25 @@ defmodule Tentacat.Client do
     body |> to_binary |> JSEX.decode!
   end
 
-  def patch(url, auth // nil, body // "", headers // @user_agent, options // []) do
-    _request(:patch, url, auth, body, headers, options)
+  def delete(url, auth // nil, body // "") do
+    _request(:delete, url, auth, body)
   end
 
-  def get(url, auth // nil, params // [], headers // @user_agent, options // []) do
+  def post(url, auth // nil, body // "") do
+    _request(:post, url, auth, body)
+  end
+
+  def patch(url, auth // nil, body // "") do
+    _request(:patch, url, auth, body)
+  end
+
+  def get(url, auth // nil, params // []) do
     url = <<url :: binary, build_qs(params) :: binary>>
-    _request(:get, url, auth, "", headers, options)
+    _request(:get, url, auth)
   end
 
-  def _request(method, url, auth, body // "", headers // [], options // []) do
-    request(method, url, body, authorization_header(auth, headers), options)
+  def _request(method, url, auth, body // "") do
+    request(method, url, body, authorization_header(auth, @user_agent))
   end
 
   def request(method, url, body // "", headers // [], options // []) do
