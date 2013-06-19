@@ -50,6 +50,8 @@ defmodule Tentacat.Users do
   ## Example
 
   Tentacat.Users.update([user: "user", password: "pass"], email: "eduardo@gurgel.me", hireable: false)
+
+  More info at: http://developer.github.com/v3/users/#update-the-authenticated-user
   """
   @spec update(Client.auth, Keyword.t) :: :jsx.json_term
   def update(auth, options) do
