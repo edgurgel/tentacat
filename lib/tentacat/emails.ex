@@ -4,6 +4,10 @@ defmodule Tentacat.Users.Emails do
   @doc """
   List email addresses for the authenticated user
 
+  ## Example
+
+      Tentacat.Users.Emails.emails(access_token: "91898192219")
+
   More info at: http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
   """
   @spec emails(Client.auth) :: :jsx.json_term
@@ -14,6 +18,10 @@ defmodule Tentacat.Users.Emails do
   @doc """
   Add email address(es)
 
+  ## Example
+
+      Tentacat.Users.Emails.create(["ed@gurgel.me"], access_token: "91898192219")
+
   More info at: http://developer.github.com/v3/users/emails/#add-email-addresses
   """
   @spec create([binary], Client.auth) :: :jsx.json_term
@@ -23,6 +31,10 @@ defmodule Tentacat.Users.Emails do
 
   @doc """
   Delete email address(es)
+
+  ## Example
+
+      Tentacat.Users.Emails.destroy(["ed@gurgel.me"], access_token: "91898192219")
 
   More info at: http://developer.github.com/v3/users/emails/#delete-email-addresses
   """

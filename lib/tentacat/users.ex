@@ -6,6 +6,11 @@ defmodule Tentacat.Users do
   @doc """
   Get a single `user`
 
+  ## Example
+
+      Tentacat.Users.user("edgurgel")
+      Tentacat.Users.user("iurifq")
+
   More info at: http://developer.github.com/v3/users/#get-a-single-user
   """
   @spec user(binary) :: :jsx.json_term
@@ -16,6 +21,10 @@ defmodule Tentacat.Users do
   @doc """
   Get the authenticated user passing an `auth` information described at Tentacat.Client.authorization_header
 
+  ## Example
+
+      Tentacat.Users.me(access_token: "91898192219")
+
   More info at: http://developer.github.com/v3/users/#get-the-authenticated-user
   """
   @spec me(Client.auth) :: :jsx.json_term
@@ -25,6 +34,11 @@ defmodule Tentacat.Users do
 
   @doc """
   Get all users
+
+  ## Example
+
+      Tentacat.Users.users
+      Tentacat.Users.users(348)
 
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
@@ -49,7 +63,7 @@ defmodule Tentacat.Users do
 
   ## Example
 
-  Tentacat.Users.update([user: "user", password: "pass"], email: "eduardo@gurgel.me", hireable: false)
+      Tentacat.Users.update([user: "user", password: "pass"], email: "eduardo@gurgel.me", hireable: false)
 
   More info at: http://developer.github.com/v3/users/#update-the-authenticated-user
   """
