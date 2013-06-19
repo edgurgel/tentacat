@@ -15,7 +15,8 @@ defmodule Tentacat.Client do
     _request(:patch, url, auth, body, headers, options)
   end
 
-  def get(url, auth // nil, headers // @user_agent, options // []) do
+  def get(url, auth // nil, params // [], headers // @user_agent, options // []) do
+    url = <<url :: binary, build_qs(params) :: binary>>
     _request(:get, url, auth, "", headers, options)
   end
 
@@ -25,6 +26,16 @@ defmodule Tentacat.Client do
 
   def request(method, url, body // "", headers // [], options // []) do
     super(method, url, JSEX.encode!(body), headers, options)
+  end
+
+  @spec build_qs([{atom, binary}]) :: char_list
+  defp build_qs([]), do: ""
+  defp build_qs(kvs) do
+    kvs = Enum.map(kvs, fn
+      {k, v} -> atom_to_list(k) ++ '=' ++ :ibrowse_lib.url_encode(to_char_list(v))
+      _ -> throw(:badarg)
+    end)
+    list_to_binary('?' ++ kvs)
   end
 
   @type auth :: [user: binary, password: binary] | [access_token: binary]

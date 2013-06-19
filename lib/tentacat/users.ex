@@ -27,8 +27,9 @@ defmodule Tentacat.Users do
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
   @spec users :: :jsx.json_term
-  def users do
-    get "users"
+  def users(since // nil) do
+    if since, do: get("users", nil, [since: since]),
+    else: get "users"
   end
 
   @doc """
