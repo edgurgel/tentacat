@@ -7,8 +7,8 @@ defmodule Tentacat.Client do
     :string.concat 'https://api.github.com/', url
   end
 
-  def process_response(_status_code, _headers, body) do
-    body |> to_binary |> JSEX.decode!
+  def process_response(status_code, _headers, body) do
+    {list_to_integer(status_code), body |> to_binary |> JSEX.decode!}
   end
 
   def delete(url, auth // nil, body // "") do
