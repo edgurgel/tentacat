@@ -8,6 +8,26 @@ Tentacool + Cat = Tentacat
 
 Elixir 0.9.2 required
 
+## Quickstart
+
+Fetching dependencies and running on elixir console:
+
+```console
+mix deps.get
+iex -S mix
+```
+
+You will something like this:
+
+```
+Erlang R16B (erts-5.10.1) [source] [64-bit] [smp:4:4] [async-threads:10] [hipe]
+
+Interactive Elixir (0.9.3.dev) - press Ctrl+C to exit (type h() ENTER for help)
+iex(1)>
+```
+
+Now you can run the examples!
+
 ## Examples
 
 Getting info from an user
