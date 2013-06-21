@@ -67,15 +67,15 @@ defmodule Tentacat.Client do
   http://developer.github.com/v3/#authentication
   """
   @spec authorization_header(auth, list) :: list
-  def authorization_header(auth, headers) do
-    case auth do
-      [user: user, password: password] ->
-        userpass = "#{user}:#{password}"
-        headers ++ [Authorization: "Basic #{:ibrowse_lib.encode_base64(userpass)}"]
-      [access_token: token] ->
-        headers ++ [Authorization: "token #{token}"]
-      _ -> headers
-    end
+  def authorization_header([user: user, password: password], headers) do
+    userpass = "#{user}:#{password}"
+    headers ++ [Authorization: "Basic #{:ibrowse_lib.encode_base64(userpass)}"]
   end
+
+  def authorization_header([access_token: token], headers) do
+    headers ++ [Authorization: "token #{token}"]
+  end
+
+  def authorization_header(_, headers), do: headers
 
 end
