@@ -52,3 +52,15 @@ iex> Tentacat.Users.me([user: "myuser", password: "mypassword"])
 ```iex
 iex> Tentacat.Users.me([access_token: "4f8275892d61d2f6c9cfc64cdd32cfdaef0ac7"])
 ```
+
+## Contributing
+
+Start by forking this repo
+
+Then run this command to fetch dependencies and run tests:
+
+```console
+MIX_ENV=testmix do deps.get, test
+```
+
+Pull requests are greatly appreciated
