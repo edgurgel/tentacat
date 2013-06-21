@@ -8,7 +8,12 @@ defmodule Tentacat.Client do
   end
 
   def process_response(status_code, _headers, body) do
-    {list_to_integer(status_code), body |> to_binary |> JSEX.decode!}
+    response = body |> to_binary |> JSEX.decode!
+    if status_code == '200' do
+      response
+    else
+      {list_to_integer(status_code), response}
+    end
   end
 
   def delete(url, auth // nil, body // "") do
