@@ -1,7 +1,8 @@
 defmodule Tentacat.Users do
   import Tentacat.Client
 
-  defdelegate [emails(auth), create(emails, auth), destroy(emails, auth)], to: Tentacat.Users.Emails
+  defdelegate [ emails(auth) ], to: Tentacat.Users.Emails
+  defdelegate [ keys(user_or_auth), key(id, auth) ], to: Tentacat.Users.Keys
 
   @doc """
   Get a single `user`
