@@ -2,6 +2,8 @@
 
 # Tentacat
 
+![Tentacat](http://25.media.tumblr.com/tumblr_kwm9o08WQp1qa8hnno1_250.jpg)
+
 Simple Elixir wrapper for the GitHub API.
 
 Tentacool + Cat = Tentacat
