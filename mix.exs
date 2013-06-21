@@ -23,6 +23,11 @@ defmodule Tentacat.Mixfile do
       [ {:ex_doc, github: "elixir-lang/ex_doc" } ]
   end
 
+  defp deps(:test) do
+    deps(:dev) ++
+      [ {:meck, github: "eproxus/meck", tag: "0.7.2" } ]
+  end
+
   defp deps(_), do: deps(:dev)
 
 end
