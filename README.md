@@ -2,7 +2,7 @@
 
 # Tentacat
 
-Simple Elixir wrapper for the GitHub API.
+Simple Elixir wrapper for the [GitHub API](http://developer.github.com/).
 
 Tentacool + Cat = Tentacat
 
