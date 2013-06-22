@@ -15,6 +15,8 @@ Elixir 0.9.2 required
   * Keys
 * Gitignore
 
+Documentation can be found [here](http://edgurgel.github.io/tentacat/)
+
 ## Quickstart
 
 Fetching dependencies and running on elixir console:
