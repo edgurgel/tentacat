@@ -8,6 +8,13 @@ Tentacool + Cat = Tentacat
 
 Elixir 0.9.2 required
 
+## Features
+
+* Users
+  * Emails
+  * Keys
+* Gitignore
+
 ## Quickstart
 
 Fetching dependencies and running on elixir console:
