@@ -3,6 +3,7 @@ defmodule Tentacat.Users do
 
   defdelegate [ emails(auth) ], to: Tentacat.Users.Emails
   defdelegate [ keys(user_or_auth), key(id, auth) ], to: Tentacat.Users.Keys
+  defdelegate [ followers(auth), following(auth) ], to: Tentacat.Users.Followers
 
   @doc """
   Get a single `user`
