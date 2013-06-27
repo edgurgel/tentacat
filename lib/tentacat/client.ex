@@ -1,4 +1,4 @@
-defmodule Tentacat.Client do
+defmodule Tentacat.Client.Base do
   use HTTPotion.Base
 
   @user_agent [ "User-agent": "tentacat"]
@@ -7,12 +7,15 @@ defmodule Tentacat.Client do
     :string.concat 'https://api.github.com/', url
   end
 
-  def process_response(status_code, _headers, body) do
+  def process_response(response) do
+    status_code = response.status_code
+    headers = response.headers
+    body = response.body
     response = body |> to_binary |> JSEX.decode!
-    if status_code == '200' do
+    if status_code == 200 do
       response
     else
-      {list_to_integer(status_code), response}
+      {status_code, response}
     end
   end
 
@@ -38,7 +41,7 @@ defmodule Tentacat.Client do
   end
 
   def request(method, url, body // "", headers // [], options // []) do
-    super(method, url, JSEX.encode!(body), headers, options)
+    super(method, url, JSEX.encode!(body), headers, options) |> process_response
   end
 
   @spec build_qs([{atom, binary}]) :: char_list
@@ -51,7 +54,6 @@ defmodule Tentacat.Client do
     list_to_binary('?' ++ kvs)
   end
 
-  @type auth :: [user: binary, password: binary] | [access_token: binary]
   @doc """
   There are two ways to authenticate through GitHub API v3:
 
@@ -62,16 +64,16 @@ defmodule Tentacat.Client do
 
   ## Examples
 
-      iex> Tentacat.Client.authorization_header([user: "user", password: "password"], [])
+      iex> Tentacat.Client.Base.authorization_header([user: "user", password: "password"], [])
       [Authorization: "Basic dXNlcjpwYXNzd29yZA=="]
 
-      iex> Tentacat.Client.authorization_header([access_token: "92873971893"], [])
+      iex> Tentacat.Client.Base.authorization_header([access_token: "92873971893"], [])
       [Authorization: "token 92873971893"]
 
   ## More info
   http://developer.github.com/v3/#authentication
   """
-  @spec authorization_header(auth, list) :: list
+  @spec authorization_header(Tentacat.auth, list) :: list
   def authorization_header([user: user, password: password], headers) do
     userpass = "#{user}:#{password}"
     headers ++ [Authorization: "Basic #{:ibrowse_lib.encode_base64(userpass)}"]

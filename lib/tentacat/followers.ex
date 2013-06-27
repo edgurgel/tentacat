@@ -1,31 +1,36 @@
 defmodule Tentacat.Users.Followers do
-  import Tentacat.Client
+  defmacro __using__(_) do
 
-  @doc """
-  List followers for the authenticated user
+    import Tentacat.Client.Base
+    quote do
 
-  ## Example
+      @doc """
+      List followers for the authenticated user
 
-      Tentacat.Users.Followers.following(access_token: "91898192219")
+      ## Example
 
-  More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
-  """
-  @spec following(Client.auth) :: :jsx.json_term
-  def following(auth) do
-    get "user/following", auth
-  end
+          client.following
 
-  @doc """
-  List users the authenticated user follows
+      More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
+      """
+      @spec following(Client) :: :jsx.json_term
+      def following(self) do
+        get "user/following", self.auth
+      end
 
-  ## Example
+      @doc """
+      List users the authenticated user follows
 
-      Tentacat.Users.Followers.followers(access_token: "91898192219")
+      ## Example
 
-  More info at: http://developer.github.com/v3/users/followers/#list-followers-of-a-user
-  """
-  @spec followers(Client.auth) :: :jsx.json_term
-  def followers(auth) do
-    get "user/followers", auth
+          client.followers
+
+      More info at: http://developer.github.com/v3/users/followers/#list-followers-of-a-user
+      """
+      @spec followers(Client) :: :jsx.json_term
+      def followers(self) do
+        get "user/followers", self.auth
+      end
+    end
   end
 end

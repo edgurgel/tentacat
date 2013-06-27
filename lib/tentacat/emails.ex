@@ -1,45 +1,48 @@
 defmodule Tentacat.Users.Emails do
-  import Tentacat.Client
+  defmacro __using__(_) do
+    import Tentacat.Client.Base
+    quote do
+      @doc """
+      List email addresses for the authenticated user
 
-  @doc """
-  List email addresses for the authenticated user
+      ## Example
 
-  ## Example
+          client.emails
 
-      Tentacat.Users.Emails.emails(access_token: "91898192219")
+      More info at: http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
+      """
+      @spec emails(Client) :: :jsx.json_term
+      def emails(self) do
+        get "user/emails", self.auth
+      end
 
-  More info at: http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
-  """
-  @spec emails(Client.auth) :: :jsx.json_term
-  def emails(auth) do
-    get "user/emails", auth
-  end
+      @doc """
+      Add email address(es)
 
-  @doc """
-  Add email address(es)
+      ## Example
 
-  ## Example
+          client.create_emails ["ed@gurgel.me"]
 
-      Tentacat.Users.Emails.create(["ed@gurgel.me"], access_token: "91898192219")
+      More info at: http://developer.github.com/v3/users/emails/#add-email-addresses
+      """
+      @spec create_emails([binary], Client) :: :jsx.json_term
+      def create_emails(emails, self) do
+        post "user/emails", self.auth, emails
+      end
 
-  More info at: http://developer.github.com/v3/users/emails/#add-email-addresses
-  """
-  @spec create([binary], Client.auth) :: :jsx.json_term
-  def create(emails, auth) do
-    post "user/emails", auth, emails
-  end
+      @doc """
+      Delete email address(es)
 
-  @doc """
-  Delete email address(es)
+      ## Example
 
-  ## Example
+          client.remove_email ["ed@gurgel.me"]
 
-      Tentacat.Users.Emails.destroy(["ed@gurgel.me"], access_token: "91898192219")
-
-  More info at: http://developer.github.com/v3/users/emails/#delete-email-addresses
-  """
-  @spec destroy([binary], Client.auth) :: :jsx.json_term
-  def destroy(emails, auth) do
-    delete "user/emails", auth, emails
+      More info at: http://developer.github.com/v3/users/emails/#delete-email-addresses
+      """
+      @spec remove_email([binary], Client) :: :jsx.json_term
+      def remove_email(emails, self) do
+        delete "user/emails", self.auth, emails
+      end
+    end
   end
 end
