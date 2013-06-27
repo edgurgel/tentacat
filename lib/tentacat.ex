@@ -5,6 +5,7 @@ defmodule Tentacat do
     use Tentacat.Users.Emails
     use Tentacat.Users.Keys
     use Tentacat.Users.Followers
+    use Tentacat.Organizations
     use Tentacat.Gitignore
 
   end

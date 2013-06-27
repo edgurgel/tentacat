@@ -10,10 +10,11 @@ Elixir 0.9.2 required
 
 ## Features
 
+* Gitignore
+* Organizations
 * Users
   * Emails
   * Keys
-* Gitignore
 
 Documentation can be found [here](http://edgurgel.github.io/tentacat/)
 
