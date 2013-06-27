@@ -11,7 +11,7 @@ defmodule Tentacat.Gitignore do
 
       More info at: http://developer.github.com/v3/gitignore/#listing-available-templates
       """
-      @spec gitignore_templates(Client) :: :jsx.json_term
+      @spec gitignore_templates(Client.t) :: :jsx.json_term
       def gitignore_templates(self) do
         get "gitignore/templates", self.auth
       end
@@ -26,7 +26,7 @@ defmodule Tentacat.Gitignore do
       More info at: http://developer.github.com/v3/gitignore/#get-a-single-template
       """
       # FIXME We should support raw data type too
-      @spec gitignore_template(binary, Client) :: :jsx.json_term
+      @spec gitignore_template(binary, Client.t) :: :jsx.json_term
       def gitignore_template(name, self) do
         get "gitignore/templates/#{name}", self.auth
       end

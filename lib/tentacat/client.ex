@@ -44,7 +44,7 @@ defmodule Tentacat.Client.Base do
     super(method, url, JSEX.encode!(body), headers, options) |> process_response
   end
 
-  @spec build_qs([{atom, binary}]) :: char_list
+  @spec build_qs([{atom, binary}]) :: binary
   defp build_qs([]), do: ""
   defp build_qs(kvs) do
     kvs = Enum.map(kvs, fn

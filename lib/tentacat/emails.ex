@@ -11,7 +11,7 @@ defmodule Tentacat.Users.Emails do
 
       More info at: http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
       """
-      @spec emails(Client) :: :jsx.json_term
+      @spec emails(Client.t) :: :jsx.json_term
       def emails(self) do
         get "user/emails", self.auth
       end
@@ -25,7 +25,7 @@ defmodule Tentacat.Users.Emails do
 
       More info at: http://developer.github.com/v3/users/emails/#add-email-addresses
       """
-      @spec create_emails([binary], Client) :: :jsx.json_term
+      @spec create_emails([binary], Client.t) :: :jsx.json_term
       def create_emails(emails, self) do
         post "user/emails", self.auth, emails
       end
@@ -39,7 +39,7 @@ defmodule Tentacat.Users.Emails do
 
       More info at: http://developer.github.com/v3/users/emails/#delete-email-addresses
       """
-      @spec remove_email([binary], Client) :: :jsx.json_term
+      @spec remove_email([binary], Client.t) :: :jsx.json_term
       def remove_email(emails, self) do
         delete "user/emails", self.auth, emails
       end

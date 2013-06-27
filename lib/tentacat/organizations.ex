@@ -12,7 +12,7 @@ defmodule Tentacat.Organizations do
 
       More info at: http://developer.github.com/v3/orgs/#list-user-organizations
       """
-      @spec organizations(binary, Client) :: :jsx.json_term
+      @spec organizations(binary, Client.t) :: :jsx.json_term
       def organizations(user, self) do
         get "users/#{user}/orgs", self.auth
       end
@@ -26,7 +26,7 @@ defmodule Tentacat.Organizations do
 
       More info at: http://developer.github.com/v3/orgs/#list-user-organizations
       """
-      @spec organizations(Client) :: :jsx.json_term
+      @spec organizations(Client.t) :: :jsx.json_term
       def organizations(self) do
         get "users/orgs", self.auth
       end
@@ -40,7 +40,7 @@ defmodule Tentacat.Organizations do
 
       More info at: http://developer.github.com/v3/orgs/#get-an-organization
       """
-      @spec organization(binary, Client) :: :jsx.json_term
+      @spec organization(binary, Client.t) :: :jsx.json_term
       def organization(org, self) do
         get "orgs/#{org}", self.auth
       end
@@ -62,7 +62,7 @@ defmodule Tentacat.Organizations do
 
       More info at: http://developer.github.com/v3/orgs/#edit-an-organization
       """
-      @spec update_organization(binary, list, Client) :: :jsx.json_term
+      @spec update_organization(binary, list, Client.t) :: :jsx.json_term
       def update_organization(org, options, self) do
         patch "orgs/#{org}", self.auth, options
       end

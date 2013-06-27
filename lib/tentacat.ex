@@ -1,6 +1,5 @@
 defmodule Tentacat do
-  @type auth :: [user: binary, password: binary] | [access_token: binary]
-  defrecord Client, [auth: nil] do
+  defrecord Client, [auth: nil :: [user: binary, password: binary] | [access_token: binary]] do
     use Tentacat.Users
     use Tentacat.Users.Emails
     use Tentacat.Users.Keys

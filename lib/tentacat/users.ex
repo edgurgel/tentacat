@@ -13,7 +13,7 @@ defmodule Tentacat.Users do
 
       More info at: http://developer.github.com/v3/users/#get-a-single-user
       """
-      @spec user(binary, Client) :: :jsx.json_term
+      @spec user(binary, Client.t) :: :jsx.json_term
       def user(user, self) do
         get "users/#{user}", self.auth
       end
@@ -27,7 +27,7 @@ defmodule Tentacat.Users do
 
       More info at: http://developer.github.com/v3/users/#get-the-authenticated-user
       """
-      @spec user(Client) :: :jsx.json_term
+      @spec user(Client.t) :: :jsx.json_term
       def user(self) do
         get "user", self.auth
       end
@@ -42,11 +42,11 @@ defmodule Tentacat.Users do
 
       More info at: http://developer.github.com/v3/users/#get-all-users
       """
-      @spec users(integer, Client) :: :jsx.json_term
+      @spec users(integer, Client.t) :: :jsx.json_term
       def users(since, self) do
         get("users", self.auth, [since: since])
       end
-      @spec users(Client) :: :jsx.json_term
+      @spec users(Client.t) :: :jsx.json_term
       def users(self) do
         get "users", self.auth
       end
@@ -70,7 +70,7 @@ defmodule Tentacat.Users do
 
       More info at: http://developer.github.com/v3/users/#update-the-authenticated-user
       """
-      @spec update_user(Keyword.t, Client) :: :jsx.json_term
+      @spec update_user(Keyword.t, Client.t) :: :jsx.json_term
       def update_user(options, self) do
         patch("user", self.auth, options)
       end
