@@ -1,36 +1,36 @@
 defmodule Tentacat.Gitignore do
-  defmacro __using__(_) do
-    import Tentacat.Client.Base
-    quote do
-      @doc """
-      List all templates available
+  import Tentacat.Client.Base
+  alias Tentacat.Client
 
-      ## Example
+  @doc """
+  List all templates available
 
-          client.gitignore_templates
+  ## Example
 
-      More info at: http://developer.github.com/v3/gitignore/#listing-available-templates
-      """
-      @spec gitignore_templates(Client.t) :: :jsx.json_term
-      def gitignore_templates(self) do
-        get "gitignore/templates", self.auth
-      end
+      Tentacat.Gitignore.templates
+      Tentacat.Gitignore.templates client
 
-      @doc """
-      Get a single template based on the `name`
+  More info at: http://developer.github.com/v3/gitignore/#listing-available-templates
+  """
+  @spec templates(Client.t) :: :jsx.json_term
+  def templates(client // Client.new) do
+    get "gitignore/templates", client.auth
+  end
 
-      ## Example
+  @doc """
+  Get a single template based on the `name`
 
-          client.gitignore_template "C"
+  ## Example
 
-      More info at: http://developer.github.com/v3/gitignore/#get-a-single-template
-      """
-      # FIXME We should support raw data type too
-      @spec gitignore_template(binary, Client.t) :: :jsx.json_term
-      def gitignore_template(name, self) do
-        get "gitignore/templates/#{name}", self.auth
-      end
-    end
+      Tentacat.Gitignore.template "C"
+      Tentacat.Gitignore.template "C", client
+
+  More info at: http://developer.github.com/v3/gitignore/#get-a-single-template
+  """
+  # FIXME We should support raw data type too
+  @spec template(binary, Client.t) :: :jsx.json_term
+  def template(name, client // Client.new) do
+    get "gitignore/templates/#{name}", client.auth
   end
 end
 
