@@ -37,4 +37,10 @@ defmodule ClientTest do
                                                body: "json"]) == {404, :decoded_json}
     assert :meck.validate(JSEX)
   end
+
+  test "process response on a non-200 response and empty body" do
+    assert process_response(HTTPotion.Response[status_code: 404,
+                                               headers: [],
+                                               body: ""]) == {404, nil}
+  end
 end
