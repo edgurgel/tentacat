@@ -3,10 +3,13 @@ defmodule Tentacat.Client.Base do
 
   @user_agent [ "User-agent": "tentacat"]
 
+  @type response :: {integer, any} | :jsx.json_term
+
   def process_url(url) do
     :string.concat 'https://api.github.com/', url
   end
 
+  @spec process_response(HTTPotion.Response.t) :: response
   def process_response(response) do
     status_code = response.status_code
     headers = response.headers

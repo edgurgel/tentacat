@@ -11,7 +11,7 @@ defmodule Tentacat.Users.Followers do
 
   More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
   """
-  @spec following(Client.t) :: :jsx.json_term
+  @spec following(Client.t) :: Base.response
   def following(client) do
     get "user/following", client.auth
   end
@@ -25,7 +25,7 @@ defmodule Tentacat.Users.Followers do
 
   More info at: http://developer.github.com/v3/users/followers/#list-followers-of-a-user
   """
-  @spec followers(Client.t) :: :jsx.json_term
+  @spec followers(Client.t) :: Base.response
   def followers(client) do
     get "user/followers", client.auth
   end
