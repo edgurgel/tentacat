@@ -12,6 +12,7 @@ Elixir 0.9.3 required
 
 * Gitignore
 * Organizations
+  * Members
 * Users
   * Emails
   * Keys
