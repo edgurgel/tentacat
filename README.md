@@ -84,7 +84,7 @@ Start by forking this repo
 Then run this command to fetch dependencies and run tests:
 
 ```console
-MIX_ENV=testmix do deps.get, test
+MIX_ENV=test mix do deps.get, test
 ```
 
 Pull requests are greatly appreciated
