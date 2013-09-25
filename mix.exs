@@ -9,12 +9,12 @@ defmodule Tentacat.Mixfile do
   end
 
   def application do
-    [ applications: [ :httpotion, :jsex ] ]
+    [ applications: [ :httpoison, :jsex ] ]
   end
 
   defp deps(:dev) do
    [
-    {:httpotion, github: "myfreeweb/httpotion"},
+    {:httpoison, github: "edgurgel/httpoison"},
     {:jsex, github: "talentdeficit/jsex"}
    ]
   end

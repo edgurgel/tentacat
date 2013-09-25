@@ -15,16 +15,16 @@ defmodule ClientTest do
   end
 
   test "authorization_header using user and password" do
-    assert authorization_header([user: "user", password: "password"], []) == [Authorization: "Basic dXNlcjpwYXNzd29yZA=="]
+    assert authorization_header([user: "user", password: "password"], []) == [{"Authorization", "Basic dXNlcjpwYXNzd29yZA=="}]
   end
 
   test "authorization_header using access token" do
-    assert authorization_header([access_token: "9820103"], []) == [Authorization: "token 9820103"]
+    assert authorization_header([access_token: "9820103"], []) == [{"Authorization", "token 9820103"}]
   end
 
   test "process response on a 200 response" do
     :meck.expect(JSEX, :decode!, 1, :decoded_json)
-    assert process_response(HTTPotion.Response[status_code: 200,
+    assert process_response(HTTPoison.Response[status_code: 200,
                                                headers: [],
                                                body: "json"]) == :decoded_json
     assert :meck.validate(JSEX)
@@ -32,14 +32,14 @@ defmodule ClientTest do
 
   test "process response on a non-200 response" do
     :meck.expect(JSEX, :decode!, 1, :decoded_json)
-    assert process_response(HTTPotion.Response[status_code: 404,
+    assert process_response(HTTPoison.Response[status_code: 404,
                                                headers: [],
                                                body: "json"]) == {404, :decoded_json}
     assert :meck.validate(JSEX)
   end
 
   test "process response on a non-200 response and empty body" do
-    assert process_response(HTTPotion.Response[status_code: 404,
+    assert process_response(HTTPoison.Response[status_code: 404,
                                                headers: [],
                                                body: ""]) == {404, nil}
   end
