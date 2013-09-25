@@ -14,7 +14,7 @@ defmodule Tentacat.Client.Base do
     status_code = response.status_code
     headers = response.headers
     body = response.body
-    response = unless body == "", do: body |> to_binary |> JSEX.decode!,
+    response = unless body == "", do: body |> to_string |> JSEX.decode!,
     else: nil
     if status_code == 200 do
       response

@@ -1,6 +1,6 @@
-[ "ex_doc": {:git,"git://github.com/elixir-lang/ex_doc.git","806da084a075ed4a3604951f1eb8ce3e86e85c43",[]},
-  "httpotion": {:git,"git://github.com/myfreeweb/httpotion.git","3d29dfc132497e25a7dc81dcb2699d58145ad575",[]},
-  "ibrowse": {:git,"git://github.com/cmullaparthi/ibrowse.git","af5eebd9f5d828f893a94ce1767f29d15f67547c",[]},
-  "jsex": {:git,"git://github.com/talentdeficit/jsex.git","d7ed5b06573e6c3d3b88ba76ab5fdf729a0b7cf4",[]},
-  "jsx": {:git,"git://github.com/talentdeficit/jsx.git","352d6b21cbec4fe1b66bc7ce3ded67a3b32add2c",[tag: "v1.4.2"]},
-  "meck": {:git,"git://github.com/eproxus/meck.git","2447206f201bab1054c49cd32621eee23fa0ee3b",[tag: "0.7.2"]} ]
+[ "ex_doc": {:git, "git://github.com/elixir-lang/ex_doc.git", "806da084a075ed4a3604951f1eb8ce3e86e85c43", []},
+  "httpotion": {:git, "git://github.com/myfreeweb/httpotion.git", "448317eba0270e94fd6221d27a808a54a878c4c5", []},
+  "ibrowse": {:git, "git://github.com/cmullaparthi/ibrowse.git", "af5eebd9f5d828f893a94ce1767f29d15f67547c", []},
+  "jsex": {:git, "git://github.com/talentdeficit/jsex.git", "e870b17fe168f5cc87505c88e578858532bd0d66", []},
+  "jsx": {:git, "git://github.com/talentdeficit/jsx.git", "352d6b21cbec4fe1b66bc7ce3ded67a3b32add2c", [{:tag, "v1.4.2"}]},
+  "meck": {:git, "git://github.com/eproxus/meck.git", "2447206f201bab1054c49cd32621eee23fa0ee3b", [{:tag, "0.7.2"}]} ]
