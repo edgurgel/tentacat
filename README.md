@@ -6,7 +6,7 @@ Simple Elixir wrapper for the [GitHub API](http://developer.github.com/).
 
 Tentacool + Cat = Tentacat
 
-Elixir 0.9.3 required
+Elixir 0.10.2 required
 
 ## Features
 
@@ -33,7 +33,7 @@ You will something like this:
 ```
 Erlang R16B (erts-5.10.1) [source] [64-bit] [smp:4:4] [async-threads:10] [hipe]
 
-Interactive Elixir (0.9.3) - press Ctrl+C to exit (type h() ENTER for help)
+Interactive Elixir (0.10.2) - press Ctrl+C to exit (type h() ENTER for help)
 iex(1)>
 ```
 
@@ -55,7 +55,7 @@ iex> Tentacat.Users.find "edgurgel", client
 Getting info from a user without a defined client
 
 ```iex
-iex> Tentacat.Users.find "edgurgel" |> ListDict.get "email"
+iex> Tentacat.Users.find("edgurgel") |> ListDict.get("email")
 "eduardo@gurgel.me"
 ```
 
