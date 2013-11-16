@@ -41,11 +41,15 @@ defmodule Tentacat.Client.Base do
   end
 
   def _request(method, url, auth, body // "") do
-    request(method, url, body, authorization_header(auth, @user_agent))
+    json_request(method, url, body, authorization_header(auth, @user_agent))
   end
 
-  def request(method, url, body // "", headers // [], options // []) do
-    super(method, url, JSEX.encode!(body), headers, options) |> process_response
+  def json_request(method, url, body // "", headers // [], options // []) do
+    request(method, url, JSEX.encode!(body), headers, options) |> process_response
+  end
+
+  def raw_request(method, url, body // "", headers // [], options // []) do
+    request(method, url, body, headers, options) |> process_response
   end
 
   @spec build_qs([{atom, binary}]) :: binary
@@ -89,4 +93,8 @@ defmodule Tentacat.Client.Base do
 
   def authorization_header(_, headers), do: headers
 
+  @doc """
+  Same as `authorization_header/2` but defaults initial headers to include `@user_agent`.
+  """
+  def authorization_header(options), do: authorization_header(options, @user_agent)
 end
