@@ -36,36 +36,6 @@ defmodule Tentacat.Releases.Assets do
     get "repos/#{owner}/#{repo}/releases/assets/#{id}", client.auth
   end
 
-  # Uncomment when R17 has been released. The upload endpoint requires SNI to function.
-  # Here is the commit in Erlang where SNI was added:
-  #   https://github.com/erlang/otp/commit/bc8b6bf58c96f8d5a07146ddea145f71fe8c8956
-  #
-  # @doc """
-  # Upload a release asset
-  #
-  # ## Example
-  #
-  #     Tentacat.Releases.Assets.upload("my-release.tar.gz", 23, "elixir-lang", "elixir", client)
-  #
-  # ## Options
-  #
-  # * `label` - string
-  #
-  # More info at: http://developer.github.com/v3/repos/releases/#upload-a-release-asset
-  # """
-  # @spec upload(binary, integer, binary, Client.t, list) :: Base.response
-  # def upload(asset, id, owner, repo, client // Client.new, options // []) when is_integer(id) do
-  #   # This needs to be a stream but HTTPotion needs to be updated to support streaming request/responses.
-  #   contents     = File.read!(asset)
-  #   label        = options[:label] || Path.basename(asset)
-  #   content_type = options[:content_type] || "application/zip"
-  #   url          = upload_url("repos/#{owner}/#{repo}/releases/#{id}/assets?name=#{URI.encode(label)}")
-  #   headers      = authorization_header(client.auth) |> upload_header(content_type: content_type)
-  #   IO.inspect url
-  #   IO.inspect headers
-  #   raw_request(:post, url, contents, headers)
-  # end
-
   @doc """
   Edit a release asset
 
