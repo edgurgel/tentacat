@@ -21,7 +21,7 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.list(9949, "elixir-lang", "elixir", client)
+      Tentacat.Releases.find(9949, "elixir-lang", "elixir", client)
 
   More info at: http://developer.github.com/v3/repos/releases/#get-a-single-release
   """
