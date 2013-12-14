@@ -51,8 +51,8 @@ defmodule Tentacat.Users do
 
   ## Example
 
-      Tentacat.Users.list 348
-      Tentacat.Users.list 348, client
+      Tentacat.Users.list_since 348
+      Tentacat.Users.list_since 348, client
 
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
