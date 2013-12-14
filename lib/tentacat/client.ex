@@ -54,13 +54,7 @@ defmodule Tentacat.Client.Base do
 
   @spec build_qs([{atom, binary}]) :: binary
   defp build_qs([]), do: ""
-  defp build_qs(kvs) do
-    kvs = Enum.map(kvs, fn
-      {k, v} -> atom_to_list(k) ++ '=' ++ :hackney_url.urlencode(v)
-      _ -> throw(:badarg)
-    end)
-    to_string('?' ++ kvs)
-  end
+  defp build_qs(kvs), do: to_string('?' ++ URI.encode_query(kvs))
 
   @doc """
   There are two ways to authenticate through GitHub API v3:
