@@ -6,8 +6,6 @@ Simple Elixir wrapper for the [GitHub API](http://developer.github.com/).
 
 Tentacool + Cat = Tentacat
 
-Elixir 0.10.2 required
-
 ## Features
 
 * Gitignore
