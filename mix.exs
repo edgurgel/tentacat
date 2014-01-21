@@ -14,8 +14,8 @@ defmodule Tentacat.Mixfile do
 
   defp deps(:dev) do
    [
-    {:httpoison, github: "edgurgel/httpoison"},
-    {:jsex, github: "talentdeficit/jsex"}
+    {:httpoison, github: "edgurgel/httpoison", tag: "0.0.1"},
+    {:jsex, github: "talentdeficit/jsex", tag: "v0.2"}
    ]
   end
 
