@@ -13,7 +13,7 @@ defmodule Tentacat.Organizations.Members do
   More info at: http://developer.github.com/v3/orgs/members/#members-list
   """
   @spec list(binary, Client.t) :: Base.response
-  def list(organization, client // Client.new) do
+  def list(organization, client \\ Client.new) do
     get "orgs/#{organization}/members", client.auth
   end
 
@@ -30,7 +30,7 @@ defmodule Tentacat.Organizations.Members do
   More info at: http://developer.github.com/v3/orgs/members/#check-membership
   """
   @spec member?(binary, binary, Client.t) :: Base.response
-  def member?(organization, user, client // Client.new) do
+  def member?(organization, user, client \\ Client.new) do
     get "orgs/#{organization}/members/#{user}", client.auth
   end
 
@@ -59,7 +59,7 @@ defmodule Tentacat.Organizations.Members do
   More info at: http://developer.github.com/v3/orgs/members/#public-members-list
   """
   @spec public_list(binary, Client.t) :: Base.response
-  def public_list(organization, client // Client.new) do
+  def public_list(organization, client \\ Client.new) do
     get "orgs/#{organization}/public_members", client.auth
   end
 
@@ -76,7 +76,7 @@ defmodule Tentacat.Organizations.Members do
   More info at: http://developer.github.com/v3/orgs/members/#public-members-list
   """
   @spec public_member?(binary, binary, Client.t) :: Base.response
-  def public_member?(organization, user, client // Client.new) do
+  def public_member?(organization, user, client \\ Client.new) do
     get "orgs/#{organization}/public_members/#{user}", client.auth
   end
 

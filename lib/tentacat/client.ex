@@ -23,32 +23,32 @@ defmodule Tentacat.Client.Base do
     end
   end
 
-  def delete(url, auth // nil, body // "") do
+  def delete(url, auth \\ nil, body \\ "") do
     _request(:delete, url, auth, body)
   end
 
-  def post(url, auth // nil, body // "") do
+  def post(url, auth \\ nil, body \\ "") do
     _request(:post, url, auth, body)
   end
 
-  def patch(url, auth // nil, body // "") do
+  def patch(url, auth \\ nil, body \\ "") do
     _request(:patch, url, auth, body)
   end
 
-  def get(url, auth // nil, params // []) do
+  def get(url, auth \\ nil, params \\ []) do
     url = <<url :: binary, build_qs(params) :: binary>>
     _request(:get, url, auth)
   end
 
-  def _request(method, url, auth, body // "") do
+  def _request(method, url, auth, body \\ "") do
     json_request(method, url, body, authorization_header(auth, @user_agent))
   end
 
-  def json_request(method, url, body // "", headers // [], options // []) do
+  def json_request(method, url, body \\ "", headers \\ [], options \\ []) do
     request(method, url, JSEX.encode!(body), headers, options) |> process_response
   end
 
-  def raw_request(method, url, body // "", headers // [], options // []) do
+  def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
     request(method, url, body, headers, options) |> process_response
   end
 
@@ -73,7 +73,7 @@ defmodule Tentacat.Client.Base do
       [{"Authorization", "token 92873971893"}]
 
   ## More info
-  http://developer.github.com/v3/#authentication
+  http:\\developer.github.com/v3/#authentication
   """
   @spec authorization_header(Tentacat.auth, list) :: list
   def authorization_header([user: user, password: password], headers) do

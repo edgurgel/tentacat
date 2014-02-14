@@ -9,10 +9,10 @@ defmodule Tentacat.Releases do
 
       Tentacat.Releases.list("elixir-lang", "elixir", client)
 
-  More info at: http://developer.github.com/v3/repos/releases/#list-releases-for-a-repository
+  More info at: http:\\developer.github.com/v3/repos/releases/#list-releases-for-a-repository
   """
   @spec list(binary, binary, Client.t) :: Base.response
-  def list(owner, repo, client // Client.new) do
+  def list(owner, repo, client \\ Client.new) do
     get "repos/#{owner}/#{repo}/releases", client.auth
   end
 
@@ -23,10 +23,10 @@ defmodule Tentacat.Releases do
 
       Tentacat.Releases.find(9949, "elixir-lang", "elixir", client)
 
-  More info at: http://developer.github.com/v3/repos/releases/#get-a-single-release
+  More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-release
   """
   @spec find(integer, binary, binary, Client.t) :: Base.response
-  def find(id, owner, repo, client // Client.new) when is_integer(id) do
+  def find(id, owner, repo, client \\ Client.new) when is_integer(id) do
     get "repos/#{owner}/#{repo}/releases/#{id}", client.auth
   end
 
@@ -37,10 +37,10 @@ defmodule Tentacat.Releases do
 
       Tentacat.Releases.create("v0.11.0", elixir-lang", "elixir", client)
 
-  More info at: http://developer.github.com/v3/repos/releases/#create-a-release
+  More info at: http:\\developer.github.com/v3/repos/releases/#create-a-release
   """
   @spec create(binary, binary, binary, Client.t, list) :: Base.response
-  def create(tag_name, owner, repo, client // Client.new, options // []) when is_binary(tag_name) do
+  def create(tag_name, owner, repo, client \\ Client.new, options \\ []) when is_binary(tag_name) do
     body = ListDict.merge(options, tag_name: tag_name)
     post "repos/#{owner}/#{repo}/releases", client.auth, body
   end
@@ -61,10 +61,10 @@ defmodule Tentacat.Releases do
 
       Tentacat.Releases.edit(95071, "elixir-lang", "elixir", client)
 
-  More info at: http://developer.github.com/v3/repos/releases/#edit-a-release
+  More info at: http:\\developer.github.com/v3/repos/releases/#edit-a-release
   """
   @spec edit(integer, binary, binary, Client.t, list) :: Base.response
-  def edit(id, owner, repo, client // Client.new, options // []) when is_integer(id) do
+  def edit(id, owner, repo, client \\ Client.new, options \\ []) when is_integer(id) do
     patch "repos/#{owner}/#{repo}/releases/#{id}", client.auth, options
   end
 
@@ -75,10 +75,10 @@ defmodule Tentacat.Releases do
 
       Tentacat.Releases.delete(95071, "elixir-lang", "elixir", client)
 
-  More info at: http://developer.github.com/v3/repos/releases/#delete-a-release
+  More info at: http:\\developer.github.com/v3/repos/releases/#delete-a-release
   """
   @spec delete(integer, binary, binary, Client.t) :: Base.response
-  def delete(id, owner, repo, client // Client.new) when is_integer(id) do
+  def delete(id, owner, repo, client \\ Client.new) when is_integer(id) do
     delete "repos/#{owner}/#{repo}/releases/#{id}", client.auth
   end
 end

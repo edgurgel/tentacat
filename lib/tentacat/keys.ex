@@ -13,7 +13,7 @@ defmodule Tentacat.Users.Keys do
   More info at: http://developer.github.com/v3/users/keys/#list-public-keys-for-a-user and http://developer.github.com/v3/users/keys/#list-your-public-keys
   """
   @spec list(binary, Client.t) :: Base.response
-  def list(user, client // Client.new) do
+  def list(user, client \\ Client.new) do
     get "users/#{user}/keys", client.auth
   end
 
