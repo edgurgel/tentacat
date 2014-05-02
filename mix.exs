@@ -4,7 +4,7 @@ defmodule Tentacat.Mixfile do
   def project do
     [ app: :tentacat,
       version: "0.0.1",
-      elixir: "~> 0.12.4",
+      elixir: "~> 0.12",
       deps: deps(Mix.env) ]
   end
 
@@ -14,7 +14,7 @@ defmodule Tentacat.Mixfile do
 
   defp deps(:dev) do
    [
-    {:httpoison, github: "edgurgel/httpoison", tag: "0.0.2"},
+    {:httpoison, "~> 0.1", github: "edgurgel/httpoison"},
     {:jsex, github: "talentdeficit/jsex"}
    ]
   end
@@ -26,7 +26,7 @@ defmodule Tentacat.Mixfile do
 
   defp deps(:test) do
     deps(:dev) ++
-      [ {:meck, github: "eproxus/meck", tag: "0.7.2" } ]
+      [ {:meck, github: "eproxus/meck"} ]
   end
 
   defp deps(_), do: deps(:dev)
