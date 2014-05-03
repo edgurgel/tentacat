@@ -16,11 +16,9 @@ defmodule Tentacat.Client.Base do
     body = response.body
     response = unless body == "", do: body |> JSEX.decode!,
     else: nil
-    if status_code == 200 do
-      response
-    else
-      {status_code, response}
-    end
+
+    if (status_code == 200), do: response,
+    else: {status_code, response}
   end
 
   def delete(url, auth \\ nil, body \\ "") do

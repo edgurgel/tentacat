@@ -4,31 +4,17 @@ defmodule Tentacat.Mixfile do
   def project do
     [ app: :tentacat,
       version: "0.0.1",
-      elixir: "~> 0.12.4",
-      deps: deps(Mix.env) ]
+      elixir: "~> 0.13.1",
+      deps: deps ]
   end
 
   def application do
     [ applications: [ :httpoison, :jsex ] ]
   end
 
-  defp deps(:dev) do
-   [
-    {:httpoison, github: "edgurgel/httpoison", tag: "0.0.2"},
-    {:jsex, github: "talentdeficit/jsex"}
-   ]
+  defp deps do
+   [ { :httpoison, github: "edgurgel/httpoison", tag: "0.1.0" },
+     { :jsex, github: "talentdeficit/jsex" },
+     { :meck, github: "eproxus/meck", ref: "69f02255a8219185bf55da303981d86886b3c24b", only: :test } ]
   end
-
-  defp deps(:docs) do
-    deps(:dev) ++
-      [ {:ex_doc, github: "elixir-lang/ex_doc" } ]
-  end
-
-  defp deps(:test) do
-    deps(:dev) ++
-      [ {:meck, github: "eproxus/meck", tag: "0.7.2" } ]
-  end
-
-  defp deps(_), do: deps(:dev)
-
 end

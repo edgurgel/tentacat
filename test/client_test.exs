@@ -1,6 +1,4 @@
-Code.require_file "test_helper.exs", __DIR__
-
-defmodule ClientTest do
+defmodule Tentacat.ClientTest do
   use ExUnit.Case
   import Tentacat.Client.Base
 
@@ -24,23 +22,23 @@ defmodule ClientTest do
 
   test "process response on a 200 response" do
     :meck.expect(JSEX, :decode!, 1, :decoded_json)
-    assert process_response(HTTPoison.Response[status_code: 200,
-                                               headers: [],
-                                               body: "json"]) == :decoded_json
+    assert process_response(%HTTPoison.Response{ status_code: 200,
+                                                 headers: %{},
+                                                 body: "json" }) == :decoded_json
     assert :meck.validate(JSEX)
   end
 
   test "process response on a non-200 response" do
     :meck.expect(JSEX, :decode!, 1, :decoded_json)
-    assert process_response(HTTPoison.Response[status_code: 404,
-                                               headers: [],
-                                               body: "json"]) == {404, :decoded_json}
+    assert process_response(%HTTPoison.Response{ status_code: 404,
+                                                 headers: %{},
+                                                 body: "json" }) == {404, :decoded_json}
     assert :meck.validate(JSEX)
   end
 
   test "process response on a non-200 response and empty body" do
-    assert process_response(HTTPoison.Response[status_code: 404,
-                                               headers: [],
-                                               body: ""]) == {404, nil}
+    assert process_response(%HTTPoison.Response{ status_code: 404,
+                                                 headers: %{},
+                                                 body: "" }) == {404, nil}
   end
 end
