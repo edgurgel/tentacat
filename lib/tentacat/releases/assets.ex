@@ -51,7 +51,7 @@ defmodule Tentacat.Releases.Assets do
   """
   @spec edit(binary, integer, binary, binary, Client.t, list) :: Base.response
   def edit(name, id, owner, repo, client \\ Client.new, options \\ []) when is_integer(id) do
-    body = ListDict.merge(options, name: name)
+    body = Dict.merge(options, name: name)
     patch "repos/#{owner}/#{repo}/releases/assets/#{id}", client.auth, body
   end
 

@@ -53,7 +53,7 @@ iex> Tentacat.Users.find "edgurgel", client
 Getting info from a user without a defined client
 
 ```iex
-iex> Tentacat.Users.find("edgurgel") |> ListDict.get("email")
+iex> Tentacat.Users.find("edgurgel") |> Dict.get("email")
 "eduardo@gurgel.me"
 ```
 
