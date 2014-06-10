@@ -1,8 +1,8 @@
 defmodule Tentacat.ClientTest do
   use ExUnit.Case
-  import Tentacat.Client.Base
+  import Tentacat
 
-  doctest Tentacat.Client.Base
+  doctest Tentacat
 
   setup do
     :meck.new JSEX
@@ -13,11 +13,11 @@ defmodule Tentacat.ClientTest do
   end
 
   test "authorization_header using user and password" do
-    assert authorization_header([user: "user", password: "password"], []) == [{"Authorization", "Basic dXNlcjpwYXNzd29yZA=="}]
+    assert authorization_header(%{user: "user", password: "password"}, []) == [{"Authorization", "Basic dXNlcjpwYXNzd29yZA=="}]
   end
 
   test "authorization_header using access token" do
-    assert authorization_header([access_token: "9820103"], []) == [{"Authorization", "token 9820103"}]
+    assert authorization_header(%{access_token: "9820103"}, []) == [{"Authorization", "token 9820103"}]
   end
 
   test "process response on a 200 response" do

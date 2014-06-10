@@ -1,5 +1,5 @@
 defmodule Tentacat.Releases do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -11,8 +11,8 @@ defmodule Tentacat.Releases do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#list-releases-for-a-repository
   """
-  @spec list(binary, binary, Client.t) :: Base.response
-  def list(owner, repo, client \\ Client.new) do
+  @spec list(binary, binary, Client.t) :: Tentacat.response
+  def list(owner, repo, client \\ %Client{}) do
     get "repos/#{owner}/#{repo}/releases", client.auth
   end
 
@@ -25,8 +25,8 @@ defmodule Tentacat.Releases do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-release
   """
-  @spec find(integer, binary, binary, Client.t) :: Base.response
-  def find(id, owner, repo, client \\ Client.new) when is_integer(id) do
+  @spec find(integer, binary, binary, Client.t) :: Tentacat.response
+  def find(id, owner, repo, client \\ %Client{}) when is_integer(id) do
     get "repos/#{owner}/#{repo}/releases/#{id}", client.auth
   end
 
@@ -39,8 +39,8 @@ defmodule Tentacat.Releases do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#create-a-release
   """
-  @spec create(binary, binary, binary, Client.t, list) :: Base.response
-  def create(tag_name, owner, repo, client \\ Client.new, options \\ []) when is_binary(tag_name) do
+  @spec create(binary, binary, binary, Client.t, list) :: Tentacat.response
+  def create(tag_name, owner, repo, client \\ %Client{}, options \\ []) when is_binary(tag_name) do
     body = Dict.merge(options, tag_name: tag_name)
     post "repos/#{owner}/#{repo}/releases", client.auth, body
   end
@@ -63,8 +63,8 @@ defmodule Tentacat.Releases do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#edit-a-release
   """
-  @spec edit(integer, binary, binary, Client.t, list) :: Base.response
-  def edit(id, owner, repo, client \\ Client.new, options \\ []) when is_integer(id) do
+  @spec edit(integer, binary, binary, Client.t, list) :: Tentacat.response
+  def edit(id, owner, repo, client \\ %Client{}, options \\ []) when is_integer(id) do
     patch "repos/#{owner}/#{repo}/releases/#{id}", client.auth, options
   end
 
@@ -77,8 +77,8 @@ defmodule Tentacat.Releases do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#delete-a-release
   """
-  @spec delete(integer, binary, binary, Client.t) :: Base.response
-  def delete(id, owner, repo, client \\ Client.new) when is_integer(id) do
+  @spec delete(integer, binary, binary, Client.t) :: Tentacat.response
+  def delete(id, owner, repo, client \\ %Client{}) when is_integer(id) do
     delete "repos/#{owner}/#{repo}/releases/#{id}", client.auth
   end
 end

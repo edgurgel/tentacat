@@ -1,5 +1,5 @@
 defmodule Tentacat.Gitignore do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -12,8 +12,8 @@ defmodule Tentacat.Gitignore do
 
   More info at: http:\\developer.github.com/v3/gitignore/#listing-available-templates
   """
-  @spec templates(Client.t) :: Base.response
-  def templates(client \\ Client.new) do
+  @spec templates(Client.t) :: Tentacat.response
+  def templates(client \\ %Client{}) do
     get "gitignore/templates", client.auth
   end
 
@@ -28,8 +28,8 @@ defmodule Tentacat.Gitignore do
   More info at: http:\\developer.github.com/v3/gitignore/#get-a-single-template
   """
   # FIXME We should support raw data type too
-  @spec template(binary, Client.t) :: Base.response
-  def template(name, client \\ Client.new) do
+  @spec template(binary, Client.t) :: Tentacat.response
+  def template(name, client \\ %Client{}) do
     get "gitignore/templates/#{name}", client.auth
   end
 end

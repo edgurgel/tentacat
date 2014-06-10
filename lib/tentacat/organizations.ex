@@ -1,5 +1,5 @@
 defmodule Tentacat.Organizations do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -12,8 +12,8 @@ defmodule Tentacat.Organizations do
 
   More info at: http:\\developer.github.com/v3/orgs/#list-user-organizations
   """
-  @spec list(binary, Client.t) :: Base.response
-  def list(user, client \\ Client.new) do
+  @spec list(binary, Client.t) :: Tentacat.response
+  def list(user, client \\ %Client{}) do
     get "users/#{user}/orgs", client.auth
   end
 
@@ -26,7 +26,7 @@ defmodule Tentacat.Organizations do
 
   More info at: http:\\developer.github.com/v3/orgs/#list-user-organizations
   """
-  @spec list_mine(Client.t) :: Base.response
+  @spec list_mine(Client.t) :: Tentacat.response
   def list_mine(client) do
     get "users/orgs", client.auth
   end
@@ -41,8 +41,8 @@ defmodule Tentacat.Organizations do
 
   More info at: http:\\developer.github.com/v3/orgs/#get-an-organization
   """
-  @spec find(binary, Client.t) :: Base.response
-  def find(org, client \\ Client.new) do
+  @spec find(binary, Client.t) :: Tentacat.response
+  def find(org, client \\ %Client{}) do
     get "orgs/#{org}", client.auth
   end
 
@@ -63,7 +63,7 @@ defmodule Tentacat.Organizations do
 
   More info at: http:\\developer.github.com/v3/orgs/#edit-an-organization
   """
-  @spec update(binary, list, Client.t) :: Base.response
+  @spec update(binary, list, Client.t) :: Tentacat.response
   def update(org, options, client) do
     patch "orgs/#{org}", client.auth, options
   end

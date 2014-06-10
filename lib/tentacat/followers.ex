@@ -1,5 +1,5 @@
 defmodule Tentacat.Users.Followers do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -11,7 +11,7 @@ defmodule Tentacat.Users.Followers do
 
   More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
   """
-  @spec following(Client.t) :: Base.response
+  @spec following(Client.t) :: Tentacat.response
   def following(client) do
     get "user/following", client.auth
   end
@@ -25,7 +25,7 @@ defmodule Tentacat.Users.Followers do
 
   More info at: http://developer.github.com/v3/users/followers/#list-followers-of-a-user
   """
-  @spec followers(Client.t) :: Base.response
+  @spec followers(Client.t) :: Tentacat.response
   def followers(client) do
     get "user/followers", client.auth
   end

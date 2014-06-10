@@ -1,5 +1,5 @@
 defmodule Tentacat.Organizations.Members do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -12,8 +12,8 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#members-list
   """
-  @spec list(binary, Client.t) :: Base.response
-  def list(organization, client \\ Client.new) do
+  @spec list(binary, Client.t) :: Tentacat.response
+  def list(organization, client \\ %Client{}) do
     get "orgs/#{organization}/members", client.auth
   end
 
@@ -29,8 +29,8 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#check-membership
   """
-  @spec member?(binary, binary, Client.t) :: Base.response
-  def member?(organization, user, client \\ Client.new) do
+  @spec member?(binary, binary, Client.t) :: Tentacat.response
+  def member?(organization, user, client \\ %Client{}) do
     get "orgs/#{organization}/members/#{user}", client.auth
   end
 
@@ -43,7 +43,7 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#remove-a-member
   """
-  @spec remove(binary, binary, Client.t) :: Base.response
+  @spec remove(binary, binary, Client.t) :: Tentacat.response
   def remove(organization, user, client) do
     delete "orgs/#{organization}/members/#{user}", client.auth
   end
@@ -58,8 +58,8 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#public-members-list
   """
-  @spec public_list(binary, Client.t) :: Base.response
-  def public_list(organization, client \\ Client.new) do
+  @spec public_list(binary, Client.t) :: Tentacat.response
+  def public_list(organization, client \\ %Client{}) do
     get "orgs/#{organization}/public_members", client.auth
   end
 
@@ -75,8 +75,8 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#public-members-list
   """
-  @spec public_member?(binary, binary, Client.t) :: Base.response
-  def public_member?(organization, user, client \\ Client.new) do
+  @spec public_member?(binary, binary, Client.t) :: Tentacat.response
+  def public_member?(organization, user, client \\ %Client{}) do
     get "orgs/#{organization}/public_members/#{user}", client.auth
   end
 
@@ -89,7 +89,7 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#publicize-a-users-membership
   """
-  @spec publicize(binary, binary, Client.t) :: Base.response
+  @spec publicize(binary, binary, Client.t) :: Tentacat.response
   def publicize(organization, user, client) do
     put "orgs/#{organization}/public_members/#{user}", client.auth
   end
@@ -103,7 +103,7 @@ defmodule Tentacat.Organizations.Members do
 
   More info at: http://developer.github.com/v3/orgs/members/#conceal-a-users-membership
   """
-  @spec conceal(binary, binary, Client.t) :: Base.response
+  @spec conceal(binary, binary, Client.t) :: Tentacat.response
   def conceal(organization, user, client) do
     delete "orgs/#{organization}/public_members/#{user}", client.auth
   end

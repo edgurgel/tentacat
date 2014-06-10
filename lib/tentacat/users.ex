@@ -1,5 +1,5 @@
 defmodule Tentacat.Users do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -12,8 +12,8 @@ defmodule Tentacat.Users do
 
   More info at: http:\\developer.github.com/v3/users/#get-a-single-user
   """
-  @spec find(binary, Client.t) :: Base.response
-  def find(user, client \\ Client.new) do
+  @spec find(binary, Client.t) :: Tentacat.response
+  def find(user, client \\ %Client{}) do
     get "users/#{user}", client.auth
   end
 
@@ -26,7 +26,7 @@ defmodule Tentacat.Users do
 
   More info at: http:\\developer.github.com/v3/users/#get-the-authenticated-user
   """
-  @spec me(Client.t) :: Base.response
+  @spec me(Client.t) :: Tentacat.response
   def me(client) do
     get "user", client.auth
   end
@@ -41,8 +41,8 @@ defmodule Tentacat.Users do
 
   More info at: http:\\developer.github.com/v3/users/#get-all-users
   """
-  @spec list(Client.t) :: Base.response
-  def list(client \\ Client.new) do
+  @spec list(Client.t) :: Tentacat.response
+  def list(client \\ %Client{}) do
     get "users", client.auth
   end
 
@@ -56,8 +56,8 @@ defmodule Tentacat.Users do
 
   More info at: http:\\developer.github.com/v3/users/#get-all-users
   """
-  @spec list_since(integer, Client.t) :: Base.response
-  def list_since(since, client \\ Client.new) do
+  @spec list_since(integer, Client.t) :: Tentacat.response
+  def list_since(since, client \\ %Client{}) do
     get "users", client.auth, [since: since]
   end
 
@@ -80,7 +80,7 @@ defmodule Tentacat.Users do
 
   More info at: http:\\developer.github.com/v3/users/#update-the-authenticated-user
   """
-  @spec update(Keyword.t, Client.t) :: Base.response
+  @spec update(Keyword.t, Client.t) :: Tentacat.response
   def update(options, client) do
     patch "user", client.auth, options
   end

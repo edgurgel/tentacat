@@ -1,5 +1,5 @@
 defmodule Tentacat.Users.Keys do
-  import Tentacat.Client.Base
+  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -12,8 +12,8 @@ defmodule Tentacat.Users.Keys do
 
   More info at: http://developer.github.com/v3/users/keys/#list-public-keys-for-a-user and http://developer.github.com/v3/users/keys/#list-your-public-keys
   """
-  @spec list(binary, Client.t) :: Base.response
-  def list(user, client \\ Client.new) do
+  @spec list(binary, Client.t) :: Tentacat.response
+  def list(user, client \\ %Client{}) do
     get "users/#{user}/keys", client.auth
   end
 
@@ -26,7 +26,7 @@ defmodule Tentacat.Users.Keys do
 
   More info at: http://developer.github.com/v3/users/keys/#list-public-keys-for-a-user and http://developer.github.com/v3/users/keys/#list-your-public-keys
   """
-  @spec list_mine(Client.t) :: Base.response
+  @spec list_mine(Client.t) :: Tentacat.response
   def list_mine(client) do
     get "user/keys", client.auth
   end
@@ -40,7 +40,7 @@ defmodule Tentacat.Users.Keys do
 
   More info at: http://developer.github.com/v3/users/keys/#get-a-single-public-key
   """
-  @spec find(integer, Client.t) :: Base.response
+  @spec find(integer, Client.t) :: Tentacat.response
   def find(id, client) do
     get "user/keys/#{id}", client.auth
   end
@@ -54,7 +54,7 @@ defmodule Tentacat.Users.Keys do
 
   More info at:http://developer.github.com/v3/users/keys/#create-a-public-key
   """
-  @spec create(binary, binary, Client.t) :: Base.response
+  @spec create(binary, binary, Client.t) :: Tentacat.response
   def create(title, key, client) do
     post "user/keys", client.auth, [title: title, key: key]
   end
@@ -68,7 +68,7 @@ defmodule Tentacat.Users.Keys do
 
   More info at: http://developer.github.com/v3/users/keys/#update-a-public-key
   """
-  @spec update(integer, binary, binary, Client.t) :: Base.response
+  @spec update(integer, binary, binary, Client.t) :: Tentacat.response
   def update(id, title, key, client) do
     patch "user/keys/#{id}", client.auth, [title: title, key: key]
   end
