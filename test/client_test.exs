@@ -4,12 +4,12 @@ defmodule Tentacat.ClientTest do
 
   doctest Tentacat
 
-  setup do
-    :meck.new JSEX
-  end
+  setup_all do
+    :meck.new(JSEX, [:no_link])
 
-  teardown do
-    :meck.unload JSEX
+    on_exit fn ->
+      :meck.unload JSEX
+    end
   end
 
   test "authorization_header using user and password" do
