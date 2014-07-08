@@ -3,7 +3,7 @@ notifications:
   recipients:
     - eduardo@gurgel.me
 otp_release:
-  - 17.1
+  - 17.0
 install: mix deps.get
 env:
   - ELIXIR_VERSION=0.14.2
