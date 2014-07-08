@@ -13,7 +13,7 @@ defmodule Tentacat.Mixfile do
   end
 
   defp deps do
-   [ { :httpoison, github: "edgurgel/httpoison" },
+   [ { :httpoison, "~> 0.3.0" },
      { :jsex, "~> 2.0" },
      { :meck, github: "eproxus/meck", tag: "0.8.2", only: :test } ]
   end
