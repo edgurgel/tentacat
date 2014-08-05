@@ -2,7 +2,10 @@ defmodule Tentacat do
   use HTTPoison.Base
 
   defmodule Client do
-    defstruct auth: nil :: %{user: binary, password: binary} | %{access_token: binary}
+    defstruct auth: nil
+
+    @type auth :: %{user: binary, password: binary} | %{access_token: binary}
+    @type t :: %__MODULE__{auth: auth}
   end
 
   @user_agent [{"User-agent", "tentacat"}]

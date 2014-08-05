@@ -6,7 +6,7 @@ otp_release:
   - 17.0
 install: mix deps.get
 env:
-  - ELIXIR_VERSION=0.14.2
+  - ELIXIR_VERSION=0.15.0
   - ELIXIR_VERSION=0.14.3
 before_install:
   - mkdir -p vendor/elixir
