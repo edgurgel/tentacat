@@ -13,9 +13,8 @@ defmodule Tentacat.Mixfile do
   end
 
   defp deps do
-   [ { :httpoison, "~> 0.3.0" },
+   [ { :httpoison, "~> 0.4.0" },
      { :jsex, "~> 2.0" },
-     { :hackney, github: "benoitc/hackney" },
-     { :meck, github: "eproxus/meck", tag: "0.8.2", only: :test } ]
+     { :meck, "~> 0.8.2", only: :test } ]
   end
 end
