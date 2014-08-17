@@ -3,8 +3,8 @@ defmodule Tentacat.Mixfile do
 
   def project do
     [ app: :tentacat,
-      version: "0.0.1",
-      elixir: "~> 0.14.3 or ~> 0.15.0",
+      version: "0.1.0",
+      elixir: "~> 0.15.0",
       deps: deps ]
   end
 
