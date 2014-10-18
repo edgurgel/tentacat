@@ -70,8 +70,8 @@ iex> Tentacat.Users.me(client)
 * Using a personal access token [Github personal API token](https://github.com/blog/1509-personal-api-tokens)
 
 ```iex
-iex> client = %Tentacat.Client{auth: {access_token: "928392873982932"}}
-Tentacat.Client{auth: {access_token: "928392873982932"}}
+iex> client = %Tentacat.Client{auth: %{access_token: "928392873982932"}}
+Tentacat.Client{auth: %{access_token: "928392873982932"}}
 iex> Tentacat.Users.me(client)
 ```
 
