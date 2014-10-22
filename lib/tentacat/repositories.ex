@@ -1,52 +1,52 @@
 defmodule Tentacat.Repositories do
-	import Tentacat
-	alias Tentacat.Client
-	@moduledoc """
-	The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository.
-	"""
+  import Tentacat
+  alias Tentacat.Client
+  @moduledoc """
+  The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository.
+  """
 
-	@doc """
-	List current user's Repositories.
+  @doc """
+  List current user's Repositories.
 
 
-	## Example
+  ## Example
 
-			Tentacat.Repositories.list_mine(client)
+      Tentacat.Repositories.list_mine(client)
 
-	More info at: https://developer.github.com/v3/repos/#list-your-repositories
-	"""
-	@spec list_mine(Client.t) :: Tentacat.response
-	def list_mine(client) do
-		get "user/repos", client.auth
-	end
+  More info at: https://developer.github.com/v3/repos/#list-your-repositories
+  """
+  @spec list_mine(Client.t) :: Tentacat.response
+  def list_mine(client) do
+    get "user/repos", client.auth
+  end
 
-	@doc """
-	List users Repositories.
+  @doc """
+  List users Repositories.
 
-	## Example
+  ## Example
 
-			Tentacat.Repositories.list_users("steve", client)
+      Tentacat.Repositories.list_users("steve", client)
 
-	More info at: https://developer.github.com/v3/repos/#list-user-repositories
-	"""
-	@spec list_users(binary, Client.t) :: Tentacat.response
-	def list_users(owner, client \\ %Client{}) do
-		get "users/#{owner}/repos", client.auth
-	end
+  More info at: https://developer.github.com/v3/repos/#list-user-repositories
+  """
+  @spec list_users(binary, Client.t) :: Tentacat.response
+  def list_users(owner, client \\ %Client{}) do
+    get "users/#{owner}/repos", client.auth
+  end
 
-	@doc """
-	List organizations Repositories.
+  @doc """
+  List organizations Repositories.
 
-	## Example
+  ## Example
 
-			Tentacat.Repositories.list_orgs("elixir-lang", client)
+      Tentacat.Repositories.list_orgs("elixir-lang", client)
 
-	More info at: https://developer.github.com/v3/repos/#list-organization-repositories
-	"""
-	@spec list_orgs(binary, Client.t) :: Tentacat.response
-	def list_orgs(org, client \\ %Client{}) do
-		get "orgs/#{org}/repos", client.auth
-	end
+  More info at: https://developer.github.com/v3/repos/#list-organization-repositories
+  """
+  @spec list_orgs(binary, Client.t) :: Tentacat.response
+  def list_orgs(org, client \\ %Client{}) do
+    get "orgs/#{org}/repos", client.auth
+  end
 
 
 end
