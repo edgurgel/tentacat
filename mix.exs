@@ -20,7 +20,7 @@ defmodule Tentacat.Mixfile do
   end
 
   defp deps do
-   [ { :httpoison, "~> 0.4.0" },
+   [ { :httpoison, "~> 0.5.0" },
      { :jsex, "~> 2.0" },
      { :meck, "~> 0.8.2", only: :test } ]
   end
