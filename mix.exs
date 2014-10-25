@@ -28,6 +28,6 @@ defmodule Tentacat.Mixfile do
   defp package do
     [ contributors: ["Eduardo Gurgel Pinho", "Jamie Winsor"],
       licenses: ["MIT"],
-      links: [ { "Github", "https://github.com/edgurgel/tentacat" } ] ]
+      links: %{ "Github" => "https://github.com/edgurgel/tentacat" } ]
   end
 end
