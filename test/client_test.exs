@@ -5,10 +5,10 @@ defmodule Tentacat.ClientTest do
   doctest Tentacat
 
   setup_all do
-    :meck.new(JSEX, [:no_link])
+    :meck.new(JSX, [:no_link])
 
     on_exit fn ->
-      :meck.unload JSEX
+      :meck.unload JSX
     end
   end
 
@@ -21,19 +21,19 @@ defmodule Tentacat.ClientTest do
   end
 
   test "process response on a 200 response" do
-    :meck.expect(JSEX, :decode!, 1, :decoded_json)
+    :meck.expect(JSX, :decode!, 1, :decoded_json)
     assert process_response(%HTTPoison.Response{ status_code: 200,
                                                  headers: %{},
                                                  body: "json" }) == :decoded_json
-    assert :meck.validate(JSEX)
+    assert :meck.validate(JSX)
   end
 
   test "process response on a non-200 response" do
-    :meck.expect(JSEX, :decode!, 1, :decoded_json)
+    :meck.expect(JSX, :decode!, 1, :decoded_json)
     assert process_response(%HTTPoison.Response{ status_code: 404,
                                                  headers: %{},
                                                  body: "json" }) == {404, :decoded_json}
-    assert :meck.validate(JSEX)
+    assert :meck.validate(JSX)
   end
 
   test "process response on a non-200 response and empty body" do

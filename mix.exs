@@ -16,12 +16,12 @@ defmodule Tentacat.Mixfile do
   end
 
   def application do
-    [ applications: [ :httpoison, :jsex ] ]
+    [ applications: [ :httpoison, :exjsx ] ]
   end
 
   defp deps do
    [ { :httpoison, "~> 0.5.0" },
-     { :jsex, "~> 2.0" },
+     { :exjsx, "~> 3.0" },
      { :meck, "~> 0.8.2", only: :test } ]
   end
 
