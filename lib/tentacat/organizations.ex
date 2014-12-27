@@ -28,7 +28,7 @@ defmodule Tentacat.Organizations do
   """
   @spec list_mine(Client.t) :: Tentacat.response
   def list_mine(client) do
-    get "users/orgs", client.auth
+    get "user/orgs", client.auth
   end
 
   @doc """
