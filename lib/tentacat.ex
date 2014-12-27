@@ -40,6 +40,10 @@ defmodule Tentacat do
     _request(:patch, url, auth, body)
   end
 
+  def put(url, auth \\ nil, body \\ "") do
+    _request(:put, url, auth, body)
+  end
+
   def get(url, auth \\ nil, params \\ []) do
     url = <<url :: binary, build_qs(params) :: binary>>
     _request(:get, url, auth)
