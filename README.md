@@ -9,6 +9,12 @@ Tentacool + Cat = Tentacat
 ## Features
 
 * Gitignore
+* Contents
+* Trees
+* Pulls
+  * Comments
+  * Commits
+  * Files
 * Organizations
   * Members
 * Users
@@ -16,6 +22,8 @@ Tentacool + Cat = Tentacat
   * Keys
 * Repositories
   * Webhooks
+  * Branches
+  * Statuses
 
 Documentation can be found [here](http://edgurgel.github.io/tentacat/)
 
