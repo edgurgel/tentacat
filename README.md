@@ -24,6 +24,7 @@ Tentacool + Cat = Tentacat
   * Webhooks
   * Branches
   * Statuses
+  * Deployments
 
 Documentation can be found [here](http://edgurgel.github.io/tentacat/)
 
