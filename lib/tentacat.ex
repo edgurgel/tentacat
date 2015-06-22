@@ -7,6 +7,9 @@ defmodule Tentacat do
     @type auth :: %{user: binary, password: binary} | %{access_token: binary}
     @type t :: %__MODULE__{auth: auth, endpoint: binary}
 
+    @spec new() :: t
+    def new(), do: %__MODULE__{}
+
     @spec new(auth) :: t
     def new(auth),  do: %__MODULE__{auth: auth}
 
