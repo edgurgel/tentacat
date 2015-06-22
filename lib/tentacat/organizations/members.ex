@@ -14,7 +14,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec list(binary, Client.t) :: Tentacat.response
   def list(organization, client \\ %Client{}) do
-    get "orgs/#{organization}/members", client.auth
+    get "orgs/#{organization}/members", client
   end
 
   @doc """
@@ -31,7 +31,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec member?(binary, binary, Client.t) :: Tentacat.response
   def member?(organization, user, client \\ %Client{}) do
-    get "orgs/#{organization}/members/#{user}", client.auth
+    get "orgs/#{organization}/members/#{user}", client
   end
 
   @doc """
@@ -45,7 +45,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec remove(binary, binary, Client.t) :: Tentacat.response
   def remove(organization, user, client) do
-    delete "orgs/#{organization}/members/#{user}", client.auth
+    delete "orgs/#{organization}/members/#{user}", client
   end
 
   @doc """
@@ -60,7 +60,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec public_list(binary, Client.t) :: Tentacat.response
   def public_list(organization, client \\ %Client{}) do
-    get "orgs/#{organization}/public_members", client.auth
+    get "orgs/#{organization}/public_members", client
   end
 
   @doc """
@@ -77,7 +77,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec public_member?(binary, binary, Client.t) :: Tentacat.response
   def public_member?(organization, user, client \\ %Client{}) do
-    get "orgs/#{organization}/public_members/#{user}", client.auth
+    get "orgs/#{organization}/public_members/#{user}", client
   end
 
   @doc """
@@ -91,7 +91,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec publicize(binary, binary, Client.t) :: Tentacat.response
   def publicize(organization, user, client) do
-    put "orgs/#{organization}/public_members/#{user}", client.auth
+    put "orgs/#{organization}/public_members/#{user}", client
   end
 
   @doc """
@@ -105,7 +105,7 @@ defmodule Tentacat.Organizations.Members do
   """
   @spec conceal(binary, binary, Client.t) :: Tentacat.response
   def conceal(organization, user, client) do
-    delete "orgs/#{organization}/public_members/#{user}", client.auth
+    delete "orgs/#{organization}/public_members/#{user}", client
   end
 
 end

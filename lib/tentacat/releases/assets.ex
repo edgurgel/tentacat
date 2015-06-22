@@ -19,7 +19,7 @@ defmodule Tentacat.Releases.Assets do
   """
   @spec list(integer, binary, binary, Client.t) :: Tentacat.response
   def list(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    get "repos/#{owner}/#{repo}/releases/#{id}/assets", client.auth
+    get "repos/#{owner}/#{repo}/releases/#{id}/assets", client
   end
 
   @doc """
@@ -33,7 +33,7 @@ defmodule Tentacat.Releases.Assets do
   """
   @spec find(integer, binary, binary, Client.t) :: Tentacat.response
   def find(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    get "repos/#{owner}/#{repo}/releases/assets/#{id}", client.auth
+    get "repos/#{owner}/#{repo}/releases/assets/#{id}", client
   end
 
   @doc """
@@ -52,7 +52,7 @@ defmodule Tentacat.Releases.Assets do
   @spec edit(binary, integer, binary, binary, Client.t, list) :: Tentacat.response
   def edit(name, id, owner, repo, client \\ %Client{}, options \\ []) when is_integer(id) do
     body = Dict.merge(options, name: name)
-    patch "repos/#{owner}/#{repo}/releases/assets/#{id}", client.auth, body
+    patch "repos/#{owner}/#{repo}/releases/assets/#{id}", client, body
   end
 
   @doc """
@@ -66,7 +66,7 @@ defmodule Tentacat.Releases.Assets do
   """
   @spec delete(integer, binary, binary, Client.t) :: Tentacat.response
   def delete(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    delete "repos/#{owner}/#{repo}/releases/assets/#{id}", client.auth
+    delete "repos/#{owner}/#{repo}/releases/assets/#{id}", client
   end
 
   #

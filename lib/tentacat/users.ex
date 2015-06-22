@@ -14,7 +14,7 @@ defmodule Tentacat.Users do
   """
   @spec find(binary, Client.t) :: Tentacat.response
   def find(user, client \\ %Client{}) do
-    get "users/#{user}", client.auth
+    get "users/#{user}", client
   end
 
   @doc """
@@ -28,7 +28,7 @@ defmodule Tentacat.Users do
   """
   @spec me(Client.t) :: Tentacat.response
   def me(client) do
-    get "user", client.auth
+    get "user", client
   end
 
   @doc """
@@ -43,7 +43,7 @@ defmodule Tentacat.Users do
   """
   @spec list(Client.t) :: Tentacat.response
   def list(client \\ %Client{}) do
-    get "users", client.auth
+    get "users", client
   end
 
   @doc """
@@ -58,7 +58,7 @@ defmodule Tentacat.Users do
   """
   @spec list_since(integer, Client.t) :: Tentacat.response
   def list_since(since, client \\ %Client{}) do
-    get "users", client.auth, [since: since]
+    get "users", client, [since: since]
   end
 
   @doc """
@@ -82,6 +82,6 @@ defmodule Tentacat.Users do
   """
   @spec update(Keyword.t, Client.t) :: Tentacat.response
   def update(options, client) do
-    patch "user", client.auth, options
+    patch "user", client, options
   end
 end

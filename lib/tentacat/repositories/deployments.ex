@@ -14,7 +14,7 @@ defmodule Tentacat.Repositories.Deployments do
   """
   @spec list(binary, binary, Client.t) :: Tentacat.response
   def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/deployments", client.auth
+    get "repos/#{owner}/#{repo}/deployments", client
   end
 
   @doc """
@@ -37,7 +37,7 @@ defmodule Tentacat.Repositories.Deployments do
   """
   @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
   def create(owner, repo, body, client ) do
-    post "repos/#{owner}/#{repo}/deployments", client.auth, body
+    post "repos/#{owner}/#{repo}/deployments", client, body
   end
 
   @doc """
@@ -52,7 +52,7 @@ defmodule Tentacat.Repositories.Deployments do
   """
   @spec list_statuses(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def list_statuses(owner, repo, id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/deployments/#{id}/statuses", client.auth
+    get "repos/#{owner}/#{repo}/deployments/#{id}/statuses", client
   end
 
   @doc """
@@ -75,6 +75,6 @@ defmodule Tentacat.Repositories.Deployments do
   """
   @spec create_status(binary, binary, binary, list | map, Client.t) :: Tentacat.response
   def create_status(owner, repo, id, body, client) do
-    post "repos/#{owner}/#{repo}/deployments/#{id}/statuses", client.auth, body
+    post "repos/#{owner}/#{repo}/deployments/#{id}/statuses", client, body
   end
 end

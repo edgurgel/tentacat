@@ -13,7 +13,7 @@ defmodule Tentacat.Users.Followers do
   """
   @spec following(Client.t) :: Tentacat.response
   def following(client) do
-    get "user/following", client.auth
+    get "user/following", client
   end
 
   @doc """
@@ -26,7 +26,7 @@ defmodule Tentacat.Users.Followers do
   More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
   """
   def following(user_name, client) do
-    get "users/#{user_name}/following", client.auth
+    get "users/#{user_name}/following", client
   end
 
   @doc """
@@ -40,7 +40,7 @@ defmodule Tentacat.Users.Followers do
   """
   @spec followers(Client.t) :: Tentacat.response
   def followers(client) do
-    get "user/followers", client.auth
+    get "user/followers", client
   end
 
   @doc """
@@ -53,7 +53,7 @@ defmodule Tentacat.Users.Followers do
   More info at: http://developer.github.com/v3/users/followers/#list-followers-of-a-user
   """
   def followers(user_name, client) do
-    get "users/#{user_name}/followers", client.auth
+    get "users/#{user_name}/followers", client
   end
 
   @doc """
@@ -83,7 +83,7 @@ defmodule Tentacat.Users.Followers do
   end
 
   defp following_check(following_api_url, client) do
-    case get following_api_url, client.auth do
+    case get following_api_url, client do
       { 204, _ } -> true
       { 404, _ } -> false
       unexpected_response -> unexpected_response
@@ -100,7 +100,7 @@ defmodule Tentacat.Users.Followers do
   More info at: https://developer.github.com/v3/users/followers/#follow-a-user
   """
   def follow(target_user, client) do
-    follow_response put "user/following/#{target_user}", client.auth
+    follow_response put "user/following/#{target_user}", client
   end
 
   @doc """
@@ -113,7 +113,7 @@ defmodule Tentacat.Users.Followers do
   More info at: https://developer.github.com/v3/users/followers/#unfollow-a-user
   """
   def unfollow(target_user, client) do
-    follow_response delete "user/following/#{target_user}", client.auth
+    follow_response delete "user/following/#{target_user}", client
   end
 
   defp follow_response(response) do

@@ -13,7 +13,7 @@ defmodule Tentacat.Users.Emails do
   """
   @spec list(Client.t) :: Tentacat.response
   def list(client) do
-    get "user/emails", client.auth
+    get "user/emails", client
   end
 
   @doc """
@@ -27,7 +27,7 @@ defmodule Tentacat.Users.Emails do
   """
   @spec create([binary], Client.t) :: Tentacat.response
   def create(emails, client) do
-    post "user/emails", client.auth, emails
+    post "user/emails", client, emails
   end
 
   @doc """
@@ -41,6 +41,6 @@ defmodule Tentacat.Users.Emails do
   """
   @spec remove([binary], Client.t) :: Tentacat.response
   def remove(emails, client) do
-    delete "user/emails", client.auth, emails
+    delete "user/emails", client, emails
   end
 end

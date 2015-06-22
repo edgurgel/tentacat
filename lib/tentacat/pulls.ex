@@ -14,7 +14,7 @@ defmodule Tentacat.Pulls do
   """
   @spec list(binary, binary, Client.t) :: Tentacat.response
   def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls", client.auth
+    get "repos/#{owner}/#{repo}/pulls", client
   end
 
   @doc """
@@ -29,7 +29,7 @@ defmodule Tentacat.Pulls do
   """
   @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def find(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}", client.auth
+    get "repos/#{owner}/#{repo}/pulls/#{number}", client
   end
 
   @doc """
@@ -60,7 +60,7 @@ defmodule Tentacat.Pulls do
   """
   @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
   def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/pulls", client.auth, body
+    post "repos/#{owner}/#{repo}/pulls", client, body
   end
 
   @doc """
@@ -82,6 +82,6 @@ defmodule Tentacat.Pulls do
   """
   @spec update(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
   def update(owner, repo, number, body, client) do
-    patch "repos/#{owner}/#{repo}/pulls/#{number}", client.auth, body
+    patch "repos/#{owner}/#{repo}/pulls/#{number}", client, body
   end
 end

@@ -14,7 +14,7 @@ defmodule Tentacat.Organizations do
   """
   @spec list(binary, Client.t) :: Tentacat.response
   def list(user, client \\ %Client{}) do
-    get "users/#{user}/orgs", client.auth
+    get "users/#{user}/orgs", client
   end
 
   @doc """
@@ -28,7 +28,7 @@ defmodule Tentacat.Organizations do
   """
   @spec list_mine(Client.t) :: Tentacat.response
   def list_mine(client) do
-    get "user/orgs", client.auth
+    get "user/orgs", client
   end
 
   @doc """
@@ -43,7 +43,7 @@ defmodule Tentacat.Organizations do
   """
   @spec find(binary, Client.t) :: Tentacat.response
   def find(org, client \\ %Client{}) do
-    get "orgs/#{org}", client.auth
+    get "orgs/#{org}", client
   end
 
   @doc """
@@ -65,6 +65,6 @@ defmodule Tentacat.Organizations do
   """
   @spec update(binary, list, Client.t) :: Tentacat.response
   def update(org, options, client) do
-    patch "orgs/#{org}", client.auth, options
+    patch "orgs/#{org}", client, options
   end
 end

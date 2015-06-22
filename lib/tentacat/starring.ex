@@ -13,7 +13,7 @@ defmodule Tentacat.Users.Starring do
   """
   @spec starred(Client.t) :: Tentacat.response
   def starred(client) do
-    get "user/starred", client.auth
+    get "user/starred", client
   end
 
   @doc """
@@ -27,6 +27,6 @@ defmodule Tentacat.Users.Starring do
   """
   @spec starred(binary, Client.t) :: Tentacat.response
   def starred(user_name, client) do
-    get "users/#{user_name}/starred", client.auth
+    get "users/#{user_name}/starred", client
   end
 end

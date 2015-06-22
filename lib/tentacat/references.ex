@@ -14,7 +14,7 @@ defmodule Tentacat.References do
   """
   @spec list(binary, binary, Client.t) :: Tentacat.response
   def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/git/refs", client.auth
+    get "repos/#{owner}/#{repo}/git/refs", client
   end
 
   @doc """
@@ -29,7 +29,7 @@ defmodule Tentacat.References do
   """
   @spec find(binary, binary, binary, Client.t) :: Tentacat.response
   def find(owner, repo, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/git/refs/#{ref}", client.auth
+    get "repos/#{owner}/#{repo}/git/refs/#{ref}", client
   end
 
   @doc """
@@ -50,7 +50,7 @@ defmodule Tentacat.References do
   """
   @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
   def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/git/refs", client.auth, body
+    post "repos/#{owner}/#{repo}/git/refs", client, body
   end
 
   @doc """
@@ -71,7 +71,7 @@ defmodule Tentacat.References do
   """
   @spec update(binary, binary, binary, list | map, Client.t) :: Tentacat.response
   def update(owner, repo, ref, body, client) do
-    patch "repos/#{owner}/#{repo}/git/refs/#{ref}", client.auth, body
+    patch "repos/#{owner}/#{repo}/git/refs/#{ref}", client, body
   end
 
   @doc """
@@ -86,6 +86,6 @@ defmodule Tentacat.References do
   """
   @spec remove(binary, binary, binary, Client.t) :: Tentacat.response
   def remove(owner, repo, ref, client) do
-    delete "repos/#{owner}/#{repo}/git/refs/#{ref}", client.auth
+    delete "repos/#{owner}/#{repo}/git/refs/#{ref}", client
   end
 end
