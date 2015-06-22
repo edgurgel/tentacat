@@ -17,7 +17,7 @@ defmodule Tentacat.Repositories do
   """
   @spec list_mine(Client.t) :: Tentacat.response
   def list_mine(client) do
-    get "user/repos", client.auth
+    get "user/repos", client
   end
 
   @doc """
@@ -31,7 +31,7 @@ defmodule Tentacat.Repositories do
   """
   @spec list_users(binary, Client.t) :: Tentacat.response
   def list_users(owner, client \\ %Client{}) do
-    get "users/#{owner}/repos", client.auth
+    get "users/#{owner}/repos", client
   end
 
   @doc """
@@ -45,7 +45,7 @@ defmodule Tentacat.Repositories do
   """
   @spec list_orgs(binary, Client.t) :: Tentacat.response
   def list_orgs(org, client \\ %Client{}) do
-    get "orgs/#{org}/repos", client.auth
+    get "orgs/#{org}/repos", client
   end
 
 

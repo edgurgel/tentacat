@@ -14,6 +14,6 @@ defmodule Tentacat.Pulls.Files do
   """
   @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def list(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}/files", client.auth
+    get "repos/#{owner}/#{repo}/pulls/#{number}/files", client
   end
 end

@@ -14,7 +14,7 @@ defmodule Tentacat.Gitignore do
   """
   @spec templates(Client.t) :: Tentacat.response
   def templates(client \\ %Client{}) do
-    get "gitignore/templates", client.auth
+    get "gitignore/templates", client
   end
 
   @doc """
@@ -30,7 +30,7 @@ defmodule Tentacat.Gitignore do
   # FIXME We should support raw data type too
   @spec template(binary, Client.t) :: Tentacat.response
   def template(name, client \\ %Client{}) do
-    get "gitignore/templates/#{name}", client.auth
+    get "gitignore/templates/#{name}", client
   end
 end
 

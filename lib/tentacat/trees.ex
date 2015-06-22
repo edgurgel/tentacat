@@ -14,7 +14,7 @@ defmodule Tentacat.Trees do
   """
   @spec find(binary, binary, binary, Client.t) :: Tentacat.response
   def find(owner, repo, sha, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/git/trees/#{sha}", client.auth
+    get "repos/#{owner}/#{repo}/git/trees/#{sha}", client
   end
 
   @doc """
@@ -29,7 +29,7 @@ defmodule Tentacat.Trees do
   """
   @spec find_recursive(binary, binary, binary, Client.t) :: Tentacat.response
   def find_recursive(owner, repo, sha, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/git/trees/#{sha}", client.auth, [{:recursive, 1}]
+    get "repos/#{owner}/#{repo}/git/trees/#{sha}", client, [{:recursive, 1}]
   end
 
   @doc """
@@ -57,6 +57,6 @@ defmodule Tentacat.Trees do
   """
   @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
   def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/git/trees", client.auth, body
+    post "repos/#{owner}/#{repo}/git/trees", client, body
   end
 end

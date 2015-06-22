@@ -16,7 +16,7 @@ defmodule Tentacat.Hooks do
   """
   @spec list(binary, binary, Client.t) :: Tentacat.response
   def list(owner, repo, client) do
-    get "repos/#{owner}/#{repo}/hooks", client.auth
+    get "repos/#{owner}/#{repo}/hooks", client
   end
 
   @doc """
@@ -30,7 +30,7 @@ defmodule Tentacat.Hooks do
   """
   @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def find(owner, repo, hook_id, client) do
-    get "repos/#{owner}/#{repo}/hooks/#{hook_id}", client.auth
+    get "repos/#{owner}/#{repo}/hooks/#{hook_id}", client
   end
 
   @doc """
@@ -44,7 +44,7 @@ defmodule Tentacat.Hooks do
   """
   @spec create(binary, binary, list, Client.t) :: Tentacat.response
   def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/hooks", client.auth, body
+    post "repos/#{owner}/#{repo}/hooks", client, body
   end
 
   @doc """
@@ -57,7 +57,7 @@ defmodule Tentacat.Hooks do
   """
   @spec update(binary, binary, binary | integer, list, Client.t) :: Tentacat.response
   def update(owner, repo, hook_id, body, client) do
-    patch "repos/#{owner}/#{repo}/hooks/#{hook_id}", client.auth, body
+    patch "repos/#{owner}/#{repo}/hooks/#{hook_id}", client, body
   end
 
   @doc """
@@ -72,7 +72,7 @@ defmodule Tentacat.Hooks do
   """
   @spec test(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def test(owner, repo, hook_id, client) do
-    post "repos/#{owner}/#{repo}/hooks/#{hook_id}/test", client.auth, ""
+    post "repos/#{owner}/#{repo}/hooks/#{hook_id}/test", client, ""
   end
 
   @doc """
@@ -86,7 +86,7 @@ defmodule Tentacat.Hooks do
   """
   @spec remove(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def remove(owner, repo, hook_id, client) do
-    delete "repos/#{owner}/#{repo}/hooks/#{hook_id}", client.auth
+    delete "repos/#{owner}/#{repo}/hooks/#{hook_id}", client
   end
 
 end

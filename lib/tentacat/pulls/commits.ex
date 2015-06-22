@@ -14,6 +14,6 @@ defmodule Tentacat.Pulls.Commits do
   """
   @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def list(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}/commits", client.auth
+    get "repos/#{owner}/#{repo}/pulls/#{number}/commits", client
   end
 end

@@ -14,7 +14,7 @@ defmodule Tentacat.Repositories.Branches do
   """
   @spec list(binary, binary, Client.t) :: Tentacat.response
   def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/branches", client.auth
+    get "repos/#{owner}/#{repo}/branches", client
   end
 
   @doc """
@@ -29,6 +29,6 @@ defmodule Tentacat.Repositories.Branches do
   """
   @spec find(binary, binary, binary, Client.t) :: Tentacat.response
   def find(owner, repo, branch, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/branches/#{branch}", client.auth
+    get "repos/#{owner}/#{repo}/branches/#{branch}", client
   end
 end

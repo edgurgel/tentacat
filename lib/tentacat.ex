@@ -2,19 +2,15 @@ defmodule Tentacat do
   use HTTPoison.Base
 
   defmodule Client do
-    defstruct auth: nil
+    defstruct auth: nil, endpoint: "https://api.github.com/"
 
     @type auth :: %{user: binary, password: binary} | %{access_token: binary}
-    @type t :: %__MODULE__{auth: auth}
+    @type t :: %__MODULE__{auth: auth, endpoint: binary}
   end
 
   @user_agent [{"User-agent", "tentacat"}]
 
   @type response :: {integer, any} | :jsx.json_term
-
-  def process_url(url) do
-    "https://api.github.com/" <> url
-  end
 
   @spec process_response(HTTPoison.Response.t) :: response
   def process_response(response) do
@@ -28,25 +24,26 @@ defmodule Tentacat do
     else: {status_code, response}
   end
 
-  def delete(url, auth \\ nil, body \\ "") do
-    _request(:delete, url, auth, body)
+  def delete(path, client, body \\ "") do
+    _request(:delete, url(client, path), client.auth, body)
   end
 
-  def post(url, auth \\ nil, body \\ "") do
-    _request(:post, url, auth, body)
+  def post(path, client, body \\ "") do
+    _request(:post, url(client, path), client.auth, body)
   end
 
-  def patch(url, auth \\ nil, body \\ "") do
-    _request(:patch, url, auth, body)
+  def patch(path, client, body \\ "") do
+    _request(:patch, url(client, path), client.auth, body)
   end
 
-  def put(url, auth \\ nil, body \\ "") do
-    _request(:put, url, auth, body)
+  def put(path, client, body \\ "") do
+    _request(:put, url(client, path), client.auth, body)
   end
 
-  def get(url, auth \\ nil, params \\ []) do
+  def get(path, client, params \\ []) do
+    url = url(client, path)
     url = <<url :: binary, build_qs(params) :: binary>>
-    _request(:get, url, auth)
+    _request(:get, url, client.auth)
   end
 
   def _request(method, url, auth, body \\ "") do
@@ -59,6 +56,11 @@ defmodule Tentacat do
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
     request!(method, url, body, headers, options) |> process_response
+  end
+
+  @spec url(client :: Client.t, path :: binary) :: binary
+  defp url(client = %Client{endpoint: endpoint}, path) do
+    endpoint <> path
   end
 
   @spec build_qs([{atom, binary}]) :: binary

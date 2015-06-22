@@ -14,7 +14,7 @@ defmodule Tentacat.Contents do
   """
   @spec find(binary, binary, binary, Client.t) :: Tentacat.response
   def find(owner, repo, path, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/contents/#{path}", client.auth
+    get "repos/#{owner}/#{repo}/contents/#{path}", client
   end
 
   @doc """
@@ -29,7 +29,7 @@ defmodule Tentacat.Contents do
   """
   @spec find_in(binary, binary, binary, binary, Client.t) :: Tentacat.response
   def find_in(owner, repo, path, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/contents/#{path}", client.auth, [{:ref, ref}]
+    get "repos/#{owner}/#{repo}/contents/#{path}", client, [{:ref, ref}]
   end
 
   @doc """
@@ -55,7 +55,7 @@ defmodule Tentacat.Contents do
   """
   @spec create(binary, binary, binary, list | map, Client.t) :: Tentacat.response
   def create(owner, repo, path, body, client) do
-    put "repos/#{owner}/#{repo}/contents/#{path}", client.auth, body
+    put "repos/#{owner}/#{repo}/contents/#{path}", client, body
   end
 
   @doc """
@@ -82,7 +82,7 @@ defmodule Tentacat.Contents do
   """
   @spec update(binary, binary, binary, list | map, Client.t) :: Tentacat.response
   def update(owner, repo, path, body, client) do
-    put "repos/#{owner}/#{repo}/contents/#{path}", client.auth, body
+    put "repos/#{owner}/#{repo}/contents/#{path}", client, body
   end
 
   @doc """
@@ -108,6 +108,6 @@ defmodule Tentacat.Contents do
   """
   @spec remove(binary, binary, binary, list | map, Client.t) :: Tentacat.response
   def remove(owner, repo, path, body, client) do
-    delete "repos/#{owner}/#{repo}/contents/#{path}", client.auth, body
+    delete "repos/#{owner}/#{repo}/contents/#{path}", client, body
   end
 end

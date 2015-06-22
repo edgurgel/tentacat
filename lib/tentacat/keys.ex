@@ -14,7 +14,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec list(binary, Client.t) :: Tentacat.response
   def list(user, client \\ %Client{}) do
-    get "users/#{user}/keys", client.auth
+    get "users/#{user}/keys", client
   end
 
   @doc """
@@ -28,7 +28,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec list_mine(Client.t) :: Tentacat.response
   def list_mine(client) do
-    get "user/keys", client.auth
+    get "user/keys", client
   end
 
   @doc """
@@ -42,7 +42,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec find(integer, Client.t) :: Tentacat.response
   def find(id, client) do
-    get "user/keys/#{id}", client.auth
+    get "user/keys/#{id}", client
   end
 
   @doc """
@@ -56,7 +56,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec create(binary, binary, Client.t) :: Tentacat.response
   def create(title, key, client) do
-    post "user/keys", client.auth, [title: title, key: key]
+    post "user/keys", client, [title: title, key: key]
   end
 
   @doc """
@@ -70,7 +70,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec update(integer, binary, binary, Client.t) :: Tentacat.response
   def update(id, title, key, client) do
-    patch "user/keys/#{id}", client.auth, [title: title, key: key]
+    patch "user/keys/#{id}", client, [title: title, key: key]
   end
 
   @doc """
@@ -84,6 +84,6 @@ defmodule Tentacat.Users.Keys do
   """
   @spec remove(integer, Client.t) :: any
   def remove(id, client) do
-    delete "user/keys/#{id}", client.auth
+    delete "user/keys/#{id}", client
   end
 end
