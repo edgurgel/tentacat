@@ -20,6 +20,22 @@ defmodule Tentacat.ClientTest do
     assert authorization_header(%{access_token: "9820103"}, []) == [{"Authorization", "token 9820103"}]
   end
 
+  test "default endpoint" do
+    client = Tentacat.Client.new(%{})
+    assert client.endpoint == "https://api.github.com/"
+  end
+
+  test "custom endpoint" do
+    expected = "https://ghe.foo.com/api/v3/"
+
+    client = Tentacat.Client.new(%{}, "https://ghe.foo.com/api/v3/")
+    assert client.endpoint == expected
+
+    # when tailing '/' is missing
+    client = Tentacat.Client.new(%{}, "https://ghe.foo.com/api/v3")
+    assert client.endpoint == expected
+  end
+
   test "process response on a 200 response" do
     :meck.expect(JSX, :decode!, 1, :decoded_json)
     assert process_response(%HTTPoison.Response{ status_code: 200,
