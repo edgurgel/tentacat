@@ -17,6 +17,21 @@ defmodule Tentacat.Pulls do
     get "repos/#{owner}/#{repo}/pulls", client
   end
 
+@doc """
+  Filter pull requests
+
+  ## Example
+
+      Tentacat.Pulls.list "elixir-lang", "elixir", %{state: "open"}
+      Tentacat.Pulls.list "elixir-lang", "elixir", %{state: "open"}, client
+
+  More info at: https://developer.github.com/v3/pulls/#parameters
+  """
+  @spec filter(binary, binary, map, Client.t) :: Tentacat.response
+  def filter(owner, repo, filters, client \\ %Client{}) do
+    get "repos/#{owner}/#{repo}/pulls?#{URI.encode_query(filters)}", client
+  end
+
   @doc """
   Get a single pull request
 
