@@ -89,7 +89,7 @@ defmodule Tentacat do
   end
 
   defp build_non_encoded_pair({key, value}) do
-    to_string(key) <> "=" <> value
+    to_string(key) <> "=" <> to_string(value)
   end
 
   @spec build_qs([{atom, binary}]) :: binary
