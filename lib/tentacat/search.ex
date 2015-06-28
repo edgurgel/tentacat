@@ -10,28 +10,13 @@ defmodule Tentacat.Search do
 
   ## Example
 
-      Tentacat.Search.code "language:elixir"
-      Tentacat.Search.code "language:elixir", client
+      Tentacat.Search.code %{q: "language:elixir"}
+      Tentacat.Search.code %{q: "language:elixir"}, client
 
   More info at: https://developer.github.com/v3/search/#search-code
   """
-  @spec list(binary, Client.t) :: Tentacat.response
-  def code(q, client \\ %Client{}) do
-    get "search/code?q=#{q}", client
-  end
-
-  @doc """
-  Search in code files sorted by a custom identifier and a specified order
-
-  ## Example
-
-      Tentacat.Search.code "language:elixir", "indexed", "asc"
-      Tentacat.Search.code "language:elixir", "indexed", "asc", client
-
-  More info at: https://developer.github.com/v3/search/#search-code
-  """
-  @spec list(binary, binary, binary, Client.t) :: Tentacat.response
-  def code(q, sort, order, client \\ %Client{}) do
-    get "search/code?q=#{q}&sort=#{sort}&order=#{order}", client
+  # @spec list(binary, Client.t) :: Tentacat.response
+  def code(params, client \\ %Client{}) do
+    get "search/code", client, params, false
   end
 end

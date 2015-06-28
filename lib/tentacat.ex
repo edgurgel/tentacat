@@ -56,9 +56,9 @@ defmodule Tentacat do
     _request(:put, url(client, path), client.auth, body)
   end
 
-  def get(path, client, params \\ []) do
+  def get(path, client, params \\ [], encode \\ true) do
     url = url(client, path)
-    url = <<url :: binary, build_qs(params) :: binary>>
+    url = add_params_to_url(url, params, encode)
     _request(:get, url, client.auth)
   end
 
@@ -77,6 +77,19 @@ defmodule Tentacat do
   @spec url(client :: Client.t, path :: binary) :: binary
   defp url(client = %Client{endpoint: endpoint}, path) do
     endpoint <> path
+  end
+
+  defp add_params_to_url(url, params, true) do
+    <<url :: binary, build_qs(params) :: binary>>
+  end
+
+  defp add_params_to_url(url, params, false) do
+    params = "?" <> Enum.map_join(params, "&", &build_non_encoded_pair/1)
+    <<url :: binary, params :: binary>>
+  end
+
+  defp build_non_encoded_pair({key, value}) do
+    to_string(key) <> "=" <> value
   end
 
   @spec build_qs([{atom, binary}]) :: binary
