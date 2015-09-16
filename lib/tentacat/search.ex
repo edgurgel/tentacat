@@ -10,13 +10,13 @@ defmodule Tentacat.Search do
 
   ## Example
 
-      Tentacat.Search.code %{q: "language:elixir"}
-      Tentacat.Search.code %{q: "language:elixir"}, client
+      Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}
+      Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}, client
 
   More info at: https://developer.github.com/v3/search/#search-code
   """
   # @spec list(binary, Client.t) :: Tentacat.response
   def code(params, client \\ %Client{}) do
-    get "search/code", client, params, false
+    get "search/code", client, params
   end
 end
