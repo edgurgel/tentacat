@@ -26,7 +26,7 @@ Tentacool + Cat = Tentacat
   * Statuses
   * Deployments
 
-Documentation can be found [here](hexdocs.pm/tentacat)
+Documentation can be found [here](https://hexdocs.pm/tentacat)
 
 ## Quickstart
 
