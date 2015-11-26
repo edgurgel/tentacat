@@ -58,7 +58,7 @@ Now you can run the examples!
 
 ## Examples
 
-Every call to GitHub need a client, but if you want to use unauthenticated requests we will provide it for you. Keep in mind that GitHub have different rate-limits if you authenticate or not.
+Every call to GitHub needs a client, but if you want to use unauthenticated requests we will provide an unauthenticated client for you. Keep in mind that GitHub has different [rate-limits](https://developer.github.com/v3/#rate-limiting) if you authenticate or not.
 
 Getting info from a user using a client
 
