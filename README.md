@@ -30,6 +30,14 @@ Documentation can be found [here](https://hexdocs.pm/tentacat)
 
 ## Quickstart
 
+First, add Tentacat to your `mix.exs` dependencies:
+
+```elixir
+def deps do
+  [{:tentacat, "~> 0.2"}]
+end
+```
+
 Fetching dependencies and running on elixir console:
 
 ```console
