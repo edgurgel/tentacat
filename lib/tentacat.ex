@@ -9,7 +9,6 @@ defmodule Tentacat do
   @spec process_response(HTTPoison.Response.t) :: response
   def process_response(response) do
     status_code = response.status_code
-    headers = response.headers
     body = response.body
     response = unless body == "", do: body |> JSX.decode!,
     else: nil
@@ -53,7 +52,7 @@ defmodule Tentacat do
   end
 
   @spec url(client :: Client.t, path :: binary) :: binary
-  defp url(client = %Client{endpoint: endpoint}, path) do
+  defp url(_client = %Client{endpoint: endpoint}, path) do
     endpoint <> path
   end
 

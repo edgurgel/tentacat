@@ -2,8 +2,6 @@ defmodule Tentacat.Releases.Assets do
   import Tentacat
   alias Tentacat.Client
 
-  @upload_url "https:\\uploads.github.com/"
-
   #
   # Public API
   #
@@ -69,15 +67,4 @@ defmodule Tentacat.Releases.Assets do
     delete "repos/#{owner}/#{repo}/releases/assets/#{id}", client
   end
 
-  #
-  # Private
-  #
-
-  defp upload_url(url), do: @upload_url <> url
-
-  defp upload_header(headers, [content_type: content_type]) do
-    headers ++ [{"Content-Type", content_type}]
-  end
-
-  defp upload_header(headers, _), do: headers
 end
