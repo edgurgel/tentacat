@@ -12,6 +12,8 @@ defmodule Tentacat.Mixfile do
       name: "Tentacat",
       description: @description,
       package: package,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test],
       deps: deps ]
   end
 
@@ -24,6 +26,7 @@ defmodule Tentacat.Mixfile do
      { :exjsx, "~> 3.0" },
      {:earmark, "~> 0.1.17", only: :docs},
      {:ex_doc, "~> 0.8.0", only: :docs},
+     {:excoveralls, "~> 0.4", only: :test},
      { :meck, "~> 0.8.2", only: :test } ]
   end
 
