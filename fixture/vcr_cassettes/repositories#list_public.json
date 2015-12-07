@@ -1,0 +1,44 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repositories"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 07 Dec 2015 22:22:17 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "402128",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "59",
+        "X-RateLimit-Reset": "1449530537",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "ETag": "\"13b68ab4955c9ac3ee82c54f3d6a0d8f\"",
+        "Vary": "Accept",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/repositories?since=367>; rel=\"next\", <https://api.github.com/repositories{?since}>; rel=\"first\"",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Served-By": "474556b853193c38f1b14328ce2d1b7d",
+        "X-GitHub-Request-Id": "5F5BD15F:1879B:8F33331:56660698"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

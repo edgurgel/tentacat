@@ -31,4 +31,38 @@ defmodule Tentacat.RepositoriesTest do
     end
   end
 
+  test "list_public/1" do
+    use_cassette "repositories#list_public" do
+      assert list_public == []
+    end
+  end
+
+  test "repo_get/3" do
+    use_cassette "repositories#repo_get" do
+      %{"name" => name} = repo_get("elixir-conspiracy", "pacman", @client)
+      assert name == "pacman"
+    end
+  end
+
+  test "create/3" do
+    use_cassette "repositories#create" do
+      {status, _response} = create("tentacat", @client, [private: false])
+      assert status == 201
+    end
+  end
+
+  test "org_create/4" do
+    use_cassette "repositories#org_create" do
+      {status, _response} = org_create("tentatest", "tentacat", @client, [private: false])
+      assert status == 201
+    end
+  end
+
+  test "delete/3" do
+    use_cassette "repositories#delete" do
+      {status, _response} = delete("soudqwiggle", "tentacat", @client)
+      assert status == 204
+    end
+  end
+
 end
