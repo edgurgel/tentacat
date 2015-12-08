@@ -22,11 +22,12 @@ defmodule Tentacat.Mixfile do
   end
 
   defp deps do
-   [ { :httpoison, "~> 0.7.3" },
+   [ { :httpoison, "~> 0.8" },
      { :exjsx, "~> 3.0" },
      {:earmark, "~> 0.1.17", only: :docs},
      {:ex_doc, "~> 0.8.0", only: :docs},
      {:excoveralls, "~> 0.4", only: :test},
+     {:exvcr, "~> 0.6", only: :test},
      { :meck, "~> 0.8.2", only: :test } ]
   end
 

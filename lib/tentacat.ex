@@ -1,28 +1,6 @@
 defmodule Tentacat do
   use HTTPoison.Base
-
-  defmodule Client do
-    defstruct auth: nil, endpoint: "https://api.github.com/"
-
-    @type auth :: %{user: binary, password: binary} | %{access_token: binary}
-    @type t :: %__MODULE__{auth: auth, endpoint: binary}
-
-    @spec new() :: t
-    def new(), do: %__MODULE__{}
-
-    @spec new(auth) :: t
-    def new(auth),  do: %__MODULE__{auth: auth}
-
-    @spec new(auth, binary) :: t
-    def new(auth, endpoint) do
-      endpoint = if String.ends_with?(endpoint, "/") do
-        endpoint
-      else
-        endpoint <> "/"
-      end
-      %__MODULE__{auth: auth, endpoint: endpoint}
-    end
-  end
+  alias Tentacat.Client
 
   @user_agent [{"User-agent", "tentacat"}]
 
@@ -31,7 +9,6 @@ defmodule Tentacat do
   @spec process_response(HTTPoison.Response.t) :: response
   def process_response(response) do
     status_code = response.status_code
-    headers = response.headers
     body = response.body
     response = unless body == "", do: body |> JSX.decode!,
     else: nil
@@ -75,7 +52,7 @@ defmodule Tentacat do
   end
 
   @spec url(client :: Client.t, path :: binary) :: binary
-  defp url(client = %Client{endpoint: endpoint}, path) do
+  defp url(_client = %Client{endpoint: endpoint}, path) do
     endpoint <> path
   end
 
