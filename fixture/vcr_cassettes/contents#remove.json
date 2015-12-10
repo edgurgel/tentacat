@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "{\"branch\":\"master\",\"committer\":{\"email\":\"soud@qwiggle.com\",\"name\":\"Soud Qwiggle\"},\"message\":\"remove readme\",\"sha\":\"c2fb5f1db1767d8f1435952f640ac8e385612482\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "delete",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/contents/README.md"
+    },
+    "response": {
+      "body": "{\"content\":null,\"commit\":{\"sha\":\"2ff6f7942773c268dc9ab0e11e9dffad402c1860\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits/2ff6f7942773c268dc9ab0e11e9dffad402c1860\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/commit/2ff6f7942773c268dc9ab0e11e9dffad402c1860\",\"author\":{\"name\":\"Soud Qwiggle\",\"email\":\"soud@qwiggle.com\",\"date\":\"2015-12-10T22:05:52Z\"},\"committer\":{\"name\":\"Soud Qwiggle\",\"email\":\"soud@qwiggle.com\",\"date\":\"2015-12-10T22:05:52Z\"},\"tree\":{\"sha\":\"4b825dc642cb6eb9a060e54bf8d69288fbee4904\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/trees/4b825dc642cb6eb9a060e54bf8d69288fbee4904\"},\"message\":\"remove readme\",\"parents\":[{\"sha\":\"bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/commit/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\"}]}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 10 Dec 2015 22:05:52 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "984",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4994",
+        "X-RateLimit-Reset": "1449785982",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"222a935a14c22887aa1cb451e3429305\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Served-By": "2d7a5e35115884240089368322196939",
+        "X-GitHub-Request-Id": "5F5BD13E:14B56:BB4F80:5669F73F"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
