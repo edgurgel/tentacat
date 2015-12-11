@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "delete",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/orgs/tentatest/public_members/soudqwiggle"
+    },
+    "response": {
+      "body": "#Reference<0.0.4.16>",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Fri, 11 Dec 2015 21:41:17 GMT",
+        "Status": "204 No Content",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4995",
+        "X-RateLimit-Reset": "1449873118",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "admin:org, repo, user, write:org",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "Vary": "Accept-Encoding",
+        "X-Served-By": "173530fed4bbeb1e264b2ed22e8b5c20",
+        "X-GitHub-Request-Id": "5F5BF349:134F1:3B537BB:566B42FD"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  }
+]

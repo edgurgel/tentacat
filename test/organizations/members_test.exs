@@ -23,4 +23,38 @@ defmodule Tentacat.Organizations.MembersTest do
       assert member?("elixir-conspiracy", "josephwilk", @client) == {302, nil}
     end
   end
+
+  test "remove/3" do
+    use_cassette "members#remove" do
+      {status_code, _} = remove("tentatest", "duksis", @client)
+      assert status_code == 204
+    end
+  end
+
+  test "public_list/2" do
+    use_cassette "members#public_list" do
+      assert public_list("tentatest", @client) == []
+    end
+  end
+
+  test "public_member?/3" do
+    use_cassette "members#public_member?" do
+      {status_code, _} = public_member?("tentatest", "soudqwiggle", @client)
+      assert status_code == 404
+    end
+  end
+
+  test "publicize/3" do
+    use_cassette "members#publicize" do
+      {status_code, _} = publicize("tentatest", "soudqwiggle", @client)
+      assert status_code == 204
+    end
+  end
+
+  test "conceal/3" do
+    use_cassette "members#conceal" do
+      {status_code, _} = conceal("tentatest", "soudqwiggle", @client)
+      assert status_code == 204
+    end
+  end
 end
