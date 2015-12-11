@@ -4,7 +4,7 @@
       "body": "{\"name\":\"tentacat\"}",
       "headers": {
         "User-agent": "tentacat",
-        "Authorization": "token f3c5a340944a18ad4cdf603c17be8245e71bcf87"
+        "Authorization": "token yourtokencomeshere"
       },
       "method": "post",
       "options": [],

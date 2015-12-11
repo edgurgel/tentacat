@@ -5,7 +5,7 @@ defmodule Tentacat.Organizations.MembersTest do
 
   doctest Tentacat.Organizations.Members
 
-  @client Tentacat.Client.new(%{access_token: "8e663c8614ced27c09b963f806ac46776a29db50"})
+  @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
     HTTPoison.start
