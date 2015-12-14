@@ -38,7 +38,7 @@ defmodule Tentacat.Pulls.Comments do
   ## Example
 
       Tentacat.Pulls.Comments.find "elixir-lang", "elixir", "22377723"
-      Tentacat.Pulls.Comments.list "elixir-lang", "elixir", "22377723", client
+      Tentacat.Pulls.Comments.find "elixir-lang", "elixir", "22377723", client
 
   More info at: https://developer.github.com/v3/pulls/comments/#get-a-single-comment
   """
