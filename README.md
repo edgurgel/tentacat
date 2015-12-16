@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/edgurgel/tentacat.png)](https://travis-ci.org/edgurgel/tentacat)
+[![Build Status](https://travis-ci.org/edgurgel/tentacat.svg)](https://travis-ci.org/edgurgel/tentacat)
 [![Coverage Status](http://img.shields.io/coveralls/edgurgel/tentacat.svg)](https://coveralls.io/r/edgurgel/tentacat)
 
 # Tentacat

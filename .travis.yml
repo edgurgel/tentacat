@@ -1,12 +1,13 @@
 language: elixir
 elixir:
   - 1.0.0
+  - 1.1.1
 notifications:
   recipients:
     - eduardo@gurgel.me
 otp_release:
-  - 17.0
-  - 17.1
+  - 18.0
+  - 18.1
 env:
   - MIX_ENV=test
 script:
