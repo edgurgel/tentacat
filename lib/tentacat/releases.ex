@@ -25,8 +25,8 @@ defmodule Tentacat.Releases do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-release
   """
-  @spec find(integer, binary, binary, Client.t) :: Tentacat.response
-  def find(id, owner, repo, client \\ %Client{}) when is_integer(id) do
+  @spec find(any, binary, binary, Client.t) :: Tentacat.response
+  def find(id, owner, repo, client \\ %Client{}) do
     get "repos/#{owner}/#{repo}/releases/#{id}", client
   end
 
