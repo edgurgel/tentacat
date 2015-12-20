@@ -6,7 +6,7 @@ defmodule Tentacat.Issues.Comments do
   List comments on an issue. Issue Comments are ordered by ascending ID.
 
   ## Example
-  
+
       Tentacat.Issues.Comments.list "elixir-lang", "elixir", 3970
 
   More info at: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
@@ -20,7 +20,7 @@ defmodule Tentacat.Issues.Comments do
   List all comments on issues for a repository. By default, Issue Comments are ordered by ascending ID.
 
   ## Example
-  
+
       Tentacat.Issues.Comments.list_all "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository
@@ -34,7 +34,7 @@ defmodule Tentacat.Issues.Comments do
   Get a single comment on an issue by its id.
 
   ## Example
-  
+
       Tentacat.Issues.Comments.find "elixir-lang", "elixir", 882148
 
   https://developer.github.com/v3/issues/comments/#get-a-single-comment
@@ -50,10 +50,7 @@ defmodule Tentacat.Issues.Comments do
   Comment body example:
   ```
   %{
-    "body"      => "Nice change",
-    "commit_id" => "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-    "path"      => "file1.txt",
-    "position"  =>  4
+    "body"      => "Nice change"
   }
   ```
 
@@ -67,17 +64,14 @@ defmodule Tentacat.Issues.Comments do
   def create(owner, repo, issue_id, body, client \\ %Client{}) do
     post "repos/#{owner}/#{repo}/issues/#{issue_id}/comments", client, body
   end
-  
+
   @doc """
   Update a comment on an issue by id.
 
   Comment body example:
   ```
   %{
-    "body"      => "Nice change",
-    "commit_id" => "6dcb09b5b57875f334f61aebed695e2e4193db5e",
-    "path"      => "file1.txt",
-    "position"  =>  4
+    "body"      => "Nice change"
   }
   ```
 
@@ -91,7 +85,7 @@ defmodule Tentacat.Issues.Comments do
   def update(owner, repo, issue_id, comment_id, body, client \\ %Client{}) do
     patch "repos/#{owner}/#{repo}/issues/#{issue_id}/comments/#{comment_id}", client, body
   end
-  
+
   @doc """
   Delete a comment on an issue by id.
 
