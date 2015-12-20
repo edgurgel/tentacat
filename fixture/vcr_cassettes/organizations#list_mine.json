@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/orgs"
+    },
+    "response": {
+      "body": "[{\"login\":\"tentatest\",\"id\":16198139,\"url\":\"https://api.github.com/orgs/tentatest\",\"repos_url\":\"https://api.github.com/orgs/tentatest/repos\",\"events_url\":\"https://api.github.com/orgs/tentatest/events\",\"members_url\":\"https://api.github.com/orgs/tentatest/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/tentatest/public_members{/member}\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/16198139?v=3\",\"description\":null}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 17:40:42 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "444",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4991",
+        "X-RateLimit-Reset": "1450633348",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"c20b7df629bc595ce571bc185339e899\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "admin:org, read:org, repo, user, write:org",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "2c18a09f3ac5e4dd1e004af7c5a94769",
+        "X-GitHub-Request-Id": "3E552BA7:134F4:14D3C045:5676E81A"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
