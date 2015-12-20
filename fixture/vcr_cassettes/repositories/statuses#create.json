@@ -4,7 +4,7 @@
       "body": "{\"context\":\"continuous-integration/jenkins\",\"description\":\"The build succeeded!\",\"state\":\"success\",\"target_url\":\"https://example.com/build/status\"}",
       "headers": {
         "User-agent": "tentacat",
-        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+        "Authorization": "token yourtokencomeshere"
       },
       "method": "post",
       "options": [],
