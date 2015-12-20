@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users?since=348"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 13:05:36 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "25787",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4996",
+        "X-RateLimit-Reset": "1450620335",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"213fb46b09a8ef3874796fe6f7c20b7b\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "repo",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/users?since=378>; rel=\"next\", <https://api.github.com/users{?since}>; rel=\"first\"",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "8dd185e423974a7e13abbbe6e060031e",
+        "X-GitHub-Request-Id": "3E552BA7:A39A:1232760E:5676A7A0"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
