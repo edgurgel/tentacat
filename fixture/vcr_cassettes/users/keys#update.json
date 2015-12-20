@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "{\"title\":\"updated test key\",\"key\":\"ssh-rsa AAA...\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "patch",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/keys/15057833"
+    },
+    "response": {
+      "body": "{\"message\":\"Method not allowed. To make changes to a key, delete the existing key and add a new one with the desired attributes.\",\"documentation_url\":\"https://developer.github.com/v3/users/keys\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 11:44:38 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "195",
+        "Status": "405 Method Not Allowed",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4986",
+        "X-RateLimit-Reset": "1450612905",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "admin:public_key, write:public_key",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-GitHub-Request-Id": "3E552BA7:A39A:1221C6AE:567694A6"
+      },
+      "status_code": 405,
+      "type": "ok"
+    }
+  }
+]

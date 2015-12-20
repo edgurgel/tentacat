@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/keys/15057833"
+    },
+    "response": {
+      "body": "{\"id\":15057833,\"key\":\"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCyRrmeVAhXGZzlS41WQGiJ5krjn3LmUBkoInDxRT0BRk9B8BT6HXHJubcrzCbhJi2NR7/h89xOlQ8g8/cXjonHVeUvcXib76WwnMVyOA1oUYELlo+iMREXPOe2Y4n+kToj2vavF9mClYsZ8fd34B/4Wpn+laFyK1dopo0tfkxxzX7GQs1smawzXg8Vz7tp/2TAuyiDqLKmiNGEhJDbCg2ZSqf1YtNPgKR+QDzeJvBWLhn9AW9BiLfBmuFVEcGE39ydIF6zmtpliZRjVHD3q53TauAsqY4MFDRRVhavlZiVFct+IYduYZqSFr7593Huyyj8EtMmnn7qufW3uKTqJR+47I3V4ASwbZp+Uf2WYWOtxufIEsy9NwU9GLe78ko89MPykrHvas3vAyYvWG85duuc0xkOtlXfdbKKyNN0CBziQ24boRVpwQbY0xn6TemxNXvObYDSrqUpZ6J/g2VkWfX/SRz96qGXS9beBPowzzphvbDo0SrXGm7lw1f0SyzPtteeAgxKUKSPrpFsO9ZWgW5owGhBZSLEpnvuF6QxyXptKToBp4/mKA1OmeXsVAdJ2vQf+WKn2CNRkctCsjX1FEY4r09/15qgpz4aaMBUfz+Nlf4YKZU9yBNZqZqVCuvY/QqLsOpeb6IzgbBaxuQ9Jlpu2JgzMst0ArBNkPI3ER6ppQ==\",\"url\":\"https://api.github.com/user/keys/15057833\",\"title\":\"test key\",\"verified\":true,\"created_at\":\"2015-12-20T11:25:15Z\",\"read_only\":false}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 11:29:33 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "887",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4989",
+        "X-RateLimit-Reset": "1450612905",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Sun, 13 Dec 2015 21:20:44 GMT",
+        "ETag": "\"1a071e25ea601a00fa1b89a410ab59a0\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "admin:public_key, read:public_key, write:public_key",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "a241e1a8264a6ace03db946c85b92db3",
+        "X-GitHub-Request-Id": "3E552BA7:1D260:10B7DA80:5676911C"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
