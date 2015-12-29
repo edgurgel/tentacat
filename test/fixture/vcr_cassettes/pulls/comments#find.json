@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls/comments/47450612"
+    },
+    "response": {
+      "body": "{\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls/comments/47450612\",\"id\":47450612,\"diff_hunk\":\"@@ -0,0 +1 @@\\n+Hello World!\",\"path\":\"README.md\",\"position\":1,\"original_position\":1,\"commit_id\":\"b426f957a26cd4d632da3b174372c973ab083523\",\"original_commit_id\":\"b426f957a26cd4d632da3b174372c973ab083523\",\"user\":{\"login\":\"duksis\",\"id\":222101,\"avatar_url\":\"https://avatars.githubusercontent.com/u/222101?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/duksis\",\"html_url\":\"https://github.com/duksis\",\"followers_url\":\"https://api.github.com/users/duksis/followers\",\"following_url\":\"https://api.github.com/users/duksis/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/duksis/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/duksis/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/duksis/subscriptions\",\"organizations_url\":\"https://api.github.com/users/duksis/orgs\",\"repos_url\":\"https://api.github.com/users/duksis/repos\",\"events_url\":\"https://api.github.com/users/duksis/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/duksis/received_events\",\"type\":\"User\",\"site_admin\":false},\"body\":\":100: \",\"created_at\":\"2015-12-13T21:36:16Z\",\"updated_at\":\"2015-12-13T21:36:16Z\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/pull/2#discussion_r47450612\",\"pull_request_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls/2\",\"_links\":{\"self\":{\"href\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls/comments/47450612\"},\"html\":{\"href\":\"https://github.com/soudqwiggle/elixir-conspiracy/pull/2#discussion_r47450612\"},\"pull_request\":{\"href\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls/2\"}}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 13 Dec 2015 21:38:43 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1742",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4996",
+        "X-RateLimit-Reset": "1450046102",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Sun, 13 Dec 2015 21:36:16 GMT",
+        "ETag": "\"f28041c62e4b5037a9dacc96521fca7b\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Served-By": "3e3b9690823fb031da84658eb58aa83b",
+        "X-GitHub-Request-Id": "4E549DF0:1D25F:62A007A:566DE563"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

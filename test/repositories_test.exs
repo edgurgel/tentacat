@@ -5,7 +5,7 @@ defmodule Tentacat.RepositoriesTest do
 
   doctest Tentacat.Repositories
 
-  @client Tentacat.Client.new(%{access_token: "f3c5a340944a18ad4cdf603c17be8245e71bcf87"})
+  @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
     HTTPoison.start

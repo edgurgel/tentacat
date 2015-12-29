@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "{\"ref\":\"refs/heads/old-readme\",\"sha\":\"2ff6f7942773c268dc9ab0e11e9dffad402c1860\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/refs"
+    },
+    "response": {
+      "body": "{\"ref\":\"refs/heads/old-readme\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/refs/heads/old-readme\",\"object\":{\"sha\":\"2ff6f7942773c268dc9ab0e11e9dffad402c1860\",\"type\":\"commit\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits/2ff6f7942773c268dc9ab0e11e9dffad402c1860\"}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 12:34:59 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "320",
+        "Status": "201 Created",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4991",
+        "X-RateLimit-Reset": "1450616633",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"f27e39bde892a465e57924c4cfa4754f\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Location": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/refs/heads/old-readme",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "3e3b9690823fb031da84658eb58aa83b",
+        "X-GitHub-Request-Id": "3E552BA7:A39A:122C2226:5676A073"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]

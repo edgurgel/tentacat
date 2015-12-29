@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009/status"
+    },
+    "response": {
+      "body": "{\"state\":\"success\",\"statuses\":[{\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/statuses/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"id\":397185011,\"state\":\"success\",\"description\":\"The build succeeded!\",\"target_url\":\"https://example.com/build/status\",\"context\":\"continuous-integration/jenkins\",\"created_at\":\"2015-12-20T18:05:11Z\",\"updated_at\":\"2015-12-20T18:05:11Z\"}],\"sha\":\"bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"total_count\":1,\"repository\":{\"id\":47580701,\"name\":\"elixir-conspiracy\",\"full_name\":\"soudqwiggle/elixir-conspiracy\",\"owner\":{\"login\":\"soudqwiggle\",\"id\":16187637,\"avatar_url\":\"https://avatars.githubusercontent.com/u/16187637?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/soudqwiggle\",\"html_url\":\"https://github.com/soudqwiggle\",\"followers_url\":\"https://api.github.com/users/soudqwiggle/followers\",\"following_url\":\"https://api.github.com/users/soudqwiggle/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/soudqwiggle/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/soudqwiggle/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/soudqwiggle/subscriptions\",\"organizations_url\":\"https://api.github.com/users/soudqwiggle/orgs\",\"repos_url\":\"https://api.github.com/users/soudqwiggle/repos\",\"events_url\":\"https://api.github.com/users/soudqwiggle/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/soudqwiggle/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy\",\"description\":null,\"fork\":false,\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy\",\"forks_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/forks\",\"keys_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/keys{/key_id}\",\"collaborators_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/collaborators{/collaborator}\",\"teams_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/teams\",\"hooks_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/hooks\",\"issue_events_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/issues/events{/number}\",\"events_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/events\",\"assignees_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/assignees{/user}\",\"branches_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/branches{/branch}\",\"tags_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/tags\",\"blobs_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/blobs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/tags{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/refs{/sha}\",\"trees_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/trees{/sha}\",\"statuses_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/statuses/{sha}\",\"languages_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/languages\",\"stargazers_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/stargazers\",\"contributors_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/contributors\",\"subscribers_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/subscribers\",\"subscription_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/subscription\",\"commits_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits{/sha}\",\"git_commits_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits{/sha}\",\"comments_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/comments{/number}\",\"issue_comment_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/issues/comments{/number}\",\"contents_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/contents/{+path}\",\"compare_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/compare/{base}...{head}\",\"merges_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/merges\",\"archive_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/{archive_format}{/ref}\",\"downloads_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/downloads\",\"issues_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/issues{/number}\",\"pulls_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls{/number}\",\"milestones_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/notifications{?since,all,participating}\",\"labels_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/labels{/name}\",\"releases_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/releases{/id}\"},\"commit_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009/status\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 18:08:24 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "5096",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4995",
+        "X-RateLimit-Reset": "1450637519",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"2bd6c0f4a98d209d037db1ed1fdece17\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "repo, repo:status",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "b0ef53392caa42315c6206737946d931",
+        "X-GitHub-Request-Id": "3E552BA7:1D262:11B3028D:5676EE97"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

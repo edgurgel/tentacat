@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/releases/assets/1146038"
+    },
+    "response": {
+      "body": "{\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/releases/assets/1146038\",\"id\":1146038,\"name\":\"some.zip\",\"label\":\"\",\"uploader\":{\"login\":\"soudqwiggle\",\"id\":16187637,\"avatar_url\":\"https://avatars.githubusercontent.com/u/16187637?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/soudqwiggle\",\"html_url\":\"https://github.com/soudqwiggle\",\"followers_url\":\"https://api.github.com/users/soudqwiggle/followers\",\"following_url\":\"https://api.github.com/users/soudqwiggle/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/soudqwiggle/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/soudqwiggle/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/soudqwiggle/subscriptions\",\"organizations_url\":\"https://api.github.com/users/soudqwiggle/orgs\",\"repos_url\":\"https://api.github.com/users/soudqwiggle/repos\",\"events_url\":\"https://api.github.com/users/soudqwiggle/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/soudqwiggle/received_events\",\"type\":\"User\",\"site_admin\":false},\"content_type\":\"application/zip\",\"state\":\"uploaded\",\"size\":704,\"download_count\":0,\"created_at\":\"2015-12-20T16:47:50Z\",\"updated_at\":\"2015-12-20T16:47:50Z\",\"browser_download_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/releases/download/v1.2/some.zip\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 17:07:46 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1316",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4994",
+        "X-RateLimit-Reset": "1450633348",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Sun, 20 Dec 2015 16:47:50 GMT",
+        "ETag": "\"531fc3f90d08f24a42d02a5818c6b7b7\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "8a5c38021a5cd7cef7b8f49a296fee40",
+        "X-GitHub-Request-Id": "3E552BA7:1D261:1394B5D3:5676E062"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

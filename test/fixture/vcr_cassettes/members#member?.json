@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/orgs/elixir-conspiracy/members/josephwilk"
+    },
+    "response": {
+      "body": "",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 10 Dec 2015 22:26:48 GMT",
+        "Content-Type": "text/html;charset=utf-8",
+        "Content-Length": "0",
+        "Status": "302 Found",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Reset": "1449790008",
+        "Location": "https://api.github.com/organizations/5861005/public_members/josephwilk",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "Vary": "Accept-Encoding",
+        "X-Served-By": "a474937f3b2fa272558fa6dc951018ad",
+        "X-GitHub-Request-Id": "5F5BD13E:134F1:2CAD79D:5669FC27"
+      },
+      "status_code": 302,
+      "type": "ok"
+    }
+  }
+]

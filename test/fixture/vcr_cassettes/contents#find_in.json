@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/elixir-lang/elixir/contents/lib?ref=master"
+    },
+    "response": {
+      "body": "[{\"name\":\"eex\",\"path\":\"lib/eex\",\"sha\":\"c928b5d4c7fa3c0c665cb2d2f591def3bdf29c38\",\"size\":0,\"url\":\"https://api.github.com/repos/elixir-lang/elixir/contents/lib/eex?ref=master\",\"html_url\":\"https://github.com/elixir-lang/elixir/tree/master/lib/eex\",\"git_url\":\"https://api.github.com/repos/elixir-lang/elixir/git/trees/c928b5d4c7fa3c0c665cb2d2f591def3bdf29c38\",\"download_url\":null,\"type\":\"dir\",\"_links\":{\"self\":\"https://api.github.com/repos/elixir-lang/elixir/contents/lib/eex?ref=master\",\"git\":\"https://api.github.com/repos/elixir-lang/elixir/git/trees/c928b5d4c7fa3c0c665cb2d2f591def3bdf29c38\",\"html\":\"https://github.com/elixir-lang/elixir/tree/master/lib/eex\"}}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 10 Dec 2015 21:29:45 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "4015",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4998",
+        "X-RateLimit-Reset": "1449785982",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Thu, 10 Dec 2015 14:43:52 GMT",
+        "ETag": "\"2e47ba1bb44ff5e1271f6038849f496c\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Served-By": "c6c65e5196703428e7641f7d1e9bc353",
+        "X-GitHub-Request-Id": "5F5BD13E:14B5D:2896FEC:5669EEC9"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
