@@ -32,7 +32,7 @@ defmodule Tentacat.Mixfile do
   end
 
   defp package do
-    [ contributors: ["Eduardo Gurgel Pinho", "Jamie Winsor"],
+    [ maintainers: ["Eduardo Gurgel Pinho", "Jamie Winsor", "Hugo Duksis"],
       licenses: ["MIT"],
       links: %{ "Github" => "https://github.com/edgurgel/tentacat" } ]
   end
