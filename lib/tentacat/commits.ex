@@ -21,7 +21,7 @@ defmodule Tentacat.Commits do
 
   ## Example
 
-      Tentacat.Commit.find("6dcb09b", "elixir-lang", "elixir", client)
+      Tentacat.Commits.find("6dcb09b", "elixir-lang", "elixir", client)
 
   More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-commit
   """
@@ -35,7 +35,7 @@ defmodule Tentacat.Commits do
 
   ## Example
 
-      Tentacat.Commit.compare(base, head, "elixir-lang", "elixir", client)
+      Tentacat.Commits.compare(base, head, "elixir-lang", "elixir", client)
 
   More info at: https://developer.github.com/v3/repos/commits/#compare-two-commits
   """
