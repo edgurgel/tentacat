@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/compare/master...09fe12ca25d0440f"
+    },
+    "response": {
+      "body": "{\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/compare/master...09fe12ca25d0440f\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/compare/master...09fe12ca25d0440f\",\"permalink_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/compare/soudqwiggle:bf7c4ab...soudqwiggle:09fe12c\",\"diff_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/compare/master...09fe12ca25d0440f.diff\",\"patch_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/compare/master...09fe12ca25d0440f.patch\",\"base_commit\":{\"sha\":\"bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"commit\":{\"author\":{\"name\":\"Soud Qwiggle\",\"email\":\"soud@qwiggle.com\",\"date\":\"2015-12-10T21:51:01Z\"},\"committer\":{\"name\":\"Soud Qwiggle\",\"email\":\"soud@qwiggle.com\",\"date\":\"2015-12-10T21:51:01Z\"},\"message\":\"commit after the initial commit\",\"tree\":{\"sha\":\"13eda2537eb875280fa0ce32779a6e9cf0d1e2ad\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/trees/13eda2537eb875280fa0ce32779a6e9cf0d1e2ad\"},\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"comment_count\":0},\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/commit/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009\",\"comments_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/bf7c4ab53fe7503b82b9654d5979ebe8c24ea009/comments\",\"author\":null,\"committer\":null,\"parents\":[{\"sha\":\"09fe12ca25d0440f143ab331e4684a8622d6e4e5\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/09fe12ca25d0440f143ab331e4684a8622d6e4e5\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/commit/09fe12ca25d0440f143ab331e4684a8622d6e4e5\"}]},\"merge_base_commit\":{\"sha\":\"09fe12ca25d0440f143ab331e4684a8622d6e4e5\",\"commit\":{\"author\":{\"name\":\"Soud Qwiggle\",\"email\":\"soud@qwiggle.com\",\"date\":\"2015-12-10T21:41:38Z\"},\"committer\":{\"name\":\"Soud Qwiggle\",\"email\":\"soud@qwiggle.com\",\"date\":\"2015-12-10T21:41:38Z\"},\"message\":\"Initial commit\",\"tree\":{\"sha\":\"37b3b2c39cc38d6dcbdb9c27a5e0379c0b11005e\",\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/trees/37b3b2c39cc38d6dcbdb9c27a5e0379c0b11005e\"},\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits/09fe12ca25d0440f143ab331e4684a8622d6e4e5\",\"comment_count\":0},\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/09fe12ca25d0440f143ab331e4684a8622d6e4e5\",\"html_url\":\"https://github.com/soudqwiggle/elixir-conspiracy/commit/09fe12ca25d0440f143ab331e4684a8622d6e4e5\",\"comments_url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits/09fe12ca25d0440f143ab331e4684a8622d6e4e5/comments\",\"author\":null,\"committer\":null,\"parents\":[]},\"status\":\"behind\",\"ahead_by\":0,\"behind_by\":1,\"total_commits\":0,\"commits\":[],\"files\":[]}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 31 Dec 2015 14:34:34 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2913",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4998",
+        "X-RateLimit-Reset": "1451576074",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Thu, 10 Dec 2015 21:51:01 GMT",
+        "ETag": "\"fd80f0022aadd006f488bcae22c1031c\"",
+        "X-OAuth-Scopes": "gist, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "2811da37fbdda4367181b328b22b2499",
+        "X-GitHub-Request-Id": "55FE9E69:134F3:1EDEB922:56853CFA"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

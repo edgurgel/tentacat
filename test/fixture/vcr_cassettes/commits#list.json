@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/commits"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 31 Dec 2015 14:34:34 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2274",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Reset": "1451576074",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Thu, 10 Dec 2015 21:51:01 GMT",
+        "ETag": "\"dd2aa8d5b87145391c7c55010b78bd51\"",
+        "X-OAuth-Scopes": "gist, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "3e3b9690823fb031da84658eb58aa83b",
+        "X-GitHub-Request-Id": "55FE9E69:134F3:1EDEB8A6:56853CF9"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
