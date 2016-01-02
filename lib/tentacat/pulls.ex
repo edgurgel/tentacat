@@ -22,8 +22,8 @@ defmodule Tentacat.Pulls do
 
   ## Example
 
-      Tentacat.Pulls.list "elixir-lang", "elixir", %{state: "open"}
-      Tentacat.Pulls.list "elixir-lang", "elixir", %{state: "open"}, client
+      Tentacat.Pulls.filter "elixir-lang", "elixir", %{state: "open"}
+      Tentacat.Pulls.filter "elixir-lang", "elixir", %{state: "open"}, client
 
   More info at: https://developer.github.com/v3/pulls/#parameters
   """
