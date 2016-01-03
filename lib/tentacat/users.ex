@@ -10,7 +10,7 @@ defmodule Tentacat.Users do
       Tentacat.Users.find "edgurgel", client
       Tentacat.Users.find "iurifq", client
 
-  More info at: http:\\developer.github.com/v3/users/#get-a-single-user
+  More info at: http://developer.github.com/v3/users/#get-a-single-user
   """
   @spec find(binary, Client.t) :: Tentacat.response
   def find(user, client \\ %Client{}) do
@@ -24,7 +24,7 @@ defmodule Tentacat.Users do
 
       Tentacat.Users.me(client)
 
-  More info at: http:\\developer.github.com/v3/users/#get-the-authenticated-user
+  More info at: http://developer.github.com/v3/users/#get-the-authenticated-user
   """
   @spec me(Client.t) :: Tentacat.response
   def me(client) do
@@ -39,7 +39,7 @@ defmodule Tentacat.Users do
       Tentacat.Users.list
       Tentacat.Users.list client
 
-  More info at: http:\\developer.github.com/v3/users/#get-all-users
+  More info at: http://developer.github.com/v3/users/#get-all-users
   """
   @spec list(Client.t) :: Tentacat.response
   def list(client \\ %Client{}) do
@@ -54,7 +54,7 @@ defmodule Tentacat.Users do
       Tentacat.Users.list_since 348
       Tentacat.Users.list_since 348, client
 
-  More info at: http:\\developer.github.com/v3/users/#get-all-users
+  More info at: http://developer.github.com/v3/users/#get-all-users
   """
   @spec list_since(integer, Client.t) :: Tentacat.response
   def list_since(since, client \\ %Client{}) do
@@ -78,7 +78,7 @@ defmodule Tentacat.Users do
 
       Tentacat.Users.update [email: "eduardo@gurgel.me", hireable: false], client
 
-  More info at: http:\\developer.github.com/v3/users/#update-the-authenticated-user
+  More info at: http://developer.github.com/v3/users/#update-the-authenticated-user
   """
   @spec update(Keyword.t, Client.t) :: Tentacat.response
   def update(options, client) do
