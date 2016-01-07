@@ -7,15 +7,10 @@ defmodule Tentacat do
   @type response :: {integer, any} | :jsx.json_term
 
   @spec process_response(HTTPoison.Response.t) :: response
-  def process_response(response) do
-    status_code = response.status_code
-    body = response.body
-    response = unless body == "", do: body |> JSX.decode!,
-    else: nil
-
-    if (status_code == 200), do: response,
-    else: {status_code, response}
-  end
+  def process_response(%HTTPoison.Response{status_code: 200, body: ""}), do: nil
+  def process_response(%HTTPoison.Response{status_code: 200, body: body}), do: JSX.decode!(body)
+  def process_response(%HTTPoison.Response{status_code: status_code, body: "")}, do: { status_code, nil }
+  def process_response(%HTTPoison.Response{status_code: status_code, body: body }), do: { status_code, JSX.decode!(body) }
 
   def delete(path, client, body \\ "") do
     _request(:delete, url(client, path), client.auth, body)
