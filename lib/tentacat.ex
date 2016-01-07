@@ -9,7 +9,7 @@ defmodule Tentacat do
   @spec process_response(HTTPoison.Response.t) :: response
   def process_response(%HTTPoison.Response{status_code: 200, body: ""}), do: nil
   def process_response(%HTTPoison.Response{status_code: 200, body: body}), do: JSX.decode!(body)
-  def process_response(%HTTPoison.Response{status_code: status_code, body: "")}, do: { status_code, nil }
+  def process_response(%HTTPoison.Response{status_code: status_code, body: ""}), do: { status_code, nil }
   def process_response(%HTTPoison.Response{status_code: status_code, body: body }), do: { status_code, JSX.decode!(body) }
 
   def delete(path, client, body \\ "") do
