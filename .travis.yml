@@ -6,8 +6,7 @@ notifications:
   recipients:
     - eduardo@gurgel.me
 otp_release:
-  - 18.0
-  - 18.1
+  - 18.2
 env:
   - MIX_ENV=test
 script:
