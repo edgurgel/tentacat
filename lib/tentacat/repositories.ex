@@ -9,15 +9,17 @@ defmodule Tentacat.Repositories do
   List current user's Repositories.
 
 
-  ## Example
+  ## Examples
 
       Tentacat.Repositories.list_mine(client)
 
+      Tentacat.Repositories.list_mine(client, type: "owner")
+
   More info at: https://developer.github.com/v3/repos/#list-your-repositories
   """
-  @spec list_mine(Client.t) :: Tentacat.response
-  def list_mine(client) do
-    get "user/repos", client
+  @spec list_mine(Client.t, Keyword.t) :: Tentacat.response
+  def list_mine(client, opts \\ []) do
+    get "user/repos", client, opts
   end
 
   @doc """
