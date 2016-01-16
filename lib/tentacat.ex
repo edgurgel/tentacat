@@ -29,8 +29,8 @@ defmodule Tentacat do
   end
 
   def get(path, client, params \\ []) do
-    url = url(client, path)
-    url = <<url :: binary, build_qs(params) :: binary>>
+    initial_url = url(client, path)
+    url = add_params_to_url(initial_url, params)
     _request(:get, url, client.auth)
   end
 
@@ -49,6 +49,10 @@ defmodule Tentacat do
   @spec url(client :: Client.t, path :: binary) :: binary
   defp url(_client = %Client{endpoint: endpoint}, path) do
     endpoint <> path
+  end
+
+  defp add_params_to_url(url, params) do
+    <<url :: binary, build_qs(params) :: binary>>
   end
 
   @spec build_qs([{atom, binary}]) :: binary
