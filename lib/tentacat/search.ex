@@ -15,7 +15,7 @@ defmodule Tentacat.Search do
 
   More info at: https://developer.github.com/v3/search/#search-code
   """
-  # @spec list(binary, Client.t) :: Tentacat.response
+  @spec code(map, Client.t) :: Tentacat.response
   def code(params, client \\ %Client{}) do
     get "search/code", client, params
   end
