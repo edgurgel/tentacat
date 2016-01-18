@@ -31,9 +31,9 @@ defmodule Tentacat.Repositories do
 
   More info at: https://developer.github.com/v3/repos/#list-user-repositories
   """
-  @spec list_users(binary, Client.t) :: Tentacat.response
-  def list_users(owner, client \\ %Client{}) do
-    get "users/#{owner}/repos", client
+  @spec list_users(binary, Client.t, Keyword.t) :: Tentacat.response
+  def list_users(owner, client \\ %Client{}, opts \\ []) do
+    get "users/#{owner}/repos", client, opts
   end
 
   @doc """
@@ -45,9 +45,9 @@ defmodule Tentacat.Repositories do
 
   More info at: https://developer.github.com/v3/repos/#list-organization-repositories
   """
-  @spec list_orgs(binary, Client.t) :: Tentacat.response
-  def list_orgs(org, client \\ %Client{}) do
-    get "orgs/#{org}/repos", client
+  @spec list_orgs(binary, Client.t, Keyword.t) :: Tentacat.response
+  def list_orgs(org, client \\ %Client{}, opts \\ []) do
+    get "orgs/#{org}/repos", client, opts
   end
 
   @doc """
@@ -60,9 +60,9 @@ defmodule Tentacat.Repositories do
 
   More info at: https://developer.github.com/v3/repos/#list-all-public-repositories
   """
-  @spec list_public(Client.t) :: Tentacat.response
-  def list_public(client \\ %Client{}) do
-    get "repositories", client
+  @spec list_public(Client.t, Keyword.t) :: Tentacat.response
+  def list_public(client \\ %Client{}, opts \\ []) do
+    get "repositories", client, opts
   end
 
   @doc """
