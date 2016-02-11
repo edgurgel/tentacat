@@ -1,0 +1,45 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/soudqwiggle/events/public"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 11 Feb 2016 17:05:31 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "80613",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "58",
+        "X-RateLimit-Reset": "1455213930",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Last-Modified": "Sun, 20 Dec 2015 10:45:26 GMT",
+        "ETag": "\"abac9fa125cb3d111420935735e9c469\"",
+        "X-Poll-Interval": "60",
+        "Vary": "Accept",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "76d9828c7e4f1d910f7ba069e90ce976",
+        "X-GitHub-Request-Id": "5F5BF398:16020:A5CA300:56BCBF5A"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
