@@ -12,7 +12,7 @@
       "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/releases/2317708"
     },
     "response": {
-      "body": "#Reference<0.0.1.44>",
+      "body": "",
       "headers": {
         "Server": "GitHub.com",
         "Date": "Sun, 20 Dec 2015 13:44:07 GMT",

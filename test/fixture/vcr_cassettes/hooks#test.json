@@ -12,7 +12,7 @@
       "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/hooks/6736758/test"
     },
     "response": {
-      "body": "#Reference<0.0.1.226>",
+      "body": "",
       "headers": {
         "Server": "GitHub.com",
         "Date": "Sat, 19 Dec 2015 07:27:27 GMT",

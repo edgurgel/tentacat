@@ -12,7 +12,7 @@
       "url": "https://api.github.com/user/following/duksis"
     },
     "response": {
-      "body": "#Reference<0.0.2.290>",
+      "body": "",
       "headers": {
         "Server": "GitHub.com",
         "Date": "Thu, 10 Dec 2015 09:38:42 GMT",

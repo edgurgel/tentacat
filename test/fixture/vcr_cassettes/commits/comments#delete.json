@@ -12,7 +12,7 @@
       "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/comments/15079374"
     },
     "response": {
-      "body": "#Reference<0.0.4.8>",
+      "body": "",
       "headers": {
         "Server": "GitHub.com",
         "Date": "Sat, 19 Dec 2015 06:55:59 GMT",

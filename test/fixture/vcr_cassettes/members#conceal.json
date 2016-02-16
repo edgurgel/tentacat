@@ -12,7 +12,7 @@
       "url": "https://api.github.com/orgs/tentatest/public_members/soudqwiggle"
     },
     "response": {
-      "body": "#Reference<0.0.4.16>",
+      "body": "",
       "headers": {
         "Server": "GitHub.com",
         "Date": "Fri, 11 Dec 2015 21:41:17 GMT",
