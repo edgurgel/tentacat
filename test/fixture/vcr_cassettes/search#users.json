@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/search/users?q=elixir-lang+language%3Aelixir&sort=followers"
+    },
+    "response": {
+      "body": "{\"total_count\":2,\"incomplete_results\":false,\"items\":[{\"login\":\"elixir-lang\",\"id\":1481354,\"avatar_url\":\"https://avatars.githubusercontent.com/u/1481354?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/elixir-lang\",\"html_url\":\"https://github.com/elixir-lang\",\"followers_url\":\"https://api.github.com/users/elixir-lang/followers\",\"following_url\":\"https://api.github.com/users/elixir-lang/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/elixir-lang/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/elixir-lang/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/elixir-lang/subscriptions\",\"organizations_url\":\"https://api.github.com/users/elixir-lang/orgs\",\"repos_url\":\"https://api.github.com/users/elixir-lang/repos\",\"events_url\":\"https://api.github.com/users/elixir-lang/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/elixir-lang/received_events\",\"type\":\"Organization\",\"site_admin\":false,\"score\":31.933199},{\"login\":\"elixir-lang-china\",\"id\":7599123,\"avatar_url\":\"https://avatars.githubusercontent.com/u/7599123?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/elixir-lang-china\",\"html_url\":\"https://github.com/elixir-lang-china\",\"followers_url\":\"https://api.github.com/users/elixir-lang-china/followers\",\"following_url\":\"https://api.github.com/users/elixir-lang-china/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/elixir-lang-china/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/elixir-lang-china/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/elixir-lang-china/subscriptions\",\"organizations_url\":\"https://api.github.com/users/elixir-lang-china/orgs\",\"repos_url\":\"https://api.github.com/users/elixir-lang-china/repos\",\"events_url\":\"https://api.github.com/users/elixir-lang-china/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/elixir-lang-china/received_events\",\"type\":\"Organization\",\"site_admin\":false,\"score\":13.963872}]}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sat, 27 Feb 2016 09:53:35 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1996",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "10",
+        "X-RateLimit-Remaining": "7",
+        "X-RateLimit-Reset": "1456566823",
+        "Cache-Control": "no-cache",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "Vary": "Accept-Encoding",
+        "X-Served-By": "2d7a5e35115884240089368322196939",
+        "X-GitHub-Request-Id": "5598E0BF:6DAF:23409A6:56D1721E"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -18,4 +18,11 @@ defmodule Tentacat.SearchTest do
       assert %{"incomplete_results" => false, "items" => _} = code(params, @client)
     end
   end
+
+  test "users/2" do
+    use_cassette "search#users" do
+      params = %{q: "elixir-lang language:elixir", sort: "followers"}
+      assert %{"incomplete_results" => false, "items" => _} = users(params, @client)
+    end
+  end
 end
