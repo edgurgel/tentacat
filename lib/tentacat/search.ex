@@ -19,4 +19,19 @@ defmodule Tentacat.Search do
   def code(params, client \\ %Client{}) do
     get "search/code", client, params
   end
+
+  @doc """
+  Searches for users
+
+  ## Example
+
+      Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}
+      Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}, client
+
+  More info at: https://developer.github.com/v3/search/#search-users
+  """
+  @spec users(map, Client.t) :: Tentacat.response
+  def users(params, client \\ %Client{}) do
+    get "search/users", client, params
+  end
 end
