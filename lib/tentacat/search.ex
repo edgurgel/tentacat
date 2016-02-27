@@ -34,4 +34,19 @@ defmodule Tentacat.Search do
   def users(params, client \\ %Client{}) do
     get "search/users", client, params
   end
+
+  @doc """
+  Searches for repositories
+
+  ## Example
+
+      Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}
+      Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}, client
+
+  More info at: https://developer.github.com/v3/search/#search-repositories
+  """
+  @spec repositories(map, Client.t) :: Tentacat.response
+  def repositories(params, client \\ %Client{}) do
+    get "search/repositories", client, params
+  end
 end
