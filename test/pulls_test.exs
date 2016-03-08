@@ -52,4 +52,21 @@ defmodule Tentacat.PullsTest do
       assert title == "Amazing new Readme"
     end
   end
+
+  test "merge/5" do
+    use_cassette "pulls#merge" do
+      body = %{
+        "commit_message": "not the default commit_message"
+      }
+      %{"merged" => merged} = merge("sdost", "elixir-conspiracy", "1", body, @client)
+      assert merged == true
+    end
+  end
+
+  test "has_been_merged/4" do
+    use_cassette "pulls#has_been_merged" do
+      {status_code, _} = has_been_merged("sdost", "elixir-conspiracy", "1", @client)
+      assert status_code == 204
+    end
+  end
 end
