@@ -17,13 +17,13 @@ defmodule Tentacat.Issues.Labels do
   end
 
   @doc """
-  List labels on an issue
+  Add labels to an issue
 
   ## Example
 
       Tentacat.Issues.Labels.list "elixir-lang", "elixir", 3970
 
-  More info at: https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue
+  More info at: https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue
   """
   @spec add(binary, binary, binary | integer, [binary], Client.t) :: Tentacat.response
   def add(owner, repo, issue_id, labels, client \\ %Client{}) do
