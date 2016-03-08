@@ -99,4 +99,39 @@ defmodule Tentacat.Pulls do
   def update(owner, repo, number, body, client) do
     patch "repos/#{owner}/#{repo}/pulls/#{number}", client, body
   end
+
+  @doc """
+  Merge a pull request (Merge Button)
+
+  Pull Request Merge body example:
+
+      %{
+        "commit_message" => "not the default commit_message",
+        "sha"  => "8e50d79f2ba0d665b9966908cbf22c6f463228d6"
+       }
+
+  ## Example
+
+      Tentacat.Pulls.merge "elixir-lang", "elixir", "4876", body, client
+
+  More info at: https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button
+  """
+  @spec merge(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
+  def merge(owner, repo, number, body, client) do
+    put "repos/#{owner}/#{repo}/pulls/#{number}/merge", client, body
+  end
+
+  @doc """
+  Get if a pull request has been merged
+
+  ## Example
+
+      Tentacat.Pulls.has_been_merged "elixir-lang", "elixir", "4876", client
+
+  More info at: https://developer.github.com/v3/pulls/#get-if-a-pull-request-has-been-merged
+  """
+  @spec has_been_merged(binary, binary, binary | integer, Client.t) :: Tentacat.response
+  def has_been_merged(owner, repo, number, client) do
+    get "repos/#{owner}/#{repo}/pulls/#{number}/merge", client
+  end
 end

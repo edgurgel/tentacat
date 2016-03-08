@@ -1,0 +1,45 @@
+[
+  {
+    "request": {
+      "body": "{\"commit_message\":\"not the default commit_message\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "put",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/sdost/elixir-conspiracy/pulls/1/merge"
+    },
+    "response": {
+      "body": "{\"sha\":\"5bee288942ebdbeccea1701cc85e1af45fe5832a\",\"merged\":true,\"message\":\"Pull Request successfully merged\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Tue, 08 Mar 2016 17:36:20 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "109",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4998",
+        "X-RateLimit-Reset": "1457458946",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"c3da114b1ba506d9ebb9982550610bc5\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "d594a23ec74671eba905bf91ef329026",
+        "X-GitHub-Request-Id": "CEFCD9E2:10E9E:55E57AA:56DF0D94"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
