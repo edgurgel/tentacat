@@ -34,12 +34,12 @@ defmodule Tentacat do
     _request(:get, url, client.auth)
   end
 
-  def _request(method, url, auth, body \\ "") do
-    json_request(method, url, body, authorization_header(auth, @user_agent))
+  def _request(method, url, auth, body \\ "", response_processor \\ &(process_response &1) ) do
+    json_request(method, url, body, authorization_header(auth, @user_agent), response_processor)
   end
 
-  def json_request(method, url, body \\ "", headers \\ [], options \\ []) do
-    request!(method, url, JSX.encode!(body), headers, options) |> process_response
+  def json_request(method, url, body \\ "", headers \\ [], response_processor \\ &(process_response &1)) do
+    response_processor.(request!(method, url, JSX.encode!(body), headers, []))
   end
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
