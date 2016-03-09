@@ -26,8 +26,8 @@ defmodule Tentacat.Mixfile do
      { :exjsx, "~> 3.2" },
      {:earmark, "~> 0.2.1", only: :docs},
      {:ex_doc, "~> 0.11.4", only: :docs},
-     {:inch_ex, only: :docs},
-     {:excoveralls, "~> 0.4", only: :test},
+     {:inch_ex, "~> 0.5", only: :docs},
+     {:excoveralls, "~> 0.5", only: :test},
      {:exvcr, "~> 0.6", only: :test},
      { :meck, "~> 0.8", only: :test } ]
   end
