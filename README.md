@@ -40,6 +40,14 @@ def deps do
 end
 ```
 
+Ensure that `tentacat` is added as an application in your `mix.exs`:
+
+```elixir
+def application do
+  [applications: [:tentacat]]
+end
+```
+
 Fetching dependencies and running on elixir console:
 
 ```console
@@ -53,7 +61,7 @@ You will something like this:
 Erlang/OTP 17 [erts-6.0] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 
 Interactive Elixir (0.13.3) - press Ctrl+C to exit (type h() ENTER for help)
-iex(1)> Tentacat.start
+iex(1)>
 ```
 
 Now you can run the examples!
