@@ -37,13 +37,13 @@ defmodule Tentacat.FollowersTest do
   end
 
   test "following?/2" do
-    use_cassette "followers#following?/2" do
+    use_cassette "followers#following_/2" do
       assert following?("duksis", @client) == true
     end
   end
 
   test "following?/3" do
-    use_cassette "followers#following?/3" do
+    use_cassette "followers#following_/3" do
       assert following?("torvalds", "duksis", @client) == false
     end
   end
