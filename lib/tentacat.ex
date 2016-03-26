@@ -39,7 +39,7 @@ defmodule Tentacat do
   end
 
   def json_request(method, url, body \\ "", headers \\ [], options \\ []) do
-    request!(method, url, JSX.encode!(body), headers, options) |> process_response
+    raw_request(method, url, JSX.encode!(body), headers, options)
   end
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
