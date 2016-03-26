@@ -43,7 +43,8 @@ defmodule Tentacat do
   end
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
-    request!(method, url, body, headers, options) |> process_response
+    extra_options = Application.get_env(:tentacat, :request_options, [])
+    request!(method, url, body, headers, extra_options ++ options) |> process_response
   end
 
   @spec url(client :: Client.t, path :: binary) :: binary
