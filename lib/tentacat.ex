@@ -35,8 +35,16 @@ defmodule Tentacat do
   return value and, ultimately, the number of requests made to GitHub.
 
   Options:
-    * `:pagination` - Can be `:manual`, `:stream`, or `:auto`. Defaults to :auto
-
+    * `:pagination` - Can be `:none`, `:manual`, `:stream`, or `:auto`. Defaults to :auto
+      `:none` will only return the first page. You won't have access to the headers to manually
+      paginate.
+      `:auto` will block until all the pages have been retrieved and concatenated together. Most
+      of the time, this is what you want. For example, `Tentacat.Repositories.list_users("chrismccord")`
+      and `Tentacat.Repositories.list_users("octocat")` have the same interface though one call
+      will page many times and the other not at all.
+      `:stream` will return a `Stream`, prepopulated with the first page.
+      `:manual` will return a 3 element tuple of `{page_body, url_for_next_page, auth_credentials}`,
+      which will allow you to control the paging yourself.
   """
   def get(path, client, params \\ [], options \\ []) do
     url =
@@ -45,6 +53,7 @@ defmodule Tentacat do
       |> add_params_to_url(params)
     case Keyword.get(options, :pagination, nil) do
       nil     -> request_stream(:get, url, client.auth) |> realize_if_needed
+      :none   -> request_stream(:get, url, client.auth, "", :one_page)
       :auto   -> request_stream(:get, url, client.auth) |> realize_if_needed
       :stream -> request_stream(:get, url, client.auth)
       :manual -> request_with_pagination(:get, url, client.auth)
@@ -64,17 +73,14 @@ defmodule Tentacat do
     request!(method, url, body, headers, extra_options ++ options) |> process_response
   end
 
-  def request_stream(method, url, auth, body \\ "") do
+  def request_stream(method, url, auth, body \\ "", override \\ nil) do
     request_with_pagination(method, url, auth, JSX.encode!(body))
-    |> stream_if_needed
+    |> stream_if_needed(override)
   end
-  defp stream_if_needed(result = {status_code, _body}) when is_number(status_code) do
-    result
-  end
-  defp stream_if_needed({body, nil, _}) do
-    body
-  end
-  defp stream_if_needed(initial_results) do
+  defp stream_if_needed(result = {status_code, _}, _) when is_number(status_code), do: result
+  defp stream_if_needed({body, nil, _}, _), do: body
+  defp stream_if_needed({body, _, _}, :one_page), do: body
+  defp stream_if_needed(initial_results, _) do
     Stream.resource(
       fn -> initial_results end,
       &process_stream/1,

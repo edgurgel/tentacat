@@ -42,8 +42,8 @@ defmodule Tentacat.Users do
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
   @spec list(Client.t) :: Tentacat.response
-  def list(client \\ %Client{}) do
-    get "users", client
+  def list(client \\ %Client{}, options \\ []) do
+    get "users", client, [], Keyword.merge([pagination: :none], options)
   end
 
   @doc """
@@ -57,8 +57,8 @@ defmodule Tentacat.Users do
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
   @spec list_since(integer, Client.t) :: Tentacat.response
-  def list_since(since, client \\ %Client{}) do
-    get "users", client, [since: since]
+  def list_since(since, client \\ %Client{}, options \\ []) do
+    get "users", client, [since: since], Keyword.merge([pagination: :none], options)
   end
 
   @doc """

@@ -28,6 +28,7 @@
         "X-Accepted-OAuth-Scopes": "repo",
         "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
         "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/users?since=378>; rel=\"next\", <https://api.github.com/users{?since}>; rel=\"first\"",
         "Access-Control-Allow-Credentials": "true",
         "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
         "Access-Control-Allow-Origin": "*",

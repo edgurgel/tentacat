@@ -62,7 +62,7 @@ defmodule Tentacat.Repositories do
   """
   @spec list_public(Client.t) :: Tentacat.response
   def list_public(client \\ %Client{}, params \\ [], options \\ []) do
-    get "repositories", client, params, options
+    get "repositories", client, params, Keyword.merge([pagination: :none], options)
   end
 
   @doc """
