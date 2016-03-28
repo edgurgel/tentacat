@@ -68,8 +68,11 @@ defmodule Tentacat do
     raw_request(method, url, JSX.encode!(body), headers, options)
   end
 
+  defp extra_options do
+    Application.get_env(:tentacat, :request_options, [])
+  end
+
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
-    extra_options = Application.get_env(:tentacat, :request_options, [])
     request!(method, url, body, headers, extra_options ++ options) |> process_response
   end
 
@@ -104,7 +107,7 @@ defmodule Tentacat do
 
   @spec request_with_pagination(atom, binary, Client.auth, binary) :: {binary, binary, Client.auth}
   def request_with_pagination(method, url, auth, body \\ "") do
-    resp = request!(method, url, JSX.encode!(body), authorization_header(auth, @user_agent))
+    resp = request!(method, url, JSX.encode!(body), authorization_header(auth, @user_agent), extra_options)
     case process_response(resp) do
       x when is_tuple(x) -> x
       _ -> pagination_tuple(resp, auth)
