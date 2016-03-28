@@ -24,6 +24,37 @@ defmodule Tentacat.RepositoriesTest do
     end
   end
 
+  test "list_users/2 with auto-pagination" do
+    use_cassette "repositories#list_user_auto_pagination", match_requests_on: [:query] do
+      all_repos = list_users("jeffweiss", @client, [], pagination: :auto)
+      assert Enum.count(all_repos) > 130
+    end
+  end
+
+  test "list_users/2 with streaming pagination" do
+    use_cassette "repositories#list_user_streaming_pagination", match_requests_on: [:query] do
+      stream = list_users("jeffweiss", @client, [], pagination: :stream)
+      assert Enum.count(Enum.take(stream, 31)) == 31
+    end
+  end
+
+  test "list_users/2 with manual pagination" do
+    use_cassette "repositories#list_user_manual_pagination", match_requests_on: [:query] do
+      {body, next_link, auth} = list_users("octocat", @client, [], pagination: :manual)
+      assert Enum.count(body) == 5
+      assert next_link == nil
+      assert auth == @client.auth
+    end
+  end
+
+  test "list_users/2 with parameters" do
+    use_cassette "repositories#list_user_with_params", match_requests_on: [:query] do
+      repos = list_users("octocat", @client, [sort: :created, direction: :asc])
+      names = Enum.map(repos, &Map.get(&1, "name"))
+      assert names == ["Hello-World", "Spoon-Knife", "octocat.github.io", "git-consortium", "hello-worId"]
+    end
+  end
+
   test "list_orgs/2" do
     use_cassette "repositories#list_orgs" do
       [%{"name" => name}] = list_orgs("elixir-conspiracy", @client)
@@ -32,7 +63,7 @@ defmodule Tentacat.RepositoriesTest do
   end
 
   test "list_public/1" do
-    use_cassette "repositories#list_public" do
+    use_cassette "repositories#list_public", match_requests_on: [:query] do
       assert list_public == []
     end
   end

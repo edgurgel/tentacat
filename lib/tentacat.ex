@@ -30,10 +30,25 @@ defmodule Tentacat do
     _request(:put, url(client, path), client.auth, body)
   end
 
-  def get(path, client, params \\ []) do
-    initial_url = url(client, path)
-    url = add_params_to_url(initial_url, params)
-    _request(:get, url, client.auth)
+  @doc """
+  Underlying utility retrieval function. The options passed affect both the
+  return value and, ultimately, the number of requests made to GitHub.
+
+  Options:
+    * `:pagination` - Can be `:manual`, `:stream`, or `:auto`. Defaults to :auto
+
+  """
+  def get(path, client, params \\ [], options \\ []) do
+    url =
+      client
+      |> url(path)
+      |> add_params_to_url(params)
+    case Keyword.get(options, :pagination, nil) do
+      nil     -> request_stream(:get, url, client.auth) |> realize_if_needed
+      :auto   -> request_stream(:get, url, client.auth) |> realize_if_needed
+      :stream -> request_stream(:get, url, client.auth)
+      :manual -> request_with_pagination(:get, url, client.auth)
+    end
   end
 
   def _request(method, url, auth, body \\ "") do
@@ -47,6 +62,64 @@ defmodule Tentacat do
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
     extra_options = Application.get_env(:tentacat, :request_options, [])
     request!(method, url, body, headers, extra_options ++ options) |> process_response
+  end
+
+  def request_stream(method, url, auth, body \\ "") do
+    request_with_pagination(method, url, auth, JSX.encode!(body))
+    |> stream_if_needed
+  end
+  defp stream_if_needed(result = {status_code, _body}) when is_number(status_code) do
+    result
+  end
+  defp stream_if_needed({body, nil, _}) do
+    body
+  end
+  defp stream_if_needed(initial_results) do
+    Stream.resource(
+      fn -> initial_results end,
+      &process_stream/1,
+      fn _ -> nil end)
+  end
+
+  defp realize_if_needed(x) when is_tuple(x) or is_binary(x) or is_list(x) or is_map(x), do: x
+  defp realize_if_needed(stream), do: Enum.to_list(stream)
+
+  defp process_stream({[], nil, _}), do: {:halt, nil}
+  defp process_stream({[], next, auth}) do
+    request_with_pagination(:get, next, auth, "")
+    |> process_stream
+  end
+  defp process_stream({items, next, auth}) when is_list(items) do
+    {items, {[], next, auth}}
+  end
+  defp process_stream({item, next, auth}) do
+    {[item], {[], next, auth}}
+  end
+
+  @spec request_with_pagination(atom, binary, Client.auth, binary) :: {binary, binary, Client.auth}
+  def request_with_pagination(method, url, auth, body \\ "") do
+    resp = request!(method, url, JSX.encode!(body), authorization_header(auth, @user_agent))
+    case process_response(resp) do
+      x when is_tuple(x) -> x
+      _ -> pagination_tuple(resp, auth)
+    end
+  end
+
+  @spec pagination_tuple(HTTPoison.Response.t, Client.auth) :: {binary, binary, Client.auth}
+  defp pagination_tuple(%HTTPoison.Response{headers: headers} = resp, auth) do
+    {process_response(resp), next_link(headers), auth}
+  end
+
+  defp next_link(headers) do
+    for {"Link", link_header} <- headers, links <- String.split(link_header, ",") do
+      Regex.named_captures(~r/<(?<link>.*)>;\s*rel=\"(?<rel>.*)\"/, links)
+      |> case do
+        %{"link" => link, "rel" => "next"} -> link
+        _ -> nil
+      end
+    end
+    |> Enum.filter(&(not is_nil(&1)))
+    |> List.first
   end
 
   @spec url(client :: Client.t, path :: binary) :: binary
@@ -67,6 +140,9 @@ defmodule Tentacat do
       iex> add_params_to_url("http://example.com/wat", [q: 1, t: 2])
       "http://example.com/wat?q=1&t=2"
 
+      iex> add_params_to_url("http://example.com/wat", %{q: 1, t: 2})
+      "http://example.com/wat?q=1&t=2"
+
       iex> add_params_to_url("http://example.com/wat?q=1&t=2", [])
       "http://example.com/wat?q=1&t=2"
 
@@ -77,6 +153,9 @@ defmodule Tentacat do
       "http://example.com/wat?q=3&t=2"
 
       iex> add_params_to_url("http://example.com/wat?q=1&s=4", [q: 3, t: 2])
+      "http://example.com/wat?q=3&s=4&t=2"
+
+      iex> add_params_to_url("http://example.com/wat?q=1&s=4", %{q: 3, t: 2})
       "http://example.com/wat?q=3&s=4&t=2"
   """
   @spec add_params_to_url(binary, list) :: binary
@@ -89,17 +168,17 @@ defmodule Tentacat do
 
   @spec merge_uri_params(URI.t, list) :: URI.t
   defp merge_uri_params(uri, []), do: uri
-  defp merge_uri_params(%URI{query: nil} = uri, params) do
+  defp merge_uri_params(%URI{query: nil} = uri, params) when is_list(params) or is_map(params) do
     uri
     |> Map.put(:query, URI.encode_query(params))
   end
-  defp merge_uri_params(%URI{} = uri, params) do
+  defp merge_uri_params(%URI{} = uri, params) when is_list(params) or is_map(params) do
     uri
     |> Map.update!(:query, fn q -> q |> URI.decode_query |> Map.merge(param_list_to_map_with_string_keys(params)) |> URI.encode_query end)
   end
 
   @spec param_list_to_map_with_string_keys(list) :: map
-  defp param_list_to_map_with_string_keys(list) do
+  defp param_list_to_map_with_string_keys(list) when is_list(list) or is_map(list) do
     for {key, value} <- list, into: Map.new do
       {"#{key}", value}
     end
