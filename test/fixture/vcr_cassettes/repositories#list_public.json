@@ -25,7 +25,6 @@
         "ETag": "\"13b68ab4955c9ac3ee82c54f3d6a0d8f\"",
         "Vary": "Accept",
         "X-GitHub-Media-Type": "github.v3; format=json",
-        "Link": "<https://api.github.com/repositories?since=367>; rel=\"next\", <https://api.github.com/repositories{?since}>; rel=\"first\"",
         "X-XSS-Protection": "1; mode=block",
         "X-Frame-Options": "deny",
         "Content-Security-Policy": "default-src 'none'",
