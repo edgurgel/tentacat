@@ -21,24 +21,31 @@ defmodule TentacatTest do
   end
 
   test "process response on a 200 response" do
-    :meck.expect(JSX, :decode!, 1, :decoded_json)
     assert process_response(%HTTPoison.Response{ status_code: 200,
                                                  headers: %{},
-                                                 body: "json" }) == :decoded_json
+                                                 body: "json" }) == "json"
     assert :meck.validate(JSX)
   end
 
   test "process response on a non-200 response" do
-    :meck.expect(JSX, :decode!, 1, :decoded_json)
     assert process_response(%HTTPoison.Response{ status_code: 404,
                                                  headers: %{},
-                                                 body: "json" }) == {404, :decoded_json}
+                                                 body: "json" }) == {404, "json"}
     assert :meck.validate(JSX)
+  end
+
+  test "process_response_body with an empty body" do
+    assert process_response_body("") == nil
+  end
+
+  test "process_response_body with content" do
+    :meck.expect(JSX, :decode!, 1, :decoded_json)
+    assert process_response_body("json") == :decoded_json
   end
 
   test "process response on a non-200 response and empty body" do
     assert process_response(%HTTPoison.Response{ status_code: 404,
                                                  headers: %{},
-                                                 body: "" }) == {404, nil}
+                                                 body: nil }) == {404, nil}
   end
 end
