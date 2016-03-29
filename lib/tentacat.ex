@@ -172,7 +172,7 @@ defmodule Tentacat do
     url
     |> URI.parse
     |> merge_uri_params(params)
-    |> URI.to_string
+    |> String.Chars.to_string
   end
 
   @spec merge_uri_params(URI.t, list) :: URI.t
