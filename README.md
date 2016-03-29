@@ -116,6 +116,12 @@ iex> Tentacat.Users.me(client)
 
 Start by forking this repo
 
+And if you are using Docker:
+
+```console
+docker-compose run --rm tentacat bash
+```
+
 Then run this command to fetch dependencies and run tests:
 
 ```console

@@ -1,0 +1,5 @@
+tentacat:
+  image: trenpixster/elixir
+  volumes:
+    - ./:/tentacat
+  working_dir: /tentacat
