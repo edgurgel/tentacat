@@ -9,7 +9,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "https://api.github.com/repos/tentatest/tentacat/hooks/?"
+      "url": "https://api.github.com/repos/tentatest/tentacat/hooks/1234"
     },
     "response": {
       "body": "{\"message\":\"Not Found\",\"documentation_url\":\"https://developer.github.com/v3\"}",

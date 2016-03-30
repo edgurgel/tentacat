@@ -1,0 +1,84 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/jeffweiss/repos"
+    },
+    "response": {
+      "body": "[{\"id\":16320755},{\"id\":3380809},{\"id\":2060691},{\"id\":48418601},{\"id\":22696215},{\"id\":4788996},{\"id\":33283458},{\"id\":8116447},{\"id\":9851620},{\"id\":9023043},{\"id\":44702547},{\"id\":46002683},{\"id\":9571577},{\"id\":29563955},{\"id\":53242478},{\"id\":3815157},{\"id\":51812639},{\"id\":54699915},{\"id\":43720903},{\"id\":49993328},{\"id\":43731406},{\"id\":43500230},{\"id\":22303787},{\"id\":52544149},{\"id\":8898735}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:30:03 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "145147",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "41",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"8d64ee2537ee5ce289586869d02813a8\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=2>; rel=\"next\", <https://api.github.com/user/818053/repos?page=5>; rel=\"last\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "a7f8a126c9ed3f1c4715a34c0ddc7290",
+        "X-GitHub-Request-Id": "4C1BFA55:1805F:12AE2B69:56F8F99A"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/818053/repos?page=2"
+    },
+    "response": {
+      "body": "[{\"id\":39763079},{\"id\":9591606},{\"id\":27944357},{\"id\":22671970},{\"id\":49553253},{\"id\":46582893},{\"id\":42211866},{\"id\":3769650},{\"id\":26841726},{\"id\":25548184},{\"id\":25604526},{\"id\":32608065},{\"id\":6264388},{\"id\":3990423},{\"id\":4023404},{\"id\":3815303},{\"id\":12186943},{\"id\":3364295},{\"id\":54765309},{\"id\":4280795},{\"id\":5100427},{\"id\":48141380},{\"id\":9042417},{\"id\":11826824},{\"id\":11885337},{\"id\":9339823},{\"id\":11647367},{\"id\":4252440},{\"id\":8621311},{\"id\":4257435}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:30:03 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "146924",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "40",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"1d48b45738010809f0b93b50ebee3982\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=3>; rel=\"next\", <https://api.github.com/user/818053/repos?page=5>; rel=\"last\", <https://api.github.com/user/818053/repos?page=1>; rel=\"first\", <https://api.github.com/user/818053/repos?page=1>; rel=\"prev\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "e183f7c661b1bbc2c987b3c4dc7b04e0",
+        "X-GitHub-Request-Id": "4C1BFA55:1805F:12AE2C58:56F8F99B"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

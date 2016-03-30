@@ -19,7 +19,7 @@ defmodule Tentacat.HooksTest do
 
   test "find/4" do
     use_cassette "hooks#find" do
-      {status_code, _} = find("tentatest", "tentacat", "?", @client)
+      {status_code, _} = find("tentatest", "tentacat", "1234", @client)
       assert status_code == 404
     end
   end

@@ -28,7 +28,6 @@
         "X-Accepted-OAuth-Scopes": "repo",
         "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
         "X-GitHub-Media-Type": "github.v3; format=json",
-        "Link": "<https://api.github.com/user/222101/following?page=2>; rel=\"next\", <https://api.github.com/user/222101/following?page=3>; rel=\"last\"",
         "X-XSS-Protection": "1; mode=block",
         "X-Frame-Options": "deny",
         "Content-Security-Policy": "default-src 'none'",

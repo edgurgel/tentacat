@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/octocat/repos?sort=created&direction=asc"
+    },
+    "response": {
+      "body": "[{\"id\":1296269,\"name\":\"Hello-World\"},{\"id\":1300192,\"name\":\"Spoon-Knife\"},{\"id\":17881631,\"name\":\"octocat.github.io\"},{\"id\":18221276,\"name\":\"git-consortium\"},{\"id\":20978623,\"name\":\"hello-worId\"}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:30:43 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "23724",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "37",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"966a2f5c4f98f595fad7aa31adac1bac\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "d0b3c2c33a23690498aa8e70a435a259",
+        "X-GitHub-Request-Id": "4C1BFA55:36CA:F147EB9:56F8F9C3"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

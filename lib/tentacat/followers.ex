@@ -12,8 +12,11 @@ defmodule Tentacat.Users.Followers do
   More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
   """
   @spec following(Client.t) :: Tentacat.response
-  def following(client) do
-    get "user/following", client
+  def following(client) when is_map(client) do
+    following(client, [])
+  end
+  def following(client, options) when is_map(client) and is_list(options) do
+    get "user/following", client, [], options
   end
 
   @doc """
@@ -25,8 +28,11 @@ defmodule Tentacat.Users.Followers do
 
   More info at: http://developer.github.com/v3/users/followers/#list-users-followed-by-another-user
   """
-  def following(user_name, client) do
-    get "users/#{user_name}/following", client
+  def following(user_name, client) when is_binary(user_name) and is_map(client) do
+    following(user_name, client, [])
+  end
+  def following(user_name, client, options) when is_binary(user_name) and is_map(client) and is_list(options) do
+    get "users/#{user_name}/following", client, [], options
   end
 
   @doc """

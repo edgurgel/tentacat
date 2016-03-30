@@ -18,8 +18,8 @@ defmodule Tentacat.Repositories do
   More info at: https://developer.github.com/v3/repos/#list-your-repositories
   """
   @spec list_mine(Client.t, Keyword.t) :: Tentacat.response
-  def list_mine(client, opts \\ []) do
-    get "user/repos", client, opts
+  def list_mine(client, params \\ [], options \\ []) do
+    get "user/repos", client, params, options
   end
 
   @doc """
@@ -32,8 +32,8 @@ defmodule Tentacat.Repositories do
   More info at: https://developer.github.com/v3/repos/#list-user-repositories
   """
   @spec list_users(binary, Client.t) :: Tentacat.response
-  def list_users(owner, client \\ %Client{}) do
-    get "users/#{owner}/repos", client
+  def list_users(owner, client \\ %Client{}, params \\ [], options \\ []) do
+    get "users/#{owner}/repos", client, params, options
   end
 
   @doc """
@@ -46,8 +46,8 @@ defmodule Tentacat.Repositories do
   More info at: https://developer.github.com/v3/repos/#list-organization-repositories
   """
   @spec list_orgs(binary, Client.t) :: Tentacat.response
-  def list_orgs(org, client \\ %Client{}) do
-    get "orgs/#{org}/repos", client
+  def list_orgs(org, client \\ %Client{}, params \\ [], options \\ []) do
+    get "orgs/#{org}/repos", client, params, options
   end
 
   @doc """
@@ -61,8 +61,8 @@ defmodule Tentacat.Repositories do
   More info at: https://developer.github.com/v3/repos/#list-all-public-repositories
   """
   @spec list_public(Client.t) :: Tentacat.response
-  def list_public(client \\ %Client{}) do
-    get "repositories", client
+  def list_public(client \\ %Client{}, params \\ [], options \\ []) do
+    get "repositories", client, params, Keyword.merge([pagination: :none], options)
   end
 
   @doc """
@@ -76,8 +76,8 @@ defmodule Tentacat.Repositories do
   More info at: https://developer.github.com/v3/repos/#get
   """
   @spec repo_get(binary, binary, Client.t) :: Tentacat.response
-  def repo_get(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}", client
+  def repo_get(owner, repo, client \\ %Client{}, params \\ []) do
+    get "repos/#{owner}/#{repo}", client, params
   end
 
   @doc """

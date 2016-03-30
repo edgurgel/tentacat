@@ -26,13 +26,13 @@ defmodule Tentacat.UsersTest do
   end
 
   test "list/1" do
-    use_cassette "users#list" do
+    use_cassette "users#list", match_requests_on: [:query] do
       assert list(@client) == []
     end
   end
 
   test "list_since/2" do
-    use_cassette "users#list_since" do
+    use_cassette "users#list_since", match_requests_on: [:query] do
       assert list_since(348, @client) == []
     end
   end

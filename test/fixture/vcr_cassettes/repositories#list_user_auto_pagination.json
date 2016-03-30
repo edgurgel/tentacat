@@ -1,0 +1,207 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/jeffweiss/repos"
+    },
+    "response": {
+      "body": "[{\"id\":16320755},{\"id\":3380809},{\"id\":2060691},{\"id\":48418601},{\"id\":22696215},{\"id\":4788996},{\"id\":33283458},{\"id\":8116447},{\"id\":15383501},{\"id\":9266339},{\"id\":3815299},{\"id\":39263061},{\"id\":11513169},{\"id\":9851620},{\"id\":9023043},{\"id\":44702547},{\"id\":46002683},{\"id\":9571577},{\"id\":29563955},{\"id\":53242478},{\"id\":3815157},{\"id\":51812639},{\"id\":54699915},{\"id\":43720903},{\"id\":49993328},{\"id\":43731406},{\"id\":43500230},{\"id\":22303787},{\"id\":52544149},{\"id\":8898735}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:34:25 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "145147",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "34",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"8d64ee2537ee5ce289586869d02813a8\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=2>; rel=\"next\", <https://api.github.com/user/818053/repos?page=5>; rel=\"last\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "a241e1a8264a6ace03db946c85b92db3",
+        "X-GitHub-Request-Id": "4C1BFA55:18059:347AE82:56F8FAA1"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/818053/repos?page=2"
+    },
+    "response": {
+      "body": "[{\"id\":39763079},{\"id\":9591606},{\"id\":27944357},{\"id\":22671970},{\"id\":49553253},{\"id\":46582893},{\"id\":42211866},{\"id\":3769650},{\"id\":26841726},{\"id\":25548184},{\"id\":25604526},{\"id\":32608065},{\"id\":6264388},{\"id\":3990423},{\"id\":4023404},{\"id\":3815303},{\"id\":12186943},{\"id\":3364295},{\"id\":54765309},{\"id\":4280795},{\"id\":5100427},{\"id\":48141380},{\"id\":9042417},{\"id\":11826824},{\"id\":11885337},{\"id\":9339823},{\"id\":11647367},{\"id\":4252440},{\"id\":8621311},{\"id\":4257435}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:34:26 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "146924",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "33",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"1d48b45738010809f0b93b50ebee3982\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=3>; rel=\"next\", <https://api.github.com/user/818053/repos?page=5>; rel=\"last\", <https://api.github.com/user/818053/repos?page=1>; rel=\"first\", <https://api.github.com/user/818053/repos?page=1>; rel=\"prev\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "01d096e6cfe28f8aea352e988c332cd3",
+        "X-GitHub-Request-Id": "4C1BFA55:18059:347AEB0:56F8FAA2"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/818053/repos?page=3"
+    },
+    "response": {
+      "body": "[{\"id\":4257611},{\"id\":4257419},{\"id\":39850985},{\"id\":50493681},{\"id\":9041228},{\"id\":6299642},{\"id\":18587330},{\"id\":3820939},{\"id\":49803695},{\"id\":21140331},{\"id\":3533796},{\"id\":49557314},{\"id\":5077707},{\"id\":4875581},{\"id\":8449258},{\"id\":9042455},{\"id\":36027843},{\"id\":27213063},{\"id\":17645941},{\"id\":10786054},{\"id\":32058951},{\"id\":9455596},{\"id\":45158655},{\"id\":41991279},{\"id\":34437926},{\"id\":34438112},{\"id\":34421266},{\"id\":34400707},{\"id\":43730519},{\"id\":4231995}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:34:26 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "148053",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "32",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"85694c5ff6800aaad0cac99ec035d2bd\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=4>; rel=\"next\", <https://api.github.com/user/818053/repos?page=5>; rel=\"last\", <https://api.github.com/user/818053/repos?page=1>; rel=\"first\", <https://api.github.com/user/818053/repos?page=2>; rel=\"prev\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "a6882e5cd2513376cb9481dbcd83f3a2",
+        "X-GitHub-Request-Id": "4C1BFA55:18059:347AED8:56F8FAA2"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/818053/repos?page=4"
+    },
+    "response": {
+      "body": "[{\"id\":10893897},{\"id\":7959493},{\"id\":3293600},{\"id\":29695100},{\"id\":4186856},{\"id\":4262739},{\"id\":24470877},{\"id\":6362012},{\"id\":3835850},{\"id\":13134526},{\"id\":47893165},{\"id\":47893180},{\"id\":38515572},{\"id\":9042376},{\"id\":28170076},{\"id\":6611219},{\"id\":10248443},{\"id\":23886985},{\"id\":24303335},{\"id\":1981837},{\"id\":5791639},{\"id\":4786010},{\"id\":51337972},{\"id\":46758184},{\"id\":49551534},{\"id\":26338691},{\"id\":3780408},{\"id\":9102941},{\"id\":18830598},{\"id\":7522426}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:34:27 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "146607",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "31",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"0a98e06948db8e7cb7d7afa6bb2fe296\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=5>; rel=\"next\", <https://api.github.com/user/818053/repos?page=5>; rel=\"last\", <https://api.github.com/user/818053/repos?page=1>; rel=\"first\", <https://api.github.com/user/818053/repos?page=3>; rel=\"prev\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "e724c57ebb9961c772a91e2dd7421c8d",
+        "X-GitHub-Request-Id": "4C1BFA55:18059:347AEFC:56F8FAA2"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/user/818053/repos?page=5"
+    },
+    "response": {
+      "body": "[{\"id\":54871321},{\"id\":35361669},{\"id\":35327643},{\"id\":16559102},{\"id\":9042546},{\"id\":6745165},{\"id\":15987609},{\"id\":3815301},{\"id\":12991974},{\"id\":22374749},{\"id\":10726567}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 28 Mar 2016 09:34:27 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "54343",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "30",
+        "X-RateLimit-Reset": "1459159944",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"5bad5b058fc594f3ea90b87d252b64fb\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "<https://api.github.com/user/818053/repos?page=1>; rel=\"first\", <https://api.github.com/user/818053/repos?page=4>; rel=\"prev\"",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "7f48e2f7761567e923121f17538d7a6d",
+        "X-GitHub-Request-Id": "4C1BFA55:18059:347AF1A:56F8FAA3"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
