@@ -22,10 +22,10 @@ defmodule Tentacat.Issues do
 
   ## Example
 
-      Tentacat.Issues.list "elixir-lang", "elixir", %{state: "open"}
-      Tentacat.Issues.list "elixir-lang", "elixir", %{state: "open"}, client
+      Tentacat.Issues.filter "elixir-lang", "elixir", %{state: "open"}
+      Tentacat.Issues.filter "elixir-lang", "elixir", %{state: "open"}, client
 
-  More info at: https://developer.github.com/v3/pulls/#parameters
+  More info at: https://developer.github.com/v3/issues/#list-issues-for-a-repository
   """
   @spec filter(binary, binary, map, Client.t) :: Tentacat.response
   def filter(owner, repo, filters, client \\ %Client{}) do
@@ -40,7 +40,7 @@ defmodule Tentacat.Issues do
       Tentacat.Issues.find "elixir-lang", "elixir", "2974"
       Tentacat.Issues.find "elixir-lang", "elixir", "2974", client
 
-  More info at: https://developer.github.com/v3/pulls/#get-a-single-issue
+  More info at: https://developer.github.com/v3/issues/#get-a-single-issue
   """
   @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
   def find(owner, repo, number, client \\ %Client{}) do
