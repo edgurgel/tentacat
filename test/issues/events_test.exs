@@ -18,4 +18,17 @@ defmodule Tentacat.Issues.EventsTest do
     end
   end
 
+  test "list_all/3" do
+    use_cassette "issues/events#list_all" do
+      assert list_all("sdost", "elixir-conspiracy", @client) |> Enum.count()  == 7
+    end
+  end
+
+  test "find/4" do
+    use_cassette "issues/events#find" do
+      %{"event" => event} = find("sdost", "elixir-conspiracy", 607575270, @client)
+      assert event == "closed"
+    end
+  end
+
 end
