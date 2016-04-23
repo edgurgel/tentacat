@@ -51,7 +51,8 @@ defmodule Tentacat do
       client
       |> url(path)
       |> add_params_to_url(params)
-    case Keyword.get(options, :pagination, nil) do
+
+    case pagination(options) do
       nil     -> request_stream(:get, url, client.auth) |> realize_if_needed
       :none   -> request_stream(:get, url, client.auth, "", :one_page)
       :auto   -> request_stream(:get, url, client.auth) |> realize_if_needed
@@ -70,6 +71,11 @@ defmodule Tentacat do
 
   defp extra_options do
     Application.get_env(:tentacat, :request_options, [])
+  end
+
+  defp pagination(options \\ []) do
+    Keyword.get(options, :pagination,
+      Application.get_env(:tentacat, :pagination, nil))
   end
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
