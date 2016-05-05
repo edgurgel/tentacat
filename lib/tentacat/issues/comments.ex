@@ -17,6 +17,20 @@ defmodule Tentacat.Issues.Comments do
   end
 
   @doc """
+  Filter comments on an issue. Parameters are `since`.
+
+  ## Example
+
+      Tentacat.Issues.Comments.filter "elixir-lang", "elixir", 3970, since: "2016-05-04T23:59:59Z"
+
+  More info at: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
+  """
+  @spec filter(binary, binary, binary | integer, Keyword.t | map, Client.t) :: Tentacat.response
+  def filter(owner, repo, issue_id, filters, client \\ %Client{}) do
+    get "repos/#{owner}/#{repo}/issues/#{issue_id}/comments?#{URI.encode_query(filters)}", client
+  end
+
+  @doc """
   List all comments on issues for a repository. By default, Issue Comments are ordered by ascending ID.
 
   ## Example
@@ -28,6 +42,20 @@ defmodule Tentacat.Issues.Comments do
   @spec list_all(binary, binary, Client.t) :: Tentacat.response
   def list_all(owner, repo, client \\ %Client{}) do
     get "repos/#{owner}/#{repo}/issues/comments", client
+  end
+
+  @doc """
+  Filter comments on an issue. Parameters are `sort`, `direction` and `since`.
+
+  ## Example
+
+      Tentacat.Issues.Comments.filter_all "elixir-lang", "elixir", dir: "desc", sort: "updated"
+
+  More info at: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
+  """
+  @spec filter_all(binary, binary, Keyword.t | map, Client.t) :: Tentacat.response
+  def filter_all(owner, repo, filters, client \\ %Client{}) do
+    get "repos/#{owner}/#{repo}/issues/comments?#{URI.encode_query(filters)}", client
   end
 
   @doc """
