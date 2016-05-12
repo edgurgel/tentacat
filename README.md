@@ -19,6 +19,7 @@ Tentacool + Cat = Tentacat
   * Files
 * Organizations
   * Members
+  * Teams
 * Users
   * Emails
   * Keys
@@ -36,7 +37,7 @@ First, add Tentacat to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:tentacat, "~> 0.2"}]
+  [{:tentacat, "~> 0.5"}]
 end
 ```
 

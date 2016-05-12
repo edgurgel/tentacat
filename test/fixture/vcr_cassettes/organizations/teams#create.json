@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "{\"description\":\"Team for everyone with commit access\",\"name\":\"my new team\",\"privacy\":\"closed\",\"repo_names\":[\"my_org/secret_repo\",\"my_org/secret_repo2\"]}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokengoeshere"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/orgs/my_org/teams"
+    },
+    "response": {
+      "body": "{\"name\":\"my new team\",\"id\":2019723,\"slug\":\"my-new-team\",\"description\":\"Team for everyone with commit access\",\"permission\":\"pull\",\"privacy\":\"closed\",\"url\":\"https://api.github.com/teams/2019723\",\"members_url\":\"https://api.github.com/teams/2019723/members{/member}\",\"repositories_url\":\"https://api.github.com/teams/2019723/repos\",\"members_count\":0,\"repos_count\":0,\"organization\":{\"login\":\"my_org\",\"id\":9755201,\"url\":\"https://api.github.com/orgs/my_org\",\"repos_url\":\"https://api.github.com/orgs/my_org/repos\",\"events_url\":\"https://api.github.com/orgs/my_org/events\",\"hooks_url\":\"https://api.github.com/orgs/my_org/hooks\",\"issues_url\":\"https://api.github.com/orgs/my_org/issues\",\"members_url\":\"https://api.github.com/orgs/my_org/members{/member}\",\"public_members_url\":\"https://api.github.com/orgs/my_org/public_members{/member}\",\"avatar_url\":\"https://avatars.githubusercontent.com/u/9755201?v=3\",\"description\":\"\",\"name\":\"\",\"company\":null,\"blog\":\"\",\"location\":\"\",\"email\":\"\",\"public_repos\":2,\"public_gists\":0,\"followers\":0,\"following\":0,\"html_url\":\"https://github.com/my_org\",\"created_at\":\"2014-11-14T22:33:30Z\",\"updated_at\":\"2016-04-30T19:56:09Z\",\"type\":\"Organization\"}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 12 May 2016 05:09:16 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1191",
+        "Status": "201 Created",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4973",
+        "X-RateLimit-Reset": "1463030385",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"87a56fa1b3cb54b13535b7dc950490e5\"",
+        "X-OAuth-Scopes": "admin:org",
+        "X-Accepted-OAuth-Scopes": "admin:org, repo",
+        "Location": "https://api.github.com/teams/2019723",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "a241e1a8264a6ace03db946c85b92db3",
+        "X-GitHub-Request-Id": "44073D0C:2CBD:B9E02B9:57340FFC"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]
