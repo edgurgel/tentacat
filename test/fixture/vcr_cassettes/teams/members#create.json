@@ -1,0 +1,45 @@
+[
+  {
+    "request": {
+      "body": "{}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokengoeshere"
+      },
+      "method": "put",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/teams/1500000/memberships/username"
+    },
+    "response": {
+      "body": "{\"state\":\"active\",\"role\":\"member\",\"url\":\"https://api.github.com/teams/1500000/memberships/username\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Fri, 13 May 2016 00:32:00 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "99",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Reset": "1463103120",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"ab4e0d15d156bef84f70247602b3ff34\"",
+        "X-OAuth-Scopes": "admin:org",
+        "X-Accepted-OAuth-Scopes": "admin:org, repo",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "cee4c0729c8e9147e7abcb45b9d69689",
+        "X-GitHub-Request-Id": "44073D0C:7F8C:1DC332:5735207F"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

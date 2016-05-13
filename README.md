@@ -20,6 +20,8 @@ Tentacool + Cat = Tentacat
 * Organizations
   * Members
   * Teams
+* Teams
+  * Members
 * Users
   * Emails
   * Keys
