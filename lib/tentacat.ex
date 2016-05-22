@@ -73,7 +73,7 @@ defmodule Tentacat do
     Application.get_env(:tentacat, :request_options, [])
   end
 
-  defp pagination(options \\ []) do
+  defp pagination(options) do
     Keyword.get(options, :pagination,
       Application.get_env(:tentacat, :pagination, nil))
   end
