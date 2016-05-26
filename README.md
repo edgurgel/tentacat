@@ -13,6 +13,10 @@ Tentacool + Cat = Tentacat
 * Gitignore
 * Contents
 * Trees
+* Issues
+  * Comments
+  * Events
+  * Labels
 * Pulls
   * Comments
   * Commits
