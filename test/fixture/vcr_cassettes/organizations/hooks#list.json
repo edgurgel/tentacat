@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/orgs/tentatest/hooks"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sat, 19 Dec 2015 07:25:50 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4984",
+        "X-RateLimit-Reset": "1450510991",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"411634914830e1b11d359df5aeb17ed4\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "admin:repo_hook, public_repo, read:repo_hook, repo, write:repo_hook",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "bd82876e9bf04990f289ba22f246ee9b",
+        "X-GitHub-Request-Id": "3E552BA7:134F5:C70724F:5675067D"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -24,6 +24,7 @@ Tentacool + Cat = Tentacat
 * Organizations
   * Members
   * Teams
+  * Webhooks
 * Teams
   * Members
 * Users
