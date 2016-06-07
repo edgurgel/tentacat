@@ -37,7 +37,7 @@ defmodule Tentacat.Users.Events do
 
   ## Example
 
-      Tentacat.Users.Events.list_user_org "bastos", "elixir-lang",  client
+      Tentacat.Users.Events.list_user_org "bastos", "elixir-lang", client
 
   More info at: https://developer.github.com/v3/activity/events/#list-events-for-an-organization
   """
