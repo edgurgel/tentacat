@@ -1,0 +1,45 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/andersklenke/tentatest/collaborators"
+    },
+    "response": {
+      "body": "[{\"login\":\"andersklenke\",\"id\":3286533,\"avatar_url\":\"https://avatars.githubusercontent.com/u/3286533?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/andersklenke\",\"html_url\":\"https://github.com/andersklenke\",\"followers_url\":\"https://api.github.com/users/andersklenke/followers\",\"following_url\":\"https://api.github.com/users/andersklenke/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/andersklenke/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/andersklenke/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/andersklenke/subscriptions\",\"organizations_url\":\"https://api.github.com/users/andersklenke/orgs\",\"repos_url\":\"https://api.github.com/users/andersklenke/repos\",\"events_url\":\"https://api.github.com/users/andersklenke/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/andersklenke/received_events\",\"type\":\"User\",\"site_admin\":false,\"permissions\":{\"admin\":true,\"push\":true,\"pull\":true}}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Wed, 15 Jun 2016 08:59:45 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "975",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4945",
+        "X-RateLimit-Reset": "1465981243",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"e8091b15e464f7d0c3bc78316a7d0314\"",
+        "X-OAuth-Scopes": "admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "07ff1c8a09e44b62e277fae50a1b1dc4",
+        "X-GitHub-Request-Id": "B976FA36:1271A:337817EA:57611901"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
