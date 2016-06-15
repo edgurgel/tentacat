@@ -28,4 +28,10 @@ defmodule Tentacat.Users.EventsTest do
       assert {404, _} = list_user_org("duksis", "honeypotio", @client)
     end
   end
+
+  test "list_received_public/2" do
+    use_cassette "users/events#list_received_public", match_requests_on: [:query] do
+      assert list_received_public("duksis", @client) == []
+    end
+  end
 end

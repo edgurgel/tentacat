@@ -37,12 +37,26 @@ defmodule Tentacat.Users.Events do
 
   ## Example
 
-      Tentacat.Users.Events.list_user_org "bastos", "elixir-lang",  client
+      Tentacat.Users.Events.list_user_org "bastos", "elixir-lang", client
 
   More info at: https://developer.github.com/v3/activity/events/#list-events-for-an-organization
   """
   @spec list_user_org(binary, binary, Client.t) :: Tentacat.response
   def list_user_org(user, org, client) do
     get "users/#{user}/events/orgs/#{org}", client
+  end
+
+  @doc """
+  List public events that a user has received
+
+  ## Example
+
+      Tentacat.Users.Events.list_received_public "bastos", client
+
+  More info at: https://developer.github.com/v3/activity/events/#list-public-events-that-a-user-has-received
+  """
+  @spec list_received_public(binary, Client.t) :: Tentacat.response
+  def list_received_public(user, client \\ %Client{}) do
+    get "users/#{user}/received_events/public", client
   end
 end

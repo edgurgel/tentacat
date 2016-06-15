@@ -1,0 +1,45 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/duksis/received_events/public"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Tue, 07 Jun 2016 14:45:31 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "48",
+        "X-RateLimit-Reset": "1465310859",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"9502cf6133fb36f23150535dd060ec27\"",
+        "Last-Modified": "Tue, 07 Jun 2016 13:47:38 GMT",
+        "X-Poll-Interval": "60",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Link": "",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "d0b3c2c33a23690498aa8e70a435a259",
+        "X-GitHub-Request-Id": "5B41BD9C:B216:23933A22:5756DE0A"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
