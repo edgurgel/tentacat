@@ -35,6 +35,7 @@ Tentacool + Cat = Tentacat
   * Branches
   * Statuses
   * Deployments
+  * Collaborators
 
 Documentation can be found [here](https://hexdocs.pm/tentacat)
 
