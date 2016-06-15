@@ -1,0 +1,80 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/andersklenke/tentatest/collaborators/andersklenke"
+    },
+    "response": {
+      "body": "",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Wed, 15 Jun 2016 08:59:44 GMT",
+        "Status": "204 No Content",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4948",
+        "X-RateLimit-Reset": "1465981243",
+        "X-OAuth-Scopes": "admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "Vary": "Accept-Encoding",
+        "X-Served-By": "a6882e5cd2513376cb9481dbcd83f3a2",
+        "X-GitHub-Request-Id": "B976FA36:1271A:33781727:57611900"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/andersklenke/tentatest/collaborators/no"
+    },
+    "response": {
+      "body": "{\"message\":\"Not Found\",\"documentation_url\":\"https://developer.github.com/v3\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Wed, 15 Jun 2016 08:59:44 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "77",
+        "Status": "404 Not Found",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4947",
+        "X-RateLimit-Reset": "1465981243",
+        "X-OAuth-Scopes": "admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-GitHub-Request-Id": "B976FA36:1271A:33781778:57611900"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
+  }
+]
