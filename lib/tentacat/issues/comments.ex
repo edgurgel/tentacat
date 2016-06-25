@@ -51,7 +51,7 @@ defmodule Tentacat.Issues.Comments do
 
       Tentacat.Issues.Comments.filter_all "elixir-lang", "elixir", dir: "desc", sort: "updated"
 
-  More info at: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
+  More info at: https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository
   """
   @spec filter_all(binary, binary, Keyword.t | map, Client.t) :: Tentacat.response
   def filter_all(owner, repo, filters, client \\ %Client{}) do

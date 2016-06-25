@@ -17,6 +17,13 @@ defmodule Tentacat.CommitsTest do
     end
   end
 
+  test "filter/4" do
+    use_cassette "commits#filter" do
+      [%{"sha" => sha}] = filter("soudqwiggle", "elixir-conspiracy", %{sha: "09fe12ca25d0440f143ab331e4684a8622d6e4e5"}, @client)
+      assert sha == "09fe12ca25d0440f143ab331e4684a8622d6e4e5"
+    end
+  end
+
   test "find/4" do
     use_cassette "commits#find" do
       %{"sha" => sha} = find("09fe12ca25d0440f", "soudqwiggle", "elixir-conspiracy", @client)
