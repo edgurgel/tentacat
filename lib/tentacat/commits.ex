@@ -17,6 +17,20 @@ defmodule Tentacat.Commits do
   end
 
   @doc """
+  Filter commits on a repository. Parameters are `sha`, `path`, `author`, `since`, `until`.
+
+  ## Example
+
+      Tentacat.Commits.filter("elixir-lang", "elixir", %{sha: "my-branch"}, client)
+
+  More info at: https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
+  """
+  @spec filter(binary, binary, Keyword.t | map, Client.t) :: Tentacat.response
+  def filter(owner, repo, filters, client \\ %Client{}) do
+    get "repos/#{owner}/#{repo}/commits?#{URI.encode_query(filters)}", client
+  end
+
+  @doc """
   Get a single commit
 
   ## Example

@@ -5,7 +5,7 @@ defmodule Tentacat.Pulls.CommentsTest do
 
   doctest Tentacat.Pulls.Comments
 
-  @client Tentacat.Client.new(%{access_token: "8e663c8614ced27c09b963f806ac46776a29db50"})
+  @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
     HTTPoison.start
@@ -20,6 +20,12 @@ defmodule Tentacat.Pulls.CommentsTest do
   test "list/4" do
     use_cassette "pulls/comments#list" do
       assert list("soudqwiggle", "elixir-conspiracy", "1", @client) == []
+    end
+  end
+
+  test "filter_all/4" do
+    use_cassette "pulls/comments#filter_all" do
+      [] = filter_all("elixir-lang", "elixir", [dir: "desc", sort: "created", since: "2016-07-01T23:59:59Z"], @client)
     end
   end
 
