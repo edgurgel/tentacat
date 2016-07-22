@@ -85,6 +85,20 @@ defmodule Tentacat.Hooks do
   end
 
   @doc """
+  This will trigger a ping event to be sent to the hook.
+
+  ## Example
+
+      Tentacat.Hooks.ping("elixir-lang", "elixir", "1234567", client)
+
+  More info at: http:\\developer.github.com/v3/repos/hooks/#ping-a-hook
+  """
+  @spec ping(binary, binary, binary | integer, Client.t) :: Tentacat.response
+  def ping(owner, repo, hook_id, client) do
+    post "repos/#{owner}/#{repo}/hooks/#{hook_id}/pings", client, ""
+  end
+
+  @doc """
   Delete a repo's webhook by it's Id.
 
   ## Example

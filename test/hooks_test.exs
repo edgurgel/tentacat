@@ -58,6 +58,13 @@ defmodule Tentacat.HooksTest do
     end
   end
 
+  test "ping/4" do
+    use_cassette "hooks#ping" do
+      {status_code, _} = ping("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      assert status_code == 204
+    end
+  end
+
   test "remove/4" do
     use_cassette "hooks#remove" do
       {status_code, _} = remove("soudqwiggle", "elixir-conspiracy", 6736758, @client)
