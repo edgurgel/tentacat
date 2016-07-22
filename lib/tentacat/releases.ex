@@ -41,7 +41,7 @@ defmodule Tentacat.Releases do
   """
   @spec create(binary, binary, binary, Client.t, list) :: Tentacat.response
   def create(tag_name, owner, repo, client \\ %Client{}, options \\ []) when is_binary(tag_name) do
-    body = Dict.merge(options, tag_name: tag_name)
+    body = Keyword.merge(options, tag_name: tag_name)
     post "repos/#{owner}/#{repo}/releases", client, body
   end
 
