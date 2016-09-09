@@ -1,0 +1,43 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/edgurgel/tentacat/languages"
+    },
+    "response": {
+      "body": "{\"Elixir\":133823}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Fri, 09 Sep 2016 14:19:45 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "17",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "48",
+        "X-RateLimit-Reset": "1473432857",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"77128879bc04902c5aba45b7bb802d3c\"",
+        "Last-Modified": "Wed, 31 Aug 2016 12:48:27 GMT",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "2811da37fbdda4367181b328b22b2499",
+        "X-GitHub-Request-Id": "510250D8:3D32:5563405:57D2C500"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
