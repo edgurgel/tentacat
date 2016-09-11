@@ -12,7 +12,7 @@ defmodule Tentacat.Contents do
 
   More info at: https://developer.github.com/v3/repos/contents/#get-the-readme
   """
-  @spec find(binary, binary, binary, Client.t) :: Tentacat.response
+  @spec readme(binary, binary, binary, Client.t) :: Tentacat.response
   def readme(owner, repo, ref, client \\ %Client{}) do
     get "repos/#{owner}/#{repo}/readme", client, [{:ref, ref}]
   end
