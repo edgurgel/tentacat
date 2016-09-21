@@ -66,7 +66,7 @@ iex -S mix
 
 You will something like this:
 
-```
+```elixir
 Erlang/OTP 17 [erts-6.0] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false]
 
 Interactive Elixir (0.13.3) - press Ctrl+C to exit (type h() ENTER for help)
@@ -81,7 +81,7 @@ Every call to GitHub needs a client, but if you want to use unauthenticated requ
 
 Getting info from a user using a client
 
-```iex
+```elixir
 iex> client = Tentacat.Client.new
 %Tentacat.Client{auth: nil, endpoint: "https://api.github.com/"}
 iex> Tentacat.Users.find "edgurgel", client
@@ -90,7 +90,7 @@ iex> Tentacat.Users.find "edgurgel", client
 
 Getting info from a user without a defined client
 
-```iex
+```elixir
 iex> Tentacat.Users.find("edgurgel") |> Map.get("email")
 "eduardo@gurgel.me"
 ```
@@ -99,7 +99,7 @@ Getting info from the authenticated user
 
 * Using user and password:
 
-```iex
+```elixir
 iex> client = Tentacat.Client.new(%{user: "user", password: "password"})
 %Tentacat.Client{auth: %{user: "user", password: "password"}, endpoint: "https://api.github.com/"}
 iex> Tentacat.Users.me(client)
@@ -107,7 +107,7 @@ iex> Tentacat.Users.me(client)
 
 * Using a personal access token [Github personal API token](https://github.com/blog/1509-personal-api-tokens)
 
-```iex
+```elixir
 iex> client = Tentacat.Client.new(%{access_token: "928392873982932"})
 %Tentacat.Client{auth: %{access_token: "928392873982932"}, endpoint: "https://api.github.com/"}
 iex> Tentacat.Users.me(client)
@@ -115,7 +115,7 @@ iex> Tentacat.Users.me(client)
 
 Accessing another endpoint
 
-```iex
+```elixir
 iex> client = Tentacat.Client.new(%{access_token: "928392873982932"}, "https://ghe.example.com/api/v3/")
 %Tentacat.Client{auth: %{access_token: "928392873982932"}, endpoint: "https://ghe.example.com/api/v3/"}
 iex> Tentacat.Users.me(client)
