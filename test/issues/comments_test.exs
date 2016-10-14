@@ -49,4 +49,12 @@ defmodule Tentacat.Issues.CommentsTest do
       assert status_code == 201
     end
   end
+
+  test "update/5" do
+    body = %{"body" => "up!"}
+    use_cassette "issues/comments#update" do
+      %{"body" => comment} = update("lest", "test-repo", 253744502, body, @client)
+      assert comment == "up!"
+    end
+  end
 end
