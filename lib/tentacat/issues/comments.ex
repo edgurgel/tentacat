@@ -109,9 +109,9 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#edit-a-comment
   """
-  @spec update(binary, binary, binary | integer, binary | integer, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, issue_id, comment_id, body, client \\ %Client{}) do
-    patch "repos/#{owner}/#{repo}/issues/#{issue_id}/comments/#{comment_id}", client, body
+  @spec update(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
+  def update(owner, repo, comment_id, body, client \\ %Client{}) do
+    patch "repos/#{owner}/#{repo}/issues/comments/#{comment_id}", client, body
   end
 
   @doc """
