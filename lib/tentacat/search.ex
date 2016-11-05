@@ -16,8 +16,8 @@ defmodule Tentacat.Search do
   More info at: https://developer.github.com/v3/search/#search-code
   """
   @spec code(map, Client.t) :: Tentacat.response
-  def code(params, client \\ %Client{}) do
-    get "search/code", client, params
+  def code(params, client \\ %Client{}, options \\ []) do
+    get "search/code", client, params, options
   end
 
   @doc """
@@ -31,8 +31,8 @@ defmodule Tentacat.Search do
   More info at: https://developer.github.com/v3/search/#search-users
   """
   @spec users(map, Client.t) :: Tentacat.response
-  def users(params, client \\ %Client{}) do
-    get "search/users", client, params
+  def users(params, client \\ %Client{}, options \\ []) do
+    get "search/users", client, params, options
   end
 
   @doc """
@@ -46,7 +46,7 @@ defmodule Tentacat.Search do
   More info at: https://developer.github.com/v3/search/#search-repositories
   """
   @spec repositories(map, Client.t) :: Tentacat.response
-  def repositories(params, client \\ %Client{}) do
-    get "search/repositories", client, params
+  def repositories(params, client \\ %Client{}, options \\ []) do
+    get "search/repositories", client, params, options
   end
 end
