@@ -21,6 +21,8 @@ Tentacool + Cat = Tentacat
   * Comments
   * Commits
   * Files
+  * Reviews
+  * Review Requests
 * Organizations
   * Members
   * Teams
@@ -119,6 +121,14 @@ Accessing another endpoint
 iex> client = Tentacat.Client.new(%{access_token: "928392873982932"}, "https://ghe.example.com/api/v3/")
 %Tentacat.Client{auth: %{access_token: "928392873982932"}, endpoint: "https://ghe.example.com/api/v3/"}
 iex> Tentacat.Users.me(client)
+```
+
+## Misc
+Having that Github Reviews API is still in a pre-release state
+you need to set an additional header in your config.
+
+```elixir
+config :tentacat, :extra_headers, [{"Accept", "application/vnd.github.black-cat-preview+json"}])
 ```
 
 ## Contributing
