@@ -26,10 +26,10 @@ defmodule Tentacat.SearchTest do
     end
   end
 
-  test "repositories/2" do
+  test "repositories/3" do
     use_cassette "search#repositories" do
       params = %{q: "elixir-lang in:name language:elixir", sort: "stars"}
-      assert %{"incomplete_results" => false, "items" => _} = repositories(params, @client)
+      assert %{"incomplete_results" => false, "items" => _} = repositories(params, @client, [pagination: :none])
     end
   end
 end

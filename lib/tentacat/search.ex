@@ -46,7 +46,7 @@ defmodule Tentacat.Search do
   More info at: https://developer.github.com/v3/search/#search-repositories
   """
   @spec repositories(map, Client.t) :: Tentacat.response
-  def repositories(params, client \\ %Client{}) do
-    get "search/repositories", client, params
+  def repositories(params, client \\ %Client{}, options \\ %{}) do
+    get "search/repositories", client, params, options
   end
 end
