@@ -11,7 +11,7 @@ defmodule Tentacat.Search do
   ## Example
 
       Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}
-      Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}, client
+      Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}, client, [pagination: :none]
 
   More info at: https://developer.github.com/v3/search/#search-code
   """
@@ -26,7 +26,7 @@ defmodule Tentacat.Search do
   ## Example
 
       Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}
-      Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}, client
+      Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}, client, [pagination: :none]
 
   More info at: https://developer.github.com/v3/search/#search-users
   """
@@ -42,6 +42,7 @@ defmodule Tentacat.Search do
 
       Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}
       Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}, client
+      Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}, client, [pagination: :none]
 
   More info at: https://developer.github.com/v3/search/#search-repositories
   """
