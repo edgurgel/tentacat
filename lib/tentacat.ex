@@ -51,6 +51,7 @@ defmodule Tentacat do
       client
       |> url(path)
       |> add_params_to_url(params)
+
     case pagination(options) do
       nil     -> request_stream(:get, url, client.auth) |> realize_if_needed
       :none   -> request_stream(:get, url, client.auth, "", :one_page)
