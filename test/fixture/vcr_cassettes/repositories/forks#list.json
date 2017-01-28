@@ -1,0 +1,88 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokenhere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/shanewilton/tentacat/forks"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sat, 28 Jan 2017 04:11:04 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4435",
+        "X-RateLimit-Reset": "1485579979",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"65c967eec2803fb8a579f217c776f0ae\"",
+        "X-OAuth-Scopes": "admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "13d09b732ebe76f892093130dc088652",
+        "X-GitHub-Request-Id": "D968:2B003:6A8151F:8B1DBDF:588C19D7"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokenhere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/nwoodthorpe/core-contributor-scratchpad/forks"
+    },
+    "response": {
+      "body": "[{\"id\":80265091,\"name\":\"core-contributor-scratchpad\",\"full_name\":\"ShaneWilton/core-contributor-scratchpad\",\"owner\":{\"login\":\"ShaneWilton\",\"id\":285821,\"avatar_url\":\"https://avatars.githubusercontent.com/u/285821?v=3\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/ShaneWilton\",\"html_url\":\"https://github.com/ShaneWilton\",\"followers_url\":\"https://api.github.com/users/ShaneWilton/followers\",\"following_url\":\"https://api.github.com/users/ShaneWilton/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/ShaneWilton/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/ShaneWilton/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/ShaneWilton/subscriptions\",\"organizations_url\":\"https://api.github.com/users/ShaneWilton/orgs\",\"repos_url\":\"https://api.github.com/users/ShaneWilton/repos\",\"events_url\":\"https://api.github.com/users/ShaneWilton/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/ShaneWilton/received_events\",\"type\":\"User\",\"site_admin\":false},\"private\":false,\"html_url\":\"https://github.com/ShaneWilton/core-contributor-scratchpad\",\"description\":\"Testing github api stuffs\",\"fork\":true,\"url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad\",\"forks_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/forks\",\"keys_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/keys{/key_id}\",\"collaborators_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/collaborators{/collaborator}\",\"teams_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/teams\",\"hooks_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/hooks\",\"issue_events_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/issues/events{/number}\",\"events_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/events\",\"assignees_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/assignees{/user}\",\"branches_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/branches{/branch}\",\"tags_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/tags\",\"blobs_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/git/blobs{/sha}\",\"git_tags_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/git/tags{/sha}\",\"git_refs_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/git/refs{/sha}\",\"trees_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/git/trees{/sha}\",\"statuses_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/statuses/{sha}\",\"languages_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/languages\",\"stargazers_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/stargazers\",\"contributors_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/contributors\",\"subscribers_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/subscribers\",\"subscription_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/subscription\",\"commits_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/commits{/sha}\",\"git_commits_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/git/commits{/sha}\",\"comments_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/comments{/number}\",\"issue_comment_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/issues/comments{/number}\",\"contents_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/contents/{+path}\",\"compare_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/compare/{base}...{head}\",\"merges_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/merges\",\"archive_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/{archive_format}{/ref}\",\"downloads_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/downloads\",\"issues_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/issues{/number}\",\"pulls_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/pulls{/number}\",\"milestones_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/milestones{/number}\",\"notifications_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/notifications{?since,all,participating}\",\"labels_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/labels{/name}\",\"releases_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/releases{/id}\",\"deployments_url\":\"https://api.github.com/repos/ShaneWilton/core-contributor-scratchpad/deployments\",\"created_at\":\"2017-01-28T03:54:19Z\",\"updated_at\":\"2017-01-28T03:36:02Z\",\"pushed_at\":\"2017-01-28T03:35:03Z\",\"git_url\":\"git://github.com/ShaneWilton/core-contributor-scratchpad.git\",\"ssh_url\":\"git@github.com:ShaneWilton/core-contributor-scratchpad.git\",\"clone_url\":\"https://github.com/ShaneWilton/core-contributor-scratchpad.git\",\"svn_url\":\"https://github.com/ShaneWilton/core-contributor-scratchpad\",\"homepage\":null,\"size\":0,\"stargazers_count\":0,\"watchers_count\":0,\"language\":null,\"has_issues\":false,\"has_downloads\":true,\"has_wiki\":true,\"has_pages\":false,\"forks_count\":0,\"mirror_url\":null,\"open_issues_count\":0,\"forks\":0,\"open_issues\":0,\"watchers\":0,\"default_branch\":\"master\",\"permissions\":{\"admin\":true,\"push\":true,\"pull\":true}}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sat, 28 Jan 2017 04:11:04 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "5626",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4434",
+        "X-RateLimit-Reset": "1485579979",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"a6c9148da6b935f7644df2e841e2e5f7\"",
+        "X-OAuth-Scopes": "admin:gpg_key, admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "76d9828c7e4f1d910f7ba069e90ce976",
+        "X-GitHub-Request-Id": "D968:2B003:6A8152F:8B1DBF5:588C19D8"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
