@@ -24,6 +24,13 @@ defmodule Tentacat.ReleasesTest do
     end
   end
 
+  test "latest/3" do
+    use_cassette "releases#latest" do
+      %{"tag_name" => name} = latest("soudqwiggle", "elixir-conspiracy", @client)
+      assert name == "v1.2"
+    end
+  end
+
   test "create/4" do
     use_cassette "releases#create" do
       {status_code, _} = create("v1", "soudqwiggle", "elixir-conspiracy", @client)
