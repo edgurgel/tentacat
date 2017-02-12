@@ -31,6 +31,21 @@ defmodule Tentacat.Releases do
   end
 
   @doc """
+  Get the latest release
+
+  ## Example
+
+      Tentacat.Releases.latest("elixir-lang", "elixir", client)
+
+  More info at: http:\\developer.github.com/v3/repos/releases/#get-the-latest-release
+
+  """
+  @spec latest(binary, binary, Client.t) :: Tentacat.response
+  def latest(owner, repo, client \\ %Client{}) do
+    get "repos/#{owner}/#{repo}/releases/latest", client
+  end
+
+  @doc """
   Create a new release from the given tag
 
   ## Example
