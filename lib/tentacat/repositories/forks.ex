@@ -24,7 +24,7 @@ defmodule Tentacat.Repositories.Forks do
       Tentacat.Repositories.Forks.create "elixir-lang", "elixir", "tinfoil", %{}
       Tentacat.Repositories.Forks.create "elixir-lang", "elixir", "tinfoil", %{organization: "tinfoil"}
 
-  More info at: https://developer.github.com/v3/issues/labels/#create-a-label
+  More info at: https://developer.github.com/v3/repos/forks/#create-a-fork
   """
   @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
   def create(owner, repo, body, client \\ %Client{}) do
