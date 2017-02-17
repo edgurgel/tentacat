@@ -4,3 +4,4 @@
 erl_crash.dump
 docs
 mix.lock
+.DS_Store
