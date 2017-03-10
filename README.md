@@ -135,6 +135,12 @@ config :tentacat, :extra_headers, [{"Accept", "application/vnd.github.black-cat-
 
 Start by forking this repo
 
+And if you are using Docker:
+
+```console
+docker-compose run --rm tentacat bash
+```
+
 Then run this command to fetch dependencies and run tests:
 
 ```console
