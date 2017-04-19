@@ -29,4 +29,18 @@ defmodule Tentacat.Issues.Labels do
   def add(owner, repo, issue_id, labels, client \\ %Client{}) do
     post "repos/#{owner}/#{repo}/issues/#{issue_id}/labels", client, labels
   end
+
+  @doc """
+  Remove a label from an issue
+
+  ## Example
+
+      Tentacat.Issues.Labels.remove "elixir-lang", "elixir", 3970, "Important"
+
+  More info at: https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue
+  """
+  @spec remove(binary, binary, binary | integer, binary, Client.t) :: Tentacat.response
+  def remove(owner, repo, issue_id, label, client \\ %Client{}) do
+    delete "repos/#{owner}/#{repo}/issues/#{issue_id}/labels/#{label}", client
+  end
 end

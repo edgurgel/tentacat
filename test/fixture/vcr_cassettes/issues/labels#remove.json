@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat"
+      },
+      "method": "delete",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/dwyl/learn-elixir/issues/1/labels/WIP"
+    },
+    "response": {
+      "body": "",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Wed, 19 Apr 2017 15:38:42 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2260",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "42",
+        "X-RateLimit-Reset": "1465314971",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"1598b9c2c9191001f30226e51a54afb2\"",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "318e55760cf7cdb40e61175a4d36cd32",
+        "X-GitHub-Request-Id": "32E9B27E:B216:239A2390:5756E46C"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  }
+]
