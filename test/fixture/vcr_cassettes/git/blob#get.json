@@ -1,0 +1,45 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/blobs/d69a46d50f10c479a19bd56a066c55671180ceec"
+    },
+    "response": {
+      "body": "{\"sha\":\"d69a46d50f10c479a19bd56a066c55671180ceec\",\"size\":5,\"url\":\"https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/blobs/d69a46d50f10c479a19bd56a066c55671180ceec\",\"content\":\"V29vcCE=\\n\",\"encoding\":\"base64\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Tue, 25 Apr 2017 00:14:02 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "211",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4988",
+        "X-RateLimit-Reset": "1493079698",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"cbbbd48f4a5b34ee9a869bb024bdfa60\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "7b641bda7ec2ca7cd9df72d2578baf75",
+        "X-GitHub-Request-Id": "D737:26D8:42F11AB:538E302:58FE94CA"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
