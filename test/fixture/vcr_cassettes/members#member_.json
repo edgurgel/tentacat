@@ -38,5 +38,45 @@
       "status_code": 302,
       "type": "ok"
     }
+  },
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/organizations/5861005/public_members/josephwilk"
+    },
+    "response": {
+      "body": "{\"message\":\"User does not exist or is not a public member of the organization\",\"documentation_url\":\"https://developer.github.com/v3/orgs/members/#check-public-membership\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Fri, 11 Dec 2015 21:36:42 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "171",
+        "Status": "404 Not Found",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4997",
+        "X-RateLimit-Reset": "1449873118",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Frame-Options": "deny",
+        "Content-Security-Policy": "default-src 'none'",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-GitHub-Request-Id": "5F5BF349:134F4:6BA647F:566B41EA"
+      },
+      "status_code": 404,
+      "type": "ok"
+    }
   }
 ]

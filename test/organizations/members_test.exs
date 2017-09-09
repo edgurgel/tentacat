@@ -20,7 +20,8 @@ defmodule Tentacat.Organizations.MembersTest do
 
   test "member?/3" do
     use_cassette "members#member_" do
-      assert member?("elixir-conspiracy", "josephwilk", @client) == {302, nil}
+      {status_code, _} = member?("elixir-conspiracy", "josephwilk", @client)
+      assert status_code == 404
     end
   end
 

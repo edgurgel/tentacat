@@ -121,6 +121,8 @@ defmodule Tentacat do
   def request_with_pagination(method, url, auth, body \\ "") do
     resp = request!(method, url, JSX.encode!(body), authorization_header(auth, extra_headers() ++ @user_agent), extra_options())
     case process_response(resp) do
+        {status, redirect_response} when status in [301, 302, 307] -> redirect_response
+        request_with_pagination(method, location_header(resp), auth)
       x when is_tuple(x) -> x
       _ -> pagination_tuple(resp, auth)
     end
@@ -129,6 +131,11 @@ defmodule Tentacat do
   @spec pagination_tuple(HTTPoison.Response.t, Client.auth) :: {binary, binary, Client.auth}
   defp pagination_tuple(%HTTPoison.Response{headers: headers} = resp, auth) do
     {process_response(resp), next_link(headers), auth}
+  end
+
+  defp location_header(resp) do
+    [ {"Location", url } ] = Enum.filter(resp.headers, &match?({"Location", _}, &1))
+    url
   end
 
   defp next_link(headers) do
