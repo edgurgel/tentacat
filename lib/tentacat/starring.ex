@@ -61,7 +61,7 @@ defmodule Tentacat.Users.Starring do
 
   More info at: https://developer.github.com/v3/activity/starring/#star-a-repository
   """
-  @spec star(binary, binary, Client.t) :: Tentacat.response
+  @spec star(binary, binary, Client.t) :: true | Tentacat.response
   def star(owner, repo, client) do
     star_response put "user/starred/#{owner}/#{repo}", client
   end
@@ -75,7 +75,7 @@ defmodule Tentacat.Users.Starring do
 
   More info at: https://developer.github.com/v3/activity/starring/#unstar-a-repository
   """
-  @spec unstar(binary, binary, Client.t) :: Tentacat.response
+  @spec unstar(binary, binary, Client.t) :: true | Tentacat.response
   def unstar(owner, repo, client) do
     star_response delete "user/starred/#{owner}/#{repo}", client
   end
