@@ -38,6 +38,7 @@ Tentacool + Cat = Tentacat
   * Statuses
   * Deployments
   * Collaborators
+  * Contributors
 
 Documentation can be found [here](https://hexdocs.pm/tentacat)
 
