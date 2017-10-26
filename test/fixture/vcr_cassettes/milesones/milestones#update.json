@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "{\"state\":\"closed\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "patch",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/scrumpointerorg/application/milestones/1"
+    },
+    "response": {
+      "body": "{\"url\":\"https://api.github.com/repos/scrumpointerorg/application/milestones/1\",\"html_url\":\"https://github.com/scrumpointerorg/application/milestone/1\",\"labels_url\":\"https://api.github.com/repos/scrumpointerorg/application/milestones/1/labels\",\"id\":2866832,\"number\":1,\"title\":\"test milestone\",\"description\":null,\"creator\":{\"login\":\"lorenzosinisi\",\"id\":3610215,\"avatar_url\":\"https://avatars2.githubusercontent.com/u/3610215?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/lorenzosinisi\",\"html_url\":\"https://github.com/lorenzosinisi\",\"followers_url\":\"https://api.github.com/users/lorenzosinisi/followers\",\"following_url\":\"https://api.github.com/users/lorenzosinisi/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/lorenzosinisi/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/lorenzosinisi/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/lorenzosinisi/subscriptions\",\"organizations_url\":\"https://api.github.com/users/lorenzosinisi/orgs\",\"repos_url\":\"https://api.github.com/users/lorenzosinisi/repos\",\"events_url\":\"https://api.github.com/users/lorenzosinisi/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/lorenzosinisi/received_events\",\"type\":\"User\",\"site_admin\":false},\"open_issues\":1,\"closed_issues\":0,\"state\":\"closed\",\"created_at\":\"2017-10-26T08:49:35Z\",\"updated_at\":\"2017-10-26T09:10:58Z\",\"due_on\":null,\"closed_at\":\"2017-10-26T09:10:58Z\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 26 Oct 2017 09:10:58 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1427",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4998",
+        "X-RateLimit-Reset": "1509012449",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"4c948b32d2c3f13526233feacfbeeb2c\"",
+        "X-OAuth-Scopes": "notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-OAuth-Client-Id": "70a6fffa924495cc633e",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Expect-CT": "max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Runtime-rack": "0.067443",
+        "X-GitHub-Request-Id": "D5FE:016A:B0FA8D:17AB858:59F1A6A2"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

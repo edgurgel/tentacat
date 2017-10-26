@@ -1,0 +1,43 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "delete",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/scrumpointerorg/application/milestones/1"
+    },
+    "response": {
+      "body": "",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 26 Oct 2017 09:17:11 GMT",
+        "Content-Type": "application/octet-stream",
+        "Status": "204 No Content",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4997",
+        "X-RateLimit-Reset": "1509012449",
+        "X-OAuth-Scopes": "notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-OAuth-Client-Id": "70a6fffa924495cc633e",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Expect-CT": "max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Runtime-rack": "0.074969",
+        "X-GitHub-Request-Id": "D743:016C:10A2615:21C4AE5:59F1A817"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  }
+]
