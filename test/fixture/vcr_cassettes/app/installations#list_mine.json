@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "Accept": "application/vnd.github.machine-man-preview+json",
+        "User-agent": "tentacat",
+        "Authorization": "***"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/app/installations"
+    },
+    "response": {
+      "body": "[{\"id\":66216,\"account\":{\"login\":\"outofambit\",\"id\":964912,\"avatar_url\":\"https://avatars3.githubusercontent.com/u/964912?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/outofambit\",\"html_url\":\"https://github.com/outofambit\",\"followers_url\":\"https://api.github.com/users/outofambit/followers\",\"following_url\":\"https://api.github.com/users/outofambit/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/outofambit/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/outofambit/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/outofambit/subscriptions\",\"organizations_url\":\"https://api.github.com/users/outofambit/orgs\",\"repos_url\":\"https://api.github.com/users/outofambit/repos\",\"events_url\":\"https://api.github.com/users/outofambit/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/outofambit/received_events\",\"type\":\"User\",\"site_admin\":false},\"repository_selection\":\"selected\",\"access_tokens_url\":\"https://api.github.com/installations/66216/access_tokens\",\"repositories_url\":\"https://api.github.com/installation/repositories\",\"html_url\":\"https://github.com/settings/installations/66216\",\"integration_id\":6615,\"app_id\":6615,\"target_id\":964912,\"target_type\":\"User\",\"permissions\":{\"metadata\":\"read\"},\"events\":[],\"created_at\":\"2017-11-09T21:54:50Z\",\"updated_at\":\"2017-11-09T21:54:50Z\",\"single_file_name\":null}]",
+      "headers": {
+        "Date": "Thu, 09 Nov 2017 21:57:19 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1382",
+        "Server": "GitHub.com",
+        "Status": "200 OK",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept",
+        "ETag": "\"2ff98ebb92e5357b5d533fd71af8618f\"",
+        "X-GitHub-Media-Type": "github.machine-man-preview; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Runtime-rack": "0.039917",
+        "X-GitHub-Request-Id": "F71C:72D5:49A8988:5667752:5A04CF3E"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
