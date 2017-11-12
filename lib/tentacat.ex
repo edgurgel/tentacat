@@ -217,6 +217,7 @@ defmodule Tentacat do
 
     * Basic authentication
     * OAuth2 Token
+    * JWT
 
   This function accepts both.
 
@@ -227,6 +228,9 @@ defmodule Tentacat do
 
       iex> Tentacat.authorization_header(%{access_token: "92873971893"}, [])
       [{"Authorization", "token 92873971893"}]
+
+      iex> Tentacat.authorization_header(%{jwt: "92873971893"}, [])
+      [{"Authorization", "Bearer 92873971893"}]
 
   ## More info
   http:\\developer.github.com/v3/#authentication
@@ -239,6 +243,10 @@ defmodule Tentacat do
 
   def authorization_header(%{access_token: token}, headers) do
     headers ++ [{"Authorization", "token #{token}"}]
+  end
+
+  def authorization_header(%{jwt: jwt}, headers) do
+    headers ++ [{"Authorization", "Bearer #{jwt}"}]
   end
 
   def authorization_header(_, headers), do: headers
