@@ -27,7 +27,7 @@ defmodule Tentacat.Issues.Reactions do
 
   ### Example
 
-  Tentacat.Reactions.Issues.create "elixir-lang", "elixir", "3"
+  Tentacat.Issues.Reactions.create "elixir-lang", "elixir", "3"
 
   More info at: https://developer.github.com/v3/reactions/#create-reaction-for-an-issue
   """
