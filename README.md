@@ -142,4 +142,6 @@ Then run this command to fetch dependencies and run tests:
 MIX_ENV=test mix do deps.get, test
 ```
 
+If you are using Intellij and debugging the test suite - be sure to set 'INTELLIJ_ELIXIR_DEBUG_BLACKLIST=hackney' in the Elixir Mix Eunit configuration - if you fail to do so the mocked hackney module will be reloaded from disk and tests will behave abnormally.
+
 Pull requests are greatly appreciated
