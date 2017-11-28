@@ -13,13 +13,13 @@ defmodule Tentacat.Repositories.StatusesTest do
 
   test "list/4" do
     use_cassette "repositories/statuses#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", "bf7c4ab53fe7503b82b9654d5979ebe8c24ea009", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", "bf7c4ab53fe7503b82b9654d5979ebe8c24ea009", @client),1) == []
     end
   end
 
   test "find/4" do
     use_cassette "repositories/statuses#find" do
-      %{"state" => state} = find("soudqwiggle", "elixir-conspiracy", "bf7c4ab53fe7503b82b9654d5979ebe8c24ea009", @client)
+      {_,%{"state" => state},_} = find("soudqwiggle", "elixir-conspiracy", "bf7c4ab53fe7503b82b9654d5979ebe8c24ea009", @client)
       assert state == "success"
     end
   end
@@ -32,7 +32,7 @@ defmodule Tentacat.Repositories.StatusesTest do
       "context": "continuous-integration/jenkins"
     }
     use_cassette "repositories/statuses#create" do
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", "bf7c4ab53fe7503b82b9654d5979ebe8c24ea009", body, @client)
+      {status_code, _,_} = create("soudqwiggle", "elixir-conspiracy", "bf7c4ab53fe7503b82b9654d5979ebe8c24ea009", body, @client)
       assert status_code == 201
     end
   end

@@ -26,16 +26,16 @@ defmodule TentacatTest do
   end
 
   test "process response on a 200 response" do
-    assert process_response(%HTTPoison.Response{ status_code: 200,
+    assert {200,"json",_} = process_response(%HTTPoison.Response{ status_code: 200,
                                                  headers: %{},
-                                                 body: "json" }) == "json"
+                                                 body: "json" })
     assert :meck.validate(JSX)
   end
 
   test "process response on a non-200 response" do
-    assert process_response(%HTTPoison.Response{ status_code: 404,
+    assert {404, "json",_ } = process_response(%HTTPoison.Response{ status_code: 404,
                                                  headers: %{},
-                                                 body: "json" }) == {404, "json"}
+                                                 body: "json" })
     assert :meck.validate(JSX)
   end
 
@@ -49,8 +49,8 @@ defmodule TentacatTest do
   end
 
   test "process response on a non-200 response and empty body" do
-    assert process_response(%HTTPoison.Response{ status_code: 404,
+    assert {404, nil,_} = process_response(%HTTPoison.Response{ status_code: 404,
                                                  headers: %{},
-                                                 body: nil }) == {404, nil}
+                                                 body: nil })
   end
 end

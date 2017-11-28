@@ -13,27 +13,27 @@ defmodule Tentacat.Teams.MembersTest do
 
   test "list/2" do
     use_cassette "teams/members#list" do
-      assert list(1500000, @client) == []
+      assert elem(list(1500000, @client),1) == []
     end
   end
 
   test "find/3" do
     use_cassette "teams/members#find" do
-      %{"state" => state} = find(1500000, "username", @client)
+      {_,%{"state" => state},_} = find(1500000, "username", @client)
       assert state == "active"
     end
   end
 
   test "create/4" do
     use_cassette "teams/members#create" do
-      %{"state" => state} = create(1500000, "username", %{}, @client)
+      {_,%{"state" => state},_} = create(1500000, "username", %{}, @client)
       assert state == "active"
     end
   end
 
   test "delete/3" do
     use_cassette "teams/members#delete" do
-      {status_code, _} = delete(1500000, "username", @client)
+      {status_code, _,_} = delete(1500000, "username", @client)
       assert status_code == 204
     end
   end

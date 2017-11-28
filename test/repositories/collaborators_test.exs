@@ -13,26 +13,26 @@ defmodule Tentacat.Repositories.CollaboratorsTest do
 
   test "list/3" do
     use_cassette "repositories/collaborators#list" do
-      assert list("andersklenke", "tentatest", @client) |> Enum.count()  == 1
+      assert elem(list("andersklenke", "tentatest", @client),1) |> Enum.count()  == 1
     end
   end
 
   test "collaborator?/4" do
     use_cassette "repositories/collaborators#collaborator?" do
-      assert {204, _} = collaborator?("andersklenke", "tentatest", "andersklenke", @client)
-      assert {404, _} = collaborator?("andersklenke", "tentatest", "no", @client)
+      assert {204, _,_} = collaborator?("andersklenke", "tentatest", "andersklenke", @client)
+      assert {404, _,_} = collaborator?("andersklenke", "tentatest", "no", @client)
     end
   end
 
   test "add/4" do
     use_cassette "repositories/collaborators#add" do
-      assert {204, _} = add("andersklenke", "tentatest", "tentatest123", %{}, @client)
+      assert {204, _,_} = add("andersklenke", "tentatest", "tentatest123", %{}, @client)
     end
   end
 
   test "delete/4" do
     use_cassette "repositories/collaborators#delete" do
-      assert {204, _} = delete("andersklenke", "tentatest", "tentatest123", @client)
+      assert {204, _,_} = delete("andersklenke", "tentatest", "tentatest123", @client)
     end
   end
 end

@@ -1,14 +1,12 @@
 [
   {
     "request": {
-      "body": "\"\\\"\\\"\"",
       "headers": {
         "User-agent": "tentacat",
         "Authorization": "token yourtokencomeshere"
       },
       "method": "get",
       "options": [],
-      "request_body": "",
       "url": "https://api.github.com/teams/1500000/repos"
     },
     "response": {

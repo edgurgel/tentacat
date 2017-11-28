@@ -11,7 +11,7 @@ defmodule Tentacat.Pulls.ReviewsTests do
 
   test "list/4" do
     use_cassette "pulls/reviews#list" do
-      assert list("tentatest", "tentacat", 1, @client) == []
+      assert elem(list("tentatest", "tentacat", 1, @client),1) == []
     end
   end
 end

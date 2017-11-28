@@ -13,20 +13,20 @@ defmodule Tentacat.Issues.EventsTest do
 
   test "list/4" do
     use_cassette "issues/events#list" do
-      [%{"event" => event}] = list("sdost", "elixir-conspiracy", "1", @client)
+      {_,[%{"event" => event}],_} = list("sdost", "elixir-conspiracy", "1", @client)
       assert event == "closed"
     end
   end
 
   test "list_all/3" do
     use_cassette "issues/events#list_all" do
-      assert list_all("sdost", "elixir-conspiracy", @client) |> Enum.count()  == 7
+      assert elem(list_all("sdost", "elixir-conspiracy", @client),1) |> Enum.count()  == 7
     end
   end
 
   test "find/4" do
     use_cassette "issues/events#find" do
-      %{"event" => event} = find("sdost", "elixir-conspiracy", 607575270, @client)
+      {_,%{"event" => event},_} = find("sdost", "elixir-conspiracy", 607575270, @client)
       assert event == "closed"
     end
   end

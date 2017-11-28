@@ -1,13 +1,12 @@
 [
   {
     "request": {
-      "body": "\"\\\"\\\"\"",
       "headers": {
-        "User-agent": "tentacat"
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
       },
       "method": "get",
       "options": [],
-      "request_body": "",
       "url": "https://api.github.com/users/jeffweiss/repos"
     },
     "response": {
@@ -42,13 +41,12 @@
   },
   {
     "request": {
-      "body": "\"\"",
       "headers": {
-        "User-agent": "tentacat"
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
       },
       "method": "get",
       "options": [],
-      "request_body": "",
       "url": "https://api.github.com/user/818053/repos?page=2"
     },
     "response": {

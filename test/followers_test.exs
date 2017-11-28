@@ -13,50 +13,50 @@ defmodule Tentacat.FollowersTest do
 
   test "following/1" do
     use_cassette "followers#following/1" do
-      assert following(@client) == []
+      assert elem(following(@client),1) == []
     end
   end
 
   test "following/2" do
     use_cassette "followers#following/2" do
-      assert following("duksis", @client) == []
+      assert elem(following("duksis", @client),1) == []
     end
   end
 
   test "followers/1" do
     use_cassette "followers#followers/1" do
-      [%{"login" => username}] = followers(@client)
+      {_,[%{"login" => username}],_} = followers(@client)
       assert username == "duksis"
     end
   end
 
   test "followers/2" do
     use_cassette "followers#followers/2" do
-      assert followers("duksis", @client) == []
+      assert elem(followers("duksis", @client),1) == []
     end
   end
 
   test "following?/2" do
     use_cassette "followers#following_/2" do
-      assert following?("duksis", @client) == true
+      assert elem(following?("duksis", @client),1) == true
     end
   end
 
   test "following?/3" do
     use_cassette "followers#following_/3" do
-      assert following?("torvalds", "duksis", @client) == false
+      assert elem(following?("torvalds", "duksis", @client),1) == false
     end
   end
 
   test "follow/2" do
     use_cassette "followers#follow" do
-      assert follow("duksis", @client) == true
+      assert elem(follow("duksis", @client),1) == true
     end
   end
 
   test "unfollow/2" do
     use_cassette "followers#unfollow" do
-      assert unfollow("duksis", @client) == true
+      assert elem(unfollow("duksis", @client),1) == true
     end
   end
 

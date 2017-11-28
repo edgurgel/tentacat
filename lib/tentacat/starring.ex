@@ -46,8 +46,8 @@ defmodule Tentacat.Users.Starring do
 
   defp starred_check(starred_api_url, client) do
     case get starred_api_url, client do
-      { 204, _ } -> true
-      { 404, _ } -> false
+      { 204, _, resp } -> {204, true, resp}
+      { 404, _, resp } -> {404, false,resp}
       unexpected_response -> unexpected_response
     end
   end
@@ -82,7 +82,7 @@ defmodule Tentacat.Users.Starring do
 
   defp star_response(response) do
     case response do
-      { 204, _ } -> true
+      { 204, _, resp } -> {204, true, resp}
       unexpected_response -> unexpected_response
     end
   end

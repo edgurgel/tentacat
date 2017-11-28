@@ -13,13 +13,13 @@ defmodule Tentacat.MilestonesTest do
 
   test "list/3" do
     use_cassette "milesones/milestones#list" do
-      assert list("scrumpointerorg", "application", @client) |> Enum.count() == 1
+      assert elem(list("scrumpointerorg", "application", @client),1) |> Enum.count() == 1
     end
   end
 
   test "find/4" do
     use_cassette "milesones/milestones#find" do
-      assert %{"number" => 1} = find("scrumpointerorg", "application", "1", @client)
+      assert %{"number" => 1} = elem(find("scrumpointerorg", "application", "1", @client),1)
     end
   end
 
@@ -29,7 +29,7 @@ defmodule Tentacat.MilestonesTest do
         "title" => "Amazing new Readme",
         "state" => "open"
       }
-      {status_code, _} = create("scrumpointerorg", "application", body, @client)
+      {status_code, _,_} = create("scrumpointerorg", "application", body, @client)
       assert status_code == 201
     end
   end
@@ -39,13 +39,13 @@ defmodule Tentacat.MilestonesTest do
       body = %{
         "state" => "closed"
       }
-      assert %{"state" => "closed"} = update("scrumpointerorg", "application", "1", body, @client)
+      assert {_,%{"state" => "closed"},_} = update("scrumpointerorg", "application", "1", body, @client)
     end
   end
 
   test "delete/5" do
     use_cassette "milesones/milestones#delete" do
-      {status_code, _} =  delete("scrumpointerorg", "application", "1", @client)
+      {status_code, _,_} =  delete("scrumpointerorg", "application", "1", @client)
       assert status_code == 204
     end
   end

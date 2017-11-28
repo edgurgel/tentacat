@@ -13,25 +13,28 @@ defmodule Tentacat.Pulls.CommentsTest do
 
   test "list_all/3" do
     use_cassette "pulls/comments#list_all" do
-      assert list_all("tentatest", "tentacat", @client) == []
+      assert elem(list_all("tentatest", "tentacat", @client),1) == []
     end
   end
 
   test "list/4" do
     use_cassette "pulls/comments#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", "1", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", "1", @client),1) == []
     end
   end
 
   test "filter_all/4" do
     use_cassette "pulls/comments#filter_all" do
-      [] = filter_all("elixir-lang", "elixir", [dir: "desc", sort: "created", since: "2016-07-01T23:59:59Z"], @client)
+      elem(
+        filter_all(
+          "elixir-lang", "elixir", [dir: "desc", sort: "created", since: "2016-07-01T23:59:59Z"], @client),
+        1) == []
     end
   end
 
   test "find/4" do
     use_cassette "pulls/comments#find" do
-      %{"body" => body} = find("soudqwiggle", "elixir-conspiracy", 47450612, @client)
+      {_,%{"body" => body},_} = find("soudqwiggle", "elixir-conspiracy", 47450612, @client)
       assert body == ":100: "
     end
   end
@@ -44,7 +47,7 @@ defmodule Tentacat.Pulls.CommentsTest do
       "position" => 1
     }
     use_cassette "pulls/comments#create" do
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", "1", body, @client)
+      {status_code, _,_} = create("soudqwiggle", "elixir-conspiracy", "1", body, @client)
       assert status_code == 201
     end
   end
@@ -54,14 +57,14 @@ defmodule Tentacat.Pulls.CommentsTest do
       "body" => ":+1:"
     }
     use_cassette "pulls/comments#update" do
-      %{"id" => commit_id} = update("soudqwiggle", "elixir-conspiracy", 47450612, body, @client)
+      {_,%{"id" => commit_id},_} = update("soudqwiggle", "elixir-conspiracy", 47450612, body, @client)
       assert commit_id == 47450612
     end
   end
 
   test "remove/4" do
     use_cassette "pulls/comments#remove" do
-      {status_code, _} = remove("soudqwiggle", "elixir-conspiracy", 47450612, @client)
+      {status_code, _,_} = remove("soudqwiggle", "elixir-conspiracy", 47450612, @client)
       assert status_code == 204
     end
   end

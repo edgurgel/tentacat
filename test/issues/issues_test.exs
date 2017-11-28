@@ -13,19 +13,19 @@ defmodule Tentacat.IssuesTest do
 
   test "list/3" do
     use_cassette "issues/issues#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", @client),1) == []
     end
   end
 
   test "filter/4" do
     use_cassette "issues/issues#filter" do
-      assert filter("soudqwiggle", "elixir-conspiracy", %{"state" => "open"}, @client) == []
+      assert elem(filter("soudqwiggle", "elixir-conspiracy", %{"state" => "open"}, @client),1) == []
     end
   end
 
   test "find/4" do
     use_cassette "issues/issues#find" do
-      %{"body" => body} = find("soudqwiggle", "elixir-conspiracy", 1347, @client)
+      {_,%{"body" => body},_} = find("soudqwiggle", "elixir-conspiracy", 1347, @client)
       assert body == "Something is broken"
     end
   end
@@ -35,7 +35,7 @@ defmodule Tentacat.IssuesTest do
       "title" => "Something broke"
     }
     use_cassette "issues/issues#create" do
-      {status_code, %{"title" => title}} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, %{"title" => title},_} = create("soudqwiggle", "elixir-conspiracy", body, @client)
       assert status_code == 201
       assert title == "Something broke"
     end
@@ -46,7 +46,7 @@ defmodule Tentacat.IssuesTest do
       "state" => "closed"
     }
     use_cassette "issues/issues#update" do
-      %{"state" => state} = update("soudqwiggle", "elixir-conspiracy", "3", body, @client)
+      {_,%{"state" => state},_} = update("soudqwiggle", "elixir-conspiracy", "3", body, @client)
       assert state == "closed"
     end
   end

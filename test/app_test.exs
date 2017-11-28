@@ -15,7 +15,7 @@ defmodule Tentacat.AppTest do
 
   test "me/1" do
     use_cassette "app#me" do
-      assert me(@client)["name"] == "tentacatty"
+      assert elem(me(@client),1)["name"] == "tentacatty"
     end
   end
 end

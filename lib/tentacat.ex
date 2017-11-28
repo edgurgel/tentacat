@@ -4,15 +4,14 @@ defmodule Tentacat do
 
   @user_agent [{"User-agent", "tentacat"}]
 
-  @type response :: {integer, any} | :jsx.json_term
+  @type response :: {:ok, :jsx.json_term, HTTPoison.Response.t } | {integer, any, HTTPoison.Response.t}
 
   @spec process_response_body(binary) :: term
   def process_response_body(""), do: nil
   def process_response_body(body), do: JSX.decode!(body)
 
   @spec process_response(HTTPoison.Response.t) :: response
-  def process_response(%HTTPoison.Response{status_code: 200, body: body}), do: body
-  def process_response(%HTTPoison.Response{status_code: status_code, body: body }), do: { status_code, body }
+  def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp), do: { status_code, body,resp}
 
   def delete(path, client, body \\ "") do
     _request(:delete, url(client, path), client.auth, body)
@@ -92,7 +91,7 @@ defmodule Tentacat do
     request_with_pagination(method, url, auth, JSX.encode!(body))
     |> stream_if_needed(override)
   end
-  defp stream_if_needed(result = {status_code, _}, _) when is_number(status_code), do: result
+  defp stream_if_needed(result = {status_code, _, _}, _) when is_number(status_code), do: result
   defp stream_if_needed({body, nil, _}, _), do: body
   defp stream_if_needed({body, _, _}, :one_page), do: body
   defp stream_if_needed(initial_results, _) do
@@ -110,7 +109,7 @@ defmodule Tentacat do
     request_with_pagination(:get, next, auth, "")
     |> process_stream
   end
-  defp process_stream({items, next, auth}) when is_list(items) do
+  defp process_stream({{_,items,_}, next, auth}) when is_list(items) do
     {items, {[], next, auth}}
   end
   defp process_stream({item, next, auth}) do
@@ -121,15 +120,16 @@ defmodule Tentacat do
   def request_with_pagination(method, url, auth, body \\ "") do
     resp = request!(method, url, JSX.encode!(body), authorization_header(auth, extra_headers() ++ @user_agent), extra_options())
     case process_response(resp) do
-      {status, _} when status in [301, 302, 307] ->
+      {status, _, _ } when status in [301, 302, 307] ->
         request_with_pagination(method, location_header(resp), auth)
-      x when is_tuple(x) -> x
+      # never seems to hit this block...
+      # x when is_tuple(x) -> x
       _ -> pagination_tuple(resp, auth)
     end
   end
 
   @spec pagination_tuple(HTTPoison.Response.t, Client.auth) :: {binary, binary, Client.auth}
-  defp pagination_tuple(%HTTPoison.Response{headers: headers} = resp, auth) do
+  defp pagination_tuple(%HTTPoison.Response{:headers => headers} = resp, auth) do
     {process_response(resp), next_link(headers), auth}
   end
 
