@@ -28,8 +28,8 @@ defmodule Tentacat.Mixfile do
      {:ex_doc, "~> 0.11.4", only: :dev},
      {:inch_ex, "~> 0.5", only: :dev},
      {:excoveralls, "~> 0.5", only: :test},
-     {:exvcr, "~> 0.6", only: :test},
-     {:meck, "~> 0.8", only: :test} ]
+     {:exvcr, "~> 0.8", only: :test} ,
+     {:meck, "~> 0.8.9", only: :test} ]
   end
 
   defp package do
