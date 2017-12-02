@@ -30,4 +30,14 @@ defmodule Tentacat.App.InstallationsTest do
       assert elem(token(66216, @client), 1)["token"] == "v1.b328f705dbba381a0f61697986a8faa09dacb097"
     end
   end
+
+  test "list_repositories/1" do
+    use_cassette "app/installations#list_repositories" do
+      token = elem(token(66216, @client), 1)["token"]
+      client = Tentacat.Client.new %{access_token: token}
+      %{"repositories" => repositories} = list_repositories client
+      assert length(repositories) == 2
+    end
+  end
+
 end

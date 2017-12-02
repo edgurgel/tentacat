@@ -18,4 +18,11 @@ defmodule Tentacat.AppTest do
       assert me(@client)["name"] == "tentacatty"
     end
   end
+
+  test "find/1" do
+    use_cassette "app#find" do
+      %{"name" => name} = find("tentacatty")
+      assert name == "tentacatty"
+    end
+  end
 end

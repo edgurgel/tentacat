@@ -16,4 +16,18 @@ defmodule Tentacat.App do
     get "app", client
   end
 
+  @doc """
+  Get info for a single app
+
+  ## Example
+
+      Tentacat.App.find "tentacatty"
+
+  More info at: https://developer.github.com/v3/apps/#get-a-single-github-app
+  """
+  @spec find(string, Client.t) :: Tentacat.response
+  def find(slug, client \\ %Client{}) do
+    get "apps/#{slug}", client
+  end
+
 end
