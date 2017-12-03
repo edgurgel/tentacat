@@ -25,7 +25,7 @@ defmodule Tentacat.App do
 
   More info at: https://developer.github.com/v3/apps/#get-a-single-github-app
   """
-  @spec find(string, Client.t) :: Tentacat.response
+  @spec find(binary, Client.t) :: Tentacat.response
   def find(slug, client \\ %Client{}) do
     get "apps/#{slug}", client
   end
