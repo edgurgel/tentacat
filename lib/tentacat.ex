@@ -122,8 +122,6 @@ defmodule Tentacat do
     case process_response(resp) do
       {status, _, _ } when status in [301, 302, 307] ->
         request_with_pagination(method, location_header(resp), auth)
-      # never seems to hit this block...
-      # x when is_tuple(x) -> x
       _ -> pagination_tuple(resp, auth)
     end
   end

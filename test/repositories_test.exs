@@ -63,7 +63,7 @@ defmodule Tentacat.RepositoriesTest do
     end
   end
 
-  test "list_public/1" do
+  test "list_public/0" do
     use_cassette "repositories#list_public", match_requests_on: [:query] do
       assert {_,[],_} = list_public()
     end
