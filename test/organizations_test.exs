@@ -13,27 +13,27 @@ defmodule Tentacat.OrganizationsTest do
 
   test "list/2" do
     use_cassette "organizations#list" do
-      assert list("soudqwiggle", @client) == []
+      assert elem(list("soudqwiggle", @client),1) == []
     end
   end
 
   test "list_mine/1" do
     use_cassette "organizations#list_mine" do
-      [%{"login" => name}] = list_mine(@client)
+      {_,[%{"login" => name}],_} = list_mine(@client)
       assert name == "tentatest"
     end
   end
 
   test "find/2" do
     use_cassette "organizations#find" do
-      %{"id" => id} = find("elixir-conspiracy", @client)
+      {_,%{"id" => id},_} = find("elixir-conspiracy", @client)
       assert id == 5861005
     end
   end
 
   test "update/3" do
     use_cassette "organizations#update" do
-      %{"location" => location} = update("tentatest", [location: "Vecpiebalga"], @client)
+      {_,%{"location" => location},_} = update("tentatest", [location: "Vecpiebalga"], @client)
       assert location == "Vecpiebalga"
     end
   end

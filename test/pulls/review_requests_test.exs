@@ -11,14 +11,14 @@ defmodule Tentacat.Pulls.ReviewRequestsTests do
 
   test "list/4" do
     use_cassette "pulls/review_requests#list" do
-      assert list("tentatest", "tentacat", 1, @client) == []
+      assert elem(list("tentatest", "tentacat", 1, @client),1) == []
     end
   end
 
   test "create/5" do
     reviewers = ["tentacat"]
     use_cassette "pulls/review_requests#create" do
-      {status_code, body} = create("tentatest", "tentacat", 1, reviewers, @client)
+      {status_code, body,_} = create("tentatest", "tentacat", 1, reviewers, @client)
       assert status_code == 201
       assert is_map(body)
     end
@@ -27,7 +27,8 @@ defmodule Tentacat.Pulls.ReviewRequestsTests do
   test "delete/5" do
     reviewers = ["tentacat"]
     use_cassette "pulls/review_requests#remove" do
-      assert is_map(remove("tentatest", "tentacat", 1, reviewers, @client))
+      {_,res,_} = remove("tentatest", "tentacat", 1, reviewers, @client)
+      assert is_map(res)
     end
   end
 end

@@ -13,19 +13,19 @@ defmodule Tentacat.Commits.CommentsTest do
 
   test "list_all/3" do
     use_cassette "commits/comments#list_all" do
-      assert list_all("tentatest", "tentacat", @client) == []
+      assert {200,[],_} = list_all("tentatest", "tentacat", @client)
     end
   end
 
   test "list/4" do
     use_cassette "commits/comments#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", "b426f957a26cd4d632da3b174372c973ab083523", @client) == []
+      assert {200,[],_} =  list("soudqwiggle", "elixir-conspiracy", "b426f957a26cd4d632da3b174372c973ab083523", @client)
     end
   end
 
   test "find/4" do
     use_cassette "commits/comments#find" do
-      %{"body" => body} = find("soudqwiggle", "elixir-conspiracy", 15079374, @client)
+      {_,%{"body" => body},_} = find("soudqwiggle", "elixir-conspiracy", 15079374, @client)
       assert body == ":sheep: :lv:"
     end
   end
@@ -37,7 +37,7 @@ defmodule Tentacat.Commits.CommentsTest do
       "position" => 1
     }
     use_cassette "commits/comments#create" do
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", "b426f957a26cd4d632da3b174372c973ab083523", body, @client)
+      {status_code, _, _ } = create("soudqwiggle", "elixir-conspiracy", "b426f957a26cd4d632da3b174372c973ab083523", body, @client)
       assert status_code == 201
     end
   end
@@ -47,14 +47,14 @@ defmodule Tentacat.Commits.CommentsTest do
       "body" => ":sheep: :lv:"
     }
     use_cassette "commits/comments#update" do
-      %{"id" => commit_id} = update("soudqwiggle", "elixir-conspiracy", 15079374, body, @client)
+      {_, %{"id" => commit_id},_ } = update("soudqwiggle", "elixir-conspiracy", 15079374, body, @client)
       assert commit_id == 15079374
     end
   end
 
   test "delete/4" do
     use_cassette "commits/comments#delete" do
-      {status_code, _} = delete("soudqwiggle", "elixir-conspiracy", 15079374, @client)
+      {status_code, _, _ } = delete("soudqwiggle", "elixir-conspiracy", 15079374, @client)
       assert status_code == 204
     end
   end

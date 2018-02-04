@@ -13,7 +13,7 @@ defmodule Tentacat.Repositories.TagsTest do
 
   test "list/3" do
     use_cassette "repositories/tags#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", @client),1) == []
     end
   end
 end

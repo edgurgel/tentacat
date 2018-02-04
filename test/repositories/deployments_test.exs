@@ -13,7 +13,7 @@ defmodule Tentacat.Repositories.DeploymentsTest do
 
   test "list/3" do
     use_cassette "repositories/deployments#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", @client),1) == []
     end
   end
 
@@ -24,14 +24,14 @@ defmodule Tentacat.Repositories.DeploymentsTest do
       "description" => "Deploying my sweet branch"
     }
     use_cassette "repositories/deployments#create" do
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, _, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
       assert status_code == 201
     end
   end
 
   test "list_statuses/4" do
     use_cassette "repositories/deployments#list_statuses" do
-      assert list_statuses("soudqwiggle", "elixir-conspiracy", 2936534, @client) == []
+      assert elem(list_statuses("soudqwiggle", "elixir-conspiracy", 2936534, @client),1) == []
     end
   end
 
@@ -42,7 +42,7 @@ defmodule Tentacat.Repositories.DeploymentsTest do
       "description": "Deployment finished successfully."
     }
     use_cassette "repositories/deployments#create_status" do
-      {status_code, _} = create_status("soudqwiggle", "elixir-conspiracy", 2936534, body, @client)
+      {status_code, _, _ } = create_status("soudqwiggle", "elixir-conspiracy", 2936534, body, @client)
       assert status_code == 201
     end
   end

@@ -13,19 +13,19 @@ defmodule Tentacat.PullsTest do
 
   test "list/3" do
     use_cassette "pulls#list" do
-      assert list("tentatest", "tentacat", @client) == []
+      assert elem(list("tentatest", "tentacat", @client),1) == []
     end
   end
 
   test "filter/4" do
     use_cassette "pulls#filter" do
-      assert filter("tentatest", "tentacat", %{state: "closed"}, @client) == []
+      assert elem(filter("tentatest", "tentacat", %{state: "closed"}, @client),1) == []
     end
   end
 
   test "find/4" do
     use_cassette "pulls#find" do
-      {status_code, _} = find("tentatest", "tentacat", "1", @client)
+      {status_code, _,_} = find("tentatest", "tentacat", "1", @client)
       assert status_code == 404
     end
   end
@@ -38,7 +38,7 @@ defmodule Tentacat.PullsTest do
         "head" => "duksis:master",
         "base" => "master"
       }
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, _,_} = create("soudqwiggle", "elixir-conspiracy", body, @client)
       assert status_code == 201
     end
   end
@@ -48,7 +48,7 @@ defmodule Tentacat.PullsTest do
       body = %{
         "state" => "closed"
       }
-      %{"title" => title} = update("soudqwiggle", "elixir-conspiracy", "1", body, @client)
+      {_,%{"title" => title},_} = update("soudqwiggle", "elixir-conspiracy", "1", body, @client)
       assert title == "Amazing new Readme"
     end
   end
@@ -58,14 +58,14 @@ defmodule Tentacat.PullsTest do
       body = %{
         "commit_message": "not the default commit_message"
       }
-      %{"merged" => merged} = merge("sdost", "elixir-conspiracy", "1", body, @client)
+      {_,%{"merged" => merged},_} = merge("sdost", "elixir-conspiracy", "1", body, @client)
       assert merged == true
     end
   end
 
   test "has_been_merged/4" do
     use_cassette "pulls#has_been_merged" do
-      {status_code, _} = has_been_merged("sdost", "elixir-conspiracy", "1", @client)
+      {status_code, _,_} = has_been_merged("sdost", "elixir-conspiracy", "1", @client)
       assert status_code == 204
     end
   end

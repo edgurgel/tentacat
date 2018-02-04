@@ -13,14 +13,14 @@ defmodule Tentacat.Repositories.ForksTest do
 
   test "list/3" do
     use_cassette "repositories/forks#list" do
-      assert list("shanewilton", "tentacat", @client) == []
-      assert list("nwoodthorpe", "core-contributor-scratchpad", @client) |> Enum.count() == 1
+      assert elem(list("shanewilton", "tentacat", @client),1) == []
+      assert elem(list("nwoodthorpe", "core-contributor-scratchpad", @client),1) |> Enum.count() == 1
     end
   end
 
   test "create/4" do
     use_cassette "repositories/forks#create" do
-      {status_code, %{"owner" => %{"login" => owner}}} = create("ShaneWilton", "tentacat", %{}, @client)
+      {status_code, %{"owner" => %{"login" => owner}},_} = create("ShaneWilton", "tentacat", %{}, @client)
       assert status_code == 202
       assert owner       == "ShaneWilton"
     end

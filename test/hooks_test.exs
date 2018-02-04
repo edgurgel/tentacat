@@ -13,13 +13,13 @@ defmodule Tentacat.HooksTest do
 
   test "list/3" do
     use_cassette "hooks#list" do
-      assert list("tentatest", "tentacat", @client) == []
+      assert elem(list("tentatest", "tentacat", @client),1) == []
     end
   end
 
   test "find/4" do
     use_cassette "hooks#find" do
-      {status_code, _} = find("tentatest", "tentacat", "1234", @client)
+      {status_code, _,_} = find("tentatest", "tentacat", "1234", @client)
       assert status_code == 404
     end
   end
@@ -35,7 +35,7 @@ defmodule Tentacat.HooksTest do
           "content_type" => "json"
         }
       }
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, _,_} = create("soudqwiggle", "elixir-conspiracy", body, @client)
       assert status_code == 201
     end
   end
@@ -46,28 +46,28 @@ defmodule Tentacat.HooksTest do
       "add_events" => ["issue"]
     }
     use_cassette "hooks#update" do
-      %{"active" => active} = update("soudqwiggle", "elixir-conspiracy", 6736758, body, @client)
+      {_,%{"active" => active},_} = update("soudqwiggle", "elixir-conspiracy", 6736758, body, @client)
       assert active == false
     end
   end
 
   test "test/4" do
     use_cassette "hooks#test" do
-      {status_code, _} = test("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      {status_code, _,_} = test("soudqwiggle", "elixir-conspiracy", 6736758, @client)
       assert status_code == 204
     end
   end
 
   test "ping/4" do
     use_cassette "hooks#ping" do
-      {status_code, _} = ping("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      {status_code, _,_} = ping("soudqwiggle", "elixir-conspiracy", 6736758, @client)
       assert status_code == 204
     end
   end
 
   test "remove/4" do
     use_cassette "hooks#remove" do
-      {status_code, _} = remove("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      {status_code, _,_} = remove("soudqwiggle", "elixir-conspiracy", 6736758, @client)
       assert status_code == 204
     end
   end

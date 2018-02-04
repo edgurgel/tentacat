@@ -15,13 +15,13 @@ defmodule Tentacat.AppTest do
 
   test "me/1" do
     use_cassette "app#me" do
-      assert me(@client)["name"] == "tentacatty"
+      assert elem(me(@client),1)["name"] == "tentacatty"
     end
   end
 
   test "find/1" do
     use_cassette "app#find" do
-      %{"name" => name} = find("tentacatty")
+      {_,%{"name" => name},_} = find("tentacatty")
       assert name == "tentacatty"
     end
   end

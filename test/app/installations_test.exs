@@ -15,13 +15,13 @@ defmodule Tentacat.App.InstallationsTest do
 
   test "list_mine/1" do
     use_cassette "app/installations#list_mine" do
-      assert length(list_mine(@client)) == 1
+      assert length( elem(list_mine(@client),1)  ) == 1
     end
   end
 
   test "find/2" do
     use_cassette "app/installations#find" do
-      assert find(66216, @client)["id"] == 66216
+      assert elem(find(66216, @client),1)["id"] == 66216
     end
   end
 
@@ -35,7 +35,7 @@ defmodule Tentacat.App.InstallationsTest do
     use_cassette "app/installations#list_repositories" do
       token = elem(token(66216, @client), 1)["token"]
       client = Tentacat.Client.new %{access_token: token}
-      %{"repositories" => repositories} = list_repositories client
+      {_,%{"repositories" => repositories},_} = list_repositories client
       assert length(repositories) == 2
     end
   end

@@ -13,20 +13,20 @@ defmodule Tentacat.Issues.LabelsTest do
 
   test "list/4" do
     use_cassette "issues/labels#list" do
-      assert list("sdost", "elixir-conspiracy", "1", @client) == []
+      assert elem(list("sdost", "elixir-conspiracy", "1", @client),1) == []
     end
   end
 
   test "add/5" do
     use_cassette "issues/labels#add" do
-      [%{"name" => name}] = add("sdost", "elixir-conspiracy", "1", ["WIP"], @client)
+      {_,[%{"name" => name}],_} = add("sdost", "elixir-conspiracy", "1", ["WIP"], @client)
       assert name == "WIP"
     end
   end
 
   test "remove/5" do
     use_cassette "issues/labels#remove" do
-      {status_code, _} = remove("dwyl", "learn-elixir", "1", "WIP", @client)
+      {status_code, _,_} = remove("dwyl", "learn-elixir", "1", "WIP", @client)
       assert status_code == 204
     end
   end

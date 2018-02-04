@@ -13,7 +13,7 @@ defmodule Tentacat.ReactionsTest do
 
   test "delete/4" do
     use_cassette "reactions#delete" do
-      {status_code, _} = delete(2317708, "soudqwiggle", "elixir-conspiracy", @client)
+      {status_code, _,_} = delete(2317708, "soudqwiggle", "elixir-conspiracy", @client)
       assert status_code == 204
     end
   end

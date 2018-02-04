@@ -13,7 +13,7 @@ defmodule Tentacat.Issues.Comments.ReactionsTest do
 
   test "list/4" do
     use_cassette "issues/comments/reactions#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", "1", @client) == []
+      assert {200,_,_} = list("soudqwiggle", "elixir-conspiracy", "1", @client)
     end
   end
 
@@ -22,8 +22,7 @@ defmodule Tentacat.Issues.Comments.ReactionsTest do
       "content" => ":+1:",
     }
     use_cassette "issues/comments/reactions#create" do
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", "1", body, @client)
-      assert status_code == 201
+      assert {201, _,_} = create("soudqwiggle", "elixir-conspiracy", "1", body, @client)
     end
   end
 end

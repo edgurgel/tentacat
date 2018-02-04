@@ -13,13 +13,13 @@ defmodule Tentacat.RepositoriesTest do
 
   test "list_mine/1" do
     use_cassette "repositories#list_mine" do
-      assert list_mine(@client) == []
+      assert elem(list_mine(@client),1) == []
     end
   end
 
   test "list_users/2" do
     use_cassette "repositories#list_users" do
-      [%{"name" => name}] = list_users("duksis", @client)
+      {_,[%{"name" => name}],_} = list_users("duksis", @client)
       assert name == "tentacat"
     end
   end
@@ -40,7 +40,7 @@ defmodule Tentacat.RepositoriesTest do
 
   test "list_users/2 with manual pagination" do
     use_cassette "repositories#list_user_manual_pagination", match_requests_on: [:query] do
-      {body, next_link, auth} = list_users("octocat", @client, [], pagination: :manual)
+      {{_,body,_}, next_link, auth} = list_users("octocat", @client, [], pagination: :manual)
       assert Enum.count(body) == 5
       assert next_link == nil
       assert auth == @client.auth
@@ -49,49 +49,50 @@ defmodule Tentacat.RepositoriesTest do
 
   test "list_users/2 with parameters" do
     use_cassette "repositories#list_user_with_params", match_requests_on: [:query] do
-      repos = list_users("octocat", @client, [sort: :created, direction: :asc])
+      {_,repos,_} = list_users("octocat", @client, [sort: :created, direction: :asc])
       names = Enum.map(repos, &Map.get(&1, "name"))
       assert names == ["Hello-World", "Spoon-Knife", "octocat.github.io", "git-consortium", "hello-worId"]
     end
+
   end
 
   test "list_orgs/2" do
     use_cassette "repositories#list_orgs" do
-      [%{"name" => name}] = list_orgs("elixir-conspiracy", @client)
+      {_,[%{"name" => name}],_} = list_orgs("elixir-conspiracy", @client)
       assert name == "pacman"
     end
   end
 
   test "list_public/0" do
     use_cassette "repositories#list_public", match_requests_on: [:query] do
-      assert list_public() == []
+      assert {_,[],_} = list_public()
     end
   end
 
   test "repo_get/3" do
     use_cassette "repositories#repo_get" do
-      %{"name" => name} = repo_get("elixir-conspiracy", "pacman", @client)
+      {_,%{"name" => name},_} = repo_get("elixir-conspiracy", "pacman", @client)
       assert name == "pacman"
     end
   end
 
   test "create/3" do
     use_cassette "repositories#create" do
-      {status, _response} = create("tentacat", @client, [private: false])
+      {status, _response,_} = create("tentacat", @client, [private: false])
       assert status == 201
     end
   end
 
   test "org_create/4" do
     use_cassette "repositories#org_create" do
-      {status, _response} = org_create("tentatest", "tentacat", @client, [private: false])
+      {status, _response,_} = org_create("tentatest", "tentacat", @client, [private: false])
       assert status == 201
     end
   end
 
   test "delete/3" do
     use_cassette "repositories#delete" do
-      {status, _response} = delete("soudqwiggle", "tentacat", @client)
+      {status, _response,_} = delete("soudqwiggle", "tentacat", @client)
       assert status == 204
     end
   end

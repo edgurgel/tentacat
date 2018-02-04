@@ -13,7 +13,8 @@ defmodule Tentacat.Repositories.ContributorsTest do
   
     test "list/3" do
       use_cassette "repositories/contributors#list" do
-        assert list("antonydenyer", "tentatest", @client) |> Enum.count()  == 1
+        assert elem(list("antonydenyer", "tentatest", @client),1)
+               |> Enum.count()  == 1
       end
     end
 end

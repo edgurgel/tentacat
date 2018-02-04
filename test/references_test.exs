@@ -13,13 +13,13 @@ defmodule Tentacat.ReferencesTest do
 
   test "list/3" do
     use_cassette "references#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", @client),1) == []
     end
   end
 
   test "find/4" do
     use_cassette "references#find" do
-      %{"ref" => ref} = find("soudqwiggle", "elixir-conspiracy", "pull/2/merge", @client)
+      {_,%{"ref" => ref},_} = find("soudqwiggle", "elixir-conspiracy", "pull/2/merge", @client)
       assert ref == "refs/pull/2/merge"
     end
   end
@@ -30,7 +30,7 @@ defmodule Tentacat.ReferencesTest do
         "ref" => "refs/heads/old-readme",
         "sha" => "2ff6f7942773c268dc9ab0e11e9dffad402c1860"
       }
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, _,_} = create("soudqwiggle", "elixir-conspiracy", body, @client)
       assert status_code == 201
     end
   end
@@ -41,14 +41,14 @@ defmodule Tentacat.ReferencesTest do
       "force" => true
     }
     use_cassette "references#update" do
-      %{"ref" => ref} = update("soudqwiggle", "elixir-conspiracy", "heads/master", body, @client)
+      {_,%{"ref" => ref},_} = update("soudqwiggle", "elixir-conspiracy", "heads/master", body, @client)
       assert ref == "refs/heads/master"
     end
   end
 
   test "remove/4" do
     use_cassette "references#remove" do
-      {status_code, _} = remove("soudqwiggle", "elixir-conspiracy", 'heads/old-readme', @client)
+      {status_code, _,_} = remove("soudqwiggle", "elixir-conspiracy", 'heads/old-readme', @client)
       assert status_code == 204
     end
   end

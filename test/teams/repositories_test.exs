@@ -13,7 +13,7 @@ defmodule Tentacat.Teams.RepositoriesTest do
 
   test "list/2" do
     use_cassette "teams/repositories#list" do
-      assert list(1500000, @client) == []
+      assert  elem(list(1500000, @client),1) == []
     end
   end
 end

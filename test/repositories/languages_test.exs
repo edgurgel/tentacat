@@ -13,7 +13,7 @@ defmodule Tentacat.Repositories.LanguagesTest do
 
   test "list/3" do
     use_cassette "repositories/languages#list" do
-      result = list("edgurgel", "tentacat", @client)
+      {_,result,_} = list("edgurgel", "tentacat", @client)
       assert Map.has_key?(result, "Elixir")
     end
   end

@@ -13,27 +13,27 @@ defmodule Tentacat.ReleasesTest do
 
   test "list/3" do
     use_cassette "releases#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list("soudqwiggle", "elixir-conspiracy", @client),1) == []
     end
   end
 
   test "find/4" do
     use_cassette "releases#find" do
-      %{"tag_name" => name} = find(2317708, "soudqwiggle", "elixir-conspiracy", @client)
+      {_,%{"tag_name" => name},_} = find(2317708, "soudqwiggle", "elixir-conspiracy", @client)
       assert name == "v1"
     end
   end
 
   test "latest/3" do
     use_cassette "releases#latest" do
-      %{"tag_name" => name} = latest("soudqwiggle", "elixir-conspiracy", @client)
+      {_,%{"tag_name" => name},_} = latest("soudqwiggle", "elixir-conspiracy", @client)
       assert name == "v1.2"
     end
   end
 
   test "create/4" do
     use_cassette "releases#create" do
-      {status_code, _} = create("v1", "soudqwiggle", "elixir-conspiracy", @client)
+      {status_code, _,_} = create("v1", "soudqwiggle", "elixir-conspiracy", @client)
       assert status_code == 201
     end
   end
@@ -41,14 +41,14 @@ defmodule Tentacat.ReleasesTest do
   test "edit/5" do
     options = [tag_name: "v1.0.0"]
     use_cassette "releases#edit" do
-      %{"tag_name" => name} = edit(2317708, "soudqwiggle", "elixir-conspiracy", @client, options)
+      {_,%{"tag_name" => name},_} = edit(2317708, "soudqwiggle", "elixir-conspiracy", @client, options)
       assert name == "v1.0.0"
     end
   end
 
   test "delete/4" do
     use_cassette "releases#delete" do
-      {status_code, _} = delete(2317708, "soudqwiggle", "elixir-conspiracy", @client)
+      {status_code, _,_} = delete(2317708, "soudqwiggle", "elixir-conspiracy", @client)
       assert status_code == 204
     end
   end
