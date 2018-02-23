@@ -9,7 +9,7 @@
       "method": "delete",
       "options": [],
       "request_body": "",
-      "url": "https://api.github.com/orgs/tentatest/members/duksis"
+      "url": "https://api.github.com/orgs/tentatest/memberships/duksis"
     },
     "response": {
       "body": "",
