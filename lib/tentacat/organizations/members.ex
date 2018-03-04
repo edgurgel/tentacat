@@ -41,11 +41,11 @@ defmodule Tentacat.Organizations.Members do
 
       Tentacat.Organizations.Members.remove "github", "mojombo", client
 
-  More info at: http://developer.github.com/v3/orgs/members/#remove-a-member
+  More info at: http://developer.github.com/v3/orgs/members/#remove-organization-membership
   """
   @spec remove(binary, binary, Client.t) :: Tentacat.response
   def remove(organization, user, client) do
-    delete "orgs/#{organization}/members/#{user}", client
+    delete "orgs/#{organization}/memberships/#{user}", client
   end
 
   @doc """
