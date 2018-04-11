@@ -11,8 +11,8 @@ defmodule Tentacat.Repositories.Languages do
 
   More info at: https://developer.github.com/v3/repos/#list-languages
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/languages", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/languages", client)
   end
 end

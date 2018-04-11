@@ -8,13 +8,13 @@ defmodule Tentacat.Organizations do
   ## Example
 
       Tentacat.Organizations.list "edgurgel"
-      Tentacat.Organizations.list "edgurgel", client
+      Tentacat.Organizations.list client, "edgurgel"
 
-  More info at: http:\\developer.github.com/v3/orgs/#list-user-organizations
+  More info at: http://developer.github.com/v3/orgs/#list-user-organizations
   """
-  @spec list(binary, Client.t) :: Tentacat.response
-  def list(user, client \\ %Client{}) do
-    get "users/#{user}/orgs", client
+  @spec list(Client.t(), binary) :: Tentacat.response()
+  def list(client \\ %Client{}, user) do
+    get("users/#{user}/orgs", client)
   end
 
   @doc """
@@ -24,11 +24,11 @@ defmodule Tentacat.Organizations do
 
       Tentacat.Organizations.list_mine client
 
-  More info at: http:\\developer.github.com/v3/orgs/#list-user-organizations
+  More info at: http://developer.github.com/v3/orgs/#list-user-organizations
   """
-  @spec list_mine(Client.t) :: Tentacat.response
+  @spec list_mine(Client.t()) :: Tentacat.response()
   def list_mine(client) do
-    get "user/orgs", client
+    get("user/orgs", client)
   end
 
   @doc """
@@ -37,13 +37,13 @@ defmodule Tentacat.Organizations do
   ## Example
 
       Tentacat.Orgnizations.find "Codeminer42"
-      Tentacat.Orgnizations.find "Codeminer42", client
+      Tentacat.Orgnizations.find client, "Codeminer42"
 
-  More info at: http:\\developer.github.com/v3/orgs/#get-an-organization
+  More info at: http://developer.github.com/v3/orgs/#get-an-organization
   """
-  @spec find(binary, Client.t) :: Tentacat.response
-  def find(org, client \\ %Client{}) do
-    get "orgs/#{org}", client
+  @spec find(Client.t(), binary) :: Tentacat.response()
+  def find(client \\ %Client{}, org) do
+    get("orgs/#{org}", client)
   end
 
   @doc """
@@ -59,12 +59,12 @@ defmodule Tentacat.Organizations do
 
   ## Example
 
-      Tentacat.Organizations.update("codeminer42", [email: "public@codeminer42.com", location: "São Paulo"], client)
+      Tentacat.Organizations.update(client, "codeminer42", [email: "public@codeminer42.com", location: "São Paulo"])
 
-  More info at: http:\\developer.github.com/v3/orgs/#edit-an-organization
+  More info at: http://developer.github.com/v3/orgs/#edit-an-organization
   """
-  @spec update(binary, list, Client.t) :: Tentacat.response
-  def update(org, options, client) do
-    patch "orgs/#{org}", client, options
+  @spec update(Client.t(), binary, list) :: Tentacat.response()
+  def update(client, org, options) do
+    patch("orgs/#{org}", client, options)
   end
 end

@@ -11,9 +11,9 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#list-all-labels-for-this-repository
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/labels", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/labels", client)
   end
 
   @doc """
@@ -25,9 +25,9 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#get-a-single-label
   """
-  @spec find(binary, binary, binary, Client.t) :: Tentacat.response
-  def find(owner, repo, name, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/labels/#{name}", client
+  @spec find(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, name) do
+    get("repos/#{owner}/#{repo}/labels/#{name}", client)
   end
 
   @doc """
@@ -44,9 +44,9 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#create-a-label
   """
-  @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/labels", client, body
+  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/labels", client, body)
   end
 
   @doc """
@@ -63,9 +63,9 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#update-a-label
   """
-  @spec update(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, name, body, client \\ %Client{}) do
-    patch "repos/#{owner}/#{repo}/labels/#{name}", client, body
+  @spec update(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, name, body) do
+    patch("repos/#{owner}/#{repo}/labels/#{name}", client, body)
   end
 
   @doc """
@@ -77,9 +77,8 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#delete-a-label
   """
-  @spec delete(binary, binary, binary , Client.t) :: Tentacat.response
-  def delete(owner, repo, name, client \\ %Client{}) do
-    delete "repos/#{owner}/#{repo}/labels/#{name}", client
+  @spec delete(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def delete(client \\ %Client{}, owner, repo, name) do
+    delete("repos/#{owner}/#{repo}/labels/#{name}", client)
   end
-
 end

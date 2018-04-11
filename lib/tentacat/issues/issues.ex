@@ -12,12 +12,12 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#list-issues
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/issues", client)
   end
 
-@doc """
+  @doc """
   Filter issues
 
   ## Example
@@ -27,9 +27,9 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#list-issues-for-a-repository
   """
-  @spec filter(binary, binary, map, Client.t) :: Tentacat.response
-  def filter(owner, repo, filters, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues?#{URI.encode_query(filters)}", client
+  @spec filter(Client.t(), binary, binary, map) :: Tentacat.response()
+  def filter(client \\ %Client{}, owner, repo, filters) do
+    get("repos/#{owner}/#{repo}/issues?#{URI.encode_query(filters)}", client)
   end
 
   @doc """
@@ -42,9 +42,9 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#get-a-single-issue
   """
-  @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def find(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/#{number}", client
+  @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, number) do
+    get("repos/#{owner}/#{repo}/issues/#{number}", client)
   end
 
   @doc """
@@ -65,9 +65,9 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#create-an-issue
   """
-  @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/issues", client, body
+  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/issues", client, body)
   end
 
   @doc """
@@ -89,8 +89,8 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#edit-an-issue
   """
-  @spec update(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, number, body, client \\ %Client{}) do
-    patch "repos/#{owner}/#{repo}/issues/#{number}", client, body
+  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, number, body) do
+    patch("repos/#{owner}/#{repo}/issues/#{number}", client, body)
   end
 end

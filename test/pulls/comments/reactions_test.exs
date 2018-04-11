@@ -8,21 +8,22 @@ defmodule Tentacat.Pulls.Comments.ReactionsTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/4" do
     use_cassette "pulls/comments/reactions#list" do
-      assert {200, [] , _ } = list("soudqwiggle", "elixir-conspiracy", "1", @client) 
+      assert {200, [], _} = list(@client, "soudqwiggle", "elixir-conspiracy", "1")
     end
   end
 
   test "create/5" do
     body = %{
-      "content" => ":+1:",
+      "content" => ":+1:"
     }
+
     use_cassette "pulls/comments/reactions#create" do
-      assert {201, _ , _ } = create("soudqwiggle", "elixir-conspiracy", "1", body, @client) 
+      assert {201, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "1", body)
     end
   end
 end

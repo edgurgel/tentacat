@@ -19,7 +19,6 @@ defmodule Tentacat.Feeds do
   More info at: https://developer.github.com/v3/activity/feeds/
   """
   def feeds(client) do
-    get "feeds", client
+    get("feeds", client)
   end
 end
-

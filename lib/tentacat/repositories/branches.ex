@@ -8,13 +8,13 @@ defmodule Tentacat.Repositories.Branches do
   ## Example
 
       Tentacat.Repositories.Branches.list "elixir-lang", "elixir"
-      Tentacat.Repositories.Branches.list "elixir-lang", "elixir", client
+      Tentacat.Repositories.Branches.list client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/repos/#list-branches
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/branches", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/branches", client)
   end
 
   @doc """
@@ -23,12 +23,12 @@ defmodule Tentacat.Repositories.Branches do
   ## Example
 
       Tentacat.Repositories.Branches.find "elixir-lang", "elixir", "feature"
-      Tentacat.Repositories.Branches.find "elixir-lang", "elixir", "feature", client
+      Tentacat.Repositories.Branches.find client, "elixir-lang", "elixir", "feature"
 
   More info at: https://developer.github.com/v3/repos/#get-branch
   """
-  @spec find(binary, binary, binary, Client.t) :: Tentacat.response
-  def find(owner, repo, branch, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/branches/#{branch}", client
+  @spec find(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, branch) do
+    get("repos/#{owner}/#{repo}/branches/#{branch}", client)
   end
 end

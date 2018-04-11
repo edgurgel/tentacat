@@ -8,13 +8,13 @@ defmodule Tentacat.Organizations.Teams do
   ## Example
 
       Tentacat.Organizations.Teams.list "my_org"
-      Tentacat.Organizations.Teams.list "my_org", client
+      Tentacat.Organizations.Teams.list client, "my_org"
 
   More info at: https://developer.github.com/v3/orgs/teams/#list-teams
   """
-  @spec list(binary, Client.t) :: Tentacat.response
-  def list(organization, client \\ %Client{}) do
-    get "orgs/#{organization}/teams", client
+  @spec list(Client.t(), binary) :: Tentacat.response()
+  def list(client \\ %Client{}, organization) do
+    get("orgs/#{organization}/teams", client)
   end
 
   @doc """
@@ -23,13 +23,13 @@ defmodule Tentacat.Organizations.Teams do
   ## Example
 
       Tentacat.Orgnizations.Teams.find "1485060"
-      Tentacat.Orgnizations.Teams.find "1485060", client
+      Tentacat.Orgnizations.Teams.find client, "1485060"
 
   More info at: https://developer.github.com/v3/orgs/teams/#get-team
   """
-  @spec find(integer, Client.t) :: Tentacat.response
-  def find(team_id, client \\ %Client{}) do
-    get "teams/#{team_id}", client
+  @spec find(Client.t(), integer) :: Tentacat.response()
+  def find(client \\ %Client{}, team_id) do
+    get("teams/#{team_id}", client)
   end
 
   @doc """
@@ -49,14 +49,13 @@ defmodule Tentacat.Organizations.Teams do
 
   ## Example
 
-      Tentacat.Organizations.Teams.create "my_org", body
-      Tentacat.Organizations.Teams.create "my_org", body, client
+      Tentacat.Organizations.Teams.create client, "my_org", body
 
   More info at: https://developer.github.com/v3/orgs/teams/#create-team
   """
-  @spec create(binary, map, Client.t) :: Tentacat.response
-  def create(organization, body, client \\ %Client{}) do
-    post "orgs/#{organization}/teams", client, body
+  @spec create(Client.t(), binary, map) :: Tentacat.response()
+  def create(client, organization, body) do
+    post("orgs/#{organization}/teams", client, body)
   end
 
   @doc """
@@ -71,14 +70,13 @@ defmodule Tentacat.Organizations.Teams do
 
   ## Example
 
-      Tentacat.Organizations.Teams.update "1485060", body
-      Tentacat.Organizations.Teams.update "1485060", body, client
+      Tentacat.Organizations.Teams.update client, "1485060", body
 
   More info at: https://developer.github.com/v3/orgs/teams/#edit-team
   """
-  @spec update(integer, map, Client.t) :: Tentacat.response
-  def update(team_id, options, client \\ %Client{}) do
-    patch "teams/#{team_id}", client, options
+  @spec update(Client.t(), integer, map) :: Tentacat.response()
+  def update(client, team_id, options) do
+    patch("teams/#{team_id}", client, options)
   end
 
   @doc """
@@ -86,13 +84,12 @@ defmodule Tentacat.Organizations.Teams do
 
   ## Example
 
-      Tentacat.Organizations.Teams.delete "1485060"
-      Tentacat.Organizations.Teams.delete "1485060", client
+      Tentacat.Organizations.Teams.delete client, "1485060"
 
   More info at: https://developer.github.com/v3/orgs/teams/#delete-team
   """
-  @spec delete(integer, Client.t) :: Tentacat.response
-  def delete(team_id, client \\ %Client{}) do
-    Tentacat.delete "teams/#{team_id}", client
+  @spec delete(Client.t(), integer) :: Tentacat.response()
+  def delete(client, team_id) do
+    Tentacat.delete("teams/#{team_id}", client)
   end
 end

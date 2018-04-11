@@ -7,13 +7,13 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.list("elixir-lang", "elixir", client)
+      Tentacat.Releases.list(client, "elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/releases/#list-releases-for-a-repository
+  More info at: http://developer.github.com/v3/repos/releases/#list-releases-for-a-repository
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/releases", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/releases", client)
   end
 
   @doc """
@@ -21,13 +21,13 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.find(9949, "elixir-lang", "elixir", client)
+      Tentacat.Releases.find(client, 9949, "elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-release
+  More info at: http://developer.github.com/v3/repos/releases/#get-a-single-release
   """
-  @spec find(any, binary, binary, Client.t) :: Tentacat.response
-  def find(id, owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/releases/#{id}", client
+  @spec find(Client.t(), any, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, id, owner, repo) do
+    get("repos/#{owner}/#{repo}/releases/#{id}", client)
   end
 
   @doc """
@@ -35,14 +35,14 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.latest("elixir-lang", "elixir", client)
+      Tentacat.Releases.latest(client, "elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/releases/#get-the-latest-release
+  More info at: http://developer.github.com/v3/repos/releases/#get-the-latest-release
 
   """
-  @spec latest(binary, binary, Client.t) :: Tentacat.response
-  def latest(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/releases/latest", client
+  @spec latest(Client.t(), binary, binary) :: Tentacat.response()
+  def latest(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/releases/latest", client)
   end
 
   @doc """
@@ -50,14 +50,15 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.create("v0.11.0", elixir-lang", "elixir", client)
+      Tentacat.Releases.create(client, "v0.11.0", elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/releases/#create-a-release
+  More info at: http://developer.github.com/v3/repos/releases/#create-a-release
   """
-  @spec create(binary, binary, binary, Client.t, list) :: Tentacat.response
-  def create(tag_name, owner, repo, client \\ %Client{}, options \\ []) when is_binary(tag_name) do
+  @spec create(Client.t(), binary, binary, binary, list) :: Tentacat.response()
+  def create(client \\ %Client{}, tag_name, owner, repo, options \\ [])
+      when is_binary(tag_name) do
     body = Keyword.merge(options, tag_name: tag_name)
-    post "repos/#{owner}/#{repo}/releases", client, body
+    post("repos/#{owner}/#{repo}/releases", client, body)
   end
 
   @doc """
@@ -74,13 +75,13 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.edit(95071, "elixir-lang", "elixir", client)
+      Tentacat.Releases.edit(client, 95071, "elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/releases/#edit-a-release
+  More info at: http://developer.github.com/v3/repos/releases/#edit-a-release
   """
-  @spec edit(integer, binary, binary, Client.t, list) :: Tentacat.response
-  def edit(id, owner, repo, client \\ %Client{}, options \\ []) when is_integer(id) do
-    patch "repos/#{owner}/#{repo}/releases/#{id}", client, options
+  @spec edit(Client.t(), integer, binary, binary, list) :: Tentacat.response()
+  def edit(client \\ %Client{}, id, owner, repo, options \\ []) when is_integer(id) do
+    patch("repos/#{owner}/#{repo}/releases/#{id}", client, options)
   end
 
   @doc """
@@ -88,12 +89,12 @@ defmodule Tentacat.Releases do
 
   ## Example
 
-      Tentacat.Releases.delete(95071, "elixir-lang", "elixir", client)
+      Tentacat.Releases.delete(client, 95071, "elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/releases/#delete-a-release
+  More info at: http://developer.github.com/v3/repos/releases/#delete-a-release
   """
-  @spec delete(integer, binary, binary, Client.t) :: Tentacat.response
-  def delete(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    delete "repos/#{owner}/#{repo}/releases/#{id}", client
+  @spec delete(Client.t(), integer, binary, binary) :: Tentacat.response()
+  def delete(client \\ %Client{}, id, owner, repo) when is_integer(id) do
+    delete("repos/#{owner}/#{repo}/releases/#{id}", client)
   end
 end

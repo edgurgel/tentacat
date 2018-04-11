@@ -7,13 +7,13 @@ defmodule Tentacat.Commits do
 
   ## Example
 
-      Tentacat.Commits.list("elixir-lang", "elixir", client)
+      Tentacat.Commits.list(client, "elixir-lang", "elixir")
 
   More info at: https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/commits", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/commits", client)
   end
 
   @doc """
@@ -21,13 +21,13 @@ defmodule Tentacat.Commits do
 
   ## Example
 
-      Tentacat.Commits.filter("elixir-lang", "elixir", %{sha: "my-branch"}, client)
+      Tentacat.Commits.filter(client, "elixir-lang", "elixir", %{sha: "my-branch"})
 
   More info at: https://developer.github.com/v3/repos/commits/#list-commits-on-a-repository
   """
-  @spec filter(binary, binary, Keyword.t | map, Client.t) :: Tentacat.response
-  def filter(owner, repo, filters, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/commits?#{URI.encode_query(filters)}", client
+  @spec filter(Client.t(), binary, binary, Keyword.t() | map) :: Tentacat.response()
+  def filter(client \\ %Client{}, owner, repo, filters) do
+    get("repos/#{owner}/#{repo}/commits?#{URI.encode_query(filters)}", client)
   end
 
   @doc """
@@ -35,13 +35,13 @@ defmodule Tentacat.Commits do
 
   ## Example
 
-      Tentacat.Commits.find("6dcb09b", "elixir-lang", "elixir", client)
+      Tentacat.Commits.find(client, "6dcb09b", "elixir-lang", "elixir")
 
   More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-commit
   """
-  @spec find(any, binary, binary, Client.t) :: Tentacat.response
-  def find(sha, owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/commits/#{sha}", client
+  @spec find(Client.t(), any, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, sha, owner, repo) do
+    get("repos/#{owner}/#{repo}/commits/#{sha}", client)
   end
 
   @doc """
@@ -49,12 +49,12 @@ defmodule Tentacat.Commits do
 
   ## Example
 
-      Tentacat.Commits.compare(base, head, "elixir-lang", "elixir", client)
+      Tentacat.Commits.compare(client, base, head, "elixir-lang", "elixir")
 
   More info at: https://developer.github.com/v3/repos/commits/#compare-two-commits
   """
-  @spec compare(any, any, binary, binary, Client.t) :: Tentacat.response
-  def compare(base, head, owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/compare/#{base}...#{head}", client
+  @spec compare(Client.t(), any, any, binary, binary) :: Tentacat.response()
+  def compare(client \\ %Client{}, base, head, owner, repo) do
+    get("repos/#{owner}/#{repo}/compare/#{base}...#{head}", client)
   end
 end

@@ -15,9 +15,9 @@ defmodule Tentacat.Releases.Assets do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#list-assets-for-a-release
   """
-  @spec list(integer, binary, binary, Client.t) :: Tentacat.response
-  def list(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    get "repos/#{owner}/#{repo}/releases/#{id}/assets", client
+  @spec list(Client.t(), integer, binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, id, owner, repo) when is_integer(id) do
+    get("repos/#{owner}/#{repo}/releases/#{id}/assets", client)
   end
 
   @doc """
@@ -29,9 +29,9 @@ defmodule Tentacat.Releases.Assets do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#get-a-single-release-asset
   """
-  @spec find(integer, binary, binary, Client.t) :: Tentacat.response
-  def find(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    get "repos/#{owner}/#{repo}/releases/assets/#{id}", client
+  @spec find(Client.t(), integer, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, id, owner, repo) when is_integer(id) do
+    get("repos/#{owner}/#{repo}/releases/assets/#{id}", client)
   end
 
   @doc """
@@ -39,7 +39,7 @@ defmodule Tentacat.Releases.Assets do
 
   ## Example
 
-      Tentacat.Releases.Assets.edit("my-release.tar.gz", 23, "elixir-lang", "elixir", client, label: "NEW LABEL!")
+      Tentacat.Releases.Assets.edit(client, "my-release.tar.gz", 23, "elixir-lang", "elixir", label: "NEW LABEL!")
 
   ## Options
 
@@ -47,10 +47,10 @@ defmodule Tentacat.Releases.Assets do
 
   More info at: http:\\developer.github.com/v3/repos/releases/#edit-a-release-asset
   """
-  @spec edit(binary, integer, binary, binary, Client.t, list) :: Tentacat.response
-  def edit(name, id, owner, repo, client \\ %Client{}, options \\ []) when is_integer(id) do
+  @spec edit(Client.t(), binary, integer, binary, binary, list) :: Tentacat.response()
+  def edit(client, name, id, owner, repo, options \\ []) when is_integer(id) do
     body = Keyword.merge(options, name: name)
-    patch "repos/#{owner}/#{repo}/releases/assets/#{id}", client, body
+    patch("repos/#{owner}/#{repo}/releases/assets/#{id}", client, body)
   end
 
   @doc """
@@ -58,13 +58,12 @@ defmodule Tentacat.Releases.Assets do
 
   ## Example
 
-      Tentacat.Releases.Assets.delete("23", "elixir-lang", "elixir", client)
+      Tentacat.Releases.Assets.delete(client, "23", "elixir-lang", "elixir")
 
   More info at: http:\\developer.github.com/v3/repos/releases/#delete-a-release-asset
   """
-  @spec delete(integer, binary, binary, Client.t) :: Tentacat.response
-  def delete(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    delete "repos/#{owner}/#{repo}/releases/assets/#{id}", client
+  @spec delete(Client.t(), integer, binary, binary) :: Tentacat.response()
+  def delete(client, id, owner, repo) when is_integer(id) do
+    delete("repos/#{owner}/#{repo}/releases/assets/#{id}", client)
   end
-
 end

@@ -11,9 +11,9 @@ defmodule Tentacat.Issues.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#list-labels-on-an-issue
   """
-  @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list(owner, repo, issue_id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/#{issue_id}/labels", client
+  @spec list(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, issue_id) do
+    get("repos/#{owner}/#{repo}/issues/#{issue_id}/labels", client)
   end
 
   @doc """
@@ -25,9 +25,9 @@ defmodule Tentacat.Issues.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#add-labels-to-an-issue
   """
-  @spec add(binary, binary, binary | integer, [binary], Client.t) :: Tentacat.response
-  def add(owner, repo, issue_id, labels, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/issues/#{issue_id}/labels", client, labels
+  @spec add(Client.t(), binary, binary, binary | integer, [binary]) :: Tentacat.response()
+  def add(client \\ %Client{}, owner, repo, issue_id, labels) do
+    post("repos/#{owner}/#{repo}/issues/#{issue_id}/labels", client, labels)
   end
 
   @doc """
@@ -39,8 +39,8 @@ defmodule Tentacat.Issues.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#remove-a-label-from-an-issue
   """
-  @spec remove(binary, binary, binary | integer, binary, Client.t) :: Tentacat.response
-  def remove(owner, repo, issue_id, label, client \\ %Client{}) do
-    delete "repos/#{owner}/#{repo}/issues/#{issue_id}/labels/#{label}", client
+  @spec remove(Client.t(), binary, binary, binary | integer, binary) :: Tentacat.response()
+  def remove(client \\ %Client{}, owner, repo, issue_id, label) do
+    delete("repos/#{owner}/#{repo}/issues/#{issue_id}/labels/#{label}", client)
   end
 end

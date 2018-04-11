@@ -8,31 +8,31 @@ defmodule Tentacat.Repositories.CollaboratorsTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "repositories/collaborators#list" do
-      assert elem(list("andersklenke", "tentatest", @client),1) |> Enum.count()  == 1
+      assert elem(list(@client, "andersklenke", "tentatest"), 1) |> Enum.count() == 1
     end
   end
 
   test "collaborator?/4" do
     use_cassette "repositories/collaborators#collaborator?" do
-      assert {204, _,_} = collaborator?("andersklenke", "tentatest", "andersklenke", @client)
-      assert {404, _,_} = collaborator?("andersklenke", "tentatest", "no", @client)
+      assert {204, _, _} = collaborator?(@client, "andersklenke", "tentatest", "andersklenke")
+      assert {404, _, _} = collaborator?(@client, "andersklenke", "tentatest", "no")
     end
   end
 
   test "add/4" do
     use_cassette "repositories/collaborators#add" do
-      assert {204, _,_} = add("andersklenke", "tentatest", "tentatest123", %{}, @client)
+      assert {204, _, _} = add(@client, "andersklenke", "tentatest", "tentatest123", %{})
     end
   end
 
   test "delete/4" do
     use_cassette "repositories/collaborators#delete" do
-      assert {204, _,_} = delete("andersklenke", "tentatest", "tentatest123", @client)
+      assert {204, _, _} = delete(@client, "andersklenke", "tentatest", "tentatest123")
     end
   end
 end

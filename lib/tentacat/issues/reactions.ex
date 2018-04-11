@@ -13,9 +13,9 @@ defmodule Tentacat.Issues.Reactions do
   More info at: https://developer.github.com/v3/reactions/#list-reactions-for-an-issue
   """
 
-  @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list(owner, repo, issue_id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/#{issue_id}/reactions", client
+  @spec list(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, issue_id) do
+    get("repos/#{owner}/#{repo}/issues/#{issue_id}/reactions", client)
   end
 
   @doc """
@@ -31,8 +31,9 @@ defmodule Tentacat.Issues.Reactions do
 
   More info at: https://developer.github.com/v3/reactions/#create-reaction-for-an-issue
   """
-  @spec create(binary, binary, binary | integer, Keyword.t | map, Client.t) :: Tentacat.response
-  def create(owner, repo, issue_id, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/issues/#{issue_id}/reactions", client, body
+  @spec create(Client.t(), binary, binary, binary | integer, Keyword.t() | map) ::
+          Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, issue_id, body) do
+    post("repos/#{owner}/#{repo}/issues/#{issue_id}/reactions", client, body)
   end
 end
