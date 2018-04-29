@@ -1,6 +1,7 @@
 defmodule Tentacat.Search do
   import Tentacat
   alias Tentacat.Client
+
   @moduledoc """
   The Search API allows the search of pretty much anything on GitHub
   """
@@ -11,13 +12,13 @@ defmodule Tentacat.Search do
   ## Example
 
       Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}
-      Tentacat.Search.code %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}, client
+      Tentacat.Search.code client, %{q: "code language:elixir repo:edgurgel/tentacat", sort: "url"}
 
   More info at: https://developer.github.com/v3/search/#search-code
   """
-  @spec code(map, Client.t) :: Tentacat.response
-  def code(params, client \\ %Client{}, options \\ []) do
-    get "search/code", client, params, options
+  @spec code(Client.t(), any, Keyword.t()) :: Tentacat.response()
+  def code(client \\ %Client{}, params, options \\ []) do
+    get("search/code", client, params, options)
   end
 
   @doc """
@@ -30,9 +31,9 @@ defmodule Tentacat.Search do
 
   More info at: https://developer.github.com/v3/search/#search-users
   """
-  @spec users(map, Client.t) :: Tentacat.response
-  def users(params, client \\ %Client{}, options \\ []) do
-    get "search/users", client, params, options
+  @spec users(Client.t(), any, Keyword.t()) :: Tentacat.response()
+  def users(client \\ %Client{}, params, options \\ []) do
+    get("search/users", client, params, options)
   end
 
   @doc """
@@ -45,8 +46,8 @@ defmodule Tentacat.Search do
 
   More info at: https://developer.github.com/v3/search/#search-repositories
   """
-  @spec repositories(map, Client.t) :: Tentacat.response
-  def repositories(params, client \\ %Client{}, options \\ []) do
-    get "search/repositories", client, params, options
+  @spec repositories(Client.t(), any, Keyword.t()) :: Tentacat.response()
+  def repositories(client \\ %Client{}, params, options \\ []) do
+    get("search/repositories", client, params, options)
   end
 end

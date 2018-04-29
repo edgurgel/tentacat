@@ -11,9 +11,9 @@ defmodule Tentacat.Users.Starring do
 
   More info at: https://developer.github.com/v3/activity/starring/#list-repositories-being-starred
   """
-  @spec starred(Client.t) :: Tentacat.response
+  @spec starred(Client.t()) :: Tentacat.response()
   def starred(client) do
-    get "user/starred", client
+    get("user/starred", client)
   end
 
   @doc """
@@ -21,33 +21,33 @@ defmodule Tentacat.Users.Starring do
 
   ## Example
 
-      Tentacat.Users.Starring.starred "edgurgel", client
+      Tentacat.Users.Starring.starred client, "edgurgel"
 
   More info at: https://developer.github.com/v3/activity/starring/#list-repositories-being-starred
   """
-  @spec starred(binary, Client.t) :: Tentacat.response
-  def starred(user_name, client) do
-    get "users/#{user_name}/starred", client
+  @spec starred(Client.t(), binary) :: Tentacat.response()
+  def starred(client, user_name) do
+    get("users/#{user_name}/starred", client)
   end
-  
+
   @doc """
   Check if authenticated user is starred given repository.
 
   ## Example
 
-      Tentacat.Users.Starring.starred? "elixir-lang", "elixir", client
+      Tentacat.Users.Starring.starred? client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/activity/starring/#check-if-you-are-starring-a-repository
   """
-  @spec starred?(binary, binary, Client.t) :: boolean | Tentacat.response
-  def starred?(owner, repo, client) do
+  @spec starred?(Client.t(), binary, binary) :: boolean | Tentacat.response()
+  def starred?(client, owner, repo) do
     starred_check("user/starred/#{owner}/#{repo}", client)
   end
 
   defp starred_check(starred_api_url, client) do
-    case get starred_api_url, client do
-      { 204, _, resp } -> {204, true, resp}
-      { 404, _, resp } -> {404, false,resp}
+    case get(starred_api_url, client) do
+      {204, _, resp} -> {204, true, resp}
+      {404, _, resp} -> {404, false, resp}
       unexpected_response -> unexpected_response
     end
   end
@@ -57,13 +57,13 @@ defmodule Tentacat.Users.Starring do
 
   ## Example
 
-      Tentacat.Users.Starring.star "elixir-lang", "elixir", client
+      Tentacat.Users.Starring.star client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/activity/starring/#star-a-repository
   """
-  @spec star(binary, binary, Client.t) :: true | Tentacat.response
-  def star(owner, repo, client) do
-    star_response put "user/starred/#{owner}/#{repo}", client
+  @spec star(Client.t(), binary, binary) :: true | Tentacat.response()
+  def star(client, owner, repo) do
+    star_response(put("user/starred/#{owner}/#{repo}", client))
   end
 
   @doc """
@@ -71,18 +71,18 @@ defmodule Tentacat.Users.Starring do
 
   ## Example
 
-      Tentacat.Users.Starring.unstar "elixir-lang", "elixir", client
+      Tentacat.Users.Starring.unstar client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/activity/starring/#unstar-a-repository
   """
-  @spec unstar(binary, binary, Client.t) :: true | Tentacat.response
-  def unstar(owner, repo, client) do
-    star_response delete "user/starred/#{owner}/#{repo}", client
+  @spec unstar(Client.t(), binary, binary) :: true | Tentacat.response()
+  def unstar(client, owner, repo) do
+    star_response(delete("user/starred/#{owner}/#{repo}", client))
   end
 
   defp star_response(response) do
     case response do
-      { 204, _, resp } -> {204, true, resp}
+      {204, _, resp} -> {204, true, resp}
       unexpected_response -> unexpected_response
     end
   end

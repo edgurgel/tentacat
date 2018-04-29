@@ -11,9 +11,9 @@ defmodule Tentacat.Issues.Comments do
 
   More info at: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
   """
-  @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list(owner, repo, issue_id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/#{issue_id}/comments", client
+  @spec list(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, issue_id) do
+    get("repos/#{owner}/#{repo}/issues/#{issue_id}/comments", client)
   end
 
   @doc """
@@ -25,9 +25,10 @@ defmodule Tentacat.Issues.Comments do
 
   More info at: https://developer.github.com/v3/issues/comments/#list-comments-on-an-issue
   """
-  @spec filter(binary, binary, binary | integer, Keyword.t | map, Client.t) :: Tentacat.response
-  def filter(owner, repo, issue_id, filters, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/#{issue_id}/comments?#{URI.encode_query(filters)}", client
+  @spec filter(Client.t(), binary, binary, binary | integer, Keyword.t() | map) ::
+          Tentacat.response()
+  def filter(client \\ %Client{}, owner, repo, issue_id, filters) do
+    get("repos/#{owner}/#{repo}/issues/#{issue_id}/comments?#{URI.encode_query(filters)}", client)
   end
 
   @doc """
@@ -39,9 +40,9 @@ defmodule Tentacat.Issues.Comments do
 
   More info at: https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository
   """
-  @spec list_all(binary, binary, Client.t) :: Tentacat.response
-  def list_all(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/comments", client
+  @spec list_all(Client.t(), binary, binary) :: Tentacat.response()
+  def list_all(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/issues/comments", client)
   end
 
   @doc """
@@ -53,9 +54,9 @@ defmodule Tentacat.Issues.Comments do
 
   More info at: https://developer.github.com/v3/issues/comments/#list-comments-in-a-repository
   """
-  @spec filter_all(binary, binary, Keyword.t | map, Client.t) :: Tentacat.response
-  def filter_all(owner, repo, filters, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/comments?#{URI.encode_query(filters)}", client
+  @spec filter_all(Client.t(), binary, binary, Keyword.t() | map) :: Tentacat.response()
+  def filter_all(client \\ %Client{}, owner, repo, filters) do
+    get("repos/#{owner}/#{repo}/issues/comments?#{URI.encode_query(filters)}", client)
   end
 
   @doc """
@@ -67,9 +68,9 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#get-a-single-comment
   """
-  @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def find(owner, repo, comment_id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/issues/comments/#{comment_id}", client
+  @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, comment_id) do
+    get("repos/#{owner}/#{repo}/issues/comments/#{comment_id}", client)
   end
 
   @doc """
@@ -88,9 +89,9 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#create-a-comment
   """
-  @spec create(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, issue_id, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/issues/#{issue_id}/comments", client, body
+  @spec create(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, issue_id, body) do
+    post("repos/#{owner}/#{repo}/issues/#{issue_id}/comments", client, body)
   end
 
   @doc """
@@ -109,9 +110,9 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#edit-a-comment
   """
-  @spec update(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, comment_id, body, client \\ %Client{}) do
-    patch "repos/#{owner}/#{repo}/issues/comments/#{comment_id}", client, body
+  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, comment_id, body) do
+    patch("repos/#{owner}/#{repo}/issues/comments/#{comment_id}", client, body)
   end
 
   @doc """
@@ -123,8 +124,9 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#delete-a-comment
   """
-  @spec delete(binary, binary, binary | integer, binary | integer, Client.t) :: Tentacat.response
-  def delete(owner, repo, issue_id, comment_id, client \\ %Client{}) do
-    delete "repos/#{owner}/#{repo}/issues/#{issue_id}/comments/#{comment_id}", client
+  @spec delete(Client.t(), binary, binary, binary | integer, binary | integer) ::
+          Tentacat.response()
+  def delete(client \\ %Client{}, owner, repo, issue_id, comment_id) do
+    delete("repos/#{owner}/#{repo}/issues/#{issue_id}/comments/#{comment_id}", client)
   end
 end

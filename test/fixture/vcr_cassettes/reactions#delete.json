@@ -9,33 +9,33 @@
       "method": "delete",
       "options": [],
       "request_body": "",
-      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/releases/2317708"
+      "url": "https://api.github.com/reactions/2317708"
     },
     "response": {
-      "body": "",
+      "binary": false,
+      "body": "{\"message\":\"Bad credentials\",\"documentation_url\":\"https://developer.github.com/v3\"}",
       "headers": {
         "Server": "GitHub.com",
-        "Date": "Sun, 20 Dec 2015 13:44:07 GMT",
-        "Status": "204 No Content",
-        "X-RateLimit-Limit": "5000",
-        "X-RateLimit-Remaining": "4987",
-        "X-RateLimit-Reset": "1450620335",
-        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
-        "X-Accepted-OAuth-Scopes": "",
+        "Date": "Wed, 11 Apr 2018 20:58:53 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "83",
+        "Status": "401 Unauthorized",
         "X-GitHub-Media-Type": "github.v3; format=json",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "59",
+        "X-RateLimit-Reset": "1523483933",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
         "Access-Control-Allow-Origin": "*",
-        "Content-Security-Policy": "default-src 'none'",
         "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
-        "X-Content-Type-Options": "nosniff",
         "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
         "X-XSS-Protection": "1; mode=block",
-        "Vary": "Accept-Encoding",
-        "X-Served-By": "13d09b732ebe76f892093130dc088652",
-        "X-GitHub-Request-Id": "3E552BA7:A39B:14A1D46D:5676B0A7"
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Runtime-rack": "0.044185",
+        "X-GitHub-Request-Id": "34DA:03E8:2630FE:55CAA8:5ACE770D"
       },
-      "status_code": 204,
+      "status_code": 401,
       "type": "ok"
     }
   }

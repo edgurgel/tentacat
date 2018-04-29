@@ -5,15 +5,15 @@ defmodule Tentacat.Repositories.LanguagesTest do
 
   doctest Tentacat.Repositories.Languages
 
-  @client Tentacat.Client.new
+  @client Tentacat.Client.new()
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "repositories/languages#list" do
-      {_,result,_} = list("edgurgel", "tentacat", @client)
+      {_, result, _} = list(@client, "edgurgel", "tentacat")
       assert Map.has_key?(result, "Elixir")
     end
   end

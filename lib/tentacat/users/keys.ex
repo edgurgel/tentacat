@@ -7,14 +7,14 @@ defmodule Tentacat.Users.Keys do
 
   ## Example
 
-      Tentacat.Users.Keys.list "bastos", client
       Tentacat.Users.Keys.list "bastos"
+      Tentacat.Users.Keys.list client, "bastos"
 
   More info at: http://developer.github.com/v3/users/keys/#list-public-keys-for-a-user and http://developer.github.com/v3/users/keys/#list-your-public-keys
   """
-  @spec list(binary, Client.t) :: Tentacat.response
-  def list(user, client \\ %Client{}) do
-    get "users/#{user}/keys", client
+  @spec list(Client.t(), binary) :: Tentacat.response()
+  def list(client \\ %Client{}, user) do
+    get("users/#{user}/keys", client)
   end
 
   @doc """
@@ -26,9 +26,9 @@ defmodule Tentacat.Users.Keys do
 
   More info at: http://developer.github.com/v3/users/keys/#list-public-keys-for-a-user and http://developer.github.com/v3/users/keys/#list-your-public-keys
   """
-  @spec list_mine(Client.t) :: Tentacat.response
+  @spec list_mine(Client.t()) :: Tentacat.response()
   def list_mine(client) do
-    get "user/keys", client
+    get("user/keys", client)
   end
 
   @doc """
@@ -40,9 +40,9 @@ defmodule Tentacat.Users.Keys do
 
   More info at: http://developer.github.com/v3/users/keys/#get-a-single-public-key
   """
-  @spec find(integer, Client.t) :: Tentacat.response
-  def find(id, client) do
-    get "user/keys/#{id}", client
+  @spec find(Client.t(), integer) :: Tentacat.response()
+  def find(client, id) do
+    get("user/keys/#{id}", client)
   end
 
   @doc """
@@ -50,13 +50,13 @@ defmodule Tentacat.Users.Keys do
 
   ## Example
 
-      Tentacat.Users.Keys.create("title", "ssh-rsa AAA...", client)
+      Tentacat.Users.Keys.create(client, "title", "ssh-rsa AAA...")
 
   More info at:http://developer.github.com/v3/users/keys/#create-a-public-key
   """
-  @spec create(binary, binary, Client.t) :: Tentacat.response
-  def create(title, key, client) do
-    post "user/keys", client, [title: title, key: key]
+  @spec create(Client.t(), binary, binary) :: Tentacat.response()
+  def create(client, title, key) do
+    post("user/keys", client, title: title, key: key)
   end
 
   @doc """
@@ -64,13 +64,13 @@ defmodule Tentacat.Users.Keys do
 
   ## Example
 
-      Tentacat.Users.Keys.update(123, "title", "ssh-rsa ...", client)
+      Tentacat.Users.Keys.update(client, 123, "title", "ssh-rsa ...")
 
   More info at: http://developer.github.com/v3/users/keys/#update-a-public-key
   """
-  @spec update(integer, binary, binary, Client.t) :: Tentacat.response
-  def update(id, title, key, client) do
-    patch "user/keys/#{id}", client, [title: title, key: key]
+  @spec update(Client.t(), integer, binary, binary) :: Tentacat.response()
+  def update(client, id, title, key) do
+    patch("user/keys/#{id}", client, title: title, key: key)
   end
 
   @doc """
@@ -78,12 +78,12 @@ defmodule Tentacat.Users.Keys do
 
   ## Example
 
-      Tentacat.Users.Keys.remove 123, client
+      Tentacat.Users.Keys.remove client, 123
 
   More info at: http://developer.github.com/v3/users/keys/#delete-a-public-key
   """
-  @spec remove(integer, Client.t) :: any
-  def remove(id, client) do
-    delete "user/keys/#{id}", client
+  @spec remove(Client.t(), integer) :: any
+  def remove(client, id) do
+    delete("user/keys/#{id}", client)
   end
 end

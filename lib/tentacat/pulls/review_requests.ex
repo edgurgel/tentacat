@@ -8,13 +8,13 @@ defmodule Tentacat.Pulls.ReviewRequests do
   ## Example
 
       Tentacat.Pulls.ReviewRequests.list "elixir-lang", "elixir", 1
-      Tentacat.Pulls.ReviewRequests.list "elixir-lang", "elixir", 1, client
+      Tentacat.Pulls.ReviewRequests.list client, "elixir-lang", "elixir", 1
 
   More info at: https://developer.github.com/v3/pulls/review_requests/#list-review-requests
   """
-  @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}/requested_reviewers", client
+  @spec list(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, number) do
+    get("repos/#{owner}/#{repo}/pulls/#{number}/requested_reviewers", client)
   end
 
   @doc """
@@ -26,13 +26,15 @@ defmodule Tentacat.Pulls.ReviewRequests do
 
   ## Example
 
-      Tentacat.Pulls.ReviewRequests.create "elixir-lang", "elixir", body, client
+      Tentacat.Pulls.ReviewRequests.create client, "elixir-lang", "elixir", body
 
   More info at: https://developer.github.com/v3/pulls/review_requests/#create-a-review-request
   """
-  @spec create(binary, binary, binary | integer, list(binary), Client.t) :: Tentacat.response
-  def create(owner, repo, number, reviewers, client) do
-    post "repos/#{owner}/#{repo}/pulls/#{number}/requested_reviewers", client, %{reviewers: reviewers}
+  @spec create(Client.t(), binary, binary, binary | integer, list(binary)) :: Tentacat.response()
+  def create(client, owner, repo, number, reviewers) do
+    post("repos/#{owner}/#{repo}/pulls/#{number}/requested_reviewers", client, %{
+      reviewers: reviewers
+    })
   end
 
   @doc """
@@ -40,12 +42,14 @@ defmodule Tentacat.Pulls.ReviewRequests do
 
   ## Example
 
-      Tentacat.Pulls.ReviewRequests.remove "elixir-lang", "elixir", 1, ["octocat"], client
+      Tentacat.Pulls.ReviewRequests.remove client, "elixir-lang", "elixir", 1, ["octocat"]
 
   More info at: https://developer.github.com/v3/pulls/review_requests/#delete-a-review-request
   """
-  @spec remove(binary, binary, binary | integer, list(binary), Client.t) :: Tentacat.response
-  def remove(owner, repo, number, reviewers, client) do
-    delete "repos/#{owner}/#{repo}/pulls/#{number}/requested_reviewers", client, %{reviewers: reviewers}
+  @spec remove(Client.t(), binary, binary, binary | integer, list(binary)) :: Tentacat.response()
+  def remove(client, owner, repo, number, reviewers) do
+    delete("repos/#{owner}/#{repo}/pulls/#{number}/requested_reviewers", client, %{
+      reviewers: reviewers
+    })
   end
 end

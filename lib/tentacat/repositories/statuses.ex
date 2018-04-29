@@ -8,14 +8,14 @@ defmodule Tentacat.Repositories.Statuses do
   ## Example
 
       Tentacat.Repositories.Statuses.list "elixir-lang", "elixir", "a8ce2485b1260245a331f1a56c53ab1b965d6dc5"
-      Tentacat.Repositories.Statuses.list "elixir-lang", "elixir", "master", client
-      Tentacat.Repositories.Statuses.list "elixir-lang", "elixir", "1.2.4", client
+      Tentacat.Repositories.Statuses.list client, "elixir-lang", "elixir", "master"
+      Tentacat.Repositories.Statuses.list client, "elixir-lang", "elixir", "1.2.4"
 
   More info at: https://developer.github.com/v3/repos/statuses/#list-statuses-for-a-specific-ref
   """
-  @spec list(binary, binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/commits/#{ref}/statuses", client
+  @spec list(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, ref) do
+    get("repos/#{owner}/#{repo}/commits/#{ref}/statuses", client)
   end
 
   @doc """
@@ -24,14 +24,14 @@ defmodule Tentacat.Repositories.Statuses do
   ## Example
 
       Tentacat.Repositories.Statuses.find "elixir-lang", "elixir", "a8ce2485b1260245a331f1a56c53ab1b965d6dc5"
-      Tentacat.Repositories.Statuses.find "elixir-lang", "elixir", "master", client
-      Tentacat.Repositories.Statuses.find "elixir-lang", "elixir", "1.2.4", client
+      Tentacat.Repositories.Statuses.find client, "elixir-lang", "elixir", "master"
+      Tentacat.Repositories.Statuses.find client, "elixir-lang", "elixir", "1.2.4"
 
   More info at: https://developer.github.com/v3/repos/statuses/#get-the-combined-status-for-a-specific-ref
   """
-  @spec find(binary, binary, binary, Client.t) :: Tentacat.response
-  def find(owner, repo, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/commits/#{ref}/status", client
+  @spec find(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, ref) do
+    get("repos/#{owner}/#{repo}/commits/#{ref}/status", client)
   end
 
   @doc """
@@ -49,12 +49,12 @@ defmodule Tentacat.Repositories.Statuses do
 
   ## Example
 
-      Tentacat.Repositories.Statuses.create "elixir-lang", "elixir", 2974, comment_body, client
+      Tentacat.Repositories.Statuses.create client, "elixir-lang", "elixir", 2974, comment_body
 
   More info at: https://developer.github.com/v3/repos/statuses/#create-a-status
   """
-  @spec create(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, sha, body, client) do
-    post "repos/#{owner}/#{repo}/statuses/#{sha}", client, body
+  @spec create(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def create(client, owner, repo, sha, body) do
+    post("repos/#{owner}/#{repo}/statuses/#{sha}", client, body)
   end
 end

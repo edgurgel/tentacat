@@ -8,13 +8,13 @@ defmodule Tentacat.Repositories.Deployments do
   ## Example
 
       Tentacat.Repositories.Deployments.list "elixir-lang", "elixir"
-      Tentacat.Repositories.Deployments.list "elixir-lang", "elixir", client
+      Tentacat.Repositories.Deployments.list client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/repos/deployments/#list-deployments
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/deployments", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/deployments", client)
   end
 
   @doc """
@@ -31,13 +31,13 @@ defmodule Tentacat.Repositories.Deployments do
 
   ## Example
 
-      Tentacat.Repositories.Deployments.create "elixir-lang", "elixir", deployment_body, client
+      Tentacat.Repositories.Deployments.create client, "elixir-lang", "elixir", deployment_body
 
   More info at: https://developer.github.com/v3/repos/deployments/#create-a-deployment
   """
-  @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client ) do
-    post "repos/#{owner}/#{repo}/deployments", client, body
+  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
+  def create(client, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/deployments", client, body)
   end
 
   @doc """
@@ -46,13 +46,13 @@ defmodule Tentacat.Repositories.Deployments do
   ## Example
 
       Tentacat.Repositories.Deployments.list_statuses "elixir-lang", "elixir", "1"
-      Tentacat.Repositories.Deployments.list_statuses "elixir-lang", "elixir", "1", client
+      Tentacat.Repositories.Deployments.list_statuses client, "elixir-lang", "elixir", "1"
 
   More info at: https://developer.github.com/v3/repos/deployments/#list-deployment-statuses
   """
-  @spec list_statuses(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list_statuses(owner, repo, id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/deployments/#{id}/statuses", client
+  @spec list_statuses(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list_statuses(client \\ %Client{}, owner, repo, id) do
+    get("repos/#{owner}/#{repo}/deployments/#{id}/statuses", client)
   end
 
   @doc """
@@ -69,12 +69,12 @@ defmodule Tentacat.Repositories.Deployments do
 
   ## Example
 
-      Tentacat.Repositories.Deployments.create_status "elixir-lang", "elixir", "1", status_body, client
+      Tentacat.Repositories.Deployments.create_status client, "elixir-lang", "elixir", "1", status_body
 
   More info at: https://developer.github.com/v3/repos/deployments/#create-a-deployment-status
   """
-  @spec create_status(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def create_status(owner, repo, id, body, client) do
-    post "repos/#{owner}/#{repo}/deployments/#{id}/statuses", client, body
+  @spec create_status(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def create_status(client, owner, repo, id, body) do
+    post("repos/#{owner}/#{repo}/deployments/#{id}/statuses", client, body)
   end
 end

@@ -8,12 +8,12 @@ defmodule Tentacat.Teams.RepositoriesTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/2" do
     use_cassette "teams/repositories#list" do
-      assert  elem(list(1500000, @client),1) == []
+      assert elem(list(@client, 1_500_000), 1) == []
     end
   end
 end

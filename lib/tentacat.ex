@@ -4,14 +4,16 @@ defmodule Tentacat do
 
   @user_agent [{"User-agent", "tentacat"}]
 
-  @type response :: {:ok, :jsx.json_term, HTTPoison.Response.t } | {integer, any, HTTPoison.Response.t}
+  @type response ::
+          {:ok, :jsx.json_term(), HTTPoison.Response.t()} | {integer, any, HTTPoison.Response.t()}
 
   @spec process_response_body(binary) :: term
   def process_response_body(""), do: nil
   def process_response_body(body), do: JSX.decode!(body)
 
-  @spec process_response(HTTPoison.Response.t) :: response
-  def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp), do: { status_code, body,resp}
+  @spec process_response(HTTPoison.Response.t()) :: response
+  def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp),
+    do: {status_code, body, resp}
 
   def delete(path, client, body \\ "") do
     _request(:delete, url(client, path), client.auth, body)
@@ -52,9 +54,9 @@ defmodule Tentacat do
       |> add_params_to_url(params)
 
     case pagination(options) do
-      nil     -> request_stream(:get, url, client.auth) |> realize_if_needed
-      :none   -> request_stream(:get, url, client.auth, "", :one_page)
-      :auto   -> request_stream(:get, url, client.auth) |> realize_if_needed
+      nil -> request_stream(:get, url, client.auth) |> realize_if_needed
+      :none -> request_stream(:get, url, client.auth, "", :one_page)
+      :auto -> request_stream(:get, url, client.auth) |> realize_if_needed
       :stream -> request_stream(:get, url, client.auth)
       :manual -> request_with_pagination(:get, url, client.auth)
     end
@@ -77,8 +79,7 @@ defmodule Tentacat do
   end
 
   defp pagination(options) do
-    Keyword.get(options, :pagination,
-      Application.get_env(:tentacat, :pagination, nil))
+    Keyword.get(options, :pagination, Application.get_env(:tentacat, :pagination, nil))
   end
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
@@ -91,53 +92,67 @@ defmodule Tentacat do
     request_with_pagination(method, url, auth, JSX.encode!(body))
     |> stream_if_needed(override)
   end
+
   defp stream_if_needed(result = {status_code, _, _}, _) when is_number(status_code), do: result
   defp stream_if_needed({body, nil, _}, _), do: body
   defp stream_if_needed({body, _, _}, :one_page), do: body
+
   defp stream_if_needed(initial_results, _) do
-    Stream.resource(
-      fn -> initial_results end,
-      &process_stream/1,
-      fn _ -> nil end)
+    Stream.resource(fn -> initial_results end, &process_stream/1, fn _ -> nil end)
   end
 
   defp realize_if_needed(x) when is_tuple(x) or is_binary(x) or is_list(x) or is_map(x), do: x
   defp realize_if_needed(stream), do: Enum.to_list(stream)
 
   defp process_stream({[], nil, _}), do: {:halt, nil}
+
   defp process_stream({[], next, auth}) do
     request_with_pagination(:get, next, auth, "")
     |> process_stream
   end
-  defp process_stream({{_,items,_}, next, auth}) when is_list(items) do
+
+  defp process_stream({{_, items, _}, next, auth}) when is_list(items) do
     {items, {[], next, auth}}
   end
+
   defp process_stream({item, next, auth}) do
     {[item], {[], next, auth}}
   end
 
-  @spec request_with_pagination(atom, binary, Client.auth, binary) :: {binary, binary, Client.auth}
+  @spec request_with_pagination(atom, binary, Client.auth(), binary) ::
+          {binary, binary, Client.auth()}
   def request_with_pagination(method, url, auth, body \\ "") do
-    resp = request!(method, url, JSX.encode!(body), authorization_header(auth, extra_headers() ++ @user_agent), extra_options())
+    resp =
+      request!(
+        method,
+        url,
+        JSX.encode!(body),
+        authorization_header(auth, extra_headers() ++ @user_agent),
+        extra_options()
+      )
+
     case process_response(resp) do
-      {status, _, _ } when status in [301, 302, 307] ->
+      {status, _, _} when status in [301, 302, 307] ->
         request_with_pagination(method, location_header(resp), auth)
-      _ -> pagination_tuple(resp, auth)
+
+      _ ->
+        pagination_tuple(resp, auth)
     end
   end
 
-  @spec pagination_tuple(HTTPoison.Response.t, Client.auth) :: {binary, binary, Client.auth}
+  @spec pagination_tuple(HTTPoison.Response.t(), Client.auth()) :: {binary, binary, Client.auth()}
   defp pagination_tuple(%HTTPoison.Response{:headers => headers} = resp, auth) do
     {process_response(resp), next_link(headers), auth}
   end
 
   defp location_header(resp) do
-    [ {"Location", url } ] = Enum.filter(resp.headers, &match?({"Location", _}, &1))
+    [{"Location", url}] = Enum.filter(resp.headers, &match?({"Location", _}, &1))
     url
   end
 
   defp next_link(headers) do
-    for {"Link", link_header} <- headers, links <- String.split(link_header, ",") do
+    for {"Link", link_header} <- headers,
+        links <- String.split(link_header, ",") do
       Regex.named_captures(~r/<(?<link>.*)>;\s*rel=\"(?<rel>.*)\"/, links)
       |> case do
         %{"link" => link, "rel" => "next"} -> link
@@ -145,10 +160,10 @@ defmodule Tentacat do
       end
     end
     |> Enum.filter(&(not is_nil(&1)))
-    |> List.first
+    |> List.first()
   end
 
-  @spec url(client :: Client.t, path :: binary) :: binary
+  @spec url(client :: Client.t(), path :: binary) :: binary
   defp url(_client = %Client{endpoint: endpoint}, path) do
     endpoint <> path
   end
@@ -187,25 +202,32 @@ defmodule Tentacat do
   @spec add_params_to_url(binary, list) :: binary
   def add_params_to_url(url, params) do
     url
-    |> URI.parse
+    |> URI.parse()
     |> merge_uri_params(params)
-    |> String.Chars.to_string
+    |> String.Chars.to_string()
   end
 
-  @spec merge_uri_params(URI.t, list) :: URI.t
+  @spec merge_uri_params(URI.t(), list) :: URI.t()
   defp merge_uri_params(uri, []), do: uri
+
   defp merge_uri_params(%URI{query: nil} = uri, params) when is_list(params) or is_map(params) do
     uri
     |> Map.put(:query, URI.encode_query(params))
   end
+
   defp merge_uri_params(%URI{} = uri, params) when is_list(params) or is_map(params) do
     uri
-    |> Map.update!(:query, fn q -> q |> URI.decode_query |> Map.merge(param_list_to_map_with_string_keys(params)) |> URI.encode_query end)
+    |> Map.update!(:query, fn q ->
+      q
+      |> URI.decode_query()
+      |> Map.merge(param_list_to_map_with_string_keys(params))
+      |> URI.encode_query()
+    end)
   end
 
   @spec param_list_to_map_with_string_keys(list) :: map
   defp param_list_to_map_with_string_keys(list) when is_list(list) or is_map(list) do
-    for {key, value} <- list, into: Map.new do
+    for {key, value} <- list, into: Map.new() do
       {"#{key}", value}
     end
   end
@@ -233,7 +255,7 @@ defmodule Tentacat do
   ## More info
   http:\\developer.github.com/v3/#authentication
   """
-  @spec authorization_header(Client.auth, list) :: list
+  @spec authorization_header(Client.auth(), list) :: list
   def authorization_header(%{user: user, password: password}, headers) do
     userpass = "#{user}:#{password}"
     headers ++ [{"Authorization", "Basic #{:base64.encode(userpass)}"}]

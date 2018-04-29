@@ -11,9 +11,9 @@ defmodule Tentacat.Repositories.Forks do
 
   More info at: https://developer.github.com/v3/repos/forks/
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/forks", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/forks", client)
   end
 
   @doc """
@@ -26,8 +26,8 @@ defmodule Tentacat.Repositories.Forks do
 
   More info at: https://developer.github.com/v3/repos/forks/#create-a-fork
   """
-  @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/forks", client, body
+  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/forks", client, body)
   end
 end
