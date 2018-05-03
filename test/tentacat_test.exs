@@ -12,6 +12,12 @@ defmodule TentacatTest do
     end)
   end
 
+  setup do
+    on_exit(fn ->
+      Application.delete_env(:tentacat, :deserialization_options)
+    end)
+  end
+
   test "authorization_header using user and password" do
     assert authorization_header(%{user: "user", password: "password"}, []) == [
              {"Authorization", "Basic dXNlcjpwYXNzd29yZA=="}
@@ -50,7 +56,16 @@ defmodule TentacatTest do
   end
 
   test "process_response_body with content" do
-    :meck.expect(JSX, :decode!, 1, :decoded_json)
+    :meck.expect(JSX, :decode!, 2, :decoded_json)
+
+    assert process_response_body("json") == :decoded_json
+  end
+
+  test "process_response_body with serialization options" do
+    Application.put_env :tentacat, :deserialization_options, [keys: :atoms]
+
+    :meck.expect(JSX, :decode!, fn _, [keys: :atoms] -> :decoded_json end)
+
     assert process_response_body("json") == :decoded_json
   end
 

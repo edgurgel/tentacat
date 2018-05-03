@@ -9,7 +9,7 @@ defmodule Tentacat do
 
   @spec process_response_body(binary) :: term
   def process_response_body(""), do: nil
-  def process_response_body(body), do: JSX.decode!(body)
+  def process_response_body(body), do: JSX.decode!(body, deserialization_options())
 
   @spec process_response(HTTPoison.Response.t()) :: response
   def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp),
@@ -76,6 +76,10 @@ defmodule Tentacat do
 
   defp extra_headers do
     Application.get_env(:tentacat, :extra_headers, [])
+  end
+
+  defp deserialization_options do
+    Application.get_env(:tentacat, :deserialization_options, [labels: :binary])
   end
 
   defp pagination(options) do
