@@ -193,12 +193,25 @@ iex> Tentacat.Users.me(client)
 ```
 
 ## Misc
+
 Having that Github Reviews API is still in a pre-release state
 you need to set an additional header in your config.
 
 ```elixir
-config :tentacat, :extra_headers, [{"Accept", "application/vnd.github.black-cat-preview+json"}])
+config :tentacat, :extra_headers, [{"Accept", "application/vnd.github.black-cat-preview+json"}]
 ```
+
+### Deserialization Options
+
+You can pass deserialization options to the library used to decode JSON
+using:
+
+```elixir
+# To have Atom keys
+config :tentacat, :deserialization_options, [labels: :atoms]
+```
+
+See: https://github.com/talentdeficit/exjsx#decodejson-opts for available options.
 
 ## Contributing
 
