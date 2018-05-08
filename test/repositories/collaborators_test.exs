@@ -18,7 +18,7 @@ defmodule Tentacat.Repositories.CollaboratorsTest do
   end
 
   test "collaborator?/4" do
-    use_cassette "repositories/collaborators#collaborator?" do
+    use_cassette "repositories/collaborators#collaborator" do
       assert {204, _, _} = collaborator?(@client, "andersklenke", "tentatest", "andersklenke")
       assert {404, _, _} = collaborator?(@client, "andersklenke", "tentatest", "no")
     end
