@@ -50,4 +50,19 @@ defmodule Tentacat.Search do
   def repositories(client \\ %Client{}, params, options \\ []) do
     get("search/repositories", client, params, options)
   end
+
+  @doc """
+  Search in issues and pull requests
+
+  ## Example
+
+      Tentacat.Search.issues %{q: "repo:edgurgel/tentacat is:merged", sort: "comments"}
+      Tentacat.Search.issues client, %{q: "repo:edgurgel/tentacat is:merged", sort: "created"}
+
+  More info at: https://developer.github.com/v3/search/#search-issues
+  """
+  @spec issues(Client.t(), any, Keyword.t()) :: Tentacat.response()
+  def issues(client \\ %Client{}, params, options \\ []) do
+    get("search/issues", client, params, options)
+  end
 end

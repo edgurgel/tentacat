@@ -60,4 +60,21 @@ defmodule Tentacat.SearchTest do
                repositories(@client, params, pagination: :none)
     end
   end
+
+  test "issues/2" do
+    use_cassette "search#issues" do
+      params = %{q: "repo:edgurgel/tentacat is:merged", sort: "comments"}
+
+      assert {_, %{"incomplete_results" => false, "items" => _}, _} = issues(@client, params)
+    end
+  end
+
+  test "issues/2 with none-pagination" do
+    use_cassette "search#issues" do
+      params = %{q: "repo:edgurgel/tentacat is:open", sort: "comments"}
+
+      assert {_, %{"incomplete_results" => false, "items" => _}, _} =
+               issues(@client, params, pagination: :none)
+    end
+  end
 end
