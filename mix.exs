@@ -9,7 +9,7 @@ defmodule Tentacat.Mixfile do
     [
       app: :tentacat,
       version: "1.1.0",
-      elixir: "~> 1.5",
+      elixir: "~> 1.7",
       name: "Tentacat",
       description: @description,
       package: package(),
@@ -25,13 +25,11 @@ defmodule Tentacat.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.8"},
-      {:exjsx, "~> 4.0"},
-      {:earmark, "~> 0.2.1", only: :dev},
-      {:ex_doc, "~> 0.11.4", only: :dev},
-      {:inch_ex, "~> 0.5", only: :dev},
-      {:excoveralls, "~> 0.5", only: :test},
-      {:exvcr, "~> 0.9.1", only: :test},
+      {:httpoison, "~> 1.0"},
+      {:ex_doc, "~> 0.19", only: :dev},
+      {:inch_ex, "~> 1.0", only: :dev},
+      {:excoveralls, "~> 0.10", only: :test},
+      {:exvcr, "~> 0.10.2", only: :test},
       {:meck, "~> 0.8.9", only: :test}
     ]
   end
