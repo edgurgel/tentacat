@@ -13,28 +13,28 @@ defmodule Tentacat.Repositories.BranchesTest do
 
   test "list/3" do
     use_cassette "repositories/branches#list" do
-      assert elem(list(@client, "antonydenyer", "tentatest"), 1)
-             |> Enum.count() == 1
+      assert elem(list(@client, "valiot", "tentacat"), 1)
+             |> Enum.count() >= 1
     end
   end
 
   test "find/4" do
     use_cassette "repositories/branches#find" do
-      assert elem(find(@client, "antonydenyer", "tentatest", "master"), 1)["name"] == "master"
+      assert elem(find(@client, "valiot", "tentacat", "master"), 1)["name"] == "master"
     end
   end
 
   test "update_protection/5" do
     body = %{
-      "required_status_checks" => "null",
-      "enforce_admins" => "null",
-      "required_pull_request_reviews" => "null",
-      "restrictions" => "null"
+      "required_status_checks" => nil,
+      "enforce_admins" => nil,
+      "required_pull_request_reviews" => nil,
+      "restrictions" => nil
     }
 
     use_cassette "repositories/branches#update_protection" do
-      assert elem(update_protection(@client, "antonydenyer", "tentatest", "master", body), 1)
-             |> Enum.count() == 1
+      assert elem(update_protection(@client, "valiot", "tentacat", "master", body), 1)["url"] ==
+               "https://api.github.com/repos/valiot/tentacat/branches/master/protection"
     end
   end
 end

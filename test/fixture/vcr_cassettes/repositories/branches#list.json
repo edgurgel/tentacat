@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/valiot/tentacat/branches"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"name\":\"Branches-Protection\",\"commit\":{\"sha\":\"423dffd14192abc0c1d5b0f672f1dba2e8bc8a27\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/423dffd14192abc0c1d5b0f672f1dba2e8bc8a27\"}},{\"name\":\"EBKH/Add-fixture-to-gitignore\",\"commit\":{\"sha\":\"7db56cc3a9d3b71f4ace4b9d787f31217d7548b5\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/7db56cc3a9d3b71f4ace4b9d787f31217d7548b5\"}},{\"name\":\"EBKH/Add-team-to-repo\",\"commit\":{\"sha\":\"15908606dcf4f073f916e63d8207cbd881a0d96c\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/15908606dcf4f073f916e63d8207cbd881a0d96c\"}},{\"name\":\"EBKH/Update-elixir-and-dependencies\",\"commit\":{\"sha\":\"e9a8a25fbcf90ff9076d6e876f80243beab810ad\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/e9a8a25fbcf90ff9076d6e876f80243beab810ad\"}},{\"name\":\"master\",\"commit\":{\"sha\":\"ab07d03832a8c4a052ef69e2f404a0e8ddb34e48\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/ab07d03832a8c4a052ef69e2f404a0e8ddb34e48\"}},{\"name\":\"update-travis-yml\",\"commit\":{\"sha\":\"ec8329604bb433b2420787e2eb47b48213f94bd5\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/ec8329604bb433b2420787e2eb47b48213f94bd5\"}}]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 04 Oct 2018 22:18:43 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1172",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4990",
+        "X-RateLimit-Reset": "1538692794",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"960526afdb1d62a467cf1eb06481652c\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Runtime-rack": "0.037929",
+        "X-GitHub-Request-Id": "F3FF:197C:D700634:1998B446:5BB691C3"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
