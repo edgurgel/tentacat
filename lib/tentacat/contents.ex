@@ -3,6 +3,21 @@ defmodule Tentacat.Contents do
   alias Tentacat.Client
 
   @doc """
+  Get the contents of README.md.
+
+  ## Example
+
+      Tentacat.Contents.readme "elixir-lang", "elixir"
+      Tentacat.Contents.readme client, "elixir-lang", "elixir"
+
+  More info at: https://developer.github.com/v3/repos/contents/#get-the-readme
+  """
+  @spec readme(Client.t(), binary, binary) :: Tentacat.response()
+  def readme(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/readme", client)
+  end
+
+  @doc """
   Get the contents of a file or directory in a repository.
 
   ## Example
