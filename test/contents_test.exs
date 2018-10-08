@@ -11,6 +11,13 @@ defmodule Tentacat.ContentsTest do
     HTTPoison.start()
   end
 
+  test "readme/4" do
+    use_cassette "contents#readme" do
+      {_, %{"sha" => sha}, _} = readme(@client, "elixir-lang", "elixir")
+      assert sha == "e68b3cab6e531154d4fdfe981605d2a437468528"
+    end
+  end
+
   test "find/4" do
     use_cassette "contents#find" do
       {_, [%{"sha" => sha}], _} = find(@client, "elixir-lang", "elixir", "lib")
