@@ -4,16 +4,16 @@ defmodule Tentacat.Client do
   @type auth :: %{user: binary, password: binary} | %{access_token: binary} | %{jwt: binary}
   @type t :: %__MODULE__{auth: auth, endpoint: binary}
 
-  @spec new():: Tentacat.Client.t()
+  @spec new():: t()
   def new(), do: %__MODULE__{}
 
-  @spec new(map()) :: Tentacat.Client.t()
+  @spec new(map()) :: t()
   def new(auth = %{user: _, password: _}), do: %__MODULE__{auth: auth}
 
-  @spec new(map()) :: Tentacat.Client.t()
+  @spec new(map()) :: t()
   def new(auth = %{access_token: _}), do: %__MODULE__{auth: auth}
 
-  @spec new(map()) :: Tentacat.Client.t()
+  @spec new(map()) :: t()
   def new(auth = %{jwt: _}), do: %__MODULE__{auth: auth}
 
   @spec new(map(), binary) :: t
