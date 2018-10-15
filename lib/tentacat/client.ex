@@ -4,14 +4,35 @@ defmodule Tentacat.Client do
   @type auth :: %{user: binary, password: binary} | %{access_token: binary} | %{jwt: binary}
   @type t :: %__MODULE__{auth: auth, endpoint: binary}
 
-  @spec new() :: t
+  @spec new():: Tentacat.Client.t()
   def new(), do: %__MODULE__{}
 
-  @spec new(auth) :: t
-  def new(auth), do: %__MODULE__{auth: auth}
+  @spec new(map()) :: Tentacat.Client.t()
+  def new(auth = %{user: _, password: _}), do: %__MODULE__{auth: auth}
+
+  @spec new(map()) :: Tentacat.Client.t()
+  def new(auth = %{access_token: _}), do: %__MODULE__{auth: auth}
+
+  @spec new(map()) :: Tentacat.Client.t()
+  def new(auth = %{jwt: _}), do: %__MODULE__{auth: auth}
+
+  @spec new(map(), binary) :: t
+  def new(auth = %{access_token: _}, endpoint) do
+    pnew(auth, endpoint)
+  end
+
+  @spec new(map(), binary) :: t
+  def new(auth = %{user: _, password: _}, endpoint) do
+    pnew(auth, endpoint)
+  end
+
+  @spec new(map(), binary) :: t
+  def new(auth = %{jwt: _}, endpoint) do
+   pnew(auth, endpoint)
+  end
 
   @spec new(auth, binary) :: t
-  def new(auth, endpoint) do
+  defp pnew(auth, endpoint) do
     endpoint =
       if String.ends_with?(endpoint, "/") do
         endpoint
