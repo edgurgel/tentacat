@@ -17,6 +17,10 @@ defmodule Tentacat.ClientTest do
     client = new(creds, "https://ghe.foo.com/api/v3/")
     assert client.endpoint == expected
 
+
+    client = new("https://ghe.foo.com/api/v3/")
+    assert client.endpoint == expected
+
     # when tailing '/' is missing
     client = new(creds, "https://ghe.foo.com/api/v3")
     assert client.endpoint == expected

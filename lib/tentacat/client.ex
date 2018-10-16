@@ -7,6 +7,11 @@ defmodule Tentacat.Client do
   @spec new() :: t
   def new(), do: %__MODULE__{}
 
+  @spec new(binary) :: t
+  def new(endpoint) when is_binary(endpoint) do
+    pnew(nil, endpoint)
+  end
+
   @spec new(map()) :: t
   def new(auth = %{user: _, password: _}), do: %__MODULE__{auth: auth}
 
