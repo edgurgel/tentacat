@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "{\"enforce_admins\":null,\"required_pull_request_reviews\":null,\"required_status_checks\":null,\"restrictions\":null}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "put",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/valiot/tentacat/branches/master/protection"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"url\":\"https://api.github.com/repos/valiot/tentacat/branches/master/protection\",\"enforce_admins\":{\"url\":\"https://api.github.com/repos/valiot/tentacat/branches/master/protection/enforce_admins\",\"enabled\":false}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 04 Oct 2018 22:34:46 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "211",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4987",
+        "X-RateLimit-Reset": "1538692794",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"05a66d87382bcb4a1602d16eb824bfc0\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Runtime-rack": "0.040550",
+        "X-GitHub-Request-Id": "FA52:197D:70DC1DC:105A98BD:5BB69585"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

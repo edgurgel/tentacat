@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/valiot/tentacat/branches/master"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"name\":\"master\",\"commit\":{\"sha\":\"ab07d03832a8c4a052ef69e2f404a0e8ddb34e48\",\"node_id\":\"MDY6Q29tbWl0MTQ5MjAxOTE0OmFiMDdkMDM4MzJhOGM0YTA1MmVmNjllMmY0MDRhMGU4ZGRiMzRlNDg=\",\"commit\":{\"author\":{\"name\":\"EBKH\",\"email\":\"juan@ebkh.net\",\"date\":\"2018-10-04T17:46:45Z\"},\"committer\":{\"name\":\"EBKH\",\"email\":\"juan@ebkh.net\",\"date\":\"2018-10-04T17:46:45Z\"},\"message\":\"Fix data types\",\"tree\":{\"sha\":\"dbb41169ff3da8eb984887c4ab97df75440f6be3\",\"url\":\"https://api.github.com/repos/valiot/tentacat/git/trees/dbb41169ff3da8eb984887c4ab97df75440f6be3\"},\"url\":\"https://api.github.com/repos/valiot/tentacat/git/commits/ab07d03832a8c4a052ef69e2f404a0e8ddb34e48\",\"comment_count\":0,\"verification\":{\"verified\":false,\"reason\":\"unsigned\",\"signature\":null,\"payload\":null}},\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/ab07d03832a8c4a052ef69e2f404a0e8ddb34e48\",\"html_url\":\"https://github.com/valiot/tentacat/commit/ab07d03832a8c4a052ef69e2f404a0e8ddb34e48\",\"comments_url\":\"https://api.github.com/repos/valiot/tentacat/commits/ab07d03832a8c4a052ef69e2f404a0e8ddb34e48/comments\",\"author\":{\"login\":\"EBKH\",\"id\":18579439,\"node_id\":\"MDQ6VXNlcjE4NTc5NDM5\",\"avatar_url\":\"https://avatars0.githubusercontent.com/u/18579439?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/EBKH\",\"html_url\":\"https://github.com/EBKH\",\"followers_url\":\"https://api.github.com/users/EBKH/followers\",\"following_url\":\"https://api.github.com/users/EBKH/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/EBKH/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/EBKH/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/EBKH/subscriptions\",\"organizations_url\":\"https://api.github.com/users/EBKH/orgs\",\"repos_url\":\"https://api.github.com/users/EBKH/repos\",\"events_url\":\"https://api.github.com/users/EBKH/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/EBKH/received_events\",\"type\":\"User\",\"site_admin\":false},\"committer\":{\"login\":\"EBKH\",\"id\":18579439,\"node_id\":\"MDQ6VXNlcjE4NTc5NDM5\",\"avatar_url\":\"https://avatars0.githubusercontent.com/u/18579439?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/EBKH\",\"html_url\":\"https://github.com/EBKH\",\"followers_url\":\"https://api.github.com/users/EBKH/followers\",\"following_url\":\"https://api.github.com/users/EBKH/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/EBKH/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/EBKH/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/EBKH/subscriptions\",\"organizations_url\":\"https://api.github.com/users/EBKH/orgs\",\"repos_url\":\"https://api.github.com/users/EBKH/repos\",\"events_url\":\"https://api.github.com/users/EBKH/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/EBKH/received_events\",\"type\":\"User\",\"site_admin\":false},\"parents\":[{\"sha\":\"ba6a4b6ca23860421efadd7ad135b5182a42313d\",\"url\":\"https://api.github.com/repos/valiot/tentacat/commits/ba6a4b6ca23860421efadd7ad135b5182a42313d\",\"html_url\":\"https://github.com/valiot/tentacat/commit/ba6a4b6ca23860421efadd7ad135b5182a42313d\"}]},\"_links\":{\"self\":\"https://api.github.com/repos/valiot/tentacat/branches/master\",\"html\":\"https://github.com/valiot/tentacat/tree/master\"},\"protected\":false,\"protection\":{\"enabled\":false,\"required_status_checks\":{\"enforcement_level\":\"off\",\"contexts\":[]}},\"protection_url\":\"https://api.github.com/repos/valiot/tentacat/branches/master/protection\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Thu, 04 Oct 2018 22:18:43 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "3407",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4991",
+        "X-RateLimit-Reset": "1538692794",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"f4a63a9dfc68ade81c4da491bf1d5d3b\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-Runtime-rack": "0.039728",
+        "X-GitHub-Request-Id": "F3FF:197C:D700600:1998B3E4:5BB691C3"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
