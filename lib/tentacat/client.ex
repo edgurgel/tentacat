@@ -2,7 +2,7 @@ defmodule Tentacat.Client do
   defstruct auth: nil, endpoint: "https://api.github.com/"
 
   @type auth :: %{user: binary, password: binary} | %{access_token: binary} | %{jwt: binary}
-  @type t :: %__MODULE__{auth: auth, endpoint: binary}
+  @type t :: %__MODULE__{auth: auth | nil, endpoint: binary}
 
   @spec new() :: t
   def new(), do: %__MODULE__{}

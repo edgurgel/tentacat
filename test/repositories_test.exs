@@ -26,7 +26,7 @@ defmodule Tentacat.RepositoriesTest do
 
   test "list_users/2 with auto-pagination" do
     use_cassette "repositories#list_user_auto_pagination", match_requests_on: [:query] do
-      all_repos = list_users(@client, "jeffweiss", [], pagination: :auto)
+      {_, all_repos, _} = list_users(@client, "jeffweiss", [], pagination: :auto)
       assert Enum.count(all_repos) > 130
     end
   end

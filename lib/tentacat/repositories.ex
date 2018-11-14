@@ -32,7 +32,7 @@ defmodule Tentacat.Repositories do
 
   More info at: https://developer.github.com/v3/repos/#list-user-repositories
   """
-  @spec list_users(Client.t(), binary, Keyword.t()) :: Tentacat.response()
+  @spec list_users(Client.t(), binary, Keyword.t(), Keyword.t()) :: Tentacat.response()
   def list_users(client \\ %Client{}, owner, params \\ [], options \\ []) do
     get("users/#{owner}/repos", client, params, options)
   end

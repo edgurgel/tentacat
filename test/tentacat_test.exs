@@ -62,7 +62,7 @@ defmodule TentacatTest do
   end
 
   test "process_response_body with serialization options" do
-    Application.put_env :tentacat, :deserialization_options, [keys: :atoms]
+    Application.put_env(:tentacat, :deserialization_options, keys: :atoms)
 
     :meck.expect(JSX, :decode!, fn _, [keys: :atoms] -> :decoded_json end)
 
