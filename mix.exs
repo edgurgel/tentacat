@@ -25,7 +25,7 @@ defmodule Tentacat.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 1.0.0"},
+      {:httpoison, "~> 1.3.0"},
       {:exjsx, "~> 4.0"},
       {:earmark, "~> 0.2.1", only: :dev},
       {:ex_doc, "~> 0.11.4", only: :dev},
