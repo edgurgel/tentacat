@@ -7,8 +7,8 @@ defmodule Tentacat.Users do
 
   ## Example
 
-      Tentacat.Users.find "edgurgel", client
-      Tentacat.Users.find "iurifq", client
+      Tentacat.Users.find client, "edgurgel"
+      Tentacat.Users.find client, "iurifq"
 
   More info at: http://developer.github.com/v3/users/#get-a-single-user
   """
