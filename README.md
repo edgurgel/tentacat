@@ -89,7 +89,7 @@ Getting info from a user using a client
 ```elixir
 iex> client = Tentacat.Client.new
 %Tentacat.Client{auth: nil, endpoint: "https://api.github.com/"}
-iex> Tentacat.Users.find "edgurgel", client
+iex> Tentacat.Users.find client, "edgurgel"
 {200,
  %{"avatar_url" => "https://avatars0.githubusercontent.com/u/30873?v=4",
    "bio" => "INSUFFICIENT DATA FOR MEANINGFUL ANSWER",
