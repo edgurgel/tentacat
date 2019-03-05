@@ -27,7 +27,7 @@ defmodule Tentacat.Search do
   ## Example
 
       Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}
-      Tentacat.Search.users %{q: "users language:elixir", sort: "followers"}, client
+      Tentacat.Search.users client, %{q: "users language:elixir", sort: "followers"}
 
   More info at: https://developer.github.com/v3/search/#search-users
   """
@@ -42,7 +42,7 @@ defmodule Tentacat.Search do
   ## Example
 
       Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}
-      Tentacat.Search.repositories %{q: "elixir-lang language:elixir", sort: "stars"}, client
+      Tentacat.Search.repositories client, %{q: "elixir-lang language:elixir", sort: "stars"}
 
   More info at: https://developer.github.com/v3/search/#search-repositories
   """
