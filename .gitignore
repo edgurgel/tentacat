@@ -5,4 +5,5 @@
 /.elixir_ls
 erl_crash.dump
 docs
+doc
 mix.lock
