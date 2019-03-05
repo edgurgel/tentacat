@@ -15,7 +15,18 @@ defmodule Tentacat.Mixfile do
       package: package(),
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test],
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "Tentacat",
+      source_url: "https://github.com/edgurgel/tentacat",
+      docs: [
+        main: "README",
+        extras: [
+          "README.md",
+          "guides/Getting Started.md"
+        ]
+      ]
     ]
   end
 
@@ -27,8 +38,8 @@ defmodule Tentacat.Mixfile do
     [
       {:httpoison, "~> 1.3.0"},
       {:exjsx, "~> 4.0"},
-      {:earmark, "~> 0.2.1", only: :dev},
-      {:ex_doc, "~> 0.11.4", only: :dev},
+      {:earmark, "~> 1.2", only: :dev},
+      {:ex_doc, "~> 0.19", only: :dev},
       {:inch_ex, "~> 0.5", only: :dev},
       {:excoveralls, "~> 0.5", only: :test},
       {:exvcr, "~> 0.10.3", only: :test},
