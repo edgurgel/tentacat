@@ -55,7 +55,7 @@ defmodule Tentacat.App.Installations do
   """
   @spec token(Client.t(), integer) :: Tentacat.response()
   def token(client, installation_id) do
-    post("app/installations/#{installation_id}/access_tokens", client)
+    post("installations/#{installation_id}/access_tokens", client)
   end
 
   @doc """
