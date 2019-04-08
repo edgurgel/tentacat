@@ -34,4 +34,18 @@ defmodule Tentacat.Repositories.DeployKeys do
     get("repos/#{owner}/#{repo}/keys/#{key_id}", client)
   end
 
+  @doc """
+  Create a deploy key for a repository.
+
+  ## Example
+
+      Tentacat.Repositories.DeployKeys.create(client, "elixir-lang", "elixir", key_body)
+
+  The key_body should be a map corresponding to a json body accepted by the api.
+  More info at: https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key
+  """
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/keys", client, body)
+  end
 end
