@@ -48,4 +48,18 @@ defmodule Tentacat.Repositories.DeployKeys do
   def create(client, owner, repo, body) do
     post("repos/#{owner}/#{repo}/keys", client, body)
   end
+
+  @doc """
+  Remove a deploy key from a repository.
+
+  ## Example
+
+      Tentacat.Repositories.DeployKeys.remove(client, "elixir-lang", "elixir", "1234567")
+
+  More info at: https://developer.github.com/v3/repos/keys/#remove-a-deploy-key
+  """
+  @spec remove(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def remove(client, owner, repo, key_id) do
+    delete("repos/#{owner}/#{repo}/keys/#{key_id}", client)
+  end
 end

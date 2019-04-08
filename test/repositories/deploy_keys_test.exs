@@ -5,7 +5,7 @@ defmodule Tentacat.Repositories.DeployKeysTest do
 
   doctest Tentacat.Repositories.DeployKeys
 
-  @client Tentacat.Client.new(%{access_token: "youtokencomeshere"})
+  @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
     HTTPoison.start()
@@ -41,4 +41,10 @@ defmodule Tentacat.Repositories.DeployKeysTest do
     end
   end
 
+  test "remove/4" do
+    use_cassette "repositories/deploy_keys#remove" do
+      {status_code, _, _} = remove(@client, "milica-nerlovic", "tentacat", 34_371_109)
+      assert status_code == 204
+    end
+  end
 end
