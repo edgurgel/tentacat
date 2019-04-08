@@ -19,4 +19,19 @@ defmodule Tentacat.Repositories.DeployKeys do
   def list(client, owner, repo) do
     get("repos/#{owner}/#{repo}/keys", client)
   end
+
+  @doc """
+  Get a deploy key for a repository by id.
+
+  ## Example
+
+      Tentacat.Repositories.DeployKeys.find(client, "elixir-lang", "elixir", "1234567")
+
+  More info at: https://developer.github.com/v3/repos/keys/#get-a-deploy-key
+  """
+  @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def find(client, owner, repo, key_id) do
+    get("repos/#{owner}/#{repo}/keys/#{key_id}", client)
+  end
+
 end

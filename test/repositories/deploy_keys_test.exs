@@ -16,4 +16,11 @@ defmodule Tentacat.Repositories.DeployKeysTest do
       assert elem(list(@client, "milica-nerlovic", "tentacat"), 1) == []
     end
   end
+
+  test "find/4" do
+    use_cassette "repositories/deploy_keys#find" do
+      {status_code, _, _} = find(@client, "milica-nerlovic", "tentacat", "1234")
+      assert status_code == 404
+    end
+  end
 end
