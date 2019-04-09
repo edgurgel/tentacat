@@ -10,7 +10,7 @@
       "method": "post",
       "options": [],
       "request_body": "",
-      "url": "https://api.github.com/app/installations/66216/access_tokens"
+      "url": "https://api.github.com/installations/66216/access_tokens"
     },
     "response": {
       "body": "{\"token\":\"v1.d3ae3344ada13f5ec947eac962fe1e0f906c2154\",\"expires_at\":\"2017-11-20T23:07:30Z\"}",
