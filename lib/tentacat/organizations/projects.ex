@@ -3,7 +3,7 @@ defmodule Tentacat.Organizations.Projects do
   alias Tentacat.Client
 
   @doc """
-  Lists the projects in a repository
+  Lists the projects in an organization
 
   ## Example
 
