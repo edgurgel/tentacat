@@ -51,6 +51,4 @@ defmodule Tentacat.Projects do
   def delete(client, id) do
     Tentacat.delete("projects/#{id}", client)
   end
-
-
 end

@@ -19,21 +19,21 @@ defmodule Tentacat.ProjectsTest do
 
   test "find/2" do
     use_cassette "projects#find" do
-      {_, %{"id" => id}, _} = find(@client, 2539313)
-      assert id == 2539313
+      {_, %{"id" => id}, _} = find(@client, 2_539_313)
+      assert id == 2_539_313
     end
   end
 
   test "update/3" do
     use_cassette "projects#update" do
-      {_, %{"name" => name}, _} = update(@client, 2539313, name: "New Demo")
+      {_, %{"name" => name}, _} = update(@client, 2_539_313, name: "New Demo")
       assert name == "New Demo"
     end
   end
 
   test "delete/2" do
     use_cassette "projects#delete" do
-      {status_code, _, _} = delete(@client, 2539313)
+      {status_code, _, _} = delete(@client, 2_539_313)
       assert status_code == 204
     end
   end
