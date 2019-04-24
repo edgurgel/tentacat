@@ -23,4 +23,11 @@ defmodule Tentacat.ProjectsTest do
       assert id == 2539313
     end
   end
+
+  test "update/3" do
+    use_cassette "projects#update" do
+      {_, %{"name" => name}, _} = update(@client, 2539313, name: "New Demo")
+      assert name == "New Demo"
+    end
+  end
 end
