@@ -1,5 +1,5 @@
 defmodule Tentacat.Projects do
-  import Tentacat
+  import Tentacat, [:except, :delete, 2]
   alias Tentacat.Client
 
   @doc """
@@ -36,6 +36,20 @@ defmodule Tentacat.Projects do
   @spec update(Client.t(), binary, Keyword.t()) :: Tentcat.response()
   def update(client, id, options) do
     patch("projects/#{id}", client, options)
+  end
+
+  @doc """
+  Delete a `project`
+
+  ## Example
+
+      Tentacat.Proejcts.delete client, 12345
+
+  More info at: https://developer.github.com/v3/projects/#delete-a-project
+  """
+  @spec delete(Client.t(), binary) :: Tentacat.response()
+  def delete(client, id) do
+    Tentacat.delete("projects/#{id}", client)
   end
 
 

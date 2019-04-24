@@ -30,4 +30,11 @@ defmodule Tentacat.ProjectsTest do
       assert name == "New Demo"
     end
   end
+
+  test "delete/2" do
+    use_cassette "projects#delete" do
+      {status_code, _, _} = delete(@client, 2539313)
+      assert status_code == 204
+    end
+  end
 end
