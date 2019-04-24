@@ -12,7 +12,7 @@ defmodule Tentacat.Projects do
   More info at: https://developer.github.com/v3/projects/#get-a-project
   """
   @spec find(Client.t(), binary) :: Tentacat.response()
-  def find(client \\ %Client{}, id) do
+  def find(client, id) do
     get("projects/#{id}", client)
   end
 
@@ -33,7 +33,7 @@ defmodule Tentacat.Projects do
 
   More info at: https://developer.github.com/v3/projects/#update-a-project
   """
-  @spec update(Client.t(), binary, Keyword.t()) :: Tentcat.response()
+  @spec update(Client.t(), binary, Keyword.t()) :: Tentacat.response()
   def update(client, id, options) do
     patch("projects/#{id}", client, options)
   end
