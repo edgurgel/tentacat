@@ -13,6 +13,7 @@ Tentacool + Cat = Tentacat
 * Gitignore
 * Contents
 * Trees
+* Projects
 * Issues
   * Comments
   * Events
@@ -27,11 +28,13 @@ Tentacool + Cat = Tentacat
   * Members
   * Teams
   * Webhooks
+  * Projects
 * Teams
   * Members
 * Users
   * Emails
   * Keys
+  * Projects
 * Repositories
   * Webhooks
   * Branches
@@ -39,6 +42,7 @@ Tentacool + Cat = Tentacat
   * Deployments
   * Collaborators
   * Contributors
+  * Projects
 
 Documentation can be found [here](https://hexdocs.pm/tentacat)
 
