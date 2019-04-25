@@ -15,4 +15,23 @@ defmodule Tentacat.Organizations.Projects do
   def list(client, organization) do
     get("orgs/#{organization}/projects", client)
   end
+
+  @doc """
+  Create a new project for an organization
+
+  Possible values for options:
+
+  * [name: "name of project board"]
+  * [body: "description of the project"]
+
+  ## Example
+
+    Tentacat.Organizations.Projects.create client, "elixir-lang", name: "tentacat", body: "project board for tentacat"
+
+  More info at: https://developer.github.com/v3/projects/#create-an-organization-project
+  """
+  @spec create(Client.t(), binary, list) :: Tentacat.response()
+  def create(client, organization, options) do
+    post("orgs/#{organization}/projects", client, options)
+  end
 end
