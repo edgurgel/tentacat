@@ -43,7 +43,7 @@ defmodule Tentacat.Projects do
 
   ## Example
 
-      Tentacat.Proejcts.delete client, 12345
+      Tentacat.Projects.delete client, 12345
 
   More info at: https://developer.github.com/v3/projects/#delete-a-project
   """
