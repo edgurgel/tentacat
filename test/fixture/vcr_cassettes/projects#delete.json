@@ -1,0 +1,44 @@
+[
+  {
+    "request": {
+      "body": "\"\"",
+      "headers": {
+        "Accept": "application/vnd.github.inertia-preview+json",
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "delete",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/projects/2539313"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Date": "Wed, 24 Apr 2019 22:53:21 GMT",
+        "Content-Type": "application/octet-stream",
+        "Server": "GitHub.com",
+        "Status": "204 No Content",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Reset": "1556150001",
+        "X-OAuth-Scopes": "public_repo",
+        "X-Accepted-OAuth-Scopes": "public_repo, repo",
+        "X-GitHub-Media-Type": "github.inertia-preview; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "Vary": "Accept-Encoding",
+        "X-GitHub-Request-Id": "CF54:23BE:E096D1:110F7FB:5CC0E8E1"
+      },
+      "status_code": 204,
+      "type": "ok"
+    }
+  }
+]
