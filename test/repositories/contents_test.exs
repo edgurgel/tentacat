@@ -1,4 +1,4 @@
-defmodule Tentacat.Repositories.ContributorsTest do
+defmodule Tentacat.Repositories.ContentsTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Tentacat.Repositories.Contents
