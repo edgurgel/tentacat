@@ -21,7 +21,7 @@ defmodule Tentacat.Mixfile do
       name: "Tentacat",
       source_url: "https://github.com/edgurgel/tentacat",
       docs: [
-        main: "README",
+        main: "readme",
         extras: [
           "README.md",
           "guides/Getting Started.md"
