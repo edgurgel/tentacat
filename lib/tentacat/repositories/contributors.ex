@@ -6,8 +6,8 @@ defmodule Tentacat.Repositories.Contributors do
   List contributors for a specific repository
 
   ## Example
-      Tentacat.Repositories.contributors.list "elixir-lang", "elixir"
-      Tentacat.Repositories.contributors.list client, "elixir-lang", "elixir"
+      Tentacat.Repositories.Contributors.list "elixir-lang", "elixir"
+      Tentacat.Repositories.Contributors.list client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/repos/#list-contributors
   """
