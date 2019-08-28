@@ -31,6 +31,20 @@ defmodule Tentacat.Repositories.Collaborators do
   end
 
   @doc """
+  Returns the permission level of a collaborator
+
+  ## Example
+      Tentacat.Repositories.Collaborators.permission "elixir-lang", "elixir", "username"
+      Tentacat.Repositories.Collaborators.permission client, "elixir-lang", "elixir", "username"
+
+  More info at: https://developer.github.com/v3/repos/collaborators/#review-a-users-permission-level
+  """
+  @spec permission(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def permission(client \\ %Client{}, owner, repo, username) do
+    get("repos/#{owner}/#{repo}/collaborators/#{username}/permission", client)
+  end
+
+  @doc """
   Add user as a collaborator
 
   ## Example
