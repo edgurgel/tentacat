@@ -27,7 +27,7 @@ defmodule Tentacat.Pages do
   """
   @spec request_build(binary, binary, Client.t()) :: Tentacat.response()
   def request_build(user_or_org, repo, client) do
-    # post "/repos/#{user_or_org}/#{repo}/pages/builds"
+    post "/repos/#{user_or_org}/#{repo}/pages/builds"
   end
 
   @doc """
