@@ -8,21 +8,25 @@ defmodule Tentacat.Repositories.ForksTest do
   @client Tentacat.Client.new(%{access_token: "yourtokenhere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "repositories/forks#list" do
-      assert list("shanewilton", "tentacat", @client) == []
-      assert list("nwoodthorpe", "core-contributor-scratchpad", @client) |> Enum.count() == 1
+      assert elem(list(@client, "shanewilton", "tentacat"), 1) == []
+
+      assert elem(list(@client, "nwoodthorpe", "core-contributor-scratchpad"), 1) |> Enum.count() ==
+               1
     end
   end
 
   test "create/4" do
     use_cassette "repositories/forks#create" do
-      {status_code, %{"owner" => %{"login" => owner}}} = create("ShaneWilton", "tentacat", %{}, @client)
+      {status_code, %{"owner" => %{"login" => owner}}, _} =
+        create(@client, "ShaneWilton", "tentacat", %{})
+
       assert status_code == 202
-      assert owner       == "ShaneWilton"
+      assert owner == "ShaneWilton"
     end
   end
 end

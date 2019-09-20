@@ -6,12 +6,12 @@ defmodule Tentacat.Pulls.ReviewsTests do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/4" do
     use_cassette "pulls/reviews#list" do
-      assert list("tentatest", "tentacat", 1, @client) == []
+      assert elem(list(@client, "tentatest", "tentacat", 1), 1) == []
     end
   end
 end

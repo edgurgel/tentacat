@@ -7,14 +7,14 @@ defmodule Tentacat.Users do
 
   ## Example
 
-      Tentacat.Users.find "edgurgel", client
-      Tentacat.Users.find "iurifq", client
+      Tentacat.Users.find client, "edgurgel"
+      Tentacat.Users.find client, "iurifq"
 
   More info at: http://developer.github.com/v3/users/#get-a-single-user
   """
-  @spec find(binary, Client.t) :: Tentacat.response
-  def find(user, client \\ %Client{}) do
-    get "users/#{user}", client
+  @spec find(Client.t(), binary) :: Tentacat.response()
+  def find(client \\ %Client{}, user) do
+    get("users/#{user}", client)
   end
 
   @doc """
@@ -26,9 +26,9 @@ defmodule Tentacat.Users do
 
   More info at: http://developer.github.com/v3/users/#get-the-authenticated-user
   """
-  @spec me(Client.t) :: Tentacat.response
+  @spec me(Client.t()) :: Tentacat.response()
   def me(client) do
-    get "user", client
+    get("user", client)
   end
 
   @doc """
@@ -41,9 +41,9 @@ defmodule Tentacat.Users do
 
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
-  @spec list(Client.t) :: Tentacat.response
+  @spec list(Client.t(), any) :: Tentacat.response()
   def list(client \\ %Client{}, options \\ []) do
-    get "users", client, [], Keyword.merge([pagination: :none], options)
+    get("users", client, [], Keyword.merge([pagination: :none], options))
   end
 
   @doc """
@@ -56,9 +56,9 @@ defmodule Tentacat.Users do
 
   More info at: http://developer.github.com/v3/users/#get-all-users
   """
-  @spec list_since(integer, Client.t) :: Tentacat.response
-  def list_since(since, client \\ %Client{}, options \\ []) do
-    get "users", client, [since: since], Keyword.merge([pagination: :none], options)
+  @spec list_since(Client.t(), integer, any) :: Tentacat.response()
+  def list_since(client \\ %Client{}, since, options \\ []) do
+    get("users", client, [since: since], Keyword.merge([pagination: :none], options))
   end
 
   @doc """
@@ -80,8 +80,8 @@ defmodule Tentacat.Users do
 
   More info at: http://developer.github.com/v3/users/#update-the-authenticated-user
   """
-  @spec update(Keyword.t, Client.t) :: Tentacat.response
-  def update(options, client) do
-    patch "user", client, options
+  @spec update(Client.t(), Keyword.t()) :: Tentacat.response()
+  def update(client, options) do
+    patch("user", client, options)
   end
 end

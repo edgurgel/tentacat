@@ -8,12 +8,12 @@ defmodule Tentacat.Repositories.DeploymentsTest do
   @client Tentacat.Client.new(%{access_token: "8e663c8614ced27c09b963f806ac46776a29db50"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "repositories/deployments#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list(@client, "soudqwiggle", "elixir-conspiracy"), 1) == []
     end
   end
 
@@ -23,26 +23,30 @@ defmodule Tentacat.Repositories.DeploymentsTest do
       "payload" => "{\"user\":\"atmos\",\"room_id\":123456}",
       "description" => "Deploying my sweet branch"
     }
+
     use_cassette "repositories/deployments#create" do
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", body)
       assert status_code == 201
     end
   end
 
   test "list_statuses/4" do
     use_cassette "repositories/deployments#list_statuses" do
-      assert list_statuses("soudqwiggle", "elixir-conspiracy", 2936534, @client) == []
+      assert elem(list_statuses(@client, "soudqwiggle", "elixir-conspiracy", 2_936_534), 1) == []
     end
   end
 
   test "create_status/5" do
     body = %{
-      "state": "success",
-      "target_url": "https://example.com/deployment/1/output",
-      "description": "Deployment finished successfully."
+      state: "success",
+      target_url: "https://example.com/deployment/1/output",
+      description: "Deployment finished successfully."
     }
+
     use_cassette "repositories/deployments#create_status" do
-      {status_code, _} = create_status("soudqwiggle", "elixir-conspiracy", 2936534, body, @client)
+      {status_code, _, _} =
+        create_status(@client, "soudqwiggle", "elixir-conspiracy", 2_936_534, body)
+
       assert status_code == 201
     end
   end

@@ -8,24 +8,25 @@ defmodule Tentacat.IssuesTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "issues/issues#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list(@client, "soudqwiggle", "elixir-conspiracy"), 1) == []
     end
   end
 
   test "filter/4" do
     use_cassette "issues/issues#filter" do
-      assert filter("soudqwiggle", "elixir-conspiracy", %{"state" => "open"}, @client) == []
+      assert elem(filter(@client, "soudqwiggle", "elixir-conspiracy", %{"state" => "open"}), 1) ==
+               []
     end
   end
 
   test "find/4" do
     use_cassette "issues/issues#find" do
-      %{"body" => body} = find("soudqwiggle", "elixir-conspiracy", 1347, @client)
+      {_, %{"body" => body}, _} = find(@client, "soudqwiggle", "elixir-conspiracy", 1347)
       assert body == "Something is broken"
     end
   end
@@ -34,8 +35,11 @@ defmodule Tentacat.IssuesTest do
     body = %{
       "title" => "Something broke"
     }
+
     use_cassette "issues/issues#create" do
-      {status_code, %{"title" => title}} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+      {status_code, %{"title" => title}, _} =
+        create(@client, "soudqwiggle", "elixir-conspiracy", body)
+
       assert status_code == 201
       assert title == "Something broke"
     end
@@ -45,8 +49,9 @@ defmodule Tentacat.IssuesTest do
     body = %{
       "state" => "closed"
     }
+
     use_cassette "issues/issues#update" do
-      %{"state" => state} = update("soudqwiggle", "elixir-conspiracy", "3", body, @client)
+      {_, %{"state" => state}, _} = update(@client, "soudqwiggle", "elixir-conspiracy", "3", body)
       assert state == "closed"
     end
   end

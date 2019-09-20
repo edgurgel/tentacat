@@ -11,9 +11,9 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#list-commit-comments-for-a-repository
   """
-  @spec list_all(binary, binary, Client.t) :: Tentacat.response
-  def list_all(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/comments", client
+  @spec list_all(Client.t(), binary, binary) :: Tentacat.response()
+  def list_all(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/comments", client)
   end
 
   @doc """
@@ -25,11 +25,11 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#list-comments-for-a-single-commit
   """
-  @spec list(binary, binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/commits/#{ref}/comments", client
+  @spec list(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, ref) do
+    get("repos/#{owner}/#{repo}/commits/#{ref}/comments", client)
   end
-  
+
   @doc """
   Create a comment for a commit
 
@@ -48,11 +48,11 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#create-a-commit-comment
   """
-  @spec create(binary, binary, binary, map | list, Client.t) :: Tentacat.response
-  def create(owner, repo, sha, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/commits/#{sha}/comments", client, body
+  @spec create(Client.t(), binary, binary, binary, map | list) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, sha, body) do
+    post("repos/#{owner}/#{repo}/commits/#{sha}/comments", client, body)
   end
-  
+
   @doc """
   Find a comment for a commit
 
@@ -62,11 +62,11 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#get-a-single-commit-comment
   """
-  @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def find(owner, repo, id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/comments/#{id}", client
+  @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, id) do
+    get("repos/#{owner}/#{repo}/comments/#{id}", client)
   end
-  
+
   @doc """
   Update a comment for a commit
 
@@ -82,11 +82,11 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#update-a-commit-comment
   """
-  @spec update(binary, binary, binary | integer, map | list, Client.t) :: Tentacat.response
-  def update(owner, repo, id, body, client \\ %Client{}) do
-    patch "repos/#{owner}/#{repo}/comments/#{id}", client, body
+  @spec update(Client.t(), binary, binary, binary | integer, map | list) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, id, body) do
+    patch("repos/#{owner}/#{repo}/comments/#{id}", client, body)
   end
-  
+
   @doc """
   Delete a comment for a commit
 
@@ -96,8 +96,8 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#delete-a-commit-comment
   """
-  @spec delete(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def delete(owner, repo, id, client \\ %Client{}) do
-    delete "repos/#{owner}/#{repo}/comments/#{id}", client
+  @spec delete(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def delete(client \\ %Client{}, owner, repo, id) do
+    delete("repos/#{owner}/#{repo}/comments/#{id}", client)
   end
 end

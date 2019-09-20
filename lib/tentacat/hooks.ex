@@ -1,6 +1,7 @@
 defmodule Tentacat.Hooks do
   import Tentacat
   alias Tentacat.Client
+
   @moduledoc """
   The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository.
   """
@@ -10,13 +11,13 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.list("elixir-lang", "elixir", client)
+      Tentacat.Hooks.list(client, "elixir-lang", "elixir")
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#list-hooks
+  More info at: http://developer.github.com/v3/repos/hooks/#list-hooks
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client) do
-    get "repos/#{owner}/#{repo}/hooks", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client, owner, repo) do
+    get("repos/#{owner}/#{repo}/hooks", client)
   end
 
   @doc """
@@ -24,13 +25,13 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.find("elixir-lang", "elixir", "1234567", client)
+      Tentacat.Hooks.find(client, "elixir-lang", "elixir", "1234567")
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#get-single-hook
+  More info at: http://developer.github.com/v3/repos/hooks/#get-single-hook
   """
-  @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def find(owner, repo, hook_id, client) do
-    get "repos/#{owner}/#{repo}/hooks/#{hook_id}", client
+  @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def find(client, owner, repo, hook_id) do
+    get("repos/#{owner}/#{repo}/hooks/#{hook_id}", client)
   end
 
   @doc """
@@ -38,13 +39,13 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.create("elixir-lang", "elixir", hook_body, client)
+      Tentacat.Hooks.create(client, "elixir-lang", "elixir", hook_body)
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#create-a-hook
+  More info at: http://developer.github.com/v3/repos/hooks/#create-a-hook
   """
-  @spec create(binary, binary, list, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/hooks", client, body
+  @spec create(Client.t(), binary, binary, list) :: Tentacat.response()
+  def create(client, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/hooks", client, body)
   end
 
   @doc """
@@ -60,13 +61,13 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.update("elixir-lang", "elixir", "1234567", hook_body, client)
+      Tentacat.Hooks.update(client, "elixir-lang", "elixir", "1234567", hook_body)
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#edit-a-hook
+  More info at: http://developer.github.com/v3/repos/hooks/#edit-a-hook
   """
-  @spec update(binary, binary, binary | integer, list, Client.t) :: Tentacat.response
-  def update(owner, repo, hook_id, body, client) do
-    patch "repos/#{owner}/#{repo}/hooks/#{hook_id}", client, body
+  @spec update(Client.t(), binary, binary, binary | integer, list) :: Tentacat.response()
+  def update(client, owner, repo, hook_id, body) do
+    patch("repos/#{owner}/#{repo}/hooks/#{hook_id}", client, body)
   end
 
   @doc """
@@ -75,13 +76,13 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.test("elixir-lang", "elixir", "1234567", client)
+      Tentacat.Hooks.test(client, "elixir-lang", "elixir", "1234567")
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#test-a-push-hook
+  More info at: http://developer.github.com/v3/repos/hooks/#test-a-push-hook
   """
-  @spec test(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def test(owner, repo, hook_id, client) do
-    post "repos/#{owner}/#{repo}/hooks/#{hook_id}/test", client, ""
+  @spec test(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def test(client, owner, repo, hook_id) do
+    post("repos/#{owner}/#{repo}/hooks/#{hook_id}/test", client, "")
   end
 
   @doc """
@@ -89,13 +90,13 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.ping("elixir-lang", "elixir", "1234567", client)
+      Tentacat.Hooks.ping(client, "elixir-lang", "elixir", "1234567")
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#ping-a-hook
+  More info at: http://developer.github.com/v3/repos/hooks/#ping-a-hook
   """
-  @spec ping(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def ping(owner, repo, hook_id, client) do
-    post "repos/#{owner}/#{repo}/hooks/#{hook_id}/pings", client, ""
+  @spec ping(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def ping(client, owner, repo, hook_id) do
+    post("repos/#{owner}/#{repo}/hooks/#{hook_id}/pings", client, "")
   end
 
   @doc """
@@ -103,13 +104,12 @@ defmodule Tentacat.Hooks do
 
   ## Example
 
-      Tentacat.Hooks.remove("elixir-lang", "elixir", "1234567", client)
+      Tentacat.Hooks.remove(client, "elixir-lang", "elixir", "1234567")
 
-  More info at: http:\\developer.github.com/v3/repos/hooks/#delete-a-hook
+  More info at: http://developer.github.com/v3/repos/hooks/#delete-a-hook
   """
-  @spec remove(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def remove(owner, repo, hook_id, client) do
-    delete "repos/#{owner}/#{repo}/hooks/#{hook_id}", client
+  @spec remove(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def remove(client, owner, repo, hook_id) do
+    delete("repos/#{owner}/#{repo}/hooks/#{hook_id}", client)
   end
-
 end

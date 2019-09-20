@@ -1,0 +1,90 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/bmarkons/script/collaborators/bmarkons/permission"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"permission\":\"admin\",\"user\":{\"login\":\"bmarkons\",\"id\":9396752,\"node_id\":\"MDQ6VXNlcjkzOTY3NTI=\",\"avatar_url\":\"https://avatars0.githubusercontent.com/u/9396752?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/bmarkons\",\"html_url\":\"https://github.com/bmarkons\",\"followers_url\":\"https://api.github.com/users/bmarkons/followers\",\"following_url\":\"https://api.github.com/users/bmarkons/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/bmarkons/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/bmarkons/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/bmarkons/subscriptions\",\"organizations_url\":\"https://api.github.com/users/bmarkons/orgs\",\"repos_url\":\"https://api.github.com/users/bmarkons/repos\",\"events_url\":\"https://api.github.com/users/bmarkons/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/bmarkons/received_events\",\"type\":\"User\",\"site_admin\":false}}",
+      "headers": {
+        "Date": "Wed, 28 Aug 2019 09:35:45 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "936",
+        "Server": "GitHub.com",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Reset": "1566988545",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"67842c5ea1aa84796b5094c5bab89fcb\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "E21C:3BE2A:5864A8:6A9F27:5D664AF1"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/bmarkons/script/collaborators/no/permission"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"permission\":\"read\",\"user\":{\"login\":\"no\",\"id\":67716,\"node_id\":\"MDQ6VXNlcjY3NzE2\",\"avatar_url\":\"https://avatars2.githubusercontent.com/u/67716?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/no\",\"html_url\":\"https://github.com/no\",\"followers_url\":\"https://api.github.com/users/no/followers\",\"following_url\":\"https://api.github.com/users/no/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/no/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/no/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/no/subscriptions\",\"organizations_url\":\"https://api.github.com/users/no/orgs\",\"repos_url\":\"https://api.github.com/users/no/repos\",\"events_url\":\"https://api.github.com/users/no/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/no/received_events\",\"type\":\"User\",\"site_admin\":false}}",
+      "headers": {
+        "Date": "Wed, 28 Aug 2019 09:35:45 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "855",
+        "Server": "GitHub.com",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4998",
+        "X-RateLimit-Reset": "1566988545",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"da6dd7137e76a65612f8ee8a78f38582\"",
+        "X-OAuth-Scopes": "repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "E21C:3BE2A:5864CD:6A9F53:5D664AF1"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

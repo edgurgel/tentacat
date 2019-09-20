@@ -1,6 +1,9 @@
 /_build
 /ebin
 /deps
+/fixture
+/.elixir_ls
 erl_crash.dump
 docs
+doc
 mix.lock

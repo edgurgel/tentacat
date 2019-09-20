@@ -8,13 +8,12 @@ defmodule Tentacat.Repositories.TagsTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "repositories/tags#list" do
-      assert list("soudqwiggle", "elixir-conspiracy", @client) == []
+      assert elem(list(@client, "soudqwiggle", "elixir-conspiracy"), 1) == []
     end
   end
 end
-

@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "{\"key\":\"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCc72ESoMRGBQJBjnUUSNo1uoRnV7PI82KtqfSLjcmj3fUB0OvVx8haMhtb7hlxKb5J7J2vLNONyRgNryUkOFTwfHpCt0TZqCKMvp9AuYyAQH2E1kbIGPQ/6BTCktGXq200Ua2hM5NNZjuCgxgMNoyxMzoSb5qChCXatQLIzbODBhyMEPwUq3PqAieirCEPIjXRr2jEAR9+xL8UnHb2e3ZcjuqZPB+yiZZSzZA5IDs3zW7RBQB6ZLoIInUWRxR41YE/2gNeUe4FwhXfxXane/4zkiNqqClE2rDo25MocVpqzP8niVuwQYPYsxEGOo/RIaQa55wvD/LMIwEaOVdbnRl7\",\"read_only\":true,\"title\":\"test_key\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/milica-nerlovic/tentacat/keys"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":34371109,\"key\":\"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCc72ESoMRGBQJBjnUUSNo1uoRnV7PI82KtqfSLjcmj3fUB0OvVx8haMhtb7hlxKb5J7J2vLNONyRgNryUkOFTwfHpCt0TZqCKMvp9AuYyAQH2E1kbIGPQ/6BTCktGXq200Ua2hM5NNZjuCgxgMNoyxMzoSb5qChCXatQLIzbODBhyMEPwUq3PqAieirCEPIjXRr2jEAR9+xL8UnHb2e3ZcjuqZPB+yiZZSzZA5IDs3zW7RBQB6ZLoIInUWRxR41YE/2gNeUe4FwhXfxXane/4zkiNqqClE2rDo25MocVpqzP8niVuwQYPYsxEGOo/RIaQa55wvD/LMIwEaOVdbnRl7\",\"url\":\"https://api.github.com/repos/milica-nerlovic/tentacat/keys/34371109\",\"title\":\"test_key\",\"verified\":true,\"created_at\":\"2019-04-08T18:19:01Z\",\"read_only\":true}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Mon, 08 Apr 2019 18:19:01 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "568",
+        "Status": "201 Created",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4999",
+        "X-RateLimit-Reset": "1554751141",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"05a0ee6a2d40f0a37db12dd8db889afd\"",
+        "X-OAuth-Scopes": "admin:public_key, repo",
+        "X-Accepted-OAuth-Scopes": "",
+        "Location": "https://api.github.com/repos/milica-nerlovic/tentacat/keys/34371109",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "7EDA:3B0A:1BB04:4B618:5CAB9095"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]

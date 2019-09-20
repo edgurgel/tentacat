@@ -8,13 +8,13 @@ defmodule Tentacat.Organizations.Hooks do
   ## Example
 
       Tentacat.Organizations.Hooks.list "github"
-      Tentacat.Organizations.Hooks.list "github", client
+      Tentacat.Organizations.Hooks.list client, "github"
 
   More info at: http://developer.github.com/v3/orgs/hooks/#list-hooks
   """
-  @spec list(binary, Client.t) :: Tentacat.response
-  def list(organization, client \\ %Client{}) do
-    get "orgs/#{organization}/hooks", client
+  @spec list(Client.t(), binary) :: Tentacat.response()
+  def list(client \\ %Client{}, organization) do
+    get("orgs/#{organization}/hooks", client)
   end
 
   @doc """
@@ -22,13 +22,13 @@ defmodule Tentacat.Organizations.Hooks do
 
   ## Example
 
-      Tentacat.Organizations.Hooks.find("github", "1234567", client)
+      Tentacat.Organizations.Hooks.find(client, "github", "1234567")
 
   More info at: http://developer.github.com/v3/orgs/hooks/#get-single-hook
   """
-  @spec find(binary, binary | integer, Client.t) :: Tentacat.response
-  def find(organization, hook_id, client) do
-    get "orgs/#{organization}/hooks/#{hook_id}", client
+  @spec find(Client.t(), binary, binary | integer) :: Tentacat.response()
+  def find(client, organization, hook_id) do
+    get("orgs/#{organization}/hooks/#{hook_id}", client)
   end
 
   @doc """
@@ -36,13 +36,13 @@ defmodule Tentacat.Organizations.Hooks do
 
   ## Example
 
-      Tentacat.Organizations.Hooks.create("github", hook_body, client)
+      Tentacat.Organizations.Hooks.create(client, "github", hook_body)
 
   More info at: http://developer.github.com/v3/orgs/hooks/#create-a-hook
   """
-  @spec create(binary, list, Client.t) :: Tentacat.response
-  def create(organization, body, client) do
-    post "orgs/#{organization}/hooks", client, body
+  @spec create(Client.t(), binary, list) :: Tentacat.response()
+  def create(client, organization, body) do
+    post("orgs/#{organization}/hooks", client, body)
   end
 
   @doc """
@@ -58,13 +58,13 @@ defmodule Tentacat.Organizations.Hooks do
 
   ## Example
 
-      Tentacat.Organizations.Hooks.update("github", "1234567", hook_body, client)
+      Tentacat.Organizations.Hooks.update(client, "github", "1234567", hook_body)
 
   More info at: http://developer.github.com/v3/orgs/hooks/#edit-a-hook
   """
-  @spec update(binary, binary | integer, list, Client.t) :: Tentacat.response
-  def update(organization, hook_id, body, client) do
-    patch "orgs/#{organization}/hooks/#{hook_id}", client, body
+  @spec update(Client.t(), binary, binary | integer, list) :: Tentacat.response()
+  def update(client, organization, hook_id, body) do
+    patch("orgs/#{organization}/hooks/#{hook_id}", client, body)
   end
 
   @doc """
@@ -72,13 +72,13 @@ defmodule Tentacat.Organizations.Hooks do
 
   ## Example
 
-      Tentacat.Organizations.Hooks.ping("github", "1234567", client)
+      Tentacat.Organizations.Hooks.ping(client, "github", "1234567")
 
   More info at: http://developer.github.com/v3/orgs/hooks/#ping-a-hook
   """
-  @spec ping(binary, binary | integer, Client.t) :: Tentacat.response
-  def ping(organization, hook_id, client) do
-    post "orgs/#{organization}/hooks/#{hook_id}/pings", client, ""
+  @spec ping(Client.t(), binary, binary | integer) :: Tentacat.response()
+  def ping(client, organization, hook_id) do
+    post("orgs/#{organization}/hooks/#{hook_id}/pings", client, "")
   end
 
   @doc """
@@ -86,13 +86,12 @@ defmodule Tentacat.Organizations.Hooks do
 
   ## Example
 
-      Tentacat.Organizations.Hooks.remove("github", "1234567", client)
+      Tentacat.Organizations.Hooks.remove(client, "github", "1234567")
 
   More info at: http://developer.github.com/v3/orgs/hooks/#delete-a-hook
   """
-  @spec remove(binary, binary | integer, Client.t) :: Tentacat.response
-  def remove(organization, hook_id, client) do
-    delete "orgs/#{organization}/hooks/#{hook_id}", client
+  @spec remove(Client.t(), binary, binary | integer) :: Tentacat.response()
+  def remove(client, organization, hook_id) do
+    delete("orgs/#{organization}/hooks/#{hook_id}", client)
   end
-
 end

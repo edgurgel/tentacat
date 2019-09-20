@@ -8,7 +8,7 @@ defmodule Tentacat.Git.BlobsTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "create/3" do
@@ -17,7 +17,8 @@ defmodule Tentacat.Git.BlobsTest do
         "content" => "Woop!",
         "encoding" => "utf-8"
       }
-      { 201, %{"sha" => sha}} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+
+      {201, %{"sha" => sha}, _} = create(@client, "soudqwiggle", "elixir-conspiracy", body)
       assert sha == "d69a46d50f10c479a19bd56a066c55671180ceec"
     end
   end
@@ -25,7 +26,8 @@ defmodule Tentacat.Git.BlobsTest do
   test "get/4" do
     use_cassette "git/blob#get" do
       sha = "d69a46d50f10c479a19bd56a066c55671180ceec"
-      assert get("soudqwiggle", "elixir-conspiracy", sha, @client) |> Map.get("sha") == sha
+      {200, res, _} = get(@client, "soudqwiggle", "elixir-conspiracy", sha)
+      assert res |> Map.get("sha") == sha
     end
   end
 end

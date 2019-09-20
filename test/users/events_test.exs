@@ -5,33 +5,33 @@ defmodule Tentacat.Users.EventsTest do
 
   doctest Tentacat.Users.Events
 
-  @client Tentacat.Client.new
+  @client Tentacat.Client.new()
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/2" do
     use_cassette "users/events#list" do
-      assert list("soudqwiggle", @client) == []
+      assert elem(list(@client, "soudqwiggle"), 1) == []
     end
   end
 
   test "list_public/2" do
     use_cassette "users/events#list_public" do
-      assert list_public("soudqwiggle", @client) == []
+      assert elem(list_public(@client, "soudqwiggle"), 1) == []
     end
   end
 
   test "list_user_org/3" do
     use_cassette "users/events#list_user_org" do
-      assert {404, _} = list_user_org("duksis", "honeypotio", @client)
+      assert {404, _, _} = list_user_org(@client, "duksis", "honeypotio")
     end
   end
 
   test "list_received_public/2" do
     use_cassette "users/events#list_received_public", match_requests_on: [:query] do
-      assert list_received_public("duksis", @client) == []
+      assert elem(list_received_public(@client, "duksis"), 1) == []
     end
   end
 end

@@ -8,28 +8,28 @@ defmodule Tentacat.Pulls do
   ## Example
 
       Tentacat.Pulls.list "elixir-lang", "elixir"
-      Tentacat.Pulls.list "elixir-lang", "elixir", client
+      Tentacat.Pulls.list client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/pulls/#list-pull-requests
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/pulls", client)
   end
 
-@doc """
+  @doc """
   Filter pull requests
 
   ## Example
 
       Tentacat.Pulls.filter "elixir-lang", "elixir", %{state: "open"}
-      Tentacat.Pulls.filter "elixir-lang", "elixir", %{state: "open"}, client
+      Tentacat.Pulls.filter client, "elixir-lang", "elixir", %{state: "open"}
 
   More info at: https://developer.github.com/v3/pulls/#parameters
   """
-  @spec filter(binary, binary, map, Client.t) :: Tentacat.response
-  def filter(owner, repo, filters, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls?#{URI.encode_query(filters)}", client
+  @spec filter(Client.t(), binary, binary, map) :: Tentacat.response()
+  def filter(client \\ %Client{}, owner, repo, filters) do
+    get("repos/#{owner}/#{repo}/pulls?#{URI.encode_query(filters)}", client)
   end
 
   @doc """
@@ -38,13 +38,13 @@ defmodule Tentacat.Pulls do
   ## Example
 
       Tentacat.Pulls.find "elixir-lang", "elixir", "2974"
-      Tentacat.Pulls.find "elixir-lang", "elixir", "2974", client
+      Tentacat.Pulls.find client, "elixir-lang", "elixir", "2974"
 
   More info at: https://developer.github.com/v3/pulls/#get-a-single-pull-request
   """
-  @spec find(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def find(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}", client
+  @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, number) do
+    get("repos/#{owner}/#{repo}/pulls/#{number}", client)
   end
 
   @doc """
@@ -69,13 +69,13 @@ defmodule Tentacat.Pulls do
 
   ## Example
 
-      Tentacat.Pulls.create "elixir-lang", "elixir", body, client
+      Tentacat.Pulls.create client, "elixir-lang", "elixir", body
 
   More info at: https://developer.github.com/v3/pulls/#create-a-pull-request
   """
-  @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/pulls", client, body
+  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
+  def create(client, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/pulls", client, body)
   end
 
   @doc """
@@ -91,13 +91,13 @@ defmodule Tentacat.Pulls do
 
   ## Example
 
-      Tentacat.Pulls.update "elixir-lang", "elixir", "2974", body, client
+      Tentacat.Pulls.update client, "elixir-lang", "elixir", "2974", body
 
   More info at: https://developer.github.com/v3/pulls/#update-a-pull-request
   """
-  @spec update(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, number, body, client) do
-    patch "repos/#{owner}/#{repo}/pulls/#{number}", client, body
+  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
+  def update(client, owner, repo, number, body) do
+    patch("repos/#{owner}/#{repo}/pulls/#{number}", client, body)
   end
 
   @doc """
@@ -112,13 +112,13 @@ defmodule Tentacat.Pulls do
 
   ## Example
 
-      Tentacat.Pulls.merge "elixir-lang", "elixir", "4876", body, client
+      Tentacat.Pulls.merge client, "elixir-lang", "elixir", "4876", body
 
   More info at: https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button
   """
-  @spec merge(binary, binary, binary | integer, list | map, Client.t) :: Tentacat.response
-  def merge(owner, repo, number, body, client) do
-    put "repos/#{owner}/#{repo}/pulls/#{number}/merge", client, body
+  @spec merge(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
+  def merge(client, owner, repo, number, body) do
+    put("repos/#{owner}/#{repo}/pulls/#{number}/merge", client, body)
   end
 
   @doc """
@@ -126,12 +126,12 @@ defmodule Tentacat.Pulls do
 
   ## Example
 
-      Tentacat.Pulls.has_been_merged "elixir-lang", "elixir", "4876", client
+      Tentacat.Pulls.has_been_merged client, "elixir-lang", "elixir", "4876"
 
   More info at: https://developer.github.com/v3/pulls/#get-if-a-pull-request-has-been-merged
   """
-  @spec has_been_merged(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def has_been_merged(owner, repo, number, client) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}/merge", client
+  @spec has_been_merged(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def has_been_merged(client, owner, repo, number) do
+    get("repos/#{owner}/#{repo}/pulls/#{number}/merge", client)
   end
 end

@@ -8,12 +8,12 @@ defmodule Tentacat.Pulls.Commits do
   ## Example
 
       Tentacat.Pulls.Commits.list "elixir-lang", "elixir", "2974"
-      Tentacat.Pulls.Commits.list "elixir-lang", "elixir", "2974", client
+      Tentacat.Pulls.Commits.list client, "elixir-lang", "elixir", "2974"
 
   More info at: https://developer.github.com/v3/pulls/#list-commits-on-a-pull-request
   """
-  @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list(owner, repo, number, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/#{number}/commits", client
+  @spec list(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, number) do
+    get("repos/#{owner}/#{repo}/pulls/#{number}/commits", client)
   end
 end

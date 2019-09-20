@@ -11,8 +11,8 @@ defmodule Tentacat.Repositories.Tags do
 
   More info at: https://developer.github.com/v3/repos/#list-tags
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}, options \\ []) do
-    get "repos/#{owner}/#{repo}/tags", client, options
+  @spec list(Client.t(), binary, binary, Keyword.t()) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, options \\ []) do
+    get("repos/#{owner}/#{repo}/tags", client, options)
   end
 end

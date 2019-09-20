@@ -9,42 +9,42 @@ defmodule Tentacat.Users.StarringTest do
   @bad_client Tentacat.Client.new(%{access_token: "badtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "starred?/3" do
     use_cassette "starring#starred_/1" do
-      assert starred?("elixir-lang", "elixir", @client) == true
+      assert elem(starred?(@client, "elixir-lang", "elixir"), 1) == true
     end
 
     use_cassette "starring#starred_/2" do
-      assert starred?("edgurgel", "tentacat", @client) == false
+      assert elem(starred?(@client, "edgurgel", "tentacat"), 1) == false
     end
 
     use_cassette "starring#starred_/3" do
-      {status_code, _} = starred?("elixir-lang", "elixir", @bad_client)
+      {status_code, _, _} = starred?(@bad_client, "elixir-lang", "elixir")
       assert status_code == 401
     end
   end
 
   test "star/3" do
     use_cassette "starring#star/1" do
-      assert star("elixir-lang", "elixir", @client) == true
+      assert {_, true, _} = star(@client, "elixir-lang", "elixir")
     end
 
     use_cassette "starring#star/2" do
-      {status_code, _} = star("elixir-lang", "elixir", @bad_client)
+      {status_code, _, _} = star(@bad_client, "elixir-lang", "elixir")
       assert status_code == 401
     end
   end
 
   test "unstar/3" do
     use_cassette "starring#unstar/1" do
-      assert unstar("elixir-lang", "elixir", @client) == true
+      assert elem(unstar(@client, "elixir-lang", "elixir"), 1) == true
     end
 
     use_cassette "starring#unstar/2" do
-      {status_code, _} = unstar("elixir-lang", "elixir", @bad_client)
+      {status_code, _, _} = unstar(@bad_client, "elixir-lang", "elixir")
       assert status_code == 401
     end
   end

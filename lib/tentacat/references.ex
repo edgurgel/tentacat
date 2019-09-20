@@ -8,13 +8,13 @@ defmodule Tentacat.References do
   ## Example
 
       Tentacat.References.list "elixir-lang", "elixir"
-      Tentacat.References.list "elixir-lang", "elixir", client
+      Tentacat.References.list client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/git/refs/#get-all-references
   """
-  @spec list(binary, binary, Client.t) :: Tentacat.response
-  def list(owner, repo, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/git/refs", client
+  @spec list(Client.t(), binary, binary) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/git/refs", client)
   end
 
   @doc """
@@ -23,13 +23,13 @@ defmodule Tentacat.References do
   ## Example
 
       Tentacat.References.find "elixir-lang", "elixir", "heads/emj-otp-18"
-      Tentacat.References.find "elixir-lang", "elixir", "heads/emj-otp-18", client
+      Tentacat.References.find client, "elixir-lang", "elixir", "heads/emj-otp-18"
 
   More info at: https://developer.github.com/v3/git/refs/#get-a-reference
   """
-  @spec find(binary, binary, binary, Client.t) :: Tentacat.response
-  def find(owner, repo, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/git/refs/#{ref}", client
+  @spec find(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, ref) do
+    get("repos/#{owner}/#{repo}/git/refs/#{ref}", client)
   end
 
   @doc """
@@ -44,13 +44,13 @@ defmodule Tentacat.References do
 
   ## Example
 
-      Tentacat.References.create "elixir-lang", "elixir", ref_body, client
+      Tentacat.References.create client, "elixir-lang", "elixir", ref_body
 
   More info at: https://developer.github.com/v3/git/refs/#create-a-reference
   """
-  @spec create(binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, body, client) do
-    post "repos/#{owner}/#{repo}/git/refs", client, body
+  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
+  def create(client, owner, repo, body) do
+    post("repos/#{owner}/#{repo}/git/refs", client, body)
   end
 
   @doc """
@@ -65,13 +65,13 @@ defmodule Tentacat.References do
 
   ## Example
 
-      Tentacat.References.update "elixir-lang", "elixir", "heads/emj-otp-18", body, client
+      Tentacat.References.update client, "elixir-lang", "elixir", "heads/emj-otp-18", body
 
   More info at: https://developer.github.com/v3/git/refs/#update-a-reference
   """
-  @spec update(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, ref, body, client) do
-    patch "repos/#{owner}/#{repo}/git/refs/#{ref}", client, body
+  @spec update(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def update(client, owner, repo, ref, body) do
+    patch("repos/#{owner}/#{repo}/git/refs/#{ref}", client, body)
   end
 
   @doc """
@@ -79,13 +79,13 @@ defmodule Tentacat.References do
 
   ## Example
 
-      Tentacat.References.remove "elixir-lang", "elixir", "heads/emj-otp-18", client
-      Tentacat.References.remove "elixir-lang", "elixir", "tags/v1.0.2", client
+      Tentacat.References.remove client, "elixir-lang", "elixir", "heads/emj-otp-18"
+      Tentacat.References.remove client, "elixir-lang", "elixir", "tags/v1.0.2"
 
   More info at: https://developer.github.com/v3/git/refs/#delete-a-reference
   """
-  @spec remove(binary, binary, binary, Client.t) :: Tentacat.response
-  def remove(owner, repo, ref, client) do
-    delete "repos/#{owner}/#{repo}/git/refs/#{ref}", client
+  @spec remove(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def remove(client, owner, repo, ref) do
+    delete("repos/#{owner}/#{repo}/git/refs/#{ref}", client)
   end
 end

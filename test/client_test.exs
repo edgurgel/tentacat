@@ -5,18 +5,24 @@ defmodule Tentacat.ClientTest do
   doctest Tentacat.Client
 
   test "default endpoint" do
-    client = new(%{})
+    client = new()
     assert client.endpoint == "https://api.github.com/"
   end
 
   test "custom endpoint" do
     expected = "https://ghe.foo.com/api/v3/"
 
-    client = new(%{}, "https://ghe.foo.com/api/v3/")
+    creds  = %{user: "bob", password: "bob"}
+
+    client = new(creds, "https://ghe.foo.com/api/v3/")
+    assert client.endpoint == expected
+
+
+    client = new("https://ghe.foo.com/api/v3/")
     assert client.endpoint == expected
 
     # when tailing '/' is missing
-    client = new(%{}, "https://ghe.foo.com/api/v3")
+    client = new(creds, "https://ghe.foo.com/api/v3")
     assert client.endpoint == expected
   end
 end

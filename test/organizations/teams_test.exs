@@ -8,18 +8,18 @@ defmodule Tentacat.Organizations.TeamsTest do
   @client Tentacat.Client.new(%{access_token: "8e663c8614ced27c09b963f806ac46776a29db50"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/2" do
     use_cassette "organizations/teams#list" do
-      assert list("my_org", @client) == []
+      assert elem(list(@client, "my_org"), 1) == []
     end
   end
 
   test "find/2" do
     use_cassette "organizations/teams#find" do
-      %{"name" => name} = find(1500000, @client)
+      {_, %{"name" => name}, _} = find(1_500_000)
       assert name == "Founders"
     end
   end
@@ -31,25 +31,26 @@ defmodule Tentacat.Organizations.TeamsTest do
         "description" => "Team for everyone with commit access",
         "repo_names" => [
           "my_org/secret_repo",
-          "my_org/secret_repo2",
+          "my_org/secret_repo2"
         ],
-        "privacy" => "closed",
+        "privacy" => "closed"
       }
-      {status_code, _} = create("my_org", body, @client)
+
+      {status_code, _, _} = create(@client, "my_org", body)
       assert status_code == 201
     end
   end
 
   test "update/3" do
     use_cassette "organizations/teams#update" do
-      %{"name" => name} = update(2019723, %{name: "Updated Name"}, @client)
+      {_, %{"name" => name}, _} = update(@client, 2_019_723, %{name: "Updated Name"})
       assert name == "Updated Name"
     end
   end
 
   test "delete/2" do
     use_cassette "organizations/teams#delete" do
-      {status_code, _} = delete(2019723, @client)
+      {status_code, _, _} = delete(@client, 2_019_723)
       assert status_code == 204
     end
   end

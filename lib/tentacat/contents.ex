@@ -3,18 +3,33 @@ defmodule Tentacat.Contents do
   alias Tentacat.Client
 
   @doc """
+  Get the contents of README.md.
+
+  ## Example
+
+      Tentacat.Contents.readme "elixir-lang", "elixir"
+      Tentacat.Contents.readme client, "elixir-lang", "elixir"
+
+  More info at: https://developer.github.com/v3/repos/contents/#get-the-readme
+  """
+  @spec readme(Client.t(), binary, binary) :: Tentacat.response()
+  def readme(client \\ %Client{}, owner, repo) do
+    get("repos/#{owner}/#{repo}/readme", client)
+  end
+
+  @doc """
   Get the contents of a file or directory in a repository.
 
   ## Example
 
       Tentacat.Contents.find "elixir-lang", "elixir", "lib"
-      Tentacat.Contents.find "elixir-lang", "elixir", "lib", client
+      Tentacat.Contents.find client, "elixir-lang", "elixir", "lib"
 
   More info at: https://developer.github.com/v3/repos/contents/#get-contents
   """
-  @spec find(binary, binary, binary, Client.t) :: Tentacat.response
-  def find(owner, repo, path, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/contents/#{path}", client
+  @spec find(Client.t(), binary, binary, binary) :: Tentacat.response()
+  def find(client \\ %Client{}, owner, repo, path) do
+    get("repos/#{owner}/#{repo}/contents/#{path}", client)
   end
 
   @doc """
@@ -23,13 +38,13 @@ defmodule Tentacat.Contents do
   ## Example
 
       Tentacat.Contents.find_in "elixir-lang", "elixir", "lib", "ref-name"
-      Tentacat.Contents.find_in "elixir-lang", "elixir", "lib", "ref-name", client
+      Tentacat.Contents.find_in client, "elixir-lang", "elixir", "lib", "ref-name"
 
   More info at: https://developer.github.com/v3/repos/contents/#get-contents
   """
-  @spec find_in(binary, binary, binary, binary, Client.t) :: Tentacat.response
-  def find_in(owner, repo, path, ref, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/contents/#{path}", client, [{:ref, ref}]
+  @spec find_in(Client.t(), binary, binary, binary, binary) :: Tentacat.response()
+  def find_in(client \\ %Client{}, owner, repo, path, ref) do
+    get("repos/#{owner}/#{repo}/contents/#{path}", client, [{:ref, ref}])
   end
 
   @doc """
@@ -49,13 +64,13 @@ defmodule Tentacat.Contents do
 
   ## Example
 
-      Tentacat.Contents.create "elixir-lang", "elixir", "lib/elixir.ex", body, client
+      Tentacat.Contents.create client, "elixir-lang", "elixir", "lib/elixir.ex", body
 
   More info at: https://developer.github.com/v3/repos/contents/#create-a-file
   """
-  @spec create(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def create(owner, repo, path, body, client) do
-    put "repos/#{owner}/#{repo}/contents/#{path}", client, body
+  @spec create(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def create(client, owner, repo, path, body) do
+    put("repos/#{owner}/#{repo}/contents/#{path}", client, body)
   end
 
   @doc """
@@ -76,13 +91,13 @@ defmodule Tentacat.Contents do
 
   ## Example
 
-      Tentacat.Contents.update "elixir-lang", "elixir", "lib/elixir.ex", body, client
+      Tentacat.Contents.update client, "elixir-lang", "elixir", "lib/elixir.ex", body
 
   More info at: https://developer.github.com/v3/repos/contents/#update-a-file
   """
-  @spec update(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def update(owner, repo, path, body, client) do
-    put "repos/#{owner}/#{repo}/contents/#{path}", client, body
+  @spec update(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def update(client, owner, repo, path, body) do
+    put("repos/#{owner}/#{repo}/contents/#{path}", client, body)
   end
 
   @doc """
@@ -102,12 +117,12 @@ defmodule Tentacat.Contents do
 
   ## Example
 
-      Tentacat.Contents.remove "elixir-lang", "elixir", "lib/elixir.ex", body, client
+      Tentacat.Contents.remove client, "elixir-lang", "elixir", "lib/elixir.ex", body
 
   More info at: https://developer.github.com/v3/repos/contents/#delete-a-file
   """
-  @spec remove(binary, binary, binary, list | map, Client.t) :: Tentacat.response
-  def remove(owner, repo, path, body, client) do
-    delete "repos/#{owner}/#{repo}/contents/#{path}", client, body
+  @spec remove(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
+  def remove(client, owner, repo, path, body) do
+    delete("repos/#{owner}/#{repo}/contents/#{path}", client, body)
   end
 end

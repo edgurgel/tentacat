@@ -20,45 +20,48 @@ SyzPtteeAgxKUKSPrpFsO9ZWgW5owGhBZSLEpnvuF6QxyXptKToBp4/mKA1OmeXsVAdJ\
 sOpeb6IzgbBaxuQ9Jlpu2JgzMst0ArBNkPI3ER6ppQ== your_email@example.com "
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/2" do
     use_cassette "users/keys#list" do
-      assert list("soudqwiggle", @client) == []
+      assert elem(list(@client, "soudqwiggle"), 1) == []
     end
   end
 
   test "list_mine/1" do
     use_cassette "users/keys#list_mine" do
-      assert list_mine(@client) == []
+      assert elem(list_mine(@client), 1) == []
     end
   end
 
   test "find/2" do
     use_cassette "users/keys#find" do
-      %{"verified" => verified} = find(15057833, @client)
+      %{"verified" => verified} = elem(find(@client, 15_057_833), 1)
       assert verified == true
     end
   end
 
   test "create/3" do
     use_cassette "users/keys#create" do
-      {status_code, _} = create("test key", @public_key, @client)
+      {status_code, _, _} = create(@client, "test key", @public_key)
       assert status_code == 201
     end
   end
 
   test "update/4" do
     use_cassette "users/keys#update" do
-      {405, %{"message" => message}} = update(15057833, "updated test key", "ssh-rsa AAA...", @client)
-      assert message == "Method not allowed. To make changes to a key, delete the existing key and add a new one with the desired attributes."
+      {405, %{"message" => message}, _} =
+        update(@client, 15_057_833, "updated test key", "ssh-rsa AAA...")
+
+      assert message ==
+               "Method not allowed. To make changes to a key, delete the existing key and add a new one with the desired attributes."
     end
   end
 
   test "remove/2" do
     use_cassette "users/keys#remove" do
-      {status_code, _} = remove(15057833, @client)
+      {status_code, _, _} = remove(@client, 15_057_833)
       assert status_code == 204
     end
   end

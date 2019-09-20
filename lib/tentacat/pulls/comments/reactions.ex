@@ -13,9 +13,9 @@ defmodule Tentacat.Pulls.Comments.Reactions do
   More info at: https://developer.github.com/v3/reactions/#list-reactions-for-a-pull-request-review-comment
   """
 
-  @spec list(binary, binary, binary | integer, Client.t) :: Tentacat.response
-  def list(owner, repo, comment_id, client \\ %Client{}) do
-    get "repos/#{owner}/#{repo}/pulls/comments/#{comment_id}/reactions", client
+  @spec list(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
+  def list(client \\ %Client{}, owner, repo, comment_id) do
+    get("repos/#{owner}/#{repo}/pulls/comments/#{comment_id}/reactions", client)
   end
 
   @doc """
@@ -27,12 +27,13 @@ defmodule Tentacat.Pulls.Comments.Reactions do
 
   ### Example
 
-  Tentacat.Pulls.Comments.Reactions.create "elixir-lang", "elixir", "3"
+  Tentacat.Pulls.Comments.Reactions.create client, "elixir-lang", "elixir", "3"
 
   More info at: https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment
   """
-  @spec create(binary, binary, binary | integer, Keyword.t | map, Client.t) :: Tentacat.response
-  def create(owner, repo, comment_id, body, client \\ %Client{}) do
-    post "repos/#{owner}/#{repo}/pulls/comments/#{comment_id}/reactions", client, body
+  @spec create(Client.t(), binary, binary, binary | integer, Keyword.t() | map) ::
+          Tentacat.response()
+  def create(client, owner, repo, comment_id, body) do
+    post("repos/#{owner}/#{repo}/pulls/comments/#{comment_id}/reactions", client, body)
   end
 end

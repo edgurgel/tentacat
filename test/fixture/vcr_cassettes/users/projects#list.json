@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "Accept": "application/vnd.github.inertia-preview+json",
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/achiurizo/projects"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"owner_url\":\"https://api.github.com/users/achiurizo\",\"url\":\"https://api.github.com/projects/2539897\",\"html_url\":\"https://github.com/users/achiurizo/projects/2\",\"columns_url\":\"https://api.github.com/projects/2539897/columns\",\"id\":2539897,\"node_id\":\"MDc6UHJvamVjdDI1Mzk4OTc=\",\"name\":\"demo1\",\"body\":\"\",\"number\":2,\"state\":\"open\",\"creator\":{\"login\":\"achiurizo\",\"id\":24772,\"node_id\":\"MDQ6VXNlcjI0Nzcy\",\"avatar_url\":\"https://avatars0.githubusercontent.com/u/24772?v=4\",\"gravatar_id\":\"\",\"url\":\"https://api.github.com/users/achiurizo\",\"html_url\":\"https://github.com/achiurizo\",\"followers_url\":\"https://api.github.com/users/achiurizo/followers\",\"following_url\":\"https://api.github.com/users/achiurizo/following{/other_user}\",\"gists_url\":\"https://api.github.com/users/achiurizo/gists{/gist_id}\",\"starred_url\":\"https://api.github.com/users/achiurizo/starred{/owner}{/repo}\",\"subscriptions_url\":\"https://api.github.com/users/achiurizo/subscriptions\",\"organizations_url\":\"https://api.github.com/users/achiurizo/orgs\",\"repos_url\":\"https://api.github.com/users/achiurizo/repos\",\"events_url\":\"https://api.github.com/users/achiurizo/events{/privacy}\",\"received_events_url\":\"https://api.github.com/users/achiurizo/received_events\",\"type\":\"User\",\"site_admin\":false},\"created_at\":\"2019-04-24T23:34:53Z\",\"updated_at\":\"2019-04-24T23:34:53Z\"}]",
+      "headers": {
+        "Date": "Wed, 24 Apr 2019 23:35:23 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "1321",
+        "Server": "GitHub.com",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4986",
+        "X-RateLimit-Reset": "1556152523",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"1873a125d2c562542cb885a618e3d62d\"",
+        "X-OAuth-Scopes": "public_repo",
+        "X-Accepted-OAuth-Scopes": "repo",
+        "X-GitHub-Media-Type": "github.inertia-preview; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-GitHub-Request-Id": "D975:6442:E054E7:111214C:5CC0F2BB"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

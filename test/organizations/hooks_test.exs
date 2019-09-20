@@ -8,18 +8,18 @@ defmodule Tentacat.Organizations.HooksTest do
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/2" do
     use_cassette "organizations/hooks#list" do
-      assert list("tentatest", @client) == []
+      assert elem(list(@client, "tentatest"), 1) == []
     end
   end
 
   test "find/3" do
     use_cassette "organizations/hooks#find" do
-      {status_code, _} = find("tentatest", "1234", @client)
+      {status_code, _, _} = find(@client, "tentatest", "1234")
       assert status_code == 404
     end
   end
@@ -35,7 +35,8 @@ defmodule Tentacat.Organizations.HooksTest do
           "content_type" => "json"
         }
       }
-      {status_code, _} = create("tentatest", body, @client)
+
+      {status_code, _, _} = create(@client, "tentatest", body)
       assert status_code == 201
     end
   end
@@ -45,22 +46,23 @@ defmodule Tentacat.Organizations.HooksTest do
       "active" => false,
       "add_events" => ["issue"]
     }
+
     use_cassette "organizations/hooks#update" do
-      %{"active" => active} = update("tentatest", 6736758, body, @client)
+      {_, %{"active" => active}, _} = update(@client, "tentatest", 6_736_758, body)
       assert active == false
     end
   end
 
   test "ping/3" do
     use_cassette "organizations/hooks#ping" do
-      {status_code, _} = ping("tentatest", 6736758, @client)
+      {status_code, _, _} = ping(@client, "tentatest", 6_736_758)
       assert status_code == 204
     end
   end
 
   test "remove/3" do
     use_cassette "organizations/hooks#remove" do
-      {status_code, _} = remove("tentatest", 6736758, @client)
+      {status_code, _, _} = remove(@client, "tentatest", 6_736_758)
       assert status_code == 204
     end
   end

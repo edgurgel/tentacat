@@ -13,6 +13,7 @@ Tentacool + Cat = Tentacat
 * Gitignore
 * Contents
 * Trees
+* Projects
 * Issues
   * Comments
   * Events
@@ -27,11 +28,13 @@ Tentacool + Cat = Tentacat
   * Members
   * Teams
   * Webhooks
+  * Projects
 * Teams
   * Members
 * Users
   * Emails
   * Keys
+  * Projects
 * Repositories
   * Webhooks
   * Branches
@@ -39,6 +42,7 @@ Tentacool + Cat = Tentacat
   * Deployments
   * Collaborators
   * Contributors
+  * Projects
 
 Documentation can be found [here](https://hexdocs.pm/tentacat)
 
@@ -48,11 +52,13 @@ First, add Tentacat to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:tentacat, "~> 0.5"}]
+  [{:tentacat, "~> 1.0"}]
 end
 ```
 
 Ensure that `tentacat` is added as an application in your `mix.exs`:
+
+_(note: this is only necessary for Elixir < 1.3)_
 
 ```elixir
 def application do
@@ -87,15 +93,83 @@ Getting info from a user using a client
 ```elixir
 iex> client = Tentacat.Client.new
 %Tentacat.Client{auth: nil, endpoint: "https://api.github.com/"}
-iex> Tentacat.Users.find "edgurgel", client
-[{"login","edgurgel"},{"id",30873},{"avatar_url","https://secure.gravatar.com/avatar/5e0f65b214819fedf529220e19c08908?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"},{"gravatar_id","5e0f65b214819fedf529220e19c08908"},{"url","https://api.github.com/users/edgurgel"},{"html_url","https://github.com/edgurgel"},{"followers_url","https://api.github.com/users/edgurgel/followers"},{"following_url","https://api.github.com/users/edgurgel/following{/other_user}"},{"gists_url","https://api.github.com/users/edgurgel/gists{/gist_id}"},{"starred_url","https://api.github.com/users/edgurgel/starred{/owner}{/repo}"},{"subscriptions_url","https://api.github.com/users/edgurgel/subscriptions"},{"organizations_url","https://api.github.com/users/edgurgel/orgs"},{"repos_url","https://api.github.com/users/edgurgel/repos"},{"events_url","https://api.github.com/users/edgurgel/events{/privacy}"},{"received_events_url","https://api.github.com/users/edgurgel/received_events"},{"type","User"},{"name","Eduardo Gurgel"},{"company","Codeminer 42"},{"blog","http://gurgel.me"},{"location","Fortaleza, Brazil"},{"email","eduardo@gurgel.me"},{"hireable",false},{"bio",nil},{"public_repos",19},{"followers",16},{"following",38},{"created_at","2008-10-24T17:05:04Z"},{"updated_at","2013-06-18T22:52:41Z"},{"public_gists",4}]
+iex> Tentacat.Users.find client, "edgurgel"
+{200,
+ %{"avatar_url" => "https://avatars0.githubusercontent.com/u/30873?v=4",
+   "bio" => "INSUFFICIENT DATA FOR MEANINGFUL ANSWER",
+   "blog" => "http://gurgel.me", "company" => nil,
+   "created_at" => "2008-10-24T17:05:04Z", "email" => nil,
+   "events_url" => "https://api.github.com/users/edgurgel/events{/privacy}",
+   "followers" => 220,
+   "followers_url" => "https://api.github.com/users/edgurgel/followers",
+   "following" => 75,
+   "following_url" => "https://api.github.com/users/edgurgel/following{/other_user}",
+   "gists_url" => "https://api.github.com/users/edgurgel/gists{/gist_id}",
+   "gravatar_id" => "", "hireable" => nil,
+   "html_url" => "https://github.com/edgurgel", "id" => 30873,
+   "location" => "Wellington, New Zealand", "login" => "edgurgel",
+   "name" => "Eduardo Gurgel",
+   "organizations_url" => "https://api.github.com/users/edgurgel/orgs",
+   "public_gists" => 13, "public_repos" => 59,
+   "received_events_url" => "https://api.github.com/users/edgurgel/received_events",
+   "repos_url" => "https://api.github.com/users/edgurgel/repos",
+   "site_admin" => false,
+   "starred_url" => "https://api.github.com/users/edgurgel/starred{/owner}{/repo}",
+   "subscriptions_url" => "https://api.github.com/users/edgurgel/subscriptions",
+   "type" => "User", "updated_at" => "2018-02-05T23:24:42Z",
+   "url" => "https://api.github.com/users/edgurgel"},
+ %HTTPoison.Response{body: %{"avatar_url" => "https://avatars0.githubusercontent.com/u/30873?v=4",
+    "bio" => "INSUFFICIENT DATA FOR MEANINGFUL ANSWER",
+    "blog" => "http://gurgel.me", "company" => nil,
+    "created_at" => "2008-10-24T17:05:04Z", "email" => nil,
+    "events_url" => "https://api.github.com/users/edgurgel/events{/privacy}",
+    "followers" => 220,
+    "followers_url" => "https://api.github.com/users/edgurgel/followers",
+    "following" => 75,
+    "following_url" => "https://api.github.com/users/edgurgel/following{/other_user}",
+    "gists_url" => "https://api.github.com/users/edgurgel/gists{/gist_id}",
+    "gravatar_id" => "", "hireable" => nil,
+    "html_url" => "https://github.com/edgurgel", "id" => 30873,
+    "location" => "Wellington, New Zealand", "login" => "edgurgel",
+    "name" => "Eduardo Gurgel",
+    "organizations_url" => "https://api.github.com/users/edgurgel/orgs",
+    "public_gists" => 13, "public_repos" => 59,
+    "received_events_url" => "https://api.github.com/users/edgurgel/received_events",
+    "repos_url" => "https://api.github.com/users/edgurgel/repos",
+    "site_admin" => false,
+    "starred_url" => "https://api.github.com/users/edgurgel/starred{/owner}{/repo}",
+    "subscriptions_url" => "https://api.github.com/users/edgurgel/subscriptions",
+    "type" => "User", "updated_at" => "2018-02-05T23:24:42Z",
+    "url" => "https://api.github.com/users/edgurgel"},
+  headers: [{"Date", "Mon, 05 Feb 2018 23:25:36 GMT"},
+   {"Content-Type", "application/json; charset=utf-8"},
+   {"Content-Length", "1187"}, {"Server", "GitHub.com"}, {"Status", "200 OK"},
+   {"X-RateLimit-Limit", "60"}, {"X-RateLimit-Remaining", "59"},
+   {"X-RateLimit-Reset", "1517876736"},
+   {"Cache-Control", "public, max-age=60, s-maxage=60"}, {"Vary", "Accept"},
+   {"ETag", "\"ec2653a252e614a96afacfaeb88d0c39\""},
+   {"Last-Modified", "Mon, 05 Feb 2018 23:24:42 GMT"},
+   {"X-GitHub-Media-Type", "github.v3; format=json"},
+   {"Access-Control-Expose-Headers",
+    "ETag, Link, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval"},
+   {"Access-Control-Allow-Origin", "*"},
+   {"Content-Security-Policy", "default-src 'none'"},
+   {"Strict-Transport-Security",
+    "max-age=31536000; includeSubdomains; preload"},
+   {"X-Content-Type-Options", "nosniff"}, {"X-Frame-Options", "deny"},
+   {"X-XSS-Protection", "1; mode=block"}, {"X-Runtime-rack", "0.030182"},
+   {"Vary", "Accept-Encoding"},
+   {"X-GitHub-Request-Id", "054D:2BC4A:82C2C:A4560:5A78E7EF"}],
+  request_url: "https://api.github.com/users/edgurgel", status_code: 200}}
 ```
 
 Getting info from a user without a defined client
 
 ```elixir
-iex> Tentacat.Users.find("edgurgel") |> Map.get("email")
-"eduardo@gurgel.me"
+iex> {200, data, _response} = Tentacat.Users.find("edgurgel")
+
+iex(8)> get_in(data, ["name"])
+"Eduardo Gurgel"
 ```
 
 Getting info from the authenticated user
@@ -125,12 +199,25 @@ iex> Tentacat.Users.me(client)
 ```
 
 ## Misc
+
 Having that Github Reviews API is still in a pre-release state
 you need to set an additional header in your config.
 
 ```elixir
-config :tentacat, :extra_headers, [{"Accept", "application/vnd.github.black-cat-preview+json"}])
+config :tentacat, :extra_headers, [{"Accept", "application/vnd.github.black-cat-preview+json"}]
 ```
+
+### Deserialization Options
+
+You can pass deserialization options to the library used to decode JSON
+using:
+
+```elixir
+# To have Atom keys
+config :tentacat, :deserialization_options, [labels: :atoms]
+```
+
+See: https://github.com/talentdeficit/exjsx#decodejson-opts for available options.
 
 ## Contributing
 

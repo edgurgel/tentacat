@@ -11,9 +11,9 @@ defmodule Tentacat.Users.Emails do
 
   More info at: http://developer.github.com/v3/users/emails/#list-email-addresses-for-a-user
   """
-  @spec list(Client.t) :: Tentacat.response
+  @spec list(Client.t()) :: Tentacat.response()
   def list(client) do
-    get "user/emails", client
+    get("user/emails", client)
   end
 
   @doc """
@@ -21,13 +21,13 @@ defmodule Tentacat.Users.Emails do
 
   ## Example
 
-      Tentacat.Users.Emails.create ["ed@gurgel.me"], client
+      Tentacat.Users.Emails.create client, ["ed@gurgel.me"]
 
   More info at: http://developer.github.com/v3/users/emails/#add-email-addresses
   """
-  @spec create([binary], Client.t) :: Tentacat.response
-  def create(emails, client) do
-    post "user/emails", client, emails
+  @spec create(Client.t(), [binary]) :: Tentacat.response()
+  def create(client, emails) do
+    post("user/emails", client, emails)
   end
 
   @doc """
@@ -35,12 +35,12 @@ defmodule Tentacat.Users.Emails do
 
   ## Example
 
-      Tentacat.Users.Emails.remove ["ed@gurgel.me"], client
+      Tentacat.Users.Emails.remove client, ["ed@gurgel.me"]
 
   More info at: http://developer.github.com/v3/users/emails/#delete-email-addresses
   """
-  @spec remove([binary], Client.t) :: Tentacat.response
-  def remove(emails, client) do
-    delete "user/emails", client, emails
+  @spec remove(Client.t(), [binary]) :: Tentacat.response()
+  def remove(client, emails) do
+    delete("user/emails", client, emails)
   end
 end

@@ -8,18 +8,18 @@ defmodule Tentacat.HooksTest do
   @client Tentacat.Client.new(%{access_token: "8e663c8614ced27c09b963f806ac46776a29db50"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   test "list/3" do
     use_cassette "hooks#list" do
-      assert list("tentatest", "tentacat", @client) == []
+      assert elem(list(@client, "tentatest", "tentacat"), 1) == []
     end
   end
 
   test "find/4" do
     use_cassette "hooks#find" do
-      {status_code, _} = find("tentatest", "tentacat", "1234", @client)
+      {status_code, _, _} = find(@client, "tentatest", "tentacat", "1234")
       assert status_code == 404
     end
   end
@@ -35,7 +35,8 @@ defmodule Tentacat.HooksTest do
           "content_type" => "json"
         }
       }
-      {status_code, _} = create("soudqwiggle", "elixir-conspiracy", body, @client)
+
+      {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", body)
       assert status_code == 201
     end
   end
@@ -45,29 +46,32 @@ defmodule Tentacat.HooksTest do
       "active" => false,
       "add_events" => ["issue"]
     }
+
     use_cassette "hooks#update" do
-      %{"active" => active} = update("soudqwiggle", "elixir-conspiracy", 6736758, body, @client)
+      {_, %{"active" => active}, _} =
+        update(@client, "soudqwiggle", "elixir-conspiracy", 6_736_758, body)
+
       assert active == false
     end
   end
 
   test "test/4" do
     use_cassette "hooks#test" do
-      {status_code, _} = test("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      {status_code, _, _} = test(@client, "soudqwiggle", "elixir-conspiracy", 6_736_758)
       assert status_code == 204
     end
   end
 
   test "ping/4" do
     use_cassette "hooks#ping" do
-      {status_code, _} = ping("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      {status_code, _, _} = ping(@client, "soudqwiggle", "elixir-conspiracy", 6_736_758)
       assert status_code == 204
     end
   end
 
   test "remove/4" do
     use_cassette "hooks#remove" do
-      {status_code, _} = remove("soudqwiggle", "elixir-conspiracy", 6736758, @client)
+      {status_code, _, _} = remove(@client, "soudqwiggle", "elixir-conspiracy", 6_736_758)
       assert status_code == 204
     end
   end

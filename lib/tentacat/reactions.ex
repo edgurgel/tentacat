@@ -1,5 +1,4 @@
 defmodule Tentacat.Reactions do
-  import Tentacat
   alias Tentacat.Client
 
   @doc """
@@ -7,14 +6,14 @@ defmodule Tentacat.Reactions do
 
   ## Example
 
-      Tentacat.Reactions.delete("elixir-lang", "elixir", client, reaction_id)
+      Tentacat.Reactions.delete(client, reaction_id)
 
 
   More info at: https://developer.github.com/v3/reactions/#delete-a-reaction
   """
 
-  @spec delete(integer, binary, Client.t) :: Tentacat.response
-  def delete(id, owner, repo, client \\ %Client{}) when is_integer(id) do
-    delete "repos/#{owner}/#{repo}/releases/#{id}", client
+  @spec delete(Client.t(), integer) :: Tentacat.response()
+  def delete(client \\ %Client{}, id) when is_integer(id) do
+    Tentacat.delete("reactions/#{id}", client)
   end
 end
