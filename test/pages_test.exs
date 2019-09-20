@@ -11,10 +11,6 @@ defmodule Tentacat.PagesTest do
     HTTPoison.start()
   end
 
-  # get_info(binary, binary, Client.t) :: Tentacat.response
-  # request_build(binary, binary,Client.t) :: Tentacat.response
-  # list_builds(binary, binary,Client.t) :: Tentacat.response
-
   test "get_info/3" do
     use_cassette "pages#get_info" do
       get_info("edgurgel", "ed-pages-site", @client)
