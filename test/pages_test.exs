@@ -8,13 +8,12 @@ defmodule Tentacat.PagesTest do
   @client Tentacat.Client.new(%{access_token: "8e663c8614ced27c09b963f806ac46776a29db50"})
 
   setup_all do
-    HTTPoison.start
+    HTTPoison.start()
   end
 
   # get_info(binary, binary, Client.t) :: Tentacat.response
   # request_build(binary, binary,Client.t) :: Tentacat.response
   # list_builds(binary, binary,Client.t) :: Tentacat.response
-
 
   test "get_info/3" do
     use_cassette "pages#get_info" do
