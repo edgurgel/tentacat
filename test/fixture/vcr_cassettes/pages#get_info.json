@@ -26,7 +26,7 @@
           "ETag": "\"d0ff0d5414ac7831a0c0a75ada7c90eb\"",
           "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
           "X-Accepted-OAuth-Scopes": "",
-          "Location": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/pulls/1",
+          "Location": "https://api.github.com/repos/edgurgel/ed-pages-site/pages",
           "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
           "X-GitHub-Media-Type": "github.v3; format=json",
           "X-XSS-Protection": "1; mode=block",
@@ -40,7 +40,7 @@
           "X-Served-By": "dc1ce2bfb41810a06c705e83b388572d",
           "X-GitHub-Request-Id": "4E549DF0:A39A:87D4583:566DD745"
         },
-        "status_code": 201,
+        "status_code": 200,
         "type": "ok"
       }
     }
