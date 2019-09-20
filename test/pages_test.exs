@@ -13,7 +13,18 @@ defmodule Tentacat.PagesTest do
 
   test "get_info/3" do
     use_cassette "pages#get_info" do
-      assert get_info("edgurgel", "ed-pages-site", @client) != nil
+      expected_body = %{
+        "cname" => "developer.github.com",
+        "custom_404" => false,
+        "html_url" => "https://developer.github.com",
+        "source" => %{"branch" => "master", "directory" => "/"},
+        "status" => "built",
+        "url" => "https://api.github.com/repos/github/developer.github.com/pages"
+      }
+
+      {200, body, full} = get_info("edgurgel", "ed-pages-site", @client)
+
+      assert body == expected_body
     end
   end
 

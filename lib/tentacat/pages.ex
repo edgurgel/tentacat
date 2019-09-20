@@ -13,7 +13,7 @@ defmodule Tentacat.Pages do
   """
   @spec get_info(binary, binary, Client.t()) :: Tentacat.response()
   def get_info(user_or_org, repo, client \\ %Client{}) do
-    get("/repos/#{user_or_org}/#{repo}/pages", client)
+    get("repos/#{user_or_org}/#{repo}/pages", client)
   end
 
   @doc """
