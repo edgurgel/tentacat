@@ -13,8 +13,7 @@ defmodule Tentacat.PagesTest do
 
   test "get_info/3" do
     use_cassette "pages#get_info" do
-      get_info("edgurgel", "ed-pages-site", @client)
-      assert 1 == 1
+      assert get_info("edgurgel", "ed-pages-site", @client) != nil
     end
   end
 
