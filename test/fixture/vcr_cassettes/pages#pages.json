@@ -10,12 +10,6 @@
         "options": [],
         "request_body": "",
         "url": "https://api.github.com/repos/edgurgel/ed-pages-site/pages"
-      
-       
-    
-    
-    
-    
     },
       "response": {
         "body": "{ \"url\": \"https://api.github.com/repos/github/developer.github.com/pages\", \"status\": \"built\", \"cname\": \"developer.github.com\", \"custom_404\": false, \"html_url\": \"https://developer.github.com\", \"source\": { \"branch\": \"master\", \"directory\": \"/\" } }",

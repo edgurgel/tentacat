@@ -22,18 +22,27 @@ defmodule Tentacat.PagesTest do
         "url" => "https://api.github.com/repos/github/developer.github.com/pages"
       }
 
-      {200, body, full} = get_info("edgurgel", "ed-pages-site", @client)
+      {200, body, _} = get_info("edgurgel", "ed-pages-site", @client)
 
       assert body == expected_body
     end
   end
 
-  # test "list_mine/1" do
-  #   use_cassette "organizations#list_mine" do
-  #     [%{"login" => name}] = list_mine(@client)
-  #     assert name == "tentatest"
-  #   end
-  # end
+
+  test "list_builds/3" do
+    use_cassette "pages#builds" do
+      # [%{"login" => name}] = list_mine(@client)
+      {200, body, full} = list_builds("edgurgel", "ed-pages-site", @client)
+      assert 1 == "tentatest"
+    end
+  end
+
+  test "latest/3" do
+    use_cassette "pages#latest" do
+      {200, body, full} = last_build("edgurgel", "ed-pages-site")
+      assert 1 == "dunno"
+    end
+  end
 
   # test "find/2" do
   #   use_cassette "organizations#find" do

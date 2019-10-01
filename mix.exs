@@ -42,8 +42,8 @@ defmodule Tentacat.Mixfile do
       {:ex_doc, "~> 0.19", only: :dev},
       {:inch_ex, "~> 0.5", only: :dev},
       {:excoveralls, "~> 0.5", only: :test},
-      {:exvcr, "~> 0.10.3", only: :test},
-      {:meck, "~> 0.8.9", only: :test}
+      {:exvcr, "~> 0.10.3", only: [:dev, :test]},
+      {:meck, "~> 0.8.9", only: [:dev, :test]}
     ]
   end
 
