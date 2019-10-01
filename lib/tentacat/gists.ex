@@ -80,8 +80,8 @@ defmodule Tentacat.Gists do
 
   ## Example
 
-      Tentacat.Gists.gist_get("fe771b85eeeff878d177b0c0f3840afd")
-      Tentacat.Gists.gist_get(client, "fe771b85eeeff878d177b0c0f3840afd")
+      Tentacat.Gists.get_revision("fe771b85eeeff878d177b0c0f3840afd", "0ba06a873509677ab40b8ed5575f249a55c6fc41")
+      Tentacat.Gists.get_revision(client, "fe771b85eeeff878d177b0c0f3840afd", "0ba06a873509677ab40b8ed5575f249a55c6fc41")
 
   More info at: https://developer.github.com/v3/gists/#get-a-specific-revision-of-a-gist
   """
