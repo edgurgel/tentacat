@@ -15,9 +15,11 @@ defmodule Tentacat do
   def process_response_body(""), do: nil
   def process_response_body(body), do: JSX.decode!(body, deserialization_options())
 
-  @spec process_response(HTTPoison.Response.t()) :: response
+  @spec process_response(HTTPoison.Response.t() | {integer, any, HTTPoison.Response.t()}) :: response
   def process_response(%HTTPoison.Response{status_code: status_code, body: body} = resp),
     do: {status_code, body, resp}
+  def process_response({_status_code, _, %HTTPoison.Response{} = resp}),
+    do: process_response(resp)
 
   @spec delete(binary, Client.t(), any) :: response
   def delete(path, client, body \\ "") do
@@ -164,11 +166,16 @@ defmodule Tentacat do
     end
   end
 
-  @spec build_pagination_response(HTTPoison.Response.t(), Client.auth()) :: pagination_response
+  @spec build_pagination_response(HTTPoison.Response.t() | {integer, any, HTTPoison.Response.t()}, Client.auth()) :: pagination_response
   defp build_pagination_response(%HTTPoison.Response{:headers => headers} = resp, auth) do
     {process_response(resp), next_link(headers), auth}
   end
+  defp build_pagination_response({_, _, %HTTPoison.Response{} = resp}, auth) do
+    build_pagination_response(resp, auth)
+  end
 
+  defp location_header({_, _, resp}),
+    do: location_header(resp)
   defp location_header(resp) do
     [{"Location", url}] = Enum.filter(resp.headers, &match?({"Location", _}, &1))
     url
