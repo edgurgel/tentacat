@@ -19,6 +19,9 @@ blocks:
         - name: mix deps.get
           commands:
             - mix deps.get
+      env_vars:
+        - name: MIX_ENV
+          value: test
   - name: Tests
     task:
       prologue:
@@ -30,3 +33,6 @@ blocks:
         - name: mix
           commands:
             - mix test
+      env_vars:
+        - name: MIX_ENV
+          value: test
