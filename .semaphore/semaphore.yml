@@ -29,6 +29,7 @@ blocks:
           - sem-version elixir 1.9
           - checkout
           - cache restore
+          - mix deps.get
       jobs:
         - name: mix
           commands:
