@@ -19,8 +19,6 @@ blocks:
         - name: mix deps.get
           commands:
             - mix deps.get
-    jobs:
-      - name: mix deps.get
   - name: Tests
     task:
       prologue:
