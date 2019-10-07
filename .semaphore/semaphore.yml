@@ -27,6 +27,7 @@ blocks:
       prologue:
         commands:
           - sem-version elixir 1.9
+          - mix local.rebar --force
           - checkout
           - cache restore
           - mix deps.get
