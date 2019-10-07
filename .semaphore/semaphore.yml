@@ -1,0 +1,37 @@
+version: v1.0
+name: First pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Install dependencies
+    task:
+      prologue:
+        commands:
+          - sem-version elixir 1.9
+          - checkout
+      epilogue:
+        on_pass:
+          commands:
+            - cache store
+      jobs:
+        - name: mix deps.get
+          commands:
+            - mix deps.get
+    prologue:
+      commands:
+        - checkout
+    jobs:
+      - name: mix deps.get
+  - name: Tests
+    task:
+      prologue:
+        commands:
+          - sem-version elixir 1.9
+          - checkout
+          - cache restore
+      jobs:
+        - name: mix
+          commands:
+            - mix test
