@@ -93,21 +93,55 @@ defmodule Tentacat.Gists do
   @doc """
   Create a new gist for the authenticated user.
 
-  Possible values for `options`:
+  Gist body example:
 
-  * [files: "Simple Elixir wrapper for the GitHub API"]
-  * [description: "http://www.github.com/edgurgel/tentacat"]
-  * [public: false]
+    %{
+      "files" => %{
+        "hello.rb" => %{"content" => "puts 'Hello World'"},
+        "hello.py" => %{"content" => "print 'Hello World'"}
+      },
+      "description" => "Hello World Examples",
+      "public" => false
+    }
 
   ## Example
 
-      Tentacat.Gists.create(client, "tentacat", private: false)
+      Tentacat.Gists.create(client, body)
 
   More info at: https://developer.github.com/v3/gists/#create-a-gist
   """
-  @spec create(Client.t(), binary, list) :: Tentacat.response()
-  def create(client, gist, options \\ []) do
-    post("gists", client, List.flatten([name: gist], options))
+  @spec create(Client.t(), list | map) :: Tentacat.response()
+  def create(client, body) do
+    post("gists", client, body)
+  end
+
+  @doc """
+  Edit a Gist
+
+  Gist body example:
+   %{
+      "description" => "Hello World Examples",
+      "files" => %{
+        "hello_world_ruby.txt" => %{
+          "content" => "Run `ruby hello.rb` or `python hello.py` to print Hello World",
+          "filename" => "hello.md"
+        },
+        "hello_world_python.txt" => nil,
+        "new_file.txt" => %{
+          "content" => "This is a new placeholder file."
+        }
+      }
+    }
+
+  ## Example
+
+      Tentacat.Gists.edit(client, "fe771b85eeeff878d177b0c0f3840afd", body)
+
+  More info at: https://developer.github.com/v3/gists/#edit-a-gist
+  """
+  @spec edit(Client.t(), binary, list | map) :: Tentacat.response()
+  def edit(client, gist_id, body) do
+    patch("gists/#{gist_id}", client, body)
   end
 
   @doc """
@@ -126,6 +160,77 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
+  Fork a Gist
+
+  ## Example
+
+      Tentacat.Gists.fork(client, "fe771b85eeeff878d177b0c0f3840afd")
+
+  More info: https://developer.github.com/v3/gists/#fork-a-gist
+  """
+  @spec fork(Client.t(), binary) :: Tentacat.response()
+  def fork(client, gist_id) do
+    post("gists/#{gist_id}/forks", client)
+  end
+
+  @doc """
+  Star a Gist
+
+  ## Example
+
+      Tentacat.Gists.star(client, "fe771b85eeeff878d177b0c0f3840afd")
+
+  More info: https://developer.github.com/v3/gists/#star-a-gist
+  """
+  @spec star(Client.t(), binary) :: Tentacat.response()
+  def star(client, gist_id) do
+    put("gists/#{gist_id}/star", client)
+  end
+
+  @doc """
+  Unstar a Gist
+
+  ## Example
+
+      Tentacat.Gists.unstar(client, "fe771b85eeeff878d177b0c0f3840afd")
+
+  More info: https://developer.github.com/v3/gists/#unstar-a-gist
+  """
+  @spec unstar(Client.t(), binary) :: Tentacat.response()
+  def unstar(client, gist_id) do
+    Tentacat.delete("gists/#{gist_id}/star", client)
+  end
+
+  @doc """
+  Check if a Gist is starred
+
+  ## Example
+
+      Tentacat.Gists.check_if_starred(client, "")
+
+  More info: https://developer.github.com/v3/gists/#check-if-a-gist-is-starred
+  """
+  @spec check_if_starred(Client.t(), binary) :: Tentacat.response()
+  def check_if_starred(client, gist_id) do
+    get("gists/#{gist_id}/star", client)
+  end
+
+  @doc """
+  List Gist commits
+
+  ## Example
+
+      Tentacat.Gists.list_commits("fe771b85eeeff878d177b0c0f3840afd")
+      Tentacat.Gists.list_commits(client, "fe771b85eeeff878d177b0c0f3840afd")
+
+  More info at: https://developer.github.com/v3/gists/#list-gist-commits
+  """
+  @spec list_commits(Client.t(), binary) :: Tentacat.response()
+  def list_commits(client \\ %Client{}, gist_id) do
+    get("gists/#{gist_id}/commits", client)
+  end
+
+  @doc """
   Deleting a gist requires admin access. If OAuth is used, the gist scope is required.
 
   ## Example
@@ -135,7 +240,7 @@ defmodule Tentacat.Gists do
   More info at: https://developer.github.com/v3/gists/#delete-a-gist
   """
   @spec delete(Client.t(), binary) :: Tentacat.response()
-  def delete(client, id) do
-    Tentacat.delete("gists/#{id}", client)
+  def delete(client, gist_id) do
+    Tentacat.delete("gists/#{gist_id}", client)
   end
 end

@@ -61,9 +61,89 @@ defmodule Tentacat.GistsTest do
     end
   end
 
+  test "create/2" do
+    use_cassette "gists#create" do
+      body = %{
+        "files" => %{
+          "hello.rb" => %{"content" => "puts 'Hello World'"},
+          "hello.py" => %{"content" => "print 'Hello World'"}
+        },
+        "description" => "Hello World Examples",
+        "public" => false
+      }
+
+      {status, _, _} = create(@client, body)
+      assert status == 201
+    end
+  end
+
+  test "edit/3" do
+    use_cassette "gists#edit" do
+      body = %{
+        "description" => "Hello World Examples",
+        "files" => %{
+          "hello_world_ruby.txt" => %{
+            "content" => "Run `ruby hello.rb` or `python hello.py` to print Hello World",
+            "filename" => "hello.md"
+          },
+          "hello_world_python.txt" => nil,
+          "new_file.txt" => %{
+            "content" => "This is a new placeholder file."
+          }
+        }
+      }
+
+      {status, _, _} = edit(@client, "0feff8bfe771b85ee0c3840afd78d177", body)
+      assert status == 200
+    end
+  end
+
   test "list_forks/2" do
     use_cassette "gists#list_forks" do
       {status, response, _} = list_forks(@client, "0feff8bfe771b85ee0c3840afd78d177")
+      assert status == 200
+      assert length(response) == 1
+    end
+  end
+
+  test "fork/2" do
+    use_cassette "gists#fork" do
+      {status, _, _} = fork(@client, "0feff8bfe771b85ee0c3840afd78d177")
+      assert status == 201
+    end
+  end
+
+  test "star/2" do
+    use_cassette "gists#star" do
+      {status, _, _} = star(@client, "0feff8bfe771b85ee0c3840afd78d177")
+      assert status == 204
+    end
+  end
+
+  test "unstar/2" do
+    use_cassette "gists#unstar" do
+      {status, _, _} = unstar(@client, "0feff8bfe771b85ee0c3840afd78d177")
+      assert status == 204
+    end
+  end
+
+  test "check_if_starred/2 with starred" do
+    use_cassette "gists#check_if_starred" do
+      {status, _, _} = check_if_starred(@client, "0feff8bfe771b85ee0c3840afd78d177")
+      assert status == 204
+    end
+  end
+
+  test "check_if_starred/2 with not starred" do
+    use_cassette "gists#check_if_starred_not_starred" do
+      {status, _, _} = check_if_starred(@client, "0feff8bfe771b85ee0c3840afd78d177")
+      assert status == 404
+    end
+  end
+
+  test "list_commits#2" do
+    use_cassette "gists#list_commits" do
+      {status, response, _} = list_commits(@client, "0feff8bfe771b85ee0c3840afd78d177")
       assert status == 200
       assert length(response) == 1
     end
