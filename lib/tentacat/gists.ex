@@ -22,6 +22,7 @@ defmodule Tentacat.Gists do
   ## Example
 
       Tentacat.Gists.list_users(client, "steve")
+      Tentacat.Gists.list_users("steve")
 
   More info at: https://developer.github.com/v3/gists/#list-a-users-gists
   """
@@ -31,7 +32,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  List all public gists
+  List all public gists.
 
   ## Example
 
@@ -46,11 +47,10 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  List starred gists
+  List starred gists.
 
   ## Example
 
-      Tentacat.Gists.list_starred
       Tentacat.Gists.list_starred(client)
 
   More info at: https://developer.github.com/v3/gists/#list-starred-gists
@@ -61,14 +61,14 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Get
+  Get a single gist.
 
   ## Example
 
       Tentacat.Gists.gist_get("fe771b85eeeff878d177b0c0f3840afd")
       Tentacat.Gists.gist_get(client, "fe771b85eeeff878d177b0c0f3840afd")
 
-  More info at: https://developer.github.com/v3/gists/#get
+  More info at: https://developer.github.com/v3/gists/#get-a-single-gist
   """
   @spec gist_get(Client.t(), binary) :: Tentacat.response()
   def gist_get(client \\ %Client{}, gist_id) do
@@ -76,7 +76,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Get a specific revision of a gist
+  Get a specific revision of a gist.
 
   ## Example
 
@@ -116,7 +116,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Edit a Gist
+  Edit a gist.
 
   Gist body example:
    %{
@@ -145,7 +145,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  List forks
+  List forks.
 
   ## Example
 
@@ -160,7 +160,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Fork a Gist
+  Fork a gist.
 
   ## Example
 
@@ -170,11 +170,11 @@ defmodule Tentacat.Gists do
   """
   @spec fork(Client.t(), binary) :: Tentacat.response()
   def fork(client, gist_id) do
-    post("gists/#{gist_id}/forks", client)
+    post("gists/#{gist_id}/forks", client, %{})
   end
 
   @doc """
-  Star a Gist
+  Star a gist.
 
   ## Example
 
@@ -188,7 +188,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Unstar a Gist
+  Unstar a gist.
 
   ## Example
 
@@ -202,7 +202,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Check if a Gist is starred
+  Check if a gist is starred.
 
   ## Example
 
@@ -216,7 +216,7 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  List Gist commits
+  List gist commits.
 
   ## Example
 
