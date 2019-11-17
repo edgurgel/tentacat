@@ -14,4 +14,24 @@ defmodule Tentacat.Pulls.ReviewsTests do
       assert elem(list(@client, "tentatest", "tentacat", 1), 1) == []
     end
   end
+
+  test "create/5" do
+    body = %{
+      "body" => "Forgot this change.",
+      "comments" => [
+        %{
+          "body" => "Another change needed",
+          "path" => "file-1.md",
+          "position" => 3
+        }
+      ],
+      "commit_id" => "5cc70fd733536e3b443bf43d3ba45e49efa77ae8",
+      "event" => "COMMENT"
+    }
+
+    use_cassette "pulls/reviews#create" do
+      {status_code, _, _} = create(@client, "sreecodeslayer", "to-test-github-app-events", "1", body)
+      assert status_code == 200
+    end
+  end
 end
