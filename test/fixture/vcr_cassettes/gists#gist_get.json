@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "''",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/gists/fe771b85eeeff878d177b0c0f3840afd"
+    },
+    "response": {
+      "body": "{'url':'https://api.github.com/gists/aa5a315d61ae9438b18d','forks_url':'https://api.github.com/gists/aa5a315d61ae9438b18d/forks','commits_url':'https://api.github.com/gists/aa5a315d61ae9438b18d/commits','id':'aa5a315d61ae9438b18d','node_id':'MDQ6R2lzdGFhNWEzMTVkNjFhZTk0MzhiMThk','git_pull_url':'https://gist.github.com/aa5a315d61ae9438b18d.git','git_push_url':'https://gist.github.com/aa5a315d61ae9438b18d.git','html_url':'https://gist.github.com/aa5a315d61ae9438b18d','files':{'hello_world.rb':{'filename':'hello_world.rb','type':'application/x-ruby','language':'Ruby','raw_url':'https://gist.githubusercontent.com/octocat/6cad326836d38bd3a7ae/raw/db9c55113504e46fa076e7df3a04ce592e2e86d8/hello_world.rb','size':167,'truncated':false,'content':''},'hello_world.py':{'filename':'hello_world.py','type':'application/x-python','language':'Python','raw_url':'https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/99c1bf3a345505c2e6195198d5f8c36267de570b/hello_world.py','size':199,'truncated':false,'content':''},'hello_world_ruby.txt':{'filename':'hello_world_ruby.txt','type':'text/plain','language':'Text','raw_url':'https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/9e4544db60e01a261aac098592b11333704e9082/hello_world_ruby.txt','size':46,'truncated':false,'content':'Run `ruby hello_world.rb` to print Hello World'},'hello_world_python.txt':{'filename':'hello_world_python.txt','type':'text/plain','language':'Text','raw_url':'https://gist.githubusercontent.com/octocat/e29f3839074953e1cc2934867fa5f2d2/raw/076b4b78c10c9b7e1e0b73ffb99631bfc948de3b/hello_world_python.txt','size':48,'truncated':false,'content':'Run `python hello_world.py` to print Hello World'}},'public':true,'created_at':'2010-04-14T02:15:15Z','updated_at':'2011-06-20T11:34:15Z','description':'Hello World Examples','comments':0,'user':null,'comments_url':'https://api.github.com/gists/aa5a315d61ae9438b18d/comments/','owner':{'login':'octocat','id':1,'node_id':'MDQ6VXNlcjE=','avatar_url':'https://github.com/images/error/octocat_happy.gif','gravatar_id':'','url':'https://api.github.com/users/octocat','html_url':'https://github.com/octocat','followers_url':'https://api.github.com/users/octocat/followers','following_url':'https://api.github.com/users/octocat/following{/other_user}','gists_url':'https://api.github.com/users/octocat/gists{/gist_id}','starred_url':'https://api.github.com/users/octocat/starred{/owner}{/repo}','subscriptions_url':'https://api.github.com/users/octocat/subscriptions','organizations_url':'https://api.github.com/users/octocat/orgs','repos_url':'https://api.github.com/users/octocat/repos','events_url':'https://api.github.com/users/octocat/events{/privacy}','received_events_url':'https://api.github.com/users/octocat/received_events','type':'User','site_admin':false},'truncated':false,'forks':[{'user':{'login':'octocat','id':1,'node_id':'MDQ6VXNlcjE=','avatar_url':'https://github.com/images/error/octocat_happy.gif','gravatar_id':'','url':'https://api.github.com/users/octocat','html_url':'https://github.com/octocat','followers_url':'https://api.github.com/users/octocat/followers','following_url':'https://api.github.com/users/octocat/following{/other_user}','gists_url':'https://api.github.com/users/octocat/gists{/gist_id}','starred_url':'https://api.github.com/users/octocat/starred{/owner}{/repo}','subscriptions_url':'https://api.github.com/users/octocat/subscriptions','organizations_url':'https://api.github.com/users/octocat/orgs','repos_url':'https://api.github.com/users/octocat/repos','events_url':'https://api.github.com/users/octocat/events{/privacy}','received_events_url':'https://api.github.com/users/octocat/received_events','type':'User','site_admin':false},'url':'https://api.github.com/gists/dee9c42e4998ce2ea439','id':'dee9c42e4998ce2ea439','created_at':'2011-04-14T16:00:49Z','updated_at':'2011-04-14T16:00:49Z'}],'history':[{'url':'https://api.github.com/gists/aa5a315d61ae9438b18d/57a7f021a713b1c5a6a199b54cc514735d2d462f','version':'57a7f021a713b1c5a6a199b54cc514735d2d462f','user':{'login':'octocat','id':1,'node_id':'MDQ6VXNlcjE=','avatar_url':'https://github.com/images/error/octocat_happy.gif','gravatar_id':'','url':'https://api.github.com/users/octocat','html_url':'https://github.com/octocat','followers_url':'https://api.github.com/users/octocat/followers','following_url':'https://api.github.com/users/octocat/following{/other_user}','gists_url':'https://api.github.com/users/octocat/gists{/gist_id}','starred_url':'https://api.github.com/users/octocat/starred{/owner}{/repo}','subscriptions_url':'https://api.github.com/users/octocat/subscriptions','organizations_url':'https://api.github.com/users/octocat/orgs','repos_url':'https://api.github.com/users/octocat/repos','events_url':'https://api.github.com/users/octocat/events{/privacy}','received_events_url':'https://api.github.com/users/octocat/received_events','type':'User','site_admin':false},'change_status':{'deletions':0,'additions':180,'total':180},'committed_at':'2010-04-14T02:15:15Z'}]}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 17:40:43 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "793",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4988",
+        "X-RateLimit-Reset": "1450633348",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Last-Modified": "Fri, 06 Mar 2015 17:05:31 GMT",
+        "ETag": "'32a55a21419c26b5b961f2552fb39358'",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "admin:org, read:org, repo, user, write:org",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "c6c65e5196703428e7641f7d1e9bc353",
+        "X-GitHub-Request-Id": "3E552BA7:134F4:14D3C1AC:5676E81B"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
