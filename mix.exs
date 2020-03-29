@@ -9,7 +9,7 @@ defmodule Tentacat.Mixfile do
     [
       app: :tentacat,
       version: "1.6.1",
-      elixir: "~> 1.7",
+      elixir: "~> 1.9",
       name: "Tentacat",
       description: @description,
       package: package(),
