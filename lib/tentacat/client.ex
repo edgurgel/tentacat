@@ -33,7 +33,7 @@ defmodule Tentacat.Client do
 
   @spec new(map(), binary) :: t
   def new(auth = %{jwt: _}, endpoint) do
-   pnew(auth, endpoint)
+    pnew(auth, endpoint)
   end
 
   @spec new(auth, binary) :: t

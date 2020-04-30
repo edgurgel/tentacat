@@ -12,11 +12,10 @@ defmodule Tentacat.ClientTest do
   test "custom endpoint" do
     expected = "https://ghe.foo.com/api/v3/"
 
-    creds  = %{user: "bob", password: "bob"}
+    creds = %{user: "bob", password: "bob"}
 
     client = new(creds, "https://ghe.foo.com/api/v3/")
     assert client.endpoint == expected
-
 
     client = new("https://ghe.foo.com/api/v3/")
     assert client.endpoint == expected

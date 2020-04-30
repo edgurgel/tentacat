@@ -30,7 +30,9 @@ defmodule Tentacat.Pulls.ReviewsTests do
     }
 
     use_cassette "pulls/reviews#create" do
-      {status_code, _, _} = create(@client, "sreecodeslayer", "to-test-github-app-events", "1", body)
+      {status_code, _, _} =
+        create(@client, "sreecodeslayer", "to-test-github-app-events", "1", body)
+
       assert status_code == 200
     end
   end

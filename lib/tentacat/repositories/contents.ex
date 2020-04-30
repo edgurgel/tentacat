@@ -15,5 +15,4 @@ defmodule Tentacat.Repositories.Contents do
   def content(client \\ %Client{}, owner, repo, path) do
     get("repos/#{owner}/#{repo}/contents/#{path}", client)
   end
-
 end
