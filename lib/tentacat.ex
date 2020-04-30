@@ -12,6 +12,14 @@ defmodule Tentacat do
 
   @type pagination_response :: {response, binary | nil, Client.auth()}
 
+  defimpl Jason.Encoder, for: Tuple do
+    def encode(tuple, opts) when is_tuple(tuple) do
+      [tuple]
+      |> Enum.into(%{})
+      |> Jason.Encode.map(opts)
+    end
+  end
+
   @spec process_response_body(binary) :: term
   def process_response_body(""), do: nil
   def process_response_body(body), do: Jason.decode!(body, deserialization_options())
