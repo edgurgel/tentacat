@@ -1,11 +1,12 @@
 defmodule Tentacat do
   use HTTPoison.Base
   alias Tentacat.Client
+  alias Jason
 
   @user_agent [{"User-agent", "tentacat"}]
 
   @type response ::
-          {:ok, :jsx.json_term(), HTTPoison.Response.t()}
+          {:ok, term, HTTPoison.Response.t()}
           | {integer, any, HTTPoison.Response.t()}
           | pagination_response
 
@@ -13,7 +14,7 @@ defmodule Tentacat do
 
   @spec process_response_body(binary) :: term
   def process_response_body(""), do: nil
-  def process_response_body(body), do: JSX.decode!(body, deserialization_options())
+  def process_response_body(body), do: Jason.decode!(body, deserialization_options())
 
   @spec process_response(HTTPoison.Response.t() | {integer, any, HTTPoison.Response.t()}) ::
           response
@@ -85,7 +86,7 @@ defmodule Tentacat do
 
   @spec json_request(atom, binary, any, keyword, keyword) :: response
   def json_request(method, url, body \\ "", headers \\ [], options \\ []) do
-    raw_request(method, url, JSX.encode!(body), headers, options)
+    raw_request(method, url, Jason.encode!(body), headers, options)
   end
 
   defp extra_options do
@@ -114,7 +115,7 @@ defmodule Tentacat do
   @spec request_stream(atom, binary, Client.auth(), any, :one_page | nil | :stream) ::
           Enumerable.t() | response
   def request_stream(method, url, auth, body \\ "", override \\ nil) do
-    request_with_pagination(method, url, auth, JSX.encode!(body))
+    request_with_pagination(method, url, auth, Jason.encode!(body))
     |> stream_if_needed(override)
   end
 
@@ -154,7 +155,7 @@ defmodule Tentacat do
       request!(
         method,
         url,
-        JSX.encode!(body),
+        Jason.encode!(body),
         authorization_header(auth, extra_headers() ++ @user_agent),
         extra_options()
       )
