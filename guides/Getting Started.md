@@ -40,7 +40,7 @@ config :tentacat,
   request_options: []
 ```
 
-* `:deserialization_options`: List of options to be passed through `JSX.decode!/2` to `:jsx`. See [the :jsx documentation](https://github.com/talentdeficit/exjsx#decodejson-opts) for more information.
+* `:deserialization_options`: List of options to be passed through `Jason.decode!/2`. See [the Jason documentation](https://hexdocs.pm/jason/Jason.html#decode/2-options) for more information.
 * `:extra_headers`: List of two-element tuples defining additional HTTP headers for `HTTPoison.request/5`. For alternative ways of specifying headers, see `t:HTTPoison.Base.headers/0`.
 * `:pagination`: Specifies the default method of pagination (can also be set on a per-request basis). See `Tentacat.get/4` for more information.
 * `:request_options`: Keyword list of options to be passed to `HTTPoison.request/5`.
