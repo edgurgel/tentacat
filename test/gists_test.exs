@@ -20,7 +20,7 @@ defmodule Tentacat.GistsTest do
   test "list_users/2" do
     use_cassette "gists#list_users" do
       {_, [%{"description" => description}], _} = list_users(@client, "octocat")
-      assert description == "Hello World Examples"
+      assert description == "Hello world!"
     end
   end
 
@@ -53,8 +53,8 @@ defmodule Tentacat.GistsTest do
 
   test "get_revision/2" do
     use_cassette "gists#get_revision" do
-      gist_id = "fe771b85eeeff878d177b0c0f3840afd"
-      revision_sha = "0ba06a873509677ab40b8ed5575f249a55c6fc41"
+      gist_id = "aa5a315d61ae9438b18d"
+      revision_sha = "57a7f021a713b1c5a6a199b54cc514735d2d462f"
       {status_code, %{"url" => url}, _} = get_revision(gist_id, revision_sha)
       assert url == "https://api.github.com/gists/#{gist_id}/#{revision_sha}"
       assert status_code == 200

@@ -214,10 +214,10 @@ using:
 
 ```elixir
 # To have Atom keys
-config :tentacat, :deserialization_options, [labels: :atoms]
+config :tentacat, :deserialization_options, [keys: :atoms]
 ```
 
-See: https://github.com/talentdeficit/exjsx#decodejson-opts for available options.
+See: https://hexdocs.pm/jason/Jason.html#decode/2-options for available options.
 
 ## Contributing
 

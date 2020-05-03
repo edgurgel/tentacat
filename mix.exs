@@ -31,13 +31,13 @@ defmodule Tentacat.Mixfile do
   end
 
   def application do
-    [applications: [:httpoison, :exjsx]]
+    [applications: [:httpoison]]
   end
 
   defp deps do
     [
       {:httpoison, "~> 1.0"},
-      {:exjsx, "~> 4.0"},
+      {:jason, "~> 1.2"},
       {:earmark, "~> 1.2", only: :dev},
       {:ex_doc, "~> 0.19", only: :dev},
       {:inch_ex, "~> 0.5", only: :dev},

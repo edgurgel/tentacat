@@ -26,8 +26,10 @@ defmodule Tentacat.Repositories.CollaboratorsTest do
 
   test "permission/4" do
     use_cassette "repositories/collaborators#permission" do
-      assert {200, %{"permission" => "admin"}, _} = permission(@client, "bmarkons", "script", "bmarkons")
-      assert {200, %{"permission" => "read"}, _}  = permission(@client, "bmarkons", "script", "no")
+      assert {200, %{"permission" => "admin"}, _} =
+               permission(@client, "bmarkons", "script", "bmarkons")
+
+      assert {200, %{"permission" => "read"}, _} = permission(@client, "bmarkons", "script", "no")
     end
   end
 

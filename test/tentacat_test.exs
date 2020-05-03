@@ -1,14 +1,15 @@
 defmodule TentacatTest do
   use ExUnit.Case
   import Tentacat
+  alias Jason
 
   doctest Tentacat
 
   setup_all do
-    :meck.new(JSX, [:no_link])
+    :meck.new(Jason, [:no_link])
 
     on_exit(fn ->
-      :meck.unload(JSX)
+      :meck.unload(Jason)
     end)
   end
 
@@ -41,14 +42,14 @@ defmodule TentacatTest do
     assert {200, "json", _} =
              process_response(%HTTPoison.Response{status_code: 200, headers: %{}, body: "json"})
 
-    assert :meck.validate(JSX)
+    assert :meck.validate(Jason)
   end
 
   test "process response on a non-200 response" do
     assert {404, "json", _} =
              process_response(%HTTPoison.Response{status_code: 404, headers: %{}, body: "json"})
 
-    assert :meck.validate(JSX)
+    assert :meck.validate(Jason)
   end
 
   test "process_response_body with an empty body" do
@@ -56,7 +57,7 @@ defmodule TentacatTest do
   end
 
   test "process_response_body with content" do
-    :meck.expect(JSX, :decode!, 2, :decoded_json)
+    :meck.expect(Jason, :decode!, 2, :decoded_json)
 
     assert process_response_body("json") == :decoded_json
   end
@@ -64,7 +65,7 @@ defmodule TentacatTest do
   test "process_response_body with serialization options" do
     Application.put_env(:tentacat, :deserialization_options, keys: :atoms)
 
-    :meck.expect(JSX, :decode!, fn _, [keys: :atoms] -> :decoded_json end)
+    :meck.expect(Jason, :decode!, fn _, [keys: :atoms] -> :decoded_json end)
 
     assert process_response_body("json") == :decoded_json
   end
