@@ -8,7 +8,7 @@ defmodule Tentacat.Mixfile do
   def project do
     [
       app: :tentacat,
-      version: "1.6.1",
+      version: "2.0.0",
       elixir: "~> 1.9",
       name: "Tentacat",
       description: @description,
