@@ -13,7 +13,7 @@ defmodule Tentacat.Users.Starring do
   """
   @spec stargazers(Client.t(), binary, binary) :: Tentacat.response()
   def stargazers(client, owner, repo) do
-    get("/repos/#{owner}/#{repo}/stargazers", client)
+    get("repos/#{owner}/#{repo}/stargazers", client)
   end
 
   @doc """
