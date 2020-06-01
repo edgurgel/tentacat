@@ -3,6 +3,20 @@ defmodule Tentacat.Users.Starring do
   alias Tentacat.Client
 
   @doc """
+  Lists the people that have starred the repository.
+
+  ## Example
+
+      Tentacat.Users.Starring.stargazers client, "edgurgel", "tentacat"
+
+  More info at: https://developer.github.com/v3/activity/starring/#list-stargazers
+  """
+  @spec stargazers(Client.t(), binary, binary) :: Tentacat.response()
+  def stargazers(client, owner, repo) do
+    get("/repos/#{owner}/#{repo}/stargazers", client)
+  end
+
+  @doc """
   List starred repositories for the authenticated user
 
   ## Example
