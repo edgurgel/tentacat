@@ -12,6 +12,18 @@ defmodule Tentacat.Users.StarringTest do
     HTTPoison.start()
   end
 
+  test "stargazers/3" do
+    use_cassette "starring#stargazers_success" do
+      assert [%{"login" => "login1"}, %{"login" => "login2"}] =
+               elem(stargazers(@client, "elixir-lang", "elixir"), 1)
+    end
+
+    use_cassette "starring#stargazers_failed" do
+      {status_code, _, _} = stargazers(@bad_client, "elixir-lang", "elixir")
+      assert status_code == 401
+    end
+  end
+
   test "starred?/3" do
     use_cassette "starring#starred_/1" do
       assert elem(starred?(@client, "elixir-lang", "elixir"), 1) == true

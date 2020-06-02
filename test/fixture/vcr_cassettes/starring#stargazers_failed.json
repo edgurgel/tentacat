@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/elixir-lang/elixir/stargazers"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"message\":\"Bad credentials\",\"documentation_url\":\"https://developer.github.com/v3\"}",
+      "headers": {
+        "Date": "Tue, 02 Jun 2020 20:31:18 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "83",
+        "Server": "GitHub.com",
+        "Status": "401 Unauthorized",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "59",
+        "X-RateLimit-Reset": "1591133478",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "Vary": "Accept-Encoding, Accept, X-Requested-With",
+        "X-GitHub-Request-Id": "BDB7:3CF31:AED450E:D058229:5ED6B716"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]
