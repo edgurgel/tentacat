@@ -52,17 +52,7 @@ First, add Tentacat to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:tentacat, "~> 1.0"}]
-end
-```
-
-Ensure that `tentacat` is added as an application in your `mix.exs`:
-
-_(note: this is only necessary for Elixir < 1.3)_
-
-```elixir
-def application do
-  [applications: [:tentacat]]
+  [{:tentacat, "~> 2.0"}]
 end
 ```
 

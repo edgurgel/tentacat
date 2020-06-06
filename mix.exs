@@ -31,7 +31,7 @@ defmodule Tentacat.Mixfile do
   end
 
   def application do
-    [applications: [:httpoison]]
+    []
   end
 
   defp deps do
