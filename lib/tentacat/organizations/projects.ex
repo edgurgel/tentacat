@@ -21,17 +21,17 @@ defmodule Tentacat.Organizations.Projects do
 
   Possible values for options:
 
-  * [name: "name of project board"]
-  * [body: "description of the project"]
+  * %{name: "name of project board"}
+  * %{body: "description of the project"}
 
   ## Example
 
-    Tentacat.Organizations.Projects.create client, "elixir-lang", name: "tentacat", body: "project board for tentacat"
+    Tentacat.Organizations.Projects.create client, "elixir-lang", %{ name: "tentacat", body: "project board for tentacat"}
 
   More info at: https://developer.github.com/v3/projects/#create-an-organization-project
   """
-  @spec create(Client.t(), binary, list) :: Tentacat.response()
-  def create(client, organization, options) do
+  @spec create(Client.t(), binary, map) :: Tentacat.response()
+  def create(client, organization, options) when is_map(options) do
     post("orgs/#{organization}/projects", client, options)
   end
 end

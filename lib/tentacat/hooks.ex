@@ -43,8 +43,8 @@ defmodule Tentacat.Hooks do
 
   More info at: http://developer.github.com/v3/repos/hooks/#create-a-hook
   """
-  @spec create(Client.t(), binary, binary, list) :: Tentacat.response()
-  def create(client, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/hooks", client, body)
   end
 
@@ -65,8 +65,8 @@ defmodule Tentacat.Hooks do
 
   More info at: http://developer.github.com/v3/repos/hooks/#edit-a-hook
   """
-  @spec update(Client.t(), binary, binary, binary | integer, list) :: Tentacat.response()
-  def update(client, owner, repo, hook_id, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client, owner, repo, hook_id, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/hooks/#{hook_id}", client, body)
   end
 

@@ -26,8 +26,8 @@ defmodule Tentacat.Repositories.Forks do
 
   More info at: https://developer.github.com/v3/repos/forks/#create-a-fork
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/forks", client, body)
   end
 end

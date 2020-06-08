@@ -62,7 +62,7 @@ defmodule Tentacat.GistsTest do
   end
 
   test "create/2" do
-    use_cassette "gists#create" do
+    use_cassette "gists#create", match_requests_on: [:request_body] do
       body = %{
         "files" => %{
           "hello.rb" => %{"content" => "puts 'Hello World'"},
@@ -78,7 +78,7 @@ defmodule Tentacat.GistsTest do
   end
 
   test "edit/3" do
-    use_cassette "gists#edit" do
+    use_cassette "gists#edit", match_requests_on: [:request_body] do
       body = %{
         "description" => "Hello World Examples",
         "files" => %{

@@ -22,7 +22,7 @@ defmodule Tentacat.Comments.ReactionsTest do
       "content" => "heart"
     }
 
-    use_cassette "comments/reactions#create" do
+    use_cassette "comments/reactions#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "1", body)
       assert status_code == 201
     end

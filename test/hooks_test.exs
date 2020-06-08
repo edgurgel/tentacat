@@ -25,7 +25,7 @@ defmodule Tentacat.HooksTest do
   end
 
   test "create/4" do
-    use_cassette "hooks#create" do
+    use_cassette "hooks#create", match_requests_on: [:request_body] do
       body = %{
         "name" => "web",
         "active" => true,
@@ -47,7 +47,7 @@ defmodule Tentacat.HooksTest do
       "add_events" => ["issue"]
     }
 
-    use_cassette "hooks#update" do
+    use_cassette "hooks#update", match_requests_on: [:request_body] do
       {_, %{"active" => active}, _} =
         update(@client, "soudqwiggle", "elixir-conspiracy", 6_736_758, body)
 

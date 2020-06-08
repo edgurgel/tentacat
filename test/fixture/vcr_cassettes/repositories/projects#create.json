@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"name\":\"tentacat\",\"body\":\"my new project\"}",
+      "body": "{\"body\":\"my new project\",\"name\":\"tentacat\"}",
       "headers": {
         "Accept": "application/vnd.github.inertia-preview+json",
         "User-agent": "tentacat",

@@ -53,8 +53,8 @@ defmodule Tentacat.Repositories.Statuses do
 
   More info at: https://developer.github.com/v3/repos/statuses/#create-a-status
   """
-  @spec create(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def create(client, owner, repo, sha, body) do
+  @spec create(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, sha, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/statuses/#{sha}", client, body)
   end
 end

@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"name\":\"tentacat\"}",
+      "body": "{\"name\":\"tentacat\",\"private\":false}",
       "headers": {
         "User-agent": "tentacat",
         "Authorization": "token yourtokencomeshere"

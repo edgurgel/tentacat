@@ -35,8 +35,8 @@ defmodule Tentacat.Repositories.Labels do
 
   Possible values for `body`:
 
-  * [name: "name of label"] (required)
-  * [color: "color of label"] (required)
+  * %{name: "name of label"} (required)
+  * %{color: "color of label"} (required)
 
   ## Example
 
@@ -44,8 +44,8 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#create-a-label
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/labels", client, body)
   end
 
@@ -54,8 +54,8 @@ defmodule Tentacat.Repositories.Labels do
 
   Possible values for `body`:
 
-  * [name: "name of label"] (required)
-  * [color: "color of label"] (required)
+  * %{name: "name of label"} (required)
+  * %{color: "color of label"} (required)
 
   ## Example
 
@@ -63,8 +63,8 @@ defmodule Tentacat.Repositories.Labels do
 
   More info at: https://developer.github.com/v3/issues/labels/#update-a-label
   """
-  @spec update(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def update(client \\ %Client{}, owner, repo, name, body) do
+  @spec update(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, name, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/labels/#{name}", client, body)
   end
 

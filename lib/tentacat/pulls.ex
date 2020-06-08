@@ -73,8 +73,8 @@ defmodule Tentacat.Pulls do
 
   More info at: https://developer.github.com/v3/pulls/#create-a-pull-request
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/pulls", client, body)
   end
 
@@ -95,8 +95,8 @@ defmodule Tentacat.Pulls do
 
   More info at: https://developer.github.com/v3/pulls/#update-a-pull-request
   """
-  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
-  def update(client, owner, repo, number, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client, owner, repo, number, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/pulls/#{number}", client, body)
   end
 
@@ -116,8 +116,8 @@ defmodule Tentacat.Pulls do
 
   More info at: https://developer.github.com/v3/pulls/#merge-a-pull-request-merge-button
   """
-  @spec merge(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
-  def merge(client, owner, repo, number, body) do
+  @spec merge(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def merge(client, owner, repo, number, body) when is_map(body) do
     put("repos/#{owner}/#{repo}/pulls/#{number}/merge", client, body)
   end
 

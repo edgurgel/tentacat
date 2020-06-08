@@ -24,7 +24,7 @@ defmodule Tentacat.Repositories.DeploymentsTest do
       "description" => "Deploying my sweet branch"
     }
 
-    use_cassette "repositories/deployments#create" do
+    use_cassette "repositories/deployments#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", body)
       assert status_code == 201
     end
@@ -43,7 +43,7 @@ defmodule Tentacat.Repositories.DeploymentsTest do
       description: "Deployment finished successfully."
     }
 
-    use_cassette "repositories/deployments#create_status" do
+    use_cassette "repositories/deployments#create_status", match_requests_on: [:request_body] do
       {status_code, _, _} =
         create_status(@client, "soudqwiggle", "elixir-conspiracy", 2_936_534, body)
 

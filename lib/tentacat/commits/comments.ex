@@ -48,8 +48,8 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#create-a-commit-comment
   """
-  @spec create(Client.t(), binary, binary, binary, map | list) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, sha, body) do
+  @spec create(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, sha, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/commits/#{sha}/comments", client, body)
   end
 
@@ -82,8 +82,8 @@ defmodule Tentacat.Commits.Comments do
 
   More info at: https://developer.github.com/v3/repos/comments/#update-a-commit-comment
   """
-  @spec update(Client.t(), binary, binary, binary | integer, map | list) :: Tentacat.response()
-  def update(client \\ %Client{}, owner, repo, id, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, id, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/comments/#{id}", client, body)
   end
 

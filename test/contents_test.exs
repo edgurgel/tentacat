@@ -43,7 +43,7 @@ defmodule Tentacat.ContentsTest do
       "branch" => "master"
     }
 
-    use_cassette "contents#create" do
+    use_cassette "contents#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "README.md", body)
       assert status_code == 201
     end
@@ -61,7 +61,7 @@ defmodule Tentacat.ContentsTest do
       "branch" => "master"
     }
 
-    use_cassette "contents#update" do
+    use_cassette "contents#update", match_requests_on: [:request_body] do
       {_, %{"commit" => %{"sha" => sha}}, _} =
         update(@client, "soudqwiggle", "elixir-conspiracy", "README.md", body)
 
@@ -80,7 +80,7 @@ defmodule Tentacat.ContentsTest do
       "branch" => "master"
     }
 
-    use_cassette "contents#remove" do
+    use_cassette "contents#remove", match_requests_on: [:request_body] do
       {_, %{"commit" => %{"sha" => sha}}, _} =
         remove(@client, "soudqwiggle", "elixir-conspiracy", "README.md", body)
 

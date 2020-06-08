@@ -86,31 +86,31 @@ defmodule Tentacat.Repositories do
 
   Possible values for `options`:
 
-  * [description: "Simple Elixir wrapper for the GitHub API"]
-  * [homepage: "http://www.github.com/edgurgel/tentacat"]
-  * [private: false]
-  * [has_issues: true]
-  * [has_wiki: false]
-  * [has_downloads: true]
-  * [team_id: 123]
-  * [auto_init: false]
-  * [gitignore_template: "Haskell"]
-  * [license_template: "mit"]j
+  * %{description: "Simple Elixir wrapper for the GitHub API"}
+  * %{homepage: "http://www.github.com/edgurgel/tentacat"}
+  * %{private: false}
+  * %{has_issues: true}
+  * %{has_wiki: false}
+  * %{has_downloads: true}
+  * %{team_id: 123}
+  * %{auto_init: false}
+  * %{gitignore_template: "Haskell"}
+  * %{license_template: "mit"}j
 
   ## Example
 
-      Tentacat.Repositories.create(client, "tentacat", private: false)
+      Tentacat.Repositories.create(client, "tentacat", %{private: false})
 
   More info at: https://developer.github.com/v3/repos/#create
   """
-  @spec create(Client.t(), binary, list) :: Tentacat.response()
-  def create(client, repo, options \\ []) do
-    post("user/repos", client, List.flatten([name: repo], options))
+  @spec create(Client.t(), binary, map) :: Tentacat.response()
+  def create(client, repo, options \\ %{}) when is_map(options) do
+    post("user/repos", client, Map.merge(%{name: repo}, options))
   end
 
   @spec org_create(Client.t(), binary, binary, list) :: Tentacat.response()
-  def org_create(client, org, repo, options \\ []) do
-    post("orgs/#{org}/repos", client, List.flatten([name: repo], options))
+  def org_create(client, org, repo, options \\ %{}) when is_map(options) do
+    post("orgs/#{org}/repos", client, Map.merge(%{name: repo}, options))
   end
 
   @doc """

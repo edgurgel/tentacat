@@ -31,9 +31,8 @@ defmodule Tentacat.Pulls.Comments.Reactions do
 
   More info at: https://developer.github.com/v3/reactions/#create-reaction-for-a-pull-request-review-comment
   """
-  @spec create(Client.t(), binary, binary, binary | integer, Keyword.t() | map) ::
-          Tentacat.response()
-  def create(client, owner, repo, comment_id, body) do
+  @spec create(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def create(client, owner, repo, comment_id, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/pulls/comments/#{comment_id}/reactions", client, body)
   end
 end

@@ -24,7 +24,7 @@ defmodule Tentacat.MilestonesTest do
   end
 
   test "create/4" do
-    use_cassette "milesones/milestones#create" do
+    use_cassette "milesones/milestones#create", match_requests_on: [:request_body] do
       body = %{
         "title" => "Amazing new Readme",
         "state" => "open"
@@ -36,7 +36,7 @@ defmodule Tentacat.MilestonesTest do
   end
 
   test "update/5" do
-    use_cassette "milesones/milestones#update" do
+    use_cassette "milesones/milestones#update", match_requests_on: [:request_body] do
       body = %{
         "state" => "closed"
       }

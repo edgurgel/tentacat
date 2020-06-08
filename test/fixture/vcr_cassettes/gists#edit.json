@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"description\":\"Hello World Examples\",\"files\":{\"hello_python.txt\":null,\"hello_ruby.txt\":{\"content\":\"Run `ruby hello.rb` or `python hello.py` to print Hello World\",\"filename\":\"hello.md\"},\"new_file.txt\":{\"content\":\"This is a new placeholder file.\"}}}",
+      "body": "{\"description\":\"Hello World Examples\",\"files\":{\"hello_world_python.txt\":null,\"hello_world_ruby.txt\":{\"content\":\"Run `ruby hello.rb` or `python hello.py` to print Hello World\",\"filename\":\"hello.md\"},\"new_file.txt\":{\"content\":\"This is a new placeholder file.\"}}}",
       "headers": {
         "User-agent": "tentacat",
         "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"

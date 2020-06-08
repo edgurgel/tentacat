@@ -31,9 +31,9 @@ defmodule Tentacat.Issues.Comments.Reactions do
 
   More info at: https://developer.github.com/v3/reactions/#create-reaction-for-an-issue-comment
   """
-  @spec create(Client.t(), binary, binary, binary | integer, Keyword.t() | map) ::
+  @spec create(Client.t(), binary, binary, binary | integer, map) ::
           Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, comment_id, body) do
+  def create(client \\ %Client{}, owner, repo, comment_id, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/issues/comments/#{comment_id}/reactions", client, body)
   end
 end

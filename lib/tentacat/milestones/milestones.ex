@@ -37,10 +37,10 @@ defmodule Tentacat.Milestones do
 
   Possible values for `body`:
 
-  * ["title": "v1.0"]
-  * ["state": "open"]
-  * ["description": "Tracking milestone for version 1.0"]
-  * ["due_on": "2012-10-09T23:39:01Z"]
+  * %{"title": "v1.0"}
+  * %{"state": "open"}
+  * %{"description": "Tracking milestone for version 1.0"}
+  * %{"due_on": "2012-10-09T23:39:01Z"}
 
   ## Example
 
@@ -49,8 +49,8 @@ defmodule Tentacat.Milestones do
 
   More info at: https://developer.github.com/v3/issues/milestones/#create-a-milestone
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/milestones", client, body)
   end
 
@@ -59,10 +59,10 @@ defmodule Tentacat.Milestones do
 
   Possible values for `body`:
 
-  * ["title": "v1.0"]
-  * ["state": "open"]
-  * ["description": "Tracking milestone for version 1.0"]
-  * ["due_on": "2012-10-09T23:39:01Z"]
+  * %{"title": "v1.0"}
+  * %{"state": "open"}
+  * %{"description": "Tracking milestone for version 1.0"}
+  * %{"due_on": "2012-10-09T23:39:01Z"}
 
   ## Example
 
@@ -71,8 +71,8 @@ defmodule Tentacat.Milestones do
 
   More info at: https://developer.github.com/v3/issues/milestones/#update-a-milestone
   """
-  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
-  def update(client \\ %Client{}, owner, repo, number, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, number, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/milestones/#{number}", client, body)
   end
 

@@ -75,8 +75,8 @@ defmodule Tentacat.Repositories.Branches do
 
   More info at: https://developer.github.com/v3/repos/branches/#update-branch-protection
   """
-  @spec update_protection(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def update_protection(client \\ %Client{}, owner, repo, branch, body) do
+  @spec update_protection(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def update_protection(client \\ %Client{}, owner, repo, branch, body) when is_map(body) do
     put("repos/#{owner}/#{repo}/branches/#{branch}/protection", client, body)
   end
 end

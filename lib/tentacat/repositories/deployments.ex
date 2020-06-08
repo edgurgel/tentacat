@@ -35,8 +35,8 @@ defmodule Tentacat.Repositories.Deployments do
 
   More info at: https://developer.github.com/v3/repos/deployments/#create-a-deployment
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/deployments", client, body)
   end
 
@@ -73,8 +73,8 @@ defmodule Tentacat.Repositories.Deployments do
 
   More info at: https://developer.github.com/v3/repos/deployments/#create-a-deployment-status
   """
-  @spec create_status(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def create_status(client, owner, repo, id, body) do
+  @spec create_status(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def create_status(client, owner, repo, id, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/deployments/#{id}/statuses", client, body)
   end
 end

@@ -32,8 +32,8 @@ defmodule Tentacat.Git.Blobs do
 
   More info at: https://developer.github.com/v3/git/blobs/#create-a-blob
   """
-  @spec create(Client.t(), binary, binary, map | list) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/git/blobs", client, body)
   end
 end

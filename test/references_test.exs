@@ -25,7 +25,7 @@ defmodule Tentacat.ReferencesTest do
   end
 
   test "create/4" do
-    use_cassette "references#create" do
+    use_cassette "references#create", match_requests_on: [:request_body] do
       body = %{
         "ref" => "refs/heads/old-readme",
         "sha" => "2ff6f7942773c268dc9ab0e11e9dffad402c1860"
@@ -42,7 +42,7 @@ defmodule Tentacat.ReferencesTest do
       "force" => true
     }
 
-    use_cassette "references#update" do
+    use_cassette "references#update", match_requests_on: [:request_body] do
       {_, %{"ref" => ref}, _} =
         update(@client, "soudqwiggle", "elixir-conspiracy", "heads/master", body)
 

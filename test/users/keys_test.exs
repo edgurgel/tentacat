@@ -43,14 +43,14 @@ sOpeb6IzgbBaxuQ9Jlpu2JgzMst0ArBNkPI3ER6ppQ== your_email@example.com "
   end
 
   test "create/3" do
-    use_cassette "users/keys#create" do
+    use_cassette "users/keys#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "test key", @public_key)
       assert status_code == 201
     end
   end
 
   test "update/4" do
-    use_cassette "users/keys#update" do
+    use_cassette "users/keys#update", match_requests_on: [:request_body] do
       {405, %{"message" => message}, _} =
         update(@client, 15_057_833, "updated test key", "ssh-rsa AAA...")
 

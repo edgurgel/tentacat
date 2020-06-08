@@ -55,8 +55,8 @@ defmodule Tentacat.Trees do
 
   More info at: https://developer.github.com/v3/git/trees/#create-a-tree
   """
-  @spec create(binary, binary, list | map, Client.t()) :: Tentacat.response()
-  def create(owner, repo, body, client) do
+  @spec create(binary, binary, map, Client.t()) :: Tentacat.response()
+  def create(owner, repo, body, client) when is_map(body) do
     post("repos/#{owner}/#{repo}/git/trees", client, body)
   end
 end

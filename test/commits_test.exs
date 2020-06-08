@@ -7,10 +7,6 @@ defmodule Tentacat.CommitsTest do
 
   @client Tentacat.Client.new(%{access_token: "yourtokencomeshere"})
 
-  #  setup_all do
-  #    HTTPoison.start
-  #  end
-
   test "list/3" do
     use_cassette "commits#list" do
       assert {200, [], _} = list(@client, "soudqwiggle", "elixir-conspiracy")
@@ -18,7 +14,7 @@ defmodule Tentacat.CommitsTest do
   end
 
   test "filter/4" do
-    use_cassette "commits#filter" do
+    use_cassette "commits#filter", match_requests_on: [:query] do
       {_, [%{"sha" => sha}], _} =
         filter(@client, "soudqwiggle", "elixir-conspiracy", %{
           sha: "09fe12ca25d0440f143ab331e4684a8622d6e4e5"

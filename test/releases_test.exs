@@ -32,16 +32,16 @@ defmodule Tentacat.ReleasesTest do
   end
 
   test "create/4" do
-    use_cassette "releases#create" do
+    use_cassette "releases#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "v1", "soudqwiggle", "elixir-conspiracy")
       assert status_code == 201
     end
   end
 
   test "edit/5" do
-    options = [tag_name: "v1.0.0"]
+    options = %{tag_name: "v1.0.0"}
 
-    use_cassette "releases#edit" do
+    use_cassette "releases#edit", match_requests_on: [:request_body] do
       {_, %{"tag_name" => name}, _} =
         edit(@client, 2_317_708, "soudqwiggle", "elixir-conspiracy", options)
 

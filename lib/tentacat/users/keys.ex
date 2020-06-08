@@ -56,7 +56,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec create(Client.t(), binary, binary) :: Tentacat.response()
   def create(client, title, key) do
-    post("user/keys", client, title: title, key: key)
+    post("user/keys", client, %{title: title, key: key})
   end
 
   @doc """
@@ -70,7 +70,7 @@ defmodule Tentacat.Users.Keys do
   """
   @spec update(Client.t(), integer, binary, binary) :: Tentacat.response()
   def update(client, id, title, key) do
-    patch("user/keys/#{id}", client, title: title, key: key)
+    patch("user/keys/#{id}", client, %{title: title, key: key})
   end
 
   @doc """

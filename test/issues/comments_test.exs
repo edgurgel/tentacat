@@ -55,7 +55,7 @@ defmodule Tentacat.Issues.CommentsTest do
   test "create/5" do
     body = %{"body" => "woop!"}
 
-    use_cassette "issues/comments#create" do
+    use_cassette "issues/comments#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "3", body)
       assert status_code == 201
     end
@@ -64,7 +64,7 @@ defmodule Tentacat.Issues.CommentsTest do
   test "update/5" do
     body = %{"body" => "up!"}
 
-    use_cassette "issues/comments#update" do
+    use_cassette "issues/comments#update", match_requests_on: [:request_body] do
       {_, %{"body" => comment}, _} = update(@client, "lest", "test-repo", 253_744_502, body)
       assert comment == "up!"
     end

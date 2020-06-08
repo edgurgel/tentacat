@@ -25,7 +25,7 @@ defmodule Tentacat.Organizations.HooksTest do
   end
 
   test "create/3" do
-    use_cassette "organizations/hooks#create" do
+    use_cassette "organizations/hooks#create", match_requests_on: [:request_body] do
       body = %{
         "name" => "web",
         "active" => true,
@@ -47,7 +47,7 @@ defmodule Tentacat.Organizations.HooksTest do
       "add_events" => ["issue"]
     }
 
-    use_cassette "organizations/hooks#update" do
+    use_cassette "organizations/hooks#update", match_requests_on: [:request_body] do
       {_, %{"active" => active}, _} = update(@client, "tentatest", 6_736_758, body)
       assert active == false
     end
