@@ -81,8 +81,8 @@ defmodule Tentacat.Pulls.Comments do
 
   More info at: https://developer.github.com/v3/pulls/comments/#create-a-comment
   """
-  @spec create(Client.t(), binary, binary, integer | binary, list | map) :: Tentacat.response()
-  def create(client, owner, repo, number, body) do
+  @spec create(Client.t(), binary, binary, integer | binary, map) :: Tentacat.response()
+  def create(client, owner, repo, number, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/pulls/#{number}/comments", client, body)
   end
 
@@ -95,8 +95,8 @@ defmodule Tentacat.Pulls.Comments do
 
   More info at: https://developer.github.com/v3/pulls/comments/#edit-a-comment
   """
-  @spec update(Client.t(), binary, binary, binary | integer, list) :: Tentacat.response()
-  def update(client, owner, repo, comment_id, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client, owner, repo, comment_id, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/pulls/comments/#{comment_id}", client, body)
   end
 

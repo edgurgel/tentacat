@@ -43,7 +43,7 @@ defmodule Tentacat.Commits.CommentsTest do
       "position" => 1
     }
 
-    use_cassette "commits/comments#create" do
+    use_cassette "commits/comments#create", match_requests_on: [:request_body] do
       {status_code, _, _} =
         create(
           @client,
@@ -62,7 +62,7 @@ defmodule Tentacat.Commits.CommentsTest do
       "body" => ":sheep: :lv:"
     }
 
-    use_cassette "commits/comments#update" do
+    use_cassette "commits/comments#update", match_requests_on: [:request_body] do
       {_, %{"id" => commit_id}, _} =
         update(@client, "soudqwiggle", "elixir-conspiracy", 15_079_374, body)
 

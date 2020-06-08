@@ -54,10 +54,11 @@ defmodule Tentacat.Releases do
 
   More info at: http://developer.github.com/v3/repos/releases/#create-a-release
   """
-  @spec create(Client.t(), binary, binary, binary, list) :: Tentacat.response()
-  def create(client \\ %Client{}, tag_name, owner, repo, options \\ [])
-      when is_binary(tag_name) do
-    body = Keyword.merge(options, tag_name: tag_name)
+  @spec create(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, tag_name, owner, repo, options \\ %{})
+      when is_map(options) and
+             is_binary(tag_name) do
+    body = Map.merge(options, %{tag_name: tag_name})
     post("repos/#{owner}/#{repo}/releases", client, body)
   end
 
@@ -79,8 +80,9 @@ defmodule Tentacat.Releases do
 
   More info at: http://developer.github.com/v3/repos/releases/#edit-a-release
   """
-  @spec edit(Client.t(), integer, binary, binary, list) :: Tentacat.response()
-  def edit(client \\ %Client{}, id, owner, repo, options \\ []) when is_integer(id) do
+  @spec edit(Client.t(), integer, binary, binary, map) :: Tentacat.response()
+  def edit(client \\ %Client{}, id, owner, repo, options \\ %{})
+      when is_integer(id) and is_map(options) do
     patch("repos/#{owner}/#{repo}/releases/#{id}", client, options)
   end
 

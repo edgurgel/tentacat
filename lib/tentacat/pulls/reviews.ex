@@ -39,7 +39,7 @@ defmodule Tentacat.Pulls.Reviews do
   More info at: https://developer.github.com/v3/pulls/reviews/#create-a-pull-request-review
   """
   @spec create(Client.t(), binary, binary, binary | integer, map()) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, number, body) do
+  def create(client \\ %Client{}, owner, repo, number, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/pulls/#{number}/reviews", client, body)
   end
 end

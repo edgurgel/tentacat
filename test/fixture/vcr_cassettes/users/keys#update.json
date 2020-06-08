@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"title\":\"updated test key\",\"key\":\"ssh-rsa AAA...\"}",
+      "body": "{\"key\":\"ssh-rsa AAA...\",\"title\":\"updated test key\"}",
       "headers": {
         "User-agent": "tentacat",
         "Authorization": "token yourtokencomeshere"

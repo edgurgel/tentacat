@@ -22,7 +22,7 @@ defmodule Tentacat.Pulls.Comments.ReactionsTest do
       "content" => ":+1:"
     }
 
-    use_cassette "pulls/comments/reactions#create" do
+    use_cassette "pulls/comments/reactions#create", match_requests_on: [:request_body] do
       assert {201, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "1", body)
     end
   end

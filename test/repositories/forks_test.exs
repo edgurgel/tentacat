@@ -21,7 +21,7 @@ defmodule Tentacat.Repositories.ForksTest do
   end
 
   test "create/4" do
-    use_cassette "repositories/forks#create" do
+    use_cassette "repositories/forks#create", match_requests_on: [:request_body] do
       {status_code, %{"owner" => %{"login" => owner}}, _} =
         create(@client, "ShaneWilton", "tentacat", %{})
 

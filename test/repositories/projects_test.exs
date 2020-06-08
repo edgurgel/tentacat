@@ -25,9 +25,9 @@ defmodule Tentacat.Repositories.ProjectsTest do
   end
 
   test "create/4" do
-    use_cassette "repositories/projects#create" do
+    use_cassette "repositories/projects#create", match_requests_on: [:request_body] do
       {status, _response, _} =
-        create(@client, "achiurizo", "dotfiles", name: "tentacat", body: "my new project")
+        create(@client, "achiurizo", "dotfiles", %{name: "tentacat", body: "my new project"})
 
       assert status == 201
     end

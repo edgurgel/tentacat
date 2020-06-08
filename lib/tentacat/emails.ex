@@ -27,7 +27,7 @@ defmodule Tentacat.Users.Emails do
   """
   @spec create(Client.t(), [binary]) :: Tentacat.response()
   def create(client, emails) do
-    post("user/emails", client, emails)
+    post("user/emails", client, %{emails: emails})
   end
 
   @doc """

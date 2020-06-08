@@ -18,7 +18,7 @@ defmodule Tentacat.IssuesTest do
   end
 
   test "filter/4" do
-    use_cassette "issues/issues#filter" do
+    use_cassette "issues/issues#filter", match_requests_on: [:query] do
       assert elem(filter(@client, "soudqwiggle", "elixir-conspiracy", %{"state" => "open"}), 1) ==
                []
     end
@@ -36,7 +36,7 @@ defmodule Tentacat.IssuesTest do
       "title" => "Something broke"
     }
 
-    use_cassette "issues/issues#create" do
+    use_cassette "issues/issues#create", match_requests_on: [:request_body] do
       {status_code, %{"title" => title}, _} =
         create(@client, "soudqwiggle", "elixir-conspiracy", body)
 
@@ -50,7 +50,7 @@ defmodule Tentacat.IssuesTest do
       "state" => "closed"
     }
 
-    use_cassette "issues/issues#update" do
+    use_cassette "issues/issues#update", match_requests_on: [:request_body] do
       {_, %{"state" => state}, _} = update(@client, "soudqwiggle", "elixir-conspiracy", "3", body)
       assert state == "closed"
     end

@@ -83,15 +83,15 @@ defmodule Tentacat.RepositoriesTest do
   end
 
   test "create/3" do
-    use_cassette "repositories#create" do
-      {status, _response, _} = create(@client, "tentacat", private: false)
+    use_cassette "repositories#create", match_requests_on: [:request_body] do
+      {status, _response, _} = create(@client, "tentacat", %{private: false})
       assert status == 201
     end
   end
 
   test "org_create/4" do
-    use_cassette "repositories#org_create" do
-      {status, _response, _} = org_create(@client, "tentatest", "tentacat", private: false)
+    use_cassette "repositories#org_create", match_requests_on: [:request_body] do
+      {status, _response, _} = org_create(@client, "tentatest", "tentacat", %{private: false})
       assert status == 201
     end
   end

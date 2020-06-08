@@ -110,8 +110,8 @@ defmodule Tentacat.Gists do
 
   More info at: https://developer.github.com/v3/gists/#create-a-gist
   """
-  @spec create(Client.t(), list | map) :: Tentacat.response()
-  def create(client, body) do
+  @spec create(Client.t(), map) :: Tentacat.response()
+  def create(client, body) when is_map(body) do
     post("gists", client, body)
   end
 
@@ -139,8 +139,8 @@ defmodule Tentacat.Gists do
 
   More info at: https://developer.github.com/v3/gists/#edit-a-gist
   """
-  @spec edit(Client.t(), binary, list | map) :: Tentacat.response()
-  def edit(client, gist_id, body) do
+  @spec edit(Client.t(), binary, map) :: Tentacat.response()
+  def edit(client, gist_id, body) when is_map(body) do
     patch("gists/#{gist_id}", client, body)
   end
 

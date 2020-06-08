@@ -18,7 +18,7 @@ defmodule Tentacat.PullsTest do
   end
 
   test "filter/4" do
-    use_cassette "pulls#filter" do
+    use_cassette "pulls#filter", match_requests_on: [:query] do
       assert elem(filter(@client, "tentatest", "tentacat", %{state: "closed"}), 1) == []
     end
   end
@@ -31,7 +31,7 @@ defmodule Tentacat.PullsTest do
   end
 
   test "create/4" do
-    use_cassette "pulls#create" do
+    use_cassette "pulls#create", match_requests_on: [:request_body] do
       body = %{
         "title" => "Amazing new Readme",
         "body" => "Every project needs a README",
@@ -45,7 +45,7 @@ defmodule Tentacat.PullsTest do
   end
 
   test "update/5" do
-    use_cassette "pulls#update" do
+    use_cassette "pulls#update", match_requests_on: [:request_body] do
       body = %{
         "state" => "closed"
       }
@@ -56,7 +56,7 @@ defmodule Tentacat.PullsTest do
   end
 
   test "merge/5" do
-    use_cassette "pulls#merge" do
+    use_cassette "pulls#merge", match_requests_on: [:request_body] do
       body = %{
         commit_message: "not the default commit_message"
       }

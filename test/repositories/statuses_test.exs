@@ -47,7 +47,7 @@ defmodule Tentacat.Repositories.StatusesTest do
       context: "continuous-integration/jenkins"
     }
 
-    use_cassette "repositories/statuses#create" do
+    use_cassette "repositories/statuses#create", match_requests_on: [:request_body] do
       {status_code, _, _} =
         create(
           @client,

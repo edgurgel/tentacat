@@ -21,20 +21,20 @@ defmodule Tentacat.Projects do
 
   Possible values for `options`:
 
-  * [name: "name of project"]
-  * [body: "description of project"]
-  * [state: "open"]
-  * [organization_permission: "read"]
-  * [private: true]
+  * name: "name of project"
+  * body: "description of project"
+  * state: "open"
+  * organization_permission: "read"
+  * private: true
 
   ## Example
 
-      Tentcat.Projects.update client, [name: "My Board", private: true]
+      Tentacat.Projects.update client, %{name: "My Board", private: true}
 
   More info at: https://developer.github.com/v3/projects/#update-a-project
   """
-  @spec update(Client.t(), binary, Keyword.t()) :: Tentacat.response()
-  def update(client, id, options) do
+  @spec update(Client.t(), binary, map) :: Tentacat.response()
+  def update(client, id, options) when is_map(options) do
     patch("projects/#{id}", client, options)
   end
 

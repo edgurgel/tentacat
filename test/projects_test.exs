@@ -25,8 +25,8 @@ defmodule Tentacat.ProjectsTest do
   end
 
   test "update/3" do
-    use_cassette "projects#update" do
-      {_, %{"name" => name}, _} = update(@client, 2_539_313, name: "New Demo")
+    use_cassette "projects#update", match_requests_on: [:request_body] do
+      {_, %{"name" => name}, _} = update(@client, 2_539_313, %{name: "New Demo"})
       assert name == "New Demo"
     end
   end

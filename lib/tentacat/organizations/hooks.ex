@@ -41,7 +41,7 @@ defmodule Tentacat.Organizations.Hooks do
   More info at: http://developer.github.com/v3/orgs/hooks/#create-a-hook
   """
   @spec create(Client.t(), binary, list) :: Tentacat.response()
-  def create(client, organization, body) do
+  def create(client, organization, body) when is_map(body) do
     post("orgs/#{organization}/hooks", client, body)
   end
 
@@ -62,8 +62,8 @@ defmodule Tentacat.Organizations.Hooks do
 
   More info at: http://developer.github.com/v3/orgs/hooks/#edit-a-hook
   """
-  @spec update(Client.t(), binary, binary | integer, list) :: Tentacat.response()
-  def update(client, organization, hook_id, body) do
+  @spec update(Client.t(), binary, binary | integer, map) :: Tentacat.response()
+  def update(client, organization, hook_id, body) when is_map(body) do
     patch("orgs/#{organization}/hooks/#{hook_id}", client, body)
   end
 

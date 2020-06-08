@@ -68,8 +68,8 @@ defmodule Tentacat.Contents do
 
   More info at: https://developer.github.com/v3/repos/contents/#create-a-file
   """
-  @spec create(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def create(client, owner, repo, path, body) do
+  @spec create(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, path, body) when is_map(body) do
     put("repos/#{owner}/#{repo}/contents/#{path}", client, body)
   end
 
@@ -95,8 +95,8 @@ defmodule Tentacat.Contents do
 
   More info at: https://developer.github.com/v3/repos/contents/#update-a-file
   """
-  @spec update(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def update(client, owner, repo, path, body) do
+  @spec update(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def update(client, owner, repo, path, body) when is_map(body) do
     put("repos/#{owner}/#{repo}/contents/#{path}", client, body)
   end
 
@@ -121,8 +121,8 @@ defmodule Tentacat.Contents do
 
   More info at: https://developer.github.com/v3/repos/contents/#delete-a-file
   """
-  @spec remove(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def remove(client, owner, repo, path, body) do
+  @spec remove(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def remove(client, owner, repo, path, body) when is_map(body) do
     delete("repos/#{owner}/#{repo}/contents/#{path}", client, body)
   end
 end

@@ -29,7 +29,7 @@ defmodule Tentacat.Pulls.ReviewsTests do
       "event" => "COMMENT"
     }
 
-    use_cassette "pulls/reviews#create" do
+    use_cassette "pulls/reviews#create", match_requests_on: [:request_body] do
       {status_code, _, _} =
         create(@client, "sreecodeslayer", "to-test-github-app-events", "1", body)
 

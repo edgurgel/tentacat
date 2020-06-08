@@ -24,7 +24,7 @@ defmodule Tentacat.Pulls.CommentsTest do
   end
 
   test "filter_all/4" do
-    use_cassette "pulls/comments#filter_all" do
+    use_cassette "pulls/comments#filter_all", match_requests_on: [:query] do
       elem(
         filter_all(
           @client,
@@ -54,7 +54,7 @@ defmodule Tentacat.Pulls.CommentsTest do
       "position" => 1
     }
 
-    use_cassette "pulls/comments#create" do
+    use_cassette "pulls/comments#create", match_requests_on: [:request_body] do
       {status_code, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "1", body)
       assert status_code == 201
     end
@@ -65,7 +65,7 @@ defmodule Tentacat.Pulls.CommentsTest do
       "body" => ":+1:"
     }
 
-    use_cassette "pulls/comments#update" do
+    use_cassette "pulls/comments#update", match_requests_on: [:request_body] do
       {_, %{"id" => commit_id}, _} =
         update(@client, "soudqwiggle", "elixir-conspiracy", 47_450_612, body)
 

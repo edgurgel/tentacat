@@ -89,8 +89,8 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#create-a-comment
   """
-  @spec create(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, issue_id, body) do
+  @spec create(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, issue_id, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/issues/#{issue_id}/comments", client, body)
   end
 
@@ -110,8 +110,8 @@ defmodule Tentacat.Issues.Comments do
 
   https://developer.github.com/v3/issues/comments/#edit-a-comment
   """
-  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
-  def update(client \\ %Client{}, owner, repo, comment_id, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, comment_id, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/issues/comments/#{comment_id}", client, body)
   end
 

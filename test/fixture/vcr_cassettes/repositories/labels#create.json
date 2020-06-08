@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{\"name\":\"WIP\",\"color\":\"123456\"}",
+      "body": "{\"color\":\"123456\",\"name\":\"WIP\"}",
       "headers": {
         "User-agent": "tentacat"
       },

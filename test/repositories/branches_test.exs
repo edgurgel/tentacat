@@ -32,7 +32,7 @@ defmodule Tentacat.Repositories.BranchesTest do
       "restrictions" => nil
     }
 
-    use_cassette "repositories/branches#update_protection" do
+    use_cassette "repositories/branches#update_protection", match_requests_on: [:request_body] do
       assert elem(update_protection(@client, "valiot", "tentacat", "master", body), 1)["url"] ==
                "https://api.github.com/repos/valiot/tentacat/branches/master/protection"
     end

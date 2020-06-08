@@ -34,7 +34,7 @@ defmodule Tentacat.Repositories.LabelsTest do
   end
 
   test "create/4" do
-    use_cassette "repositories/labels#create" do
+    use_cassette "repositories/labels#create", match_requests_on: [:request_body] do
       {status_code, %{"name" => name, "color" => color}, _} =
         create(@client, "danielfarrell", "elixir", %{name: "WIP", color: "123456"})
 
@@ -45,7 +45,7 @@ defmodule Tentacat.Repositories.LabelsTest do
   end
 
   test "update/5" do
-    use_cassette "repositories/labels#update" do
+    use_cassette "repositories/labels#update", match_requests_on: [:request_body] do
       %{"name" => name, "color" => color} =
         elem(update(@client, "danielfarrell", "elixir", "WIP", %{color: "654321"}), 1)
 

@@ -48,8 +48,8 @@ defmodule Tentacat.References do
 
   More info at: https://developer.github.com/v3/git/refs/#create-a-reference
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/git/refs", client, body)
   end
 
@@ -69,8 +69,8 @@ defmodule Tentacat.References do
 
   More info at: https://developer.github.com/v3/git/refs/#update-a-reference
   """
-  @spec update(Client.t(), binary, binary, binary, list | map) :: Tentacat.response()
-  def update(client, owner, repo, ref, body) do
+  @spec update(Client.t(), binary, binary, binary, map) :: Tentacat.response()
+  def update(client, owner, repo, ref, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/git/refs/#{ref}", client, body)
   end
 

@@ -45,7 +45,7 @@ defmodule Tentacat.Repositories.DeployKeys do
   More info at: https://developer.github.com/v3/repos/keys/#add-a-new-deploy-key
   """
   @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
-  def create(client, owner, repo, body) do
+  def create(client, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/keys", client, body)
   end
 

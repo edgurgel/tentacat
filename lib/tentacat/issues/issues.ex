@@ -52,11 +52,11 @@ defmodule Tentacat.Issues do
 
   Possible values for `body`:
 
-  * [title: "title of issue"] (required)
-  * [body: "body of issue"]
-  * [assignee: "username"]
-  * [milestone: 4]
-  * [labels: ["bug", "frontend"]]
+  * %{title: "title of issue"} (required)
+  * %{body: "body of issue"}
+  * %{assignee: "username"}
+  * %{milestone: 4}
+  * %{labels: ["bug", "frontend"]}
 
   ## Example
 
@@ -65,8 +65,8 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#create-an-issue
   """
-  @spec create(Client.t(), binary, binary, list | map) :: Tentacat.response()
-  def create(client \\ %Client{}, owner, repo, body) do
+  @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
+  def create(client \\ %Client{}, owner, repo, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/issues", client, body)
   end
 
@@ -75,12 +75,12 @@ defmodule Tentacat.Issues do
 
   Possible values for `body`:
 
-  * [title: "title of issue"]
-  * [body: "body of issue"]
-  * [assignee: "username"]
-  * [state: "closed"]
-  * [milestone: 4]
-  * [labels: ["bug", "frontend"]]
+  * %{title: "title of issue"}
+  * %{body: "body of issue"}
+  * %{assignee: "username"}
+  * %{state: "closed"}
+  * %{milestone: 4}
+  * %{labels: ["bug", "frontend"]}
 
   ## Example
 
@@ -89,8 +89,8 @@ defmodule Tentacat.Issues do
 
   More info at: https://developer.github.com/v3/issues/#edit-an-issue
   """
-  @spec update(Client.t(), binary, binary, binary | integer, list | map) :: Tentacat.response()
-  def update(client \\ %Client{}, owner, repo, number, body) do
+  @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
+  def update(client \\ %Client{}, owner, repo, number, body) when is_map(body) do
     patch("repos/#{owner}/#{repo}/issues/#{number}", client, body)
   end
 end

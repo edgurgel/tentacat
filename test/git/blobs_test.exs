@@ -12,7 +12,7 @@ defmodule Tentacat.Git.BlobsTest do
   end
 
   test "create/3" do
-    use_cassette "git/blob#create" do
+    use_cassette "git/blob#create", match_requests_on: [:request_body] do
       body = %{
         "content" => "Woop!",
         "encoding" => "utf-8"
