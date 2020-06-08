@@ -12,14 +12,6 @@ defmodule Tentacat do
 
   @type pagination_response :: {response, binary | nil, Client.auth()}
 
-  defimpl Jason.Encoder, for: Tuple do
-    def encode(tuple, opts) when is_tuple(tuple) do
-      [tuple]
-      |> Enum.into(%{})
-      |> Jason.Encode.map(opts)
-    end
-  end
-
   @spec process_response_body(binary) :: term
   def process_response_body(""), do: nil
   def process_response_body(body), do: Jason.decode!(body, deserialization_options())
@@ -94,6 +86,8 @@ defmodule Tentacat do
 
   @spec json_request(atom, binary, any, keyword, keyword) :: response
   def json_request(method, url, body \\ "", headers \\ [], options \\ []) do
+    body = if Keyword.keyword?(body), do: Map.new(body), else: body
+
     raw_request(method, url, Jason.encode!(body), headers, options)
   end
 
