@@ -37,7 +37,7 @@ defmodule Tentacat.Commits do
 
       Tentacat.Commits.find(client, "6dcb09b", "elixir-lang", "elixir")
 
-  More info at: http://developer.github.com/v3/repos/releases/#get-a-single-commit
+  More info at: https://developer.github.com/v3/repos/commits/#get-a-commit
   """
   @spec find(Client.t(), any, binary, binary) :: Tentacat.response()
   def find(client \\ %Client{}, sha, owner, repo) do
