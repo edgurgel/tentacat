@@ -81,7 +81,7 @@ defmodule Tentacat.Commits do
 
       Tentacat.Commits.create(client, "elixir-lang", "elixir", body)
 
-  More info at: https://developer.github.com/v3/repos/commits/#compare-two-commits
+  More info at: https://developer.github.com/v3/git/commits/#create-a-commit
   """
   @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
   def create(client \\ %Client{}, owner, repo, body) do
