@@ -1,0 +1,47 @@
+[
+  {
+    "request": {
+      "body": "{\"message\":\"my commit message\",\"author\":{\"name\":\"MonaOctocat\",\"email\":\"octocat@github.com\",\"date\":\"2008-07-09T16:13:30+12:00\"},\"parents\":[\"7d1b31e74ee336d15cbd21741bc88a537ed063a0\"],\"tree\":\"827efc6d56897b048c772eb4087f854f46256132\",\"signature\":\"-----BEGINPGPSIGNATURE-----\n\niQIzBAABAQAdFiEESn/54jMNIrGSE6Tp6cQjvhfv7nAFAlnT71cACgkQ6cQjvhfv\n7nCWwA//XVqBKWO0zF+bZl6pggvky3Oc2j1pNFuRWZ29LXpNuD5WUGXGG209B0hI\nDkmcGk19ZKUTnEUJV2Xd0R7AW01S/YSub7OYcgBkI7qUE13FVHN5ln1KvH2all2n\n2+JCV1HcJLEoTjqIFZSSu/sMdhkLQ9/NsmMAzpf/iIM0nQOyU4YRex9eD1bYj6nA\nOQPIDdAuaTQj1gFPHYLzM4zJnCqGdRlg0sOM/zC5apBNzIwlgREatOYQSCfCKV7k\nnrU34X8b9BzQaUx48Qa+Dmfn5KQ8dl27RNeWAqlkuWyv3pUauH9UeYW+KyuJeMkU\n+NyHgAsWFaCFl23kCHThbLStMZOYEnGagrd0hnm1TPS4GJkV4wfYMwnI4KuSlHKB\njHl3Js9vNzEUQipQJbgCgTiWvRJoK3ENwBTMVkKHaqT4x9U4Jk/XZB6Q8MA09ezJ\n3QgiTjTAGcum9E9QiJqMYdWQPWkaBIRRz5cET6HPB48YNXAAUsfmuYsGrnVLYbG+\nUpC6I97VybYHTy2O9XSGoaLeMI9CsFn38ycAxxbWagk5mhclNTP5mezIq6wKSwmr\nX11FW3n1J23fWZn5HJMBsRnUCgzqzX3871IqLYHqRJ/bpZ4h20RhTyPj5c/z7QXp\neSakNQMfbbMcljkha+ZMuVQX1K9aRlVqbmv3ZMWh+OijLYVU2bc=\n=5Io4\n-----ENDPGPSIGNATURE-----\"}",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token yourtokencomeshere"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/commits"
+    },
+    "response": {
+      "body": "{\"sha\":\"7638417db6d59f3c431d3e1f261cc637155684cd\",\"node_id\":\"MDY6Q29tbWl0NzYzODQxN2RiNmQ1OWYzYzQzMWQzZTFmMjYxY2M2MzcxNTU2ODRjZA==\",\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd\",\"author\":{\"date\":\"2014-11-07T22:01:45Z\",\"name\":\"MonalisaOctocat\",\"email\":\"octocat@github.com\"},\"committer\":{\"date\":\"2014-11-07T22:01:45Z\",\"name\":\"MonalisaOctocat\",\"email\":\"octocat@github.com\"},\"message\":\"my commit message\",\"tree\":{\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/trees/827efc6d56897b048c772eb4087f854f46256132\",\"sha\":\"827efc6d56897b048c772eb4087f854f46256132\"},\"parents\":[{\"url\":\"https://api.github.com/repos/octocat/Hello-World/git/commits/7d1b31e74ee336d15cbd21741bc88a537ed063a0\",\"sha\":\"7d1b31e74ee336d15cbd21741bc88a537ed063a0\"}],\"verification\":{\"verified\":false,\"reason\":\"unsigned\",\"signature\":null,\"payload\":null}}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sun, 20 Dec 2015 12:34:59 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "887",
+        "Status": "201 Created",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4991",
+        "X-RateLimit-Reset": "1450616633",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "ETag": "\"f27e39bde892a465e57924c4cfa4754f\"",
+        "X-OAuth-Scopes": "admin:org, admin:org_hook, admin:public_key, admin:repo_hook, delete_repo, gist, notifications, repo, user",
+        "X-Accepted-OAuth-Scopes": "",
+        "Location": "https://api.github.com/repos/soudqwiggle/elixir-conspiracy/git/refs/heads/old-readme",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "3e3b9690823fb031da84658eb58aa83b",
+        "X-GitHub-Request-Id": "3E552BA7:A39A:122C2226:5676A073"
+      },
+      "status_code": 201,
+      "type": "ok"
+    }
+  }
+]
