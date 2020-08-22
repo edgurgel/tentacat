@@ -27,7 +27,7 @@ defmodule Tentacat.Issues.ReactionsTest do
     end
   end
 
-  test "delete/6" do
+  test "delete/5" do
     use_cassette "issues/reactions#delete" do
       assert {204, _, _} = delete(@client, "dwyl", "learn-elixir", "1", "2")
     end
