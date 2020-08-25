@@ -36,4 +36,22 @@ defmodule Tentacat.Issues.Comments.Reactions do
   def create(client \\ %Client{}, owner, repo, comment_id, body) when is_map(body) do
     post("repos/#{owner}/#{repo}/issues/comments/#{comment_id}/reactions", client, body)
   end
+
+  @doc """
+  Delete a reaction on an issue comment
+
+  ### Example
+
+  Tentacat.Issues.Comments.Reactions.delete "elixir-lang", "elixir", "3", "4", client
+
+  More info at: https://developer.github.com/v3/reactions/#delete-an-issue-comment-reaction
+  """
+  @spec delete(Client.t(), binary, binary, binary | integer, binary) ::
+          Tentacat.response()
+  def delete(client \\ %Client{}, owner, repo, comment_id, reaction_id) do
+    delete(
+      "repos/#{owner}/#{repo}/issues/comments/#{comment_id}/reactions/#{reaction_id}",
+      client
+    )
+  end
 end

@@ -26,4 +26,10 @@ defmodule Tentacat.Issues.ReactionsTest do
       assert {201, _, _} = create(@client, "soudqwiggle", "elixir-conspiracy", "1", body)
     end
   end
+
+  test "delete/5" do
+    use_cassette "issues/reactions#delete" do
+      assert {204, _, _} = delete(@client, "dwyl", "learn-elixir", "1", "2")
+    end
+  end
 end
