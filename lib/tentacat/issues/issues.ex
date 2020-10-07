@@ -8,7 +8,7 @@ defmodule Tentacat.Issues do
   ## Example
 
       Tentacat.Issues.list "elixir-lang", "elixir"
-      Tentacat.Issues.list "elixir-lang", "elixir", client
+      Tentacat.Issues.list client, "elixir-lang", "elixir"
 
   More info at: https://developer.github.com/v3/issues/#list-issues
   """
