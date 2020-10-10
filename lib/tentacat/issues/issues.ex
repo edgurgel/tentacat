@@ -3,14 +3,14 @@ defmodule Tentacat.Issues do
   alias Tentacat.Client
 
   @doc """
-  List issues
+  List repository issues
 
   ## Example
 
       Tentacat.Issues.list "elixir-lang", "elixir"
       Tentacat.Issues.list client, "elixir-lang", "elixir"
 
-  More info at: https://developer.github.com/v3/issues/#list-issues
+  More info at: https://docs.github.com/en/free-pro-team@latest/rest/reference/issues#list-repository-issues
   """
   @spec list(Client.t(), binary, binary) :: Tentacat.response()
   def list(client \\ %Client{}, owner, repo) do
@@ -18,14 +18,14 @@ defmodule Tentacat.Issues do
   end
 
   @doc """
-  Filter issues
+  Filter repository issues
 
   ## Example
 
       Tentacat.Issues.filter "elixir-lang", "elixir", %{state: "open"}
-      Tentacat.Issues.filter "elixir-lang", "elixir", %{state: "open"}, client
+      Tentacat.Issues.filter client, "elixir-lang", "elixir", %{state: "open"}
 
-  More info at: https://developer.github.com/v3/issues/#list-issues-for-a-repository
+  More info at: https://docs.github.com/en/free-pro-team@latest/rest/reference/issues#list-repository-issues
   """
   @spec filter(Client.t(), binary, binary, map) :: Tentacat.response()
   def filter(client \\ %Client{}, owner, repo, filters) do
@@ -33,14 +33,14 @@ defmodule Tentacat.Issues do
   end
 
   @doc """
-  Get a single issue
+  Get an issue
 
   ## Example
 
       Tentacat.Issues.find "elixir-lang", "elixir", "2974"
-      Tentacat.Issues.find "elixir-lang", "elixir", "2974", client
+      Tentacat.Issues.find client, "elixir-lang", "elixir", "2974"
 
-  More info at: https://developer.github.com/v3/issues/#get-a-single-issue
+  More info at: https://docs.github.com/en/free-pro-team@latest/rest/reference/issues#get-an-issue
   """
   @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
   def find(client \\ %Client{}, owner, repo, number) do
@@ -61,9 +61,9 @@ defmodule Tentacat.Issues do
   ## Example
 
       Tentacat.Issues.create "elixir-lang", "elixir", %{"title" => "Issue", "body" => "Details"}
-      Tentacat.Issues.create "elixir-lang", "elixir", %{"title" => "Issue", "body" => "Details"}, client
+      Tentacat.Issues.create client, "elixir-lang", "elixir", %{"title" => "Issue", "body" => "Details"}
 
-  More info at: https://developer.github.com/v3/issues/#create-an-issue
+  More info at: https://docs.github.com/en/free-pro-team@latest/rest/reference/issues#create-an-issue
   """
   @spec create(Client.t(), binary, binary, map) :: Tentacat.response()
   def create(client \\ %Client{}, owner, repo, body) when is_map(body) do
@@ -85,9 +85,9 @@ defmodule Tentacat.Issues do
   ## Example
 
       Tentacat.Issues.update "elixir-lang", "elixir", "2974", %{"assignee" => "edgurgel"}
-      Tentacat.Issues.update "elixir-lang", "elixir", "2974", %{"state" => "closed"}, client
+      Tentacat.Issues.update client, "elixir-lang", "elixir", "2974", %{"state" => "closed"}
 
-  More info at: https://developer.github.com/v3/issues/#edit-an-issue
+  More info at: https://docs.github.com/en/free-pro-team@latest/rest/reference/issues#update-an-issue
   """
   @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
   def update(client \\ %Client{}, owner, repo, number, body) when is_map(body) do
