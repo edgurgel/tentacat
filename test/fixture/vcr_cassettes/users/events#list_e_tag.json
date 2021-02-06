@@ -1,0 +1,44 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "If-None-Match": "\"1e1eaa79cefda6e152f880f49c5bd0c6a4bf662c957cdfe7c2923d316c4db966\"",
+        "User-agent": "tentacat"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/users/soudqwiggle/events"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Sat, 06 Feb 2021 20:38:32 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Cache-Control": "public, max-age=60, s-maxage=60",
+        "Vary": "Accept, Accept-Encoding, Accept, X-Requested-With",
+        "ETag": "\"1e1eaa79cefda6e152f880f49c5bd0c6a4bf662c957cdfe7c2923d316c4db966\"",
+        "X-Poll-Interval": "60",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, Deprecation, Sunset",
+        "Access-Control-Allow-Origin": "*",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Frame-Options": "deny",
+        "X-Content-Type-Options": "nosniff",
+        "X-XSS-Protection": "1; mode=block",
+        "Referrer-Policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+        "Content-Security-Policy": "default-src 'none'",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "58",
+        "X-RateLimit-Reset": "1612646916",
+        "x-ratelimit-used": "2",
+        "X-GitHub-Request-Id": "E7DF:68F8:245EAB:6A18E7:601EFE48"
+      },
+      "status_code": 304,
+      "type": "ok"
+    }
+  }
+]

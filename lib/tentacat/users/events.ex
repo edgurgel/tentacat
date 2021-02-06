@@ -77,20 +77,6 @@ defmodule Tentacat.Users.Events do
   end
 
   @doc """
-  List events for an organization since last check represented by e_tag
-
-  ## Example
-
-      Tentacat.Users.Events.list_user_org client, "bastos", "elixir-lang", "2a97f8e2fba8b548ae56bce4074f25cc00674f213963d2f8cf579b8a3"
-
-  More info at: https://developer.github.com/v3/activity/events/#list-events-for-an-organization
-  """
-  @spec list_user_org(Client.t(), binary, binary, binary) :: Tentacat.response()
-  def list_user_org(client, user, org, e_tag) do
-    get("users/#{user}/events/orgs/#{org}", client, [], [], [{"If-None-Match" , "\"#{e_tag}\""}])
-  end
-
-  @doc """
   List public events that a user has received
 
   ## Example
@@ -102,19 +88,5 @@ defmodule Tentacat.Users.Events do
   @spec list_received_public(Client.t(), binary) :: Tentacat.response()
   def list_received_public(client \\ %Client{}, user) do
     get("users/#{user}/received_events/public", client)
-  end
-
-  @doc """
-  List public events that a user has received since last check represented by e_tag
-
-  ## Example
-
-      Tentacat.Users.Events.list_received_public client, "bastos", "2a97f8e2fba8b548ae56bce4074f25cc00674f213963d2f8cf579b8a3"
-
-  More info at: https://developer.github.com/v3/activity/events/#list-public-events-that-a-user-has-received
-  """
-  @spec list_received_public(Client.t(), binary, binary) :: Tentacat.response()
-  def list_received_public(client, user, e_tag) do
-    get("users/#{user}/received_events/public", client, [], [], [{"If-None-Match" , "\"#{e_tag}\""}])
   end
 end
