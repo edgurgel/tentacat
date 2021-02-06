@@ -70,20 +70,20 @@ defmodule Tentacat do
   """
   @spec get(binary, Client.t()) :: response
   @spec get(binary, Client.t(), keyword) :: response
-  @spec get(binary, Client.t(), keyword, keyword) ::
-          response | Enumerable.t() | pagination_response
-  def get(path, client, params \\ [], options \\ []) do
+  @spec get(binary, Client.t(), keyword, keyword) :: response | Enumerable.t() | pagination_response
+  @spec get(binary, Client.t(), keyword, keyword, keyword) :: response | Enumerable.t() | pagination_response
+  def get(path, client, params \\ [], options \\ [], headers \\ []) do
     url =
       client
       |> url(path)
       |> add_params_to_url(params)
 
     case pagination(options) do
-      nil -> request_stream(:get, url, client.auth)
-      :none -> request_stream(:get, url, client.auth, "", :one_page)
-      :auto -> request_stream(:get, url, client.auth)
-      :stream -> request_stream(:get, url, client.auth, "", :stream)
-      :manual -> request_with_pagination(:get, url, client.auth)
+      nil -> request_stream(:get, url, client.auth, "", nil, headers)
+      :none -> request_stream(:get, url, client.auth, "", :one_page, headers)
+      :auto -> request_stream(:get, url, client.auth, "", nil, headers)
+      :stream -> request_stream(:get, url, client.auth, "", :stream, headers)
+      :manual -> request_with_pagination(:get, url, client.auth, headers)
     end
   end
 
@@ -101,8 +101,8 @@ defmodule Tentacat do
     Application.get_env(:tentacat, :request_options, [])
   end
 
-  defp extra_headers do
-    Application.get_env(:tentacat, :extra_headers, [])
+  defp extra_headers(headers) do
+    Application.get_env(:tentacat, :extra_headers, headers)
   end
 
   defp deserialization_options do
@@ -116,14 +116,14 @@ defmodule Tentacat do
 
   def raw_request(method, url, body \\ "", headers \\ [], options \\ []) do
     method
-    |> request!(url, body, extra_headers() ++ headers, extra_options() ++ options)
+    |> request!(url, body, extra_headers(headers), extra_options() ++ options)
     |> process_response
   end
 
   @spec request_stream(atom, binary, Client.auth(), any, :one_page | nil | :stream) ::
           Enumerable.t() | response
-  def request_stream(method, url, auth, body \\ "", override \\ nil) do
-    request_with_pagination(method, url, auth, Jason.encode!(body))
+  def request_stream(method, url, auth, body \\ "", override \\ nil, headers \\ []) do
+    request_with_pagination(method, url, auth, Jason.encode!(body), headers)
     |> stream_if_needed(override)
   end
 
@@ -157,14 +157,14 @@ defmodule Tentacat do
     {[item], {[], next, auth}}
   end
 
-  @spec request_with_pagination(atom, binary, Client.auth(), any) :: pagination_response
-  def request_with_pagination(method, url, auth, body \\ "") do
+  @spec request_with_pagination(atom, binary, Client.auth(), any, keyword) :: pagination_response
+  def request_with_pagination(method, url, auth, body \\ "", headers \\ []) do
     resp =
       request!(
         method,
         url,
         Jason.encode!(body),
-        authorization_header(auth, extra_headers() ++ @user_agent),
+        authorization_header(auth, extra_headers(headers) ++ @user_agent),
         extra_options()
       )
 
