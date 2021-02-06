@@ -70,8 +70,10 @@ defmodule Tentacat do
   """
   @spec get(binary, Client.t()) :: response
   @spec get(binary, Client.t(), keyword) :: response
-  @spec get(binary, Client.t(), keyword, keyword) :: response | Enumerable.t() | pagination_response
-  @spec get(binary, Client.t(), keyword, keyword, keyword) :: response | Enumerable.t() | pagination_response
+  @spec get(binary, Client.t(), keyword, keyword) ::
+          response | Enumerable.t() | pagination_response
+  @spec get(binary, Client.t(), keyword, keyword, keyword) ::
+          response | Enumerable.t() | pagination_response
   def get(path, client, params \\ [], options \\ [], headers \\ []) do
     url =
       client

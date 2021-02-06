@@ -19,7 +19,12 @@ defmodule Tentacat.Users.EventsTest do
 
   test "list/3" do
     use_cassette "users/events#list_e_tag" do
-      assert {304, _, _} = list(@client, "soudqwiggle", "1e1eaa79cefda6e152f880f49c5bd0c6a4bf662c957cdfe7c2923d316c4db966")
+      assert {304, _, _} =
+               list(
+                 @client,
+                 "soudqwiggle",
+                 "1e1eaa79cefda6e152f880f49c5bd0c6a4bf662c957cdfe7c2923d316c4db966"
+               )
     end
   end
 
@@ -31,7 +36,12 @@ defmodule Tentacat.Users.EventsTest do
 
   test "list_public/3" do
     use_cassette "users/events#list_public_e_tag" do
-      assert {304, _, _} = list_public(@client, "soudqwiggle", "1e1eaa79cefda6e152f880f49c5bd0c6a4bf662c957cdfe7c2923d316c4db966")
+      assert {304, _, _} =
+               list_public(
+                 @client,
+                 "soudqwiggle",
+                 "1e1eaa79cefda6e152f880f49c5bd0c6a4bf662c957cdfe7c2923d316c4db966"
+               )
     end
   end
 

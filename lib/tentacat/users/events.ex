@@ -29,7 +29,7 @@ defmodule Tentacat.Users.Events do
   """
 
   def list(client, user, e_tag) do
-    get("users/#{user}/events", client, [], [], [{"If-None-Match" , "\"#{e_tag}\""}])
+    get("users/#{user}/events", client, [], [], [{"If-None-Match", "\"#{e_tag}\""}])
   end
 
   @doc """
@@ -59,7 +59,7 @@ defmodule Tentacat.Users.Events do
   """
   @spec list_public(Client.t(), binary, binary) :: Tentacat.response()
   def list_public(client, user, e_tag) do
-    get("users/#{user}/events/public", client, [], [], [{"If-None-Match" , "\"#{e_tag}\""}])
+    get("users/#{user}/events/public", client, [], [], [{"If-None-Match", "\"#{e_tag}\""}])
   end
 
   @doc """
