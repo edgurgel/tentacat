@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Projects do
   alias Tentacat.Client
 
   @doc """
-  Lists the projects in a repository
+  Lists the projects in a repository.
 
   ## Example
 
@@ -17,12 +17,12 @@ defmodule Tentacat.Repositories.Projects do
   end
 
   @doc """
-  Create a new project for a repository
+  Create a new project for a repository.
 
   Possible values for options:
 
-  * %{name: "name of project board"}
-  * %{body: "description of the project"}
+    * %{name: "name of project board"}
+    * %{body: "description of the project"}
 
   ## Example
 

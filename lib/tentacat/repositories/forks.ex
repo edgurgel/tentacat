@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Forks do
   alias Tentacat.Client
 
   @doc """
-  List forks of a repository
+  List forks of a repository.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.Repositories.Forks do
   end
 
   @doc """
-  Creates a new fork of a repository
+  Creates a new fork of a repository.
 
   ## Example
 

@@ -3,7 +3,7 @@ defmodule Tentacat.Users.Emails do
   alias Tentacat.Client
 
   @doc """
-  List email addresses for the authenticated user
+  List email addresses for the authenticated user.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.Users.Emails do
   end
 
   @doc """
-  Add email address(es)
+  Add email address(es).
 
   ## Example
 
@@ -31,7 +31,7 @@ defmodule Tentacat.Users.Emails do
   end
 
   @doc """
-  Delete email address(es)
+  Delete email address(es).
 
   ## Example
 

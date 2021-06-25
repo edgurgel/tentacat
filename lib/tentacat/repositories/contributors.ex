@@ -3,9 +3,10 @@ defmodule Tentacat.Repositories.Contributors do
   alias Tentacat.Client
 
   @doc """
-  List contributors for a specific repository
+  List contributors for a specific repository.
 
   ## Example
+
       Tentacat.Repositories.Contributors.list "elixir-lang", "elixir"
       Tentacat.Repositories.Contributors.list client, "elixir-lang", "elixir"
 

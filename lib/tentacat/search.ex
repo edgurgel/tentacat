@@ -3,11 +3,11 @@ defmodule Tentacat.Search do
   alias Tentacat.Client
 
   @moduledoc """
-  The Search API allows the search of pretty much anything on GitHub
+  The Search API allows the search of pretty much anything on GitHub.
   """
 
   @doc """
-  Search in code files
+  Search in code files.
 
   ## Example
 
@@ -22,7 +22,7 @@ defmodule Tentacat.Search do
   end
 
   @doc """
-  Searches for users
+  Searches for users.
 
   ## Example
 
@@ -37,7 +37,7 @@ defmodule Tentacat.Search do
   end
 
   @doc """
-  Searches for repositories
+  Searches for repositories.
 
   ## Example
 
@@ -52,7 +52,7 @@ defmodule Tentacat.Search do
   end
 
   @doc """
-  Search in issues and pull requests
+  Search in issues and pull requests.
 
   ## Example
 

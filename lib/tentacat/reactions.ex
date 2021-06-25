@@ -2,7 +2,7 @@ defmodule Tentacat.Reactions do
   alias Tentacat.Client
 
   @doc """
-  Delete a reaction
+  Delete a reaction.
 
   ## Example
 

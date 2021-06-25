@@ -3,7 +3,7 @@ defmodule Tentacat.Issues.Labels do
   alias Tentacat.Client
 
   @doc """
-  List labels on an issue
+  List labels on an issue.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.Issues.Labels do
   end
 
   @doc """
-  Add labels to an issue
+  Add labels to an issue.
 
   ## Example
 
@@ -31,7 +31,7 @@ defmodule Tentacat.Issues.Labels do
   end
 
   @doc """
-  Remove a label from an issue
+  Remove a label from an issue.
 
   ## Example
 

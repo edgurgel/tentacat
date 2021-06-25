@@ -1,32 +1,20 @@
 defmodule Tentacat.Mixfile do
   use Mix.Project
 
-  @description """
-    Simple Elixir wrapper for the GitHub API
-  """
+  @source_url "https://github.com/edgurgel/tentacat"
+  @version "2.2.0"
 
   def project do
     [
       app: :tentacat,
-      version: "2.2.0",
+      version: @version,
       elixir: "~> 1.9",
       name: "Tentacat",
-      description: @description,
-      package: package(),
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test],
+      package: package(),
       deps: deps(),
-
-      # Docs
-      name: "Tentacat",
-      source_url: "https://github.com/edgurgel/tentacat",
-      docs: [
-        main: "readme",
-        extras: [
-          "README.md",
-          "guides/Getting Started.md"
-        ]
-      ]
+      docs: docs()
     ]
   end
 
@@ -38,8 +26,7 @@ defmodule Tentacat.Mixfile do
     [
       {:httpoison, "~> 1.0"},
       {:jason, "~> 1.2"},
-      {:earmark, "~> 1.2", only: :dev},
-      {:ex_doc, "~> 0.19", only: :dev},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:inch_ex, "~> 0.5", only: :dev},
       {:excoveralls, "~> 0.5", only: :test},
       {:exvcr, "~> 0.10.3", only: :test},
@@ -49,9 +36,23 @@ defmodule Tentacat.Mixfile do
 
   defp package do
     [
+      description: "Simple Elixir wrapper for the GitHub API",
       maintainers: ["Eduardo Gurgel Pinho", "Jamie Winsor", "Hugo Duksis"],
       licenses: ["MIT"],
-      links: %{"Github" => "https://github.com/edgurgel/tentacat"}
+      links: %{"GitHub" => @source_url}
+    ]
+  end
+
+  defp docs do
+    [
+      extras: [
+        "LICENSE.md": [title: "License"],
+        "README.md": [title: "Overview"],
+        "guides/getting_started.md": [title: "Getting Started"]
+      ],
+      main: "readme",
+      source_url: @source_url,
+      formatters: ["html"]
     ]
   end
 end

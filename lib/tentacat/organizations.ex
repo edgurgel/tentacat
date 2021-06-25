@@ -3,7 +3,7 @@ defmodule Tentacat.Organizations do
   alias Tentacat.Client
 
   @doc """
-  List all public organizations for a user
+  List all public organizations for a user.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Organizations do
   end
 
   @doc """
-  List public and private organizations for the authenticated user
+  List public and private organizations for the authenticated user.
 
   ## Example
 
@@ -32,7 +32,7 @@ defmodule Tentacat.Organizations do
   end
 
   @doc """
-  Get an organization
+  Get an organization.
 
   ## Example
 
@@ -47,15 +47,15 @@ defmodule Tentacat.Organizations do
   end
 
   @doc """
-  Update an organization
+  Update an organization.
 
   Possible values for `options`:
 
-  * [billing_email: "billing email"]
-  * [company: "Company42"]
-  * [email: "public email"]
-  * [location: "Brazil"]
-  * [name: "company42"]
+    * [billing_email: "billing email"]
+    * [company: "Company42"]
+    * [email: "public email"]
+    * [location: "Brazil"]
+    * [name: "company42"]
 
   ## Example
 

@@ -4,11 +4,11 @@ defmodule Tentacat.Issues.Reactions do
   alias Tentacat.Client
 
   @doc """
-  List the reactions on a issue
+  List the reactions on a issue.
 
   ## Example
 
-  Tentacat.Issues.Reactions.list "elixir-lang" , "elixir", "3"
+      Tentacat.Issues.Reactions.list "elixir-lang" , "elixir", "3"
 
   More info at: https://developer.github.com/v3/reactions/#list-reactions-for-an-issue
   """
@@ -19,13 +19,17 @@ defmodule Tentacat.Issues.Reactions do
   end
 
   @doc """
-  Create a reaction on an issue
+  Create a reaction on an issue.
 
   Reaction Request body example:
-      %{ content: "heart" }
 
+  ```elixir
+  %{
+    content: "heart"
+  }
+  ```
 
-  ### Example
+  ## Example
 
   Tentacat.Issues.Reactions.create "elixir-lang", "elixir", "3"
 
@@ -38,11 +42,11 @@ defmodule Tentacat.Issues.Reactions do
   end
 
   @doc """
-  Delete a reaction on an issue
+  Delete a reaction on an issue.
 
-  ### Example
+  ## Example
 
-  Tentacat.Issues.Reactions.delete "elixir-lang", "elixir", "3", "4"
+      Tentacat.Issues.Reactions.delete "elixir-lang", "elixir", "3", "4"
 
   More info at: https://developer.github.com/v3/reactions/#delete-an-issue-reaction
   """

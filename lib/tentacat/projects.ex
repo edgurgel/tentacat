@@ -3,7 +3,7 @@ defmodule Tentacat.Projects do
   alias Tentacat.Client
 
   @doc """
-  Get a single `project`
+  Get a single `project`.
 
   ## Example
 
@@ -17,15 +17,15 @@ defmodule Tentacat.Projects do
   end
 
   @doc """
-  Update the `project`
+  Update the `project`.
 
   Possible values for `options`:
 
-  * name: "name of project"
-  * body: "description of project"
-  * state: "open"
-  * organization_permission: "read"
-  * private: true
+    * name: "name of project"
+    * body: "description of project"
+    * state: "open"
+    * organization_permission: "read"
+    * private: true
 
   ## Example
 
@@ -39,7 +39,7 @@ defmodule Tentacat.Projects do
   end
 
   @doc """
-  Delete a `project`
+  Delete a `project`.
 
   ## Example
 

@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Statuses do
   alias Tentacat.Client
 
   @doc """
-  List Statuses for a specific Ref
+  List Statuses for a specific Ref.
 
   ## Example
 
@@ -19,7 +19,7 @@ defmodule Tentacat.Repositories.Statuses do
   end
 
   @doc """
-  Get the combined Status for a specific Ref
+  Get the combined Status for a specific Ref.
 
   ## Example
 
@@ -35,10 +35,11 @@ defmodule Tentacat.Repositories.Statuses do
   end
 
   @doc """
-  Create a Status
+  Create a Status.
 
   Comment body example:
-  ```
+
+  ```elixir
   %{
      "state": "success",
      "target_url": "https://example.com/build/status",

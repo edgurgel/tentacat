@@ -3,7 +3,7 @@ defmodule Tentacat.Pulls.Comments do
   alias Tentacat.Client
 
   @doc """
-  List pull requests comments in a repository
+  List pull requests comments in a repository.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Pulls.Comments do
   end
 
   @doc """
-  Filter pull requests comments in a repository. Parameters are `sort`, `dir`, and `since`.
+  Filter pull requests comments in a repository. Parameters are `sort`, `dir`, and `since`..
 
   ## Example
 
@@ -33,7 +33,7 @@ defmodule Tentacat.Pulls.Comments do
   end
 
   @doc """
-  List comments on a pull request
+  List comments on a pull request.
 
   ## Example
 
@@ -48,7 +48,7 @@ defmodule Tentacat.Pulls.Comments do
   end
 
   @doc """
-  Get a single comment for a repository by comment id
+  Get a single comment for a repository by comment id.
 
   ## Example
 
@@ -63,10 +63,11 @@ defmodule Tentacat.Pulls.Comments do
   end
 
   @doc """
-  Create a comment for a pull request
+  Create a comment for a pull request.
 
   Comment body example:
-  ```
+
+  ```elixir
   %{
     "body"      => "Nice change",
     "commit_id" => "6dcb09b5b57875f334f61aebed695e2e4193db5e",
@@ -87,7 +88,7 @@ defmodule Tentacat.Pulls.Comments do
   end
 
   @doc """
-  Edit a comment for a pull request
+  Edit a comment for a pull request.
 
   ## Example
 

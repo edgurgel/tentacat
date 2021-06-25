@@ -3,7 +3,7 @@ defmodule Tentacat.Issues do
   alias Tentacat.Client
 
   @doc """
-  List repository issues
+  List repository issues.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Issues do
   end
 
   @doc """
-  Filter repository issues
+  Filter repository issues.
 
   ## Example
 
@@ -33,7 +33,7 @@ defmodule Tentacat.Issues do
   end
 
   @doc """
-  Get an issue
+  Get an issue.
 
   ## Example
 
@@ -48,15 +48,15 @@ defmodule Tentacat.Issues do
   end
 
   @doc """
-  Create an issue
+  Create an issue.
 
   Possible values for `body`:
 
-  * %{title: "title of issue"} (required)
-  * %{body: "body of issue"}
-  * %{assignee: "username"}
-  * %{milestone: 4}
-  * %{labels: ["bug", "frontend"]}
+    * %{title: "title of issue"} (required)
+    * %{body: "body of issue"}
+    * %{assignee: "username"}
+    * %{milestone: 4}
+    * %{labels: ["bug", "frontend"]}
 
   ## Example
 
@@ -71,16 +71,16 @@ defmodule Tentacat.Issues do
   end
 
   @doc """
-  Update an issue
+  Update an issue.
 
   Possible values for `body`:
 
-  * %{title: "title of issue"}
-  * %{body: "body of issue"}
-  * %{assignee: "username"}
-  * %{state: "closed"}
-  * %{milestone: 4}
-  * %{labels: ["bug", "frontend"]}
+    * %{title: "title of issue"}
+    * %{body: "body of issue"}
+    * %{assignee: "username"}
+    * %{state: "closed"}
+    * %{milestone: 4}
+    * %{labels: ["bug", "frontend"]}
 
   ## Example
 

@@ -3,7 +3,7 @@ defmodule Tentacat.Pulls.Files do
   alias Tentacat.Client
 
   @doc """
-  List pull requests files
+  List pull requests files.
 
   ## Example
 

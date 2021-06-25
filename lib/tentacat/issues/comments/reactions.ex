@@ -1,10 +1,9 @@
 defmodule Tentacat.Issues.Comments.Reactions do
   import Tentacat
-
   alias Tentacat.Client
 
   @doc """
-  List the reactions on an issue comment
+  List the reactions on an issue comment.
 
   ## Example
 
@@ -19,13 +18,16 @@ defmodule Tentacat.Issues.Comments.Reactions do
   end
 
   @doc """
-  Create a reaction on an issue comment
+  Create a reaction on an issue comment.
 
   Reaction Request body example:
-      %{ content: "heart" }
 
+  ```elixir
+  %{
+    content: "heart"
+  }
 
-  ### Example
+  ## Example
 
   Tentacat.Issues.Comments.Reactions.create "elixir-lang", "elixir", "3", %{ content: "heart" }, client
 
@@ -38,11 +40,11 @@ defmodule Tentacat.Issues.Comments.Reactions do
   end
 
   @doc """
-  Delete a reaction on an issue comment
+  Delete a reaction on an issue comment.
 
-  ### Example
+  ## Example
 
-  Tentacat.Issues.Comments.Reactions.delete "elixir-lang", "elixir", "3", "4", client
+      Tentacat.Issues.Comments.Reactions.delete "elixir-lang", "elixir", "3", "4", client
 
   More info at: https://developer.github.com/v3/reactions/#delete-an-issue-comment-reaction
   """

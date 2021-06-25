@@ -3,11 +3,11 @@ defmodule Tentacat.Comments.Reactions do
   alias Tentacat.Client
 
   @doc """
-  List the reactions on a comment
+  List the reactions on a comment.
 
   ## Example
 
-  Tentacat.Comments.Reactions.list "elixir-lang" , "elixir", "345434"
+      Tentacat.Comments.Reactions.list "elixir-lang" , "elixir", "345434"
 
   More info at: https://developer.github.com/v3/reactions/#list-reactions-for-a-commit-comment
   """
@@ -20,11 +20,17 @@ defmodule Tentacat.Comments.Reactions do
   Create a reaction on a comment
 
   Reaction Request body example:
-      %{ content: "heart" }
 
-  ### Example
+  ```elixir
+  %{
+    content: "heart"
+  }
+  ```
+
+  ## Example
 
   Tentacat.Comments.Reactions.create "elixir-lang", "elixir", "345434"
+
   More info at: https://developer.github.com/v3/reactions/#create-reaction-for-a-commit-comment
   """
   @spec create(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()

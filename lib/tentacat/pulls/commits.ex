@@ -3,7 +3,7 @@ defmodule Tentacat.Pulls.Commits do
   alias Tentacat.Client
 
   @doc """
-  List commits on a pull request
+  List commits on a pull request.
 
   ## Example
 

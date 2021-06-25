@@ -9,7 +9,9 @@ Add Tentacat to your project's `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:tentacat, "~> 1.0"}]
+  [
+    {:tentacat, "~> 1.0"}
+  ]
 end
 ```
 
@@ -17,7 +19,9 @@ end
 
 ```elixir
 def application do
-  [applications: [:tentacat]]
+  [
+    applications: [:tentacat]
+  ]
 end
 ```
 
@@ -26,7 +30,6 @@ Finally, fetch dependencies for your project:
 ```
 $ mix deps.get
 ```
-
 
 ## Configuration
 
@@ -95,7 +98,7 @@ Tentacat.Users.find(client, "edgurgel")
 Tentacat.Issues.Comments.create("edgurgel", "tentacat", 72, %{"body" => "This is a comment created using the API"})
 ```
 
-For a full list of actions, see the [API Reference](api-reference.html). 
+For a full list of actions, see the [API Reference](api-reference.html).
 
 
 ### Things to keep in mind

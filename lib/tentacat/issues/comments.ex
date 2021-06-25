@@ -3,7 +3,9 @@ defmodule Tentacat.Issues.Comments do
   alias Tentacat.Client
 
   @doc """
-  List comments on an issue. Issue Comments are ordered by ascending ID.
+  List comments on an issue.
+
+  Issue Comments are ordered by ascending ID.
 
   ## Example
 
@@ -17,7 +19,9 @@ defmodule Tentacat.Issues.Comments do
   end
 
   @doc """
-  Filter comments on an issue. Parameters are `since`.
+  Filter comments on an issue.
+
+  Parameters are `since`.
 
   ## Example
 
@@ -32,7 +36,9 @@ defmodule Tentacat.Issues.Comments do
   end
 
   @doc """
-  List all comments on issues for a repository. By default, Issue Comments are ordered by ascending ID.
+  List all comments on issues for a repository.
+
+  By default, Issue Comments are ordered by ascending ID.
 
   ## Example
 
@@ -46,7 +52,9 @@ defmodule Tentacat.Issues.Comments do
   end
 
   @doc """
-  Filter comments on an issue. Parameters are `sort`, `direction` and `since`.
+  Filter comments on an issue.
+
+  Parameters are `sort`, `direction` and `since`.
 
   ## Example
 
@@ -66,7 +74,7 @@ defmodule Tentacat.Issues.Comments do
 
       Tentacat.Issues.Comments.find "elixir-lang", "elixir", 882148
 
-  https://developer.github.com/v3/issues/comments/#get-a-single-comment
+  More info at: https://developer.github.com/v3/issues/comments/#get-a-single-comment
   """
   @spec find(Client.t(), binary, binary, binary | integer) :: Tentacat.response()
   def find(client \\ %Client{}, owner, repo, comment_id) do
@@ -77,9 +85,10 @@ defmodule Tentacat.Issues.Comments do
   Create a comment on an issue.
 
   Comment body example:
-  ```
+
+  ```elixir
   %{
-    "body"      => "Nice change"
+    "body" => "Nice change"
   }
   ```
 
@@ -87,7 +96,7 @@ defmodule Tentacat.Issues.Comments do
 
       Tentacat.Issues.Comments.create "elixir-lang", "elixir", 3970, comment_body
 
-  https://developer.github.com/v3/issues/comments/#create-a-comment
+  More info at: https://developer.github.com/v3/issues/comments/#create-a-comment
   """
   @spec create(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
   def create(client \\ %Client{}, owner, repo, issue_id, body) when is_map(body) do
@@ -98,9 +107,10 @@ defmodule Tentacat.Issues.Comments do
   Update a comment on an issue by id.
 
   Comment body example:
-  ```
+
+  ```elixir
   %{
-    "body"      => "Nice change"
+    "body" => "Nice change"
   }
   ```
 
@@ -108,7 +118,7 @@ defmodule Tentacat.Issues.Comments do
 
       Tentacat.Issues.Comments.update "elixir-lang", "elixir", 882148, comment_body
 
-  https://developer.github.com/v3/issues/comments/#edit-a-comment
+  More info at: https://developer.github.com/v3/issues/comments/#edit-a-comment
   """
   @spec update(Client.t(), binary, binary, binary | integer, map) :: Tentacat.response()
   def update(client \\ %Client{}, owner, repo, comment_id, body) when is_map(body) do
@@ -122,7 +132,7 @@ defmodule Tentacat.Issues.Comments do
 
       Tentacat.Issues.Comments.delete "elixir-lang", "elixir", 882148
 
-  https://developer.github.com/v3/issues/comments/#delete-a-comment
+  More info at: https://developer.github.com/v3/issues/comments/#delete-a-comment
   """
   @spec delete(Client.t(), binary, binary, binary | integer, binary | integer) ::
           Tentacat.response()

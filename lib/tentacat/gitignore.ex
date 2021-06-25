@@ -3,7 +3,7 @@ defmodule Tentacat.Gitignore do
   alias Tentacat.Client
 
   @doc """
-  List all templates available
+  List all templates available.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Gitignore do
   end
 
   @doc """
-  Get a single template based on the `name`
+  Get a single template based on the `name`.
 
   ## Example
 

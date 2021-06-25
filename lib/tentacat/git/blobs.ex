@@ -3,7 +3,7 @@ defmodule Tentacat.Git.Blobs do
   alias Tentacat.Client
 
   @doc """
-  Get the Blob content and metadata for a specific sha
+  Get the Blob content and metadata for a specific file SHA.
 
   ## Example
 
@@ -17,10 +17,11 @@ defmodule Tentacat.Git.Blobs do
   end
 
   @doc """
-  Create a blob in the repository
+  Create a blob in the repository.
 
   Blob body example:
-  ```
+
+  ```elixir
   %{
     "content"   => "Content of the blob",
     "encoding"  => "utf-8"

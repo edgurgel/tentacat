@@ -3,7 +3,7 @@ defmodule Tentacat.Commits.Comments do
   alias Tentacat.Client
 
   @doc """
-  List commit comments in a repository
+  List commit comments in a repository.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.Commits.Comments do
   end
 
   @doc """
-  List commit comments for a commit
+  List commit comments for a commit.
 
   ## Example
 
@@ -31,10 +31,11 @@ defmodule Tentacat.Commits.Comments do
   end
 
   @doc """
-  Create a comment for a commit
+  Create a comment for a commit.
 
   Comment body example:
-  ```
+
+  ```elixir
   %{
     "body"      => "Nice change",
     "path"      => "file1.txt",
@@ -42,6 +43,7 @@ defmodule Tentacat.Commits.Comments do
     "line"      => null
   }
   ```
+
   ## Example
 
       Tentacat.Commits.Comments.create "elixir-lang", "elixir", "7491bda5196f78536e5acc9b7c90a97170e4db0a", comment_body
@@ -54,7 +56,7 @@ defmodule Tentacat.Commits.Comments do
   end
 
   @doc """
-  Find a comment for a commit
+  Find a comment for a commit.
 
   ## Example
 
@@ -68,14 +70,16 @@ defmodule Tentacat.Commits.Comments do
   end
 
   @doc """
-  Update a comment for a commit
+  Update a comment for a commit.
 
   Comment body example:
-  ```
+
+  ```elixir
   %{
-    "body"      => "Nice change",
+    "body" => "Nice change",
   }
   ```
+
   ## Example
 
       Tentacat.Commits.Comments.update "elixir-lang", "elixir", 1

@@ -3,7 +3,7 @@ defmodule Tentacat.Pulls.ReviewRequests do
   alias Tentacat.Client
 
   @doc """
-  List review requests in a pull request
+  List review requests in a pull request.
 
   ## Example
 
@@ -18,11 +18,15 @@ defmodule Tentacat.Pulls.ReviewRequests do
   end
 
   @doc """
-  Create a review request
+  Create a review request.
 
   Review Request body example:
 
-      ["octocat"]
+  ```elixir
+  %{
+    "reviewers" => ["octocat"]
+  }
+  ```
 
   ## Example
 
