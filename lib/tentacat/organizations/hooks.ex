@@ -3,7 +3,10 @@ defmodule Tentacat.Organizations.Hooks do
   alias Tentacat.Client
 
   @doc """
-  List hooks of an organization. The response will differ if the authenticated user is also owner of the organization
+  List hooks of an organization.
+
+  The response will differ if the authenticated user is also owner of the
+  organization
 
   ## Example
 
@@ -46,15 +49,21 @@ defmodule Tentacat.Organizations.Hooks do
   end
 
   @doc """
-    hook_body = %{
-      "name" => "web",
-      "active" => true,
-      "events" => [ "push", "pull_request" ],
-      "config" => {
-        "url" => "http://example.com/webhook",
-        "content_type" => "json"
-      }
+  Update organization.
+
+  Sample body content:
+
+  ```elixir
+  hook_body = %{
+    "name" => "web",
+    "active" => true,
+    "events" => [ "push", "pull_request" ],
+    "config" => {
+      "url" => "http://example.com/webhook",
+      "content_type" => "json"
     }
+  }
+  ```
 
   ## Example
 

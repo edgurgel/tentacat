@@ -3,7 +3,7 @@ defmodule Tentacat.Users.Keys do
   alias Tentacat.Client
 
   @doc """
-  List public keys for a user
+  List public keys for a user.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Users.Keys do
   end
 
   @doc """
-  List public keys for the authenticated user
+  List public keys for the authenticated user.
 
   ## Example
 
@@ -32,7 +32,7 @@ defmodule Tentacat.Users.Keys do
   end
 
   @doc """
-  Get a single public key of the authorized user
+  Get a single public key of the authorized user.
 
   ## Example
 
@@ -46,7 +46,7 @@ defmodule Tentacat.Users.Keys do
   end
 
   @doc """
-  Create a public key on the authorized user
+  Create a public key on the authorized user.
 
   ## Example
 
@@ -60,7 +60,7 @@ defmodule Tentacat.Users.Keys do
   end
 
   @doc """
-  Update a public key from the authorized user
+  Update a public key from the authorized user.
 
   ## Example
 
@@ -74,7 +74,7 @@ defmodule Tentacat.Users.Keys do
   end
 
   @doc """
-  Delete a public from the authorized user
+  Delete a public from the authorized user.
 
   ## Example
 

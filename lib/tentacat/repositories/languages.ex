@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Languages do
   alias Tentacat.Client
 
   @doc """
-  List Languages
+  List Languages.
 
   ## Example
 

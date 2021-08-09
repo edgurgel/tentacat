@@ -3,17 +3,16 @@ defmodule Tentacat.Repositories do
   alias Tentacat.Client
 
   @moduledoc """
-  The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository.
+  The Repository Webhooks API allows repository admins to manage the
+  post-receive hooks for a repository.
   """
 
   @doc """
   List current user's Repositories.
 
-
   ## Examples
 
       Tentacat.Repositories.list_mine(client)
-
       Tentacat.Repositories.list_mine(client, type: "owner")
 
   More info at: https://developer.github.com/v3/repos/#list-your-repositories
@@ -52,7 +51,7 @@ defmodule Tentacat.Repositories do
   end
 
   @doc """
-  List all public repositories
+  List all public repositories.
 
   ## Example
 
@@ -67,7 +66,7 @@ defmodule Tentacat.Repositories do
   end
 
   @doc """
-  Get
+  Get a repository details.
 
   ## Example
 
@@ -86,16 +85,16 @@ defmodule Tentacat.Repositories do
 
   Possible values for `options`:
 
-  * %{description: "Simple Elixir wrapper for the GitHub API"}
-  * %{homepage: "http://www.github.com/edgurgel/tentacat"}
-  * %{private: false}
-  * %{has_issues: true}
-  * %{has_wiki: false}
-  * %{has_downloads: true}
-  * %{team_id: 123}
-  * %{auto_init: false}
-  * %{gitignore_template: "Haskell"}
-  * %{license_template: "mit"}j
+    * %{description: "Simple Elixir wrapper for the GitHub API"}
+    * %{homepage: "http://www.github.com/edgurgel/tentacat"}
+    * %{private: false}
+    * %{has_issues: true}
+    * %{has_wiki: false}
+    * %{has_downloads: true}
+    * %{team_id: 123}
+    * %{auto_init: false}
+    * %{gitignore_template: "Haskell"}
+    * %{license_template: "mit"}j
 
   ## Example
 
@@ -114,7 +113,9 @@ defmodule Tentacat.Repositories do
   end
 
   @doc """
-  Deleting a repository requires admin access. If OAuth is used, the delete_repo scope is required.
+  Deleting a repository requires admin access.
+
+  If OAuth is used, the delete_repo scope is required.
 
   ## Example
 

@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Tags do
   alias Tentacat.Client
 
   @doc """
-  List Tags
+  List Tags.
 
   ## Example
 

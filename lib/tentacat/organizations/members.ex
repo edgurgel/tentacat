@@ -3,7 +3,10 @@ defmodule Tentacat.Organizations.Members do
   alias Tentacat.Client
 
   @doc """
-  List members of a `organization`. The response will differ if the authenticated user is also owner of the organization
+  List members of a `organization`.
+
+  The response will differ if the authenticated user is also owner of the
+  organization.
 
   ## Example
 
@@ -20,7 +23,7 @@ defmodule Tentacat.Organizations.Members do
   @doc """
   Check if a `user` is, publicly or privately, a member of the `organization`.
 
-  Possible responses: 204, 404 or 302
+  Possible responses: 204, 404 or 302.
 
   ## Example
 
@@ -35,7 +38,7 @@ defmodule Tentacat.Organizations.Members do
   end
 
   @doc """
-  Remove a member `user` from an `organization`
+  Remove a member `user` from an `organization`.
 
   ## Example
 
@@ -49,7 +52,7 @@ defmodule Tentacat.Organizations.Members do
   end
 
   @doc """
-  List of publicized members of an `organization`
+  List of publicized members of an `organization`.
 
   ## Example
 
@@ -66,7 +69,7 @@ defmodule Tentacat.Organizations.Members do
   @doc """
   Check if a `user` is a public member of the `organization`.
 
-  Possible responses: 204 or 404
+  Possible responses: 204 or 404.
 
   ## Example
 
@@ -81,7 +84,7 @@ defmodule Tentacat.Organizations.Members do
   end
 
   @doc """
-  Publicize a `user`'s membership on an `organization`
+  Publicize a `user`'s membership on an `organization`.
 
   ## Example
 
@@ -95,7 +98,7 @@ defmodule Tentacat.Organizations.Members do
   end
 
   @doc """
-  Conceal a `user`'s membership on an `organization`
+  Conceal a `user`'s membership on an `organization`.
 
   ## Example
 

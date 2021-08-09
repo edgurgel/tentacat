@@ -3,7 +3,7 @@ defmodule Tentacat.Users.Projects do
   alias Tentacat.Client
 
   @doc """
-  Lists the projects for a user
+  Lists the projects for a user.
 
   ## Example
 
@@ -17,12 +17,12 @@ defmodule Tentacat.Users.Projects do
   end
 
   @doc """
-  Create a new project for the authenticated user via passing a `client` with necessary credentials
+  Create a new project for the authenticated user via passing a `client` with necessary credentials.
 
   Possible values for options:
 
-  * [name: "name of project board"]
-  * [body: "description of the project"]
+    * [name: "name of project board"]
+    * [body: "description of the project"]
 
   ## Example
 

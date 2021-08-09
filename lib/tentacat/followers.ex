@@ -3,7 +3,7 @@ defmodule Tentacat.Users.Followers do
   alias Tentacat.Client
 
   @doc """
-  List followers for the authenticated user
+  List followers for the authenticated user.
 
   ## Example
 
@@ -21,7 +21,7 @@ defmodule Tentacat.Users.Followers do
   end
 
   @doc """
-  List followers for given user
+  List followers for given user.
 
   ## Example
 
@@ -39,7 +39,7 @@ defmodule Tentacat.Users.Followers do
   end
 
   @doc """
-  List users the authenticated user follows
+  List users the authenticated user follows.
 
   ## Example
 
@@ -53,7 +53,7 @@ defmodule Tentacat.Users.Followers do
   end
 
   @doc """
-  List users the given user follows
+  List users the given user follows.
 
   ## Example
 

@@ -95,14 +95,16 @@ defmodule Tentacat.Gists do
 
   Gist body example:
 
-    %{
-      "files" => %{
-        "hello.rb" => %{"content" => "puts 'Hello World'"},
-        "hello.py" => %{"content" => "print 'Hello World'"}
-      },
-      "description" => "Hello World Examples",
-      "public" => false
-    }
+  ```elixir
+  %{
+    "files" => %{
+      "hello.rb" => %{"content" => "puts 'Hello World'"},
+      "hello.py" => %{"content" => "print 'Hello World'"}
+    },
+    "description" => "Hello World Examples",
+    "public" => false
+  }
+  ```
 
   ## Example
 
@@ -119,19 +121,22 @@ defmodule Tentacat.Gists do
   Edit a gist.
 
   Gist body example:
-   %{
-      "description" => "Hello World Examples",
-      "files" => %{
-        "hello_world_ruby.txt" => %{
-          "content" => "Run `ruby hello.rb` or `python hello.py` to print Hello World",
-          "filename" => "hello.md"
-        },
-        "hello_world_python.txt" => nil,
-        "new_file.txt" => %{
-          "content" => "This is a new placeholder file."
-        }
+
+  ```elixir
+  %{
+    "description" => "Hello World Examples",
+    "files" => %{
+      "hello_world_ruby.txt" => %{
+        "content" => "Run `ruby hello.rb` or `python hello.py` to print Hello World",
+        "filename" => "hello.md"
+      },
+      "hello_world_python.txt" => nil,
+      "new_file.txt" => %{
+        "content" => "This is a new placeholder file."
       }
     }
+  }
+  ```
 
   ## Example
 
@@ -231,7 +236,9 @@ defmodule Tentacat.Gists do
   end
 
   @doc """
-  Deleting a gist requires admin access. If OAuth is used, the gist scope is required.
+  Deleting a gist requires admin access.
+
+  If OAuth is used, the gist scope is required.
 
   ## Example
 

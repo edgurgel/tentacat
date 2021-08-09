@@ -3,7 +3,7 @@ defmodule Tentacat.Trees do
   alias Tentacat.Client
 
   @doc """
-  Get a Tree
+  Get a Tree.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Trees do
   end
 
   @doc """
-  Get a Tree Recursively
+  Get a Tree Recursively.
 
   ## Example
 
@@ -33,21 +33,23 @@ defmodule Tentacat.Trees do
   end
 
   @doc """
-  Create a Tree
+  Create a Tree.
 
   Tree body example:
 
+  ```elixir
+  %{
+    "base_tree" => "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+    "tree" => [
       %{
-        "base_tree" => "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
-        "tree" => [
-          %{
-            "path" => "elixir.ex",
-            "mode" => "100644",
-            "type" => "blob",
-            "sha"  => "44b4fc6d56897b048c772eb4087f854f46256132"
-          }
-        ]
+        "path" => "elixir.ex",
+        "mode" => "100644",
+        "type" => "blob",
+        "sha"  => "44b4fc6d56897b048c772eb4087f854f46256132"
       }
+    ]
+  }
+  ```
 
   ## Example
 

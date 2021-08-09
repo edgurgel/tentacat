@@ -3,7 +3,7 @@ defmodule Tentacat.Releases do
   alias Tentacat.Client
 
   @doc """
-  Get all releases from the given repository
+  Get all releases from the given repository.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.Releases do
   end
 
   @doc """
-  Get a single release
+  Get a single release.
 
   ## Example
 
@@ -31,7 +31,7 @@ defmodule Tentacat.Releases do
   end
 
   @doc """
-  Get the latest release
+  Get the latest release.
 
   ## Example
 
@@ -46,7 +46,7 @@ defmodule Tentacat.Releases do
   end
 
   @doc """
-  Create a new release from the given tag
+  Create a new release from the given tag.
 
   ## Example
 
@@ -63,16 +63,16 @@ defmodule Tentacat.Releases do
   end
 
   @doc """
-  Edit an existing release
+  Edit an existing release.
 
   ## Options
 
-  * `tag_name` - string
-  * `target_commitish` - string
-  * `name` - string
-  * `body` - string
-  * `draft` - boolean
-  * `prerelease` - boolean
+    * `tag_name` - string
+    * `target_commitish` - string
+    * `name` - string
+    * `body` - string
+    * `draft` - boolean
+    * `prerelease` - boolean
 
   ## Example
 
@@ -87,7 +87,7 @@ defmodule Tentacat.Releases do
   end
 
   @doc """
-  Delete a release
+  Delete a release.
 
   ## Example
 

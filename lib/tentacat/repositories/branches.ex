@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Branches do
   alias Tentacat.Client
 
   @doc """
-  List Branches
+  List Branches.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Repositories.Branches do
   end
 
   @doc """
-  Get Branch
+  Get Branch.
 
   ## Example
 
@@ -33,40 +33,42 @@ defmodule Tentacat.Repositories.Branches do
   end
 
   @doc """
-  Update Branch Protection
+  Update Branch Protection.
 
   Create body example:
 
-      %{
-        "required_status_checks" => %{
-          "strict" => true,
-          "contexts" => [
-            "continuous-integration/travis-ci"
-          ]
-        },
-        "enforce_admins" => true,
-        "required_pull_request_reviews" => %{
-          "dismissal_restrictions" => %{
-            "users" => [
-              "octocat"
-            ],
-            "teams" => [
-              "justice-league"
-            ]
-          },
-          "dismiss_stale_reviews" => true,
-          "require_code_owner_reviews" => true,
-          "required_approving_review_count" => 2
-        },
-        "restrictions" => %{
-          "users" => [
-            "octocat"
-          ],
-          "teams" => [
-            "justice-league"
-          ]
-        }
-      }
+  ```elixir
+  %{
+    "required_status_checks" => %{
+      "strict" => true,
+      "contexts" => [
+        "continuous-integration/travis-ci"
+      ]
+    },
+    "enforce_admins" => true,
+    "required_pull_request_reviews" => %{
+      "dismissal_restrictions" => %{
+        "users" => [
+          "octocat"
+        ],
+        "teams" => [
+          "justice-league"
+        ]
+      },
+      "dismiss_stale_reviews" => true,
+      "require_code_owner_reviews" => true,
+      "required_approving_review_count" => 2
+    },
+    "restrictions" => %{
+      "users" => [
+        "octocat"
+      ],
+      "teams" => [
+        "justice-league"
+      ]
+    }
+  }
+  ```
 
   ## Example
 

@@ -3,7 +3,7 @@ defmodule Tentacat.References do
   alias Tentacat.Client
 
   @doc """
-  Get all References
+  Get all References.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.References do
   end
 
   @doc """
-  Get a Reference
+  Get a Reference.
 
   ## Example
 
@@ -33,14 +33,16 @@ defmodule Tentacat.References do
   end
 
   @doc """
-  Create a Reference
+  Create a Reference.
 
   Reference body example:
 
-      %{
-        "ref" => "refs/heads/emj-otp-18",
-        "sha" => "aa218f56b14c9653891f9e74264a383fa43fefbd"
-      }
+  ```elixir
+  %{
+    "ref" => "refs/heads/emj-otp-18",
+    "sha" => "aa218f56b14c9653891f9e74264a383fa43fefbd"
+  }
+  ```
 
   ## Example
 
@@ -54,14 +56,16 @@ defmodule Tentacat.References do
   end
 
   @doc """
-  Update a Reference
+  Update a Reference.
 
   Reference body example:
 
-      %{
-        "sha"   => "aa218f56b14c9653891f9e74264a383fa43fefbd",
-        "force" => true
-      }
+  ```elixir
+  %{
+    "sha"   => "aa218f56b14c9653891f9e74264a383fa43fefbd",
+    "force" => true
+  }
+  ```
 
   ## Example
 
@@ -75,7 +79,7 @@ defmodule Tentacat.References do
   end
 
   @doc """
-  Delete a Reference
+  Delete a Reference.
 
   ## Example
 

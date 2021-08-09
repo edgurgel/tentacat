@@ -3,9 +3,10 @@ defmodule Tentacat.Repositories.Contents do
   alias Tentacat.Client
 
   @doc """
-  Gets the contents of a file or directory in a repository
+  Gets the contents of a file or directory in a repository.
 
   ## Example
+
       Tentacat.Repositories.Contents.content "elixir-lang", "elixir", "CHANGELOG.md"
       Tentacat.Repositories.Contents.content client, "elixir-lang", "elixir", "CHANGELOG.md"
 

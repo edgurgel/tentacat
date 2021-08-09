@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Labels do
   alias Tentacat.Client
 
   @doc """
-  List labels on a repository
+  List labels on a repository.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.Repositories.Labels do
   end
 
   @doc """
-  Find a label on a repository
+  Find a label on a repository.
 
   ## Example
 
@@ -31,12 +31,12 @@ defmodule Tentacat.Repositories.Labels do
   end
 
   @doc """
-  Creates a new label on a repository
+  Creates a new label on a repository.
 
   Possible values for `body`:
 
-  * %{name: "name of label"} (required)
-  * %{color: "color of label"} (required)
+    * %{name: "name of label"} (required)
+    * %{color: "color of label"} (required)
 
   ## Example
 
@@ -50,12 +50,12 @@ defmodule Tentacat.Repositories.Labels do
   end
 
   @doc """
-  Update a label on a repository
+  Update a label on a repository.
 
   Possible values for `body`:
 
-  * %{name: "name of label"} (required)
-  * %{color: "color of label"} (required)
+    * %{name: "name of label"} (required)
+    * %{color: "color of label"} (required)
 
   ## Example
 
@@ -69,7 +69,7 @@ defmodule Tentacat.Repositories.Labels do
   end
 
   @doc """
-  Delete a label on a repository
+  Delete a label on a repository.
 
   ## Example
 

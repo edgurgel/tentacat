@@ -3,10 +3,11 @@ defmodule Tentacat.Repositories.Merges do
   alias Tentacat.Client
 
   @doc """
-  Merge a branch into another
+  Merge a branch into another.
 
-  You can use both branch names and/or a commit SHA1.
-  When the commit message is empty, Github will apply the default commit message.
+  You can use both branch names and/or a commit SHA1. When the commit message
+  is empty, Github will apply the default commit message.
+
   ## Example
 
       Tentacat.Repositories.Merges.merge client, "elixir-lang", "elixir", "master", "123-another-feature", ""

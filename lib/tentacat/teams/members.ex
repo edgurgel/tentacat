@@ -3,7 +3,7 @@ defmodule Tentacat.Teams.Members do
   alias Tentacat.Client
 
   @doc """
-  List all team members
+  List all team members.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Teams.Members do
   end
 
   @doc """
-  Get a team membership
+  Get a team membership.
 
   ## Example
 
@@ -33,7 +33,7 @@ defmodule Tentacat.Teams.Members do
   end
 
   @doc """
-  Add a user to a team
+  Add a user to a team.
 
   ## Example
 
@@ -48,7 +48,7 @@ defmodule Tentacat.Teams.Members do
   end
 
   @doc """
-  Remove a user from a team
+  Remove a user from a team.
 
   ## Example
 

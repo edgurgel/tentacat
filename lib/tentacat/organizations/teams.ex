@@ -3,7 +3,7 @@ defmodule Tentacat.Organizations.Teams do
   alias Tentacat.Client
 
   @doc """
-  List all public teams for an organization
+  List all public teams for an organization.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Organizations.Teams do
   end
 
   @doc """
-  Get a team
+  Get a team.
 
   ## Example
 
@@ -33,19 +33,21 @@ defmodule Tentacat.Organizations.Teams do
   end
 
   @doc """
-  Create a team
+  Create a team.
 
   Create body example:
 
-      %{
-        "name" => "my new team",
-        "description" => "Team for everyone with commit access",
-        "repo_names" => [
-          "my_org/secret_repo",
-          "my_org/secret_repo2",
-        ],
-        "privacy" => "closed",
-      }
+  ```elixir
+  %{
+    "name" => "my new team",
+    "description" => "Team for everyone with commit access",
+    "repo_names" => [
+      "my_org/secret_repo",
+      "my_org/secret_repo2",
+    ],
+    "privacy" => "closed",
+  }
+  ```
 
   ## Example
 
@@ -59,14 +61,16 @@ defmodule Tentacat.Organizations.Teams do
   end
 
   @doc """
-  Update a team
+  Update a team.
 
   Update body example:
 
-      %{
-        "name": "Super Admins",
-        "description": "Team for everyone with commit and admin access",
-      }
+  ```elixir
+  %{
+    "name": "Super Admins",
+    "description": "Team for everyone with commit and admin access",
+  }
+  ```
 
   ## Example
 
@@ -80,7 +84,7 @@ defmodule Tentacat.Organizations.Teams do
   end
 
   @doc """
-  Delete a team
+  Delete a team.
 
   ## Example
 

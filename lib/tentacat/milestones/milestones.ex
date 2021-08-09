@@ -3,7 +3,7 @@ defmodule Tentacat.Milestones do
   alias Tentacat.Client
 
   @doc """
-  List milestones
+  List milestones.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Milestones do
   end
 
   @doc """
-  Get a single milestone
+  Get a single milestone.
 
   ## Example
 
@@ -33,14 +33,14 @@ defmodule Tentacat.Milestones do
   end
 
   @doc """
-  Create a milestone
+  Create a milestone.
 
   Possible values for `body`:
 
-  * %{"title": "v1.0"}
-  * %{"state": "open"}
-  * %{"description": "Tracking milestone for version 1.0"}
-  * %{"due_on": "2012-10-09T23:39:01Z"}
+    * %{"title": "v1.0"}
+    * %{"state": "open"}
+    * %{"description": "Tracking milestone for version 1.0"}
+    * %{"due_on": "2012-10-09T23:39:01Z"}
 
   ## Example
 
@@ -55,14 +55,14 @@ defmodule Tentacat.Milestones do
   end
 
   @doc """
-  Update a milestone
+  Update a milestone.
 
   Possible values for `body`:
 
-  * %{"title": "v1.0"}
-  * %{"state": "open"}
-  * %{"description": "Tracking milestone for version 1.0"}
-  * %{"due_on": "2012-10-09T23:39:01Z"}
+    * %{"title": "v1.0"}
+    * %{"state": "open"}
+    * %{"description": "Tracking milestone for version 1.0"}
+    * %{"due_on": "2012-10-09T23:39:01Z"}
 
   ## Example
 
@@ -77,7 +77,7 @@ defmodule Tentacat.Milestones do
   end
 
   @doc """
-  Delete a milestone
+  Delete a milestone.
 
   ## Example
 

@@ -3,7 +3,7 @@ defmodule Tentacat.Users do
   alias Tentacat.Client
 
   @doc """
-  Get a single `user`
+  Get a single `user`.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Users do
   end
 
   @doc """
-  Get the authenticated user passing a `client` with necessary credentials
+  Get the authenticated user passing a `client` with necessary credentials.
 
   ## Example
 
@@ -32,7 +32,7 @@ defmodule Tentacat.Users do
   end
 
   @doc """
-  Get all users
+  Get all users.
 
   ## Example
 
@@ -47,7 +47,7 @@ defmodule Tentacat.Users do
   end
 
   @doc """
-  Get all users since `since` id
+  Get all users since `since` id.
 
   ## Example
 
@@ -62,17 +62,17 @@ defmodule Tentacat.Users do
   end
 
   @doc """
-  Update the authenticated user
+  Update the authenticated user.
 
   Possible values for `options`:
 
-  * [name: "name"]
-  * [email: "email"]
-  * [blog: "blog.com"]
-  * [company: "My Company"]
-  * [location: "Internet"]
-  * [hireable: true]
-  * [bio: "Hireable developer"]
+    * [name: "name"]
+    * [email: "email"]
+    * [blog: "blog.com"]
+    * [company: "My Company"]
+    * [location: "Internet"]
+    * [hireable: true]
+    * [bio: "Hireable developer"]
 
   ## Example
 

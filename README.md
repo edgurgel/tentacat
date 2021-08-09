@@ -1,8 +1,13 @@
+# Tentacat
+
 [![Build Status](https://travis-ci.org/edgurgel/tentacat.svg)](https://travis-ci.org/edgurgel/tentacat)
 [![Coverage Status](http://img.shields.io/coveralls/edgurgel/tentacat.svg)](https://coveralls.io/r/edgurgel/tentacat)
 [![Inline docs](http://inch-ci.org/github/edgurgel/tentacat.svg)](http://inch-ci.org/github/edgurgel/tentacat)
-
-# Tentacat
+[![Module Version](https://img.shields.io/hexpm/v/tentacat.svg)](https://hex.pm/packages/tentacat)
+[![Hex Docs](https://img.shields.io/badge/hex-docs-lightgreen.svg)](https://hexdocs.pm/tentacat/)
+[![Total Download](https://img.shields.io/hexpm/dt/tentacat.svg)](https://hex.pm/packages/tentacat)
+[![License](https://img.shields.io/hexpm/l/tentacat.svg)](https://github.com/edgurgel/tentacat/blob/master/LICENSE)
+[![Last Updated](https://img.shields.io/github/last-commit/edgurgel/tentacat.svg)](https://github.com/edgurgel/tentacat/commits/master)
 
 Simple Elixir wrapper for the [GitHub API](http://developer.github.com/).
 
@@ -52,7 +57,9 @@ First, add Tentacat to your `mix.exs` dependencies:
 
 ```elixir
 def deps do
-  [{:tentacat, "~> 2.0"}]
+  [
+    {:tentacat, "~> 2.0"}
+  ]
 end
 ```
 
@@ -78,7 +85,7 @@ Now you can run the examples!
 
 Every call to GitHub needs a client, but if you want to use unauthenticated requests we will provide an unauthenticated client for you. Keep in mind that GitHub has different [rate-limits](https://developer.github.com/v3/#rate-limiting) if you authenticate or not.
 
-Getting info from a user using a client
+Getting info from a user using a client:
 
 ```elixir
 iex> client = Tentacat.Client.new
@@ -153,16 +160,16 @@ iex> Tentacat.Users.find client, "edgurgel"
   request_url: "https://api.github.com/users/edgurgel", status_code: 200}}
 ```
 
-Getting info from a user without a defined client
+Getting info from a user without a defined client:
 
 ```elixir
 iex> {200, data, _response} = Tentacat.Users.find("edgurgel")
 
-iex(8)> get_in(data, ["name"])
+iex> get_in(data, ["name"])
 "Eduardo Gurgel"
 ```
 
-Getting info from the authenticated user
+Getting info from the authenticated user:
 
 * Using user and password:
 
@@ -172,7 +179,7 @@ iex> client = Tentacat.Client.new(%{user: "user", password: "password"})
 iex> Tentacat.Users.me(client)
 ```
 
-* Using a personal access token [Github personal API token](https://github.com/blog/1509-personal-api-tokens)
+* Using a personal access token [Github personal API token](https://github.com/blog/1509-personal-api-tokens):
 
 ```elixir
 iex> client = Tentacat.Client.new(%{access_token: "928392873982932"})
@@ -180,7 +187,7 @@ iex> client = Tentacat.Client.new(%{access_token: "928392873982932"})
 iex> Tentacat.Users.me(client)
 ```
 
-Accessing another endpoint
+Accessing another endpoint:
 
 ```elixir
 iex> client = Tentacat.Client.new(%{access_token: "928392873982932"}, "https://ghe.example.com/api/v3/")
@@ -211,7 +218,7 @@ See: https://hexdocs.pm/jason/Jason.html#decode/2-options for available options.
 
 ## Contributing
 
-Start by forking this repo
+Start by forking this repo.
 
 Then run this command to fetch dependencies and run tests:
 
@@ -219,6 +226,13 @@ Then run this command to fetch dependencies and run tests:
 MIX_ENV=test mix do deps.get, test
 ```
 
-If you are using Intellij and debugging the test suite - be sure to set 'INTELLIJ_ELIXIR_DEBUG_BLACKLIST=hackney' in the Elixir Mix Eunit configuration - if you fail to do so the mocked hackney module will be reloaded from disk and tests will behave abnormally.
+If you are using Intellij and debugging the test suite - be sure to set `'INTELLIJ_ELIXIR_DEBUG_BLACKLIST=hackney'` in the Elixir Mix Eunit configuration - if you fail to do so the mocked hackney module will be reloaded from disk and tests will behave abnormally.
 
-Pull requests are greatly appreciated
+Pull requests are greatly appreciated.
+
+## Copyright and License
+
+Copyright (c) 2013 Eduardo Gurgel Pinho
+
+Released under the MIT License, which can be found in the repository in
+[LICENSE.md](./LICENSE.md) file.

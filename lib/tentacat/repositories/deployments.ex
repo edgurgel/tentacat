@@ -3,7 +3,7 @@ defmodule Tentacat.Repositories.Deployments do
   alias Tentacat.Client
 
   @doc """
-  List Deployments
+  List Deployments.
 
   ## Example
 
@@ -18,10 +18,11 @@ defmodule Tentacat.Repositories.Deployments do
   end
 
   @doc """
-  Create a Deployment
+  Create a Deployment.
 
   Deployment body example:
-  ```
+
+  ```elixir
   %{
     "ref": "topic-branch",
     "payload": "{\"user\":\"atmos\",\"room_id\":123456}",
@@ -41,7 +42,7 @@ defmodule Tentacat.Repositories.Deployments do
   end
 
   @doc """
-  List a Deployment's Statuses
+  List a Deployment's Statuses.
 
   ## Example
 
@@ -56,10 +57,11 @@ defmodule Tentacat.Repositories.Deployments do
   end
 
   @doc """
-  Create a Deployment Status
+  Create a Deployment Status.
 
   Status body example:
-  ```
+
+  ```elixir
   %{
     "state": "success",
     "target_url": "https://example.com/deployment/1/output",

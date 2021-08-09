@@ -3,7 +3,7 @@ defmodule Tentacat.Pulls do
   alias Tentacat.Client
 
   @doc """
-  List pull requests
+  List pull requests.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Pulls do
   end
 
   @doc """
-  Filter pull requests
+  Filter pull requests.
 
   ## Example
 
@@ -33,7 +33,7 @@ defmodule Tentacat.Pulls do
   end
 
   @doc """
-  Get a single pull request
+  Get a single pull request.
 
   ## Example
 
@@ -48,24 +48,28 @@ defmodule Tentacat.Pulls do
   end
 
   @doc """
-  Create a pull request
+  Create a pull request.
 
   Pull Request body example:
 
-      %{
-        "title" => "Amazing new feature",
-        "body"  => "Please pull this in!",
-        "head"  => "octocat:new-feature",
-        "base"  => "master"
-       }
+  ```elixir
+  %{
+    "title" => "Amazing new feature",
+    "body"  => "Please pull this in!",
+    "head"  => "octocat:new-feature",
+    "base"  => "master"
+   }
+  ```
 
   Alternative input (using an existing issue):
 
-      %{
-        "issue" => "5",
-        "head"  => "octocat:new-feature",
-        "base"  => "master"
-       }
+  ```elixir
+  %{
+    "issue" => "5",
+    "head"  => "octocat:new-feature",
+    "base"  => "master"
+   }
+  ```
 
   ## Example
 
@@ -79,15 +83,17 @@ defmodule Tentacat.Pulls do
   end
 
   @doc """
-  Update a pull request
+  Update a pull request.
 
   Pull Request body example:
 
-      %{
-        "title" => "new title",
-        "body"  => "updated body",
-        "state" => "open"
-       }
+  ```elixir
+  %{
+    "title" => "new title",
+    "body"  => "updated body",
+    "state" => "open"
+   }
+  ```
 
   ## Example
 
@@ -101,14 +107,16 @@ defmodule Tentacat.Pulls do
   end
 
   @doc """
-  Merge a pull request (Merge Button)
+  Merge a pull request (Merge Button).
 
   Pull Request Merge body example:
 
-      %{
-        "commit_message" => "not the default commit_message",
-        "sha"  => "8e50d79f2ba0d665b9966908cbf22c6f463228d6"
-       }
+  ```elixir
+  %{
+    "commit_message" => "not the default commit_message",
+    "sha"  => "8e50d79f2ba0d665b9966908cbf22c6f463228d6"
+   }
+  ```
 
   ## Example
 
@@ -122,7 +130,7 @@ defmodule Tentacat.Pulls do
   end
 
   @doc """
-  Get if a pull request has been merged
+  Get if a pull request has been merged.
 
   ## Example
 

@@ -7,7 +7,7 @@ defmodule Tentacat.Releases.Assets do
   #
 
   @doc """
-  Get all assets for the given release
+  Get all assets for the given release.
 
   ## Example
 
@@ -21,7 +21,7 @@ defmodule Tentacat.Releases.Assets do
   end
 
   @doc """
-  Get a single release asset
+  Get a single release asset.
 
   ## Example
 
@@ -35,7 +35,7 @@ defmodule Tentacat.Releases.Assets do
   end
 
   @doc """
-  Edit a release asset
+  Edit a release asset.
 
   ## Example
 
@@ -43,7 +43,7 @@ defmodule Tentacat.Releases.Assets do
 
   ## Options
 
-  * `label` - string
+    * `label` - string
 
   More info at: http:\\developer.github.com/v3/repos/releases/#edit-a-release-asset
   """
@@ -54,7 +54,7 @@ defmodule Tentacat.Releases.Assets do
   end
 
   @doc """
-  Delete a release asset
+  Delete a release asset.
 
   ## Example
 

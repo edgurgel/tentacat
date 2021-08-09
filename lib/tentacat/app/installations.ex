@@ -3,7 +3,7 @@ defmodule Tentacat.App.Installations do
   alias Tentacat.Client
 
   @doc """
-  List installations for the authorized app
+  List installations for the authorized app.
 
   ## Example
 
@@ -17,7 +17,7 @@ defmodule Tentacat.App.Installations do
   end
 
   @doc """
-  List installations accessible with the authenticated app user
+  List installations accessible with the authenticated app user.
 
   ## Example
 
@@ -31,7 +31,7 @@ defmodule Tentacat.App.Installations do
   end
 
   @doc """
-  Get a specific installation
+  Get a specific installation.
 
   ## Example
 
@@ -45,7 +45,7 @@ defmodule Tentacat.App.Installations do
   end
 
   @doc """
-  Get an authorization token for an installation
+  Get an authorization token for an installation.
 
   ## Example
 
@@ -59,7 +59,7 @@ defmodule Tentacat.App.Installations do
   end
 
   @doc """
-  List repositories for the authenticated installation
+  List repositories for the authenticated installation.
 
   ## Example
 
@@ -73,7 +73,8 @@ defmodule Tentacat.App.Installations do
   end
 
   @doc """
-  List repositories in an installation that are accessible with to the authenticated app user
+  List repositories in an installation that are accessible with to the
+  authenticated app user.
 
   ## Example
 

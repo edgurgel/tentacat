@@ -3,7 +3,7 @@ defmodule Tentacat.Users.Events do
   alias Tentacat.Client
 
   @doc """
-  List events performed by a user
+  List events performed by a user.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Users.Events do
   end
 
   @doc """
-  List public events performed by a user
+  List public events performed by a user.
 
   ## Example
 
@@ -33,7 +33,7 @@ defmodule Tentacat.Users.Events do
   end
 
   @doc """
-  List events for an organization
+  List events for an organization.
 
   ## Example
 
@@ -47,7 +47,7 @@ defmodule Tentacat.Users.Events do
   end
 
   @doc """
-  List public events that a user has received
+  List public events that a user has received.
 
   ## Example
 

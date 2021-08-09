@@ -3,9 +3,10 @@ defmodule Tentacat.Repositories.Collaborators do
   alias Tentacat.Client
 
   @doc """
-  List collaborators for a specific repository
+  List collaborators for a specific repository.
 
   ## Example
+
       Tentacat.Repositories.Collaborators.list "elixir-lang", "elixir"
       Tentacat.Repositories.Collaborators.list client, "elixir-lang", "elixir"
 
@@ -17,9 +18,10 @@ defmodule Tentacat.Repositories.Collaborators do
   end
 
   @doc """
-  Check if a user is a collaborator
+  Check if a user is a collaborator.
 
   ## Example
+
       Tentacat.Repositories.Collaborators.collaborator? "elixir-lang", "elixir", "username"
       Tentacat.Repositories.Collaborators.collaborator? client, "elixir-lang", "elixir", "username"
 
@@ -31,9 +33,10 @@ defmodule Tentacat.Repositories.Collaborators do
   end
 
   @doc """
-  Returns the permission level of a collaborator
+  Returns the permission level of a collaborator.
 
   ## Example
+
       Tentacat.Repositories.Collaborators.permission "elixir-lang", "elixir", "username"
       Tentacat.Repositories.Collaborators.permission client, "elixir-lang", "elixir", "username"
 
@@ -45,9 +48,10 @@ defmodule Tentacat.Repositories.Collaborators do
   end
 
   @doc """
-  Add user as a collaborator
+  Add user as a collaborator.
 
   ## Example
+
       Tentacat.Repositories.Collaborators.add "elixir-lang", "elixir", "username", %{}
       Tentacat.Repositories.Collaborators.add client, "elixir-lang", "elixir", "username", %{ permission: "push" }
       Tentacat.Repositories.Collaborators.add client, "elixir-lang", "elixir", "username", %{}
@@ -60,9 +64,10 @@ defmodule Tentacat.Repositories.Collaborators do
   end
 
   @doc """
-  Remove user as a collaborator
+  Remove user as a collaborator.
 
   ## Example
+
       Tentacat.Repositories.Collaborators.delete "elixir-lang", "elixir", "username"
       Tentacat.Repositories.Collaborators.delete client, "elixir-lang", "elixir", "username"
 

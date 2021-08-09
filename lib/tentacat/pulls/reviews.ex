@@ -3,7 +3,7 @@ defmodule Tentacat.Pulls.Reviews do
   alias Tentacat.Client
 
   @doc """
-  List reviews on a pull request
+  List reviews on a pull request.
 
   ## Example
 
@@ -18,9 +18,10 @@ defmodule Tentacat.Pulls.Reviews do
   end
 
   @doc """
-  Create a new review on a pull request
+  Create a new review on a pull request.
 
   ## Example
+
       body = %{
         "commit_id"=> "ecdd80bb57125d7ba9641ffaa4d7d2c19d3f3091",
         "body"=> "This is close to perfect! Please address the suggested inline change.",
@@ -33,6 +34,7 @@ defmodule Tentacat.Pulls.Reviews do
           }
         ]
       }
+
       Tentacat.Pulls.Reviews.create "elixir-lang", "elixir", 1, body
       Tentacat.Pulls.Reviews.create client, "elixir-lang", "elixir", 1, body
 

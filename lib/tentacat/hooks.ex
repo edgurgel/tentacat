@@ -3,7 +3,8 @@ defmodule Tentacat.Hooks do
   alias Tentacat.Client
 
   @moduledoc """
-  The Repository Webhooks API allows repository admins to manage the post-receive hooks for a repository.
+  The Repository Webhooks API allows repository admins to manage the
+  post-receive hooks for a repository.
   """
 
   @doc """
@@ -49,15 +50,21 @@ defmodule Tentacat.Hooks do
   end
 
   @doc """
-    hook_body = %{
-      "name" => "web",
-      "active" => true,
-      "events" => [ "push", "pull_request" ],
-      "config" => {
-        "url" => "http://example.com/webhook",
-        "content_type" => "json"
-      }
+  Update a hook.
+
+  Update body example:
+
+  ```elixir
+  hook_body = %{
+    "name" => "web",
+    "active" => true,
+    "events" => [ "push", "pull_request" ],
+    "config" => {
+      "url" => "http://example.com/webhook",
+      "content_type" => "json"
     }
+  }
+  ```
 
   ## Example
 
@@ -71,8 +78,11 @@ defmodule Tentacat.Hooks do
   end
 
   @doc """
-  This will trigger the hook with the latest push to the current repository if the hook is subscribed to push events.
-  If the hook is not subscribed to push events, the server will respond with 204 but no test POST will be generated.
+  This will trigger the hook with the latest push to the current repository if
+  the hook is subscribed to push events.
+
+  If the hook is not subscribed to push events, the server will respond with
+  204 but no test POST will be generated.
 
   ## Example
 

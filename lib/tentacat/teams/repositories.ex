@@ -3,7 +3,7 @@ defmodule Tentacat.Teams.Repositories do
   alias Tentacat.Client
 
   @doc """
-  List all team repositories
+  List all team repositories.
 
   ## Example
 
@@ -18,7 +18,7 @@ defmodule Tentacat.Teams.Repositories do
   end
 
   @doc """
-  Add a team to a repository
+  Add a team to a repository.
 
   ## Example
 

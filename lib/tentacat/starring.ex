@@ -17,7 +17,7 @@ defmodule Tentacat.Users.Starring do
   end
 
   @doc """
-  List starred repositories for the authenticated user
+  List starred repositories for the authenticated user.
 
   ## Example
 
@@ -31,7 +31,7 @@ defmodule Tentacat.Users.Starring do
   end
 
   @doc """
-  List starred repositories for given user
+  List starred repositories for given user.
 
   ## Example
 

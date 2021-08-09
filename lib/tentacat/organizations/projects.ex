@@ -3,7 +3,7 @@ defmodule Tentacat.Organizations.Projects do
   alias Tentacat.Client
 
   @doc """
-  Lists the projects in an organization
+  Lists the projects in an organization.
 
   ## Example
 
@@ -17,12 +17,12 @@ defmodule Tentacat.Organizations.Projects do
   end
 
   @doc """
-  Create a new project for an organization
+  Create a new project for an organization.
 
   Possible values for options:
 
-  * %{name: "name of project board"}
-  * %{body: "description of the project"}
+    * %{name: "name of project board"}
+    * %{body: "description of the project"}
 
   ## Example
 

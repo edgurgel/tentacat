@@ -56,17 +56,24 @@ defmodule Tentacat do
   Underlying utility retrieval function. The options passed affect both the
   return value and, ultimately, the number of requests made to GitHub.
 
-  Options:
-    * `:pagination` - Can be `:none`, `:manual`, `:stream`, or `:auto`. Defaults to :auto
-      `:none` will only return the first page. You won't have access to the headers to manually
-      paginate.
-      `:auto` will block until all the pages have been retrieved and concatenated together. Most
-      of the time, this is what you want. For example, `Tentacat.Repositories.list_users("chrismccord")`
-      and `Tentacat.Repositories.list_users("octocat")` have the same interface though one call
-      will page many times and the other not at all.
-      `:stream` will return a `Stream`, prepopulated with the first page.
-      `:manual` will return a 3 element tuple of `{page_body, url_for_next_page, auth_credentials}`,
-      which will allow you to control the paging yourself.
+  ## Options
+
+    * `:pagination` - Can be `:none`, `:manual`, `:stream`, or `:auto`. Defaults to :auto.
+
+        - `:none` will only return the first page. You won't have access to the
+          headers to manually paginate.
+
+        - `:auto` will block until all the pages have been retrieved and
+          concatenated together. Most of the time, this is what you want. For
+          example, `Tentacat.Repositories.list_users("chrismccord")` and
+          `Tentacat.Repositories.list_users("octocat")` have the same interface
+          though one call will page many times and the other not at all.
+
+        - `:stream` will return a `Stream`, prepopulated with the first page.
+
+        - `:manual` will return a 3 element tuple of `{page_body,
+          url_for_next_page, auth_credentials}`, which will allow you to control
+          the paging yourself.
   """
   @spec get(binary, Client.t()) :: response
   @spec get(binary, Client.t(), keyword) :: response
@@ -217,9 +224,10 @@ defmodule Tentacat do
   end
 
   @doc """
-  Take an existing URI and add addition params, appending and replacing as necessary
+  Take an existing URI and add addition params, appending and replacing as necessary.
 
   ## Examples
+
       iex> add_params_to_url("http://example.com/wat", [])
       "http://example.com/wat"
 
@@ -246,6 +254,7 @@ defmodule Tentacat do
 
       iex> add_params_to_url("http://example.com/wat?q=1&s=4", %{q: 3, t: 2})
       "http://example.com/wat?q=3&s=4&t=2"
+
   """
   @spec add_params_to_url(binary, list) :: binary
   def add_params_to_url(url, params) do
@@ -300,8 +309,7 @@ defmodule Tentacat do
       iex> Tentacat.authorization_header(%{jwt: "92873971893"}, [])
       [{"Authorization", "Bearer 92873971893"}]
 
-  ## More info
-  http:\\developer.github.com/v3/#authentication
+  More info at: http://developer.github.com/v3/#authentication
   """
   @spec authorization_header(Client.auth(), list) :: list
   def authorization_header(%{user: user, password: password}, headers) do

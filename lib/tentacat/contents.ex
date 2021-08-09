@@ -33,7 +33,7 @@ defmodule Tentacat.Contents do
   end
 
   @doc """
-  Get the contents of a file or directory in a repository for a provided reference
+  Get the contents of a file or directory in a repository for a provided reference.
 
   ## Example
 
@@ -48,19 +48,21 @@ defmodule Tentacat.Contents do
   end
 
   @doc """
-  Create a file
+  Create a file.
 
   Create body example:
 
-      %{
-        "message" => "my commit message",
-        "committer" => %{
-          "name"  =>  "Grigory Starinkin",
-          "email" =>  "starinkin@gmail.com"
-        },
-        "content" => "bXkgbmV3IGZpbGUgY29udGVudHM=",
-        "branch"  => "cool-feature"
-      }
+  ```elixir
+  %{
+    "message" => "my commit message",
+    "committer" => %{
+      "name"  =>  "Grigory Starinkin",
+      "email" =>  "starinkin@gmail.com"
+    },
+    "content" => "bXkgbmV3IGZpbGUgY29udGVudHM=",
+    "branch"  => "cool-feature"
+  }
+  ```
 
   ## Example
 
@@ -74,20 +76,22 @@ defmodule Tentacat.Contents do
   end
 
   @doc """
-  Update a file
+  Update a file.
 
   Update body example:
 
-      %{
-        "message" => "my commit message",
-        "committer" => %{
-          "name"  => "Grigory Starinkin",
-          "email" => "starinkin@gmail.com"
-        },
-        "content" => "bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz",
-        "sha"     => "329688480d39049927147c162b9d2deaf885005f",
-        "branch"  => "cool-feature"
-      }
+  ```elixir
+  %{
+    "message" => "my commit message",
+    "committer" => %{
+      "name"  => "Grigory Starinkin",
+      "email" => "starinkin@gmail.com"
+    },
+    "content" => "bXkgdXBkYXRlZCBmaWxlIGNvbnRlbnRz",
+    "sha"     => "329688480d39049927147c162b9d2deaf885005f",
+    "branch"  => "cool-feature"
+  }
+  ```
 
   ## Example
 
@@ -101,19 +105,21 @@ defmodule Tentacat.Contents do
   end
 
   @doc """
-  Deletes a file in a repository
+  Deletes a file in a repository.
 
   Delete body example:
 
-      %{
-        "message" => "my commit message",
-        "committer" => %{
-          "name"  => "Grigory Starinkin",
-          "email" => "starinkin@gmail.com"
-        },
-        "sha"    => "329688480d39049927147c162b9d2deaf885005f",
-        "branch" => "cool-feature"
-      }
+  ```elixir
+  %{
+    "message" => "my commit message",
+    "committer" => %{
+      "name"  => "Grigory Starinkin",
+      "email" => "starinkin@gmail.com"
+    },
+    "sha"    => "329688480d39049927147c162b9d2deaf885005f",
+    "branch" => "cool-feature"
+  }
+  ```
 
   ## Example
 
