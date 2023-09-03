@@ -41,6 +41,6 @@ defmodule Tentacat.Issues.Labels do
   """
   @spec remove(Client.t(), binary, binary, binary | integer, binary) :: Tentacat.response()
   def remove(client \\ %Client{}, owner, repo, issue_id, label) do
-    delete("repos/#{owner}/#{repo}/issues/#{issue_id}/labels/#{label}", client)
+    delete("repos/#{owner}/#{repo}/issues/#{issue_id}/labels/#{URI.encode(label)}", client)
   end
 end
