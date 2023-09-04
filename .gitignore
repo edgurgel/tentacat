@@ -28,3 +28,4 @@ tentacat-*.tar
 # Misc.
 /fixture/
 mix.lock
+.DS_Store

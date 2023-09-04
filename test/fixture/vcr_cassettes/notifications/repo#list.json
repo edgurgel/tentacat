@@ -1,0 +1,46 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 40724b41e721fc510ceab214625d6e629d0e4c6e"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/repos/tentatest/tentacat/notifications?"
+    },
+    "response": {
+      "body": "[]",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Fri, 17 Feb 2017 22:24:58 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "2",
+        "Status": "200 OK",
+        "X-RateLimit-Limit": "5000",
+        "X-RateLimit-Remaining": "4993",
+        "X-RateLimit-Reset": "1487373237",
+        "Cache-Control": "private, max-age=60, s-maxage=60",
+        "Vary": "Accept, Authorization, Cookie, X-GitHub-OTP",
+        "ETag": "\"2badd57eda98d6ff61016a3b75931d48\"",
+        "X-Poll-Interval": "60",
+        "X-OAuth-Scopes": "notifications",
+        "X-Accepted-OAuth-Scopes": "notifications, repo",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Served-By": "5aeb3f30c9e3ef6ef7bcbcddfd9a68f7",
+        "X-GitHub-Request-Id": "DFC0:1EBD2:74D440C:96A35DF:58A77839"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

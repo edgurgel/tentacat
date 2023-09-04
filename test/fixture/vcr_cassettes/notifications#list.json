@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "\"\\\"\\\"\"",
+      "headers": {
+        "User-agent": "tentacat",
+        "Authorization": "token 8e663c8614ced27c09b963f806ac46776a29db50"
+      },
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.github.com/notifications?"
+    },
+    "response": {
+      "body": "{\"message\":\"Bad credentials\",\"documentation_url\":\"https://developer.github.com/v3\"}",
+      "headers": {
+        "Server": "GitHub.com",
+        "Date": "Fri, 17 Feb 2017 22:24:57 GMT",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "83",
+        "Status": "401 Unauthorized",
+        "X-GitHub-Media-Type": "github.v3; format=json",
+        "X-RateLimit-Limit": "60",
+        "X-RateLimit-Remaining": "58",
+        "X-RateLimit-Reset": "1487373646",
+        "Access-Control-Expose-Headers": "ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval",
+        "Access-Control-Allow-Origin": "*",
+        "Content-Security-Policy": "default-src 'none'",
+        "Strict-Transport-Security": "max-age=31536000; includeSubdomains; preload",
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "deny",
+        "X-XSS-Protection": "1; mode=block",
+        "X-GitHub-Request-Id": "DFC0:1EBD2:74D43C0:96A3594:58A77839"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]
