@@ -24,12 +24,12 @@ defmodule Tentacat.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 1.0"},
+      {:httpoison, "~> 2.0"},
       {:jason, "~> 1.2"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
       {:inch_ex, "~> 0.5", only: :dev},
       {:excoveralls, "~> 0.5", only: :test},
-      {:exvcr, "~> 0.10.3", only: :test},
+      {:exvcr, "~> 0.10", only: :test},
       {:meck, "~> 0.8.9", only: :test}
     ]
   end
