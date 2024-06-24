@@ -8,7 +8,7 @@ defmodule Tentacat.Mixfile do
     [
       app: :tentacat,
       version: @version,
-      elixir: "~> 1.9",
+      elixir: "~> 1.16",
       name: "Tentacat",
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test],
@@ -27,10 +27,10 @@ defmodule Tentacat.Mixfile do
       {:httpoison, "~> 2.0"},
       {:jason, "~> 1.2"},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:inch_ex, "~> 0.5", only: :dev},
+      {:inch_ex, "~> 2.0", only: :dev},
       {:excoveralls, "~> 0.5", only: :test},
       {:exvcr, "~> 0.10", only: :test},
-      {:meck, "~> 0.8.9", only: :test}
+      {:meck, "~> 0.9", only: :test}
     ]
   end
 
