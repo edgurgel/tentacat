@@ -1,5 +1,5 @@
 defmodule Tentacat.Repositories.LanguagesTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Tentacat.Repositories.Languages
 

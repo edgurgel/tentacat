@@ -1,5 +1,5 @@
 defmodule Tentacat.Pulls.CommentsTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Tentacat.Pulls.Comments
 

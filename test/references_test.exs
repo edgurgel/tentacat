@@ -1,5 +1,5 @@
 defmodule Tentacat.ReferencesTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Tentacat.References
 
@@ -53,7 +53,7 @@ defmodule Tentacat.ReferencesTest do
   test "remove/4" do
     use_cassette "references#remove" do
       {status_code, _, _} =
-        remove(@client, "soudqwiggle", "elixir-conspiracy", 'heads/old-readme')
+        remove(@client, "soudqwiggle", "elixir-conspiracy", ~c"heads/old-readme")
 
       assert status_code == 204
     end

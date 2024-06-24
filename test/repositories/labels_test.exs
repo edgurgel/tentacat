@@ -1,5 +1,5 @@
 defmodule Tentacat.Repositories.LabelsTest do
-  use ExUnit.Case, async: false
+  use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   import Tentacat.Repositories.Labels
 
