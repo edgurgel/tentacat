@@ -1,6 +1,5 @@
 # Tentacat
 
-[![Build Status](https://travis-ci.org/edgurgel/tentacat.svg)](https://travis-ci.org/edgurgel/tentacat)
 [![Coverage Status](http://img.shields.io/coveralls/edgurgel/tentacat.svg)](https://coveralls.io/r/edgurgel/tentacat)
 [![Inline docs](http://inch-ci.org/github/edgurgel/tentacat.svg)](http://inch-ci.org/github/edgurgel/tentacat)
 [![Module Version](https://img.shields.io/hexpm/v/tentacat.svg)](https://hex.pm/packages/tentacat)
