@@ -11,10 +11,14 @@ defmodule Tentacat.Mixfile do
       elixir: "~> 1.16",
       name: "Tentacat",
       test_coverage: [tool: ExCoveralls],
-      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test],
+      preferred_cli_env: [coveralls: :test, "coveralls.detail": :test, "coveralls.post": :test, c: :test],
       package: package(),
       deps: deps(),
-      docs: docs()
+      docs: docs(),
+      aliases: [
+        t: ["test"],
+        c: ["coveralls.html"]
+      ]
     ]
   end
 
