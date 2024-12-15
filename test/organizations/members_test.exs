@@ -18,6 +18,13 @@ defmodule Tentacat.Organizations.MembersTest do
     end
   end
 
+  test "list/3 second page of people" do
+    use_cassette "members#list_with_params" do
+      {_, [%{"login" => login}], _} = list(@client, "dwyl", %{page: 2})
+      assert login == "josephwilk"
+    end
+  end
+
   test "member?/3" do
     use_cassette "members#member_" do
       {status_code, _, _} = member?(@client, "elixir-conspiracy", "josephwilk")

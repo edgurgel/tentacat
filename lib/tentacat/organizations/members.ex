@@ -12,12 +12,13 @@ defmodule Tentacat.Organizations.Members do
 
       Tentacat.Organizations.Members.list "github"
       Tentacat.Organizations.Members.list client, "github"
+      Tentacat.Organizations.Members.list client, "github", %{page: 2}
 
   More info at: http://developer.github.com/v3/orgs/members/#members-list
   """
-  @spec list(Client.t(), binary) :: Tentacat.response()
-  def list(client \\ %Client{}, organization) do
-    get("orgs/#{organization}/members", client)
+  @spec list(Client.t(), binary, Keyword.t()) :: Tentacat.response()
+  def list(client \\ %Client{}, organization, options \\ []) do
+    get("orgs/#{organization}/members", client, options)
   end
 
   @doc """
